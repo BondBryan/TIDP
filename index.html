@@ -35,8 +35,8 @@ p.lead{margin:0 0 18px;color:var(--ink-2)}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px 24px}
 .card{border:1px solid var(--line);border-radius:var(--radius);padding:16px;background:#fff}
 .card h3{margin:0 0 10px;font-size:13px;text-transform:uppercase;letter-spacing:.6px;color:var(--ink-2)}
-label.f{display:block;margin-bottom:10px}
-label.f span{display:block;font-size:12px;color:var(--ink-2);margin-bottom:3px}
+.f{display:block;margin-bottom:10px}
+.f > span{display:block;font-size:12px;color:var(--ink-2);margin-bottom:3px}
 input[type=text],input[type=date],select,textarea{width:100%;padding:7px 9px;border:1px solid var(--line);border-radius:4px;background:#fff}
 input:focus,select:focus,textarea:focus{outline:2px solid var(--accent-2);outline-offset:0;border-color:var(--accent)}
 .hint{font-size:12px;color:var(--muted);margin-top:4px}
@@ -71,6 +71,13 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--accent-2);outlin
 .codeex code span{font-weight:700}
 .codeex .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;margin-top:4px;font-weight:700}
 label.f span.c-proj,label.f span.c-role,h3.c-lvl,h3.c-vol{font-weight:700}
+label.f span.c-proj{color:var(--c-proj)}label.f span.c-role{color:var(--c-role)}
+.chip.locked{background:#e6e6e6;border-color:#d0d0d0;color:var(--muted);cursor:not-allowed}
+.stephead{display:flex;align-items:center;gap:10px;margin-bottom:12px}.stephead h2{margin:0}
+.kpi .btn{margin-top:8px}
+dialog.intro.wide{max-width:960px}
+.scopewrap{max-height:55vh;overflow:auto;border:1px solid var(--line);border-radius:4px;margin-bottom:16px}
+.scopewrap table.docs th{top:0}
 .card h3.c-lvl{color:var(--c-lvl)}.card h3.c-vol{color:var(--c-vol)}
 .info{border:1px solid var(--line);background:#fff;border-radius:50%;width:22px;height:22px;font-size:12px;font-weight:700;cursor:pointer;margin-left:8px;vertical-align:middle;color:var(--ink-2)}
 dialog.intro{border:0;border-radius:8px;padding:24px 26px;max-width:520px;width:calc(100% - 32px);box-shadow:0 10px 40px rgba(0,0,0,.25)}
@@ -117,7 +124,7 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
 <body>
 <header>
   <img src="logo.png" alt="Bond Bryan">
-  <div><h1>TIDP Builder</h1><div class="sub">Task Information Delivery Plan, generated from the practice Library</div></div>
+  <div><h1>TIDP Builder</h1><div class="sub">Use to generate your project specific Task Information Delivery Plan</div></div>
   <div class="spacer"></div>
   <span class="pill" id="libInfo">Loading Library…</span>
 </header>
@@ -131,7 +138,7 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
 <main>
 <!-- ================= STEP 1 ================= -->
 <section class="step active" id="step1">
-  <h2>Project set-up<button class="info" data-intro="1" title="About this step">i</button></h2>
+  <div class="stephead"><h2>Project set-up<button class="info" data-intro="1" title="About this step">i</button></h2><button class="btn secondary small" id="btnReset" title="Clear the project set-up and deliverable ticks and show the guidance pop-ups again">Reset</button></div>
 
   <div class="codeex">
     Code example : <code><span class="c-proj">ABCDE</span>-BBA-<span class="c-vol">01</span>-<span class="c-lvl">ZZ</span>-D-<span class="c-role">A</span>-0001</code>
@@ -145,28 +152,19 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
       <label class="f"><span class="c-proj">Project code (first field of the file reference)</span><input type="text" id="pCode" placeholder="e.g. SRP1044" maxlength="12"></label>
       <label class="f"><span>Issued by</span><input type="text" id="pIssuer" placeholder="Project Lead name"></label>
       <label class="f"><span class="c-role">Sector or Discipline</span><select id="pSector"><option value="">Select a sector or discipline…</option></select></label>
-    </div>
-
-    <div class="card">
-      <h3>Nature of the works</h3>
-      <label class="f"><span>Works type</span>
+      <label class="f"><span>Nature of the works</span>
         <select id="pWorks">
           <option value="new">New build</option>
           <option value="existing">Existing building (refurbishment, extension)</option>
           <option value="mixed">Mixed: new build and existing</option>
-        </select>
-        <div class="hint">Existing and Demolition deliverables are pre-selected only when existing buildings are involved.</div></label>
-    </div>
-
-    <div class="card">
-      <h3>Outsourcing</h3>
-      <label class="chip" id="chipOut"><input type="checkbox" id="pOutsourcing"> Outsourcing Partner may be used on this project</label>
-      <div class="hint">When ticked, a separate internal resourcing note is produced for the Project Lead, listing items needing scope confirmation, Outsourcing Partner items and internal items. The issued Excel never carries this information.</div>
+        </select></label>
+      <div class="f"><span>Outsourcing</span>
+        <label class="chip" id="chipOut"><input type="checkbox" id="pOutsourcing"> Outsourcing Partner may be used on this project</label></div>
     </div>
 
     <div class="card">
       <h3 class="c-lvl">Project storeys</h3>
-      <div class="hint" style="margin:-4px 0 8px">Tick the levels in the building. Drawings marked "per storey" in the Library are duplicated once per level.</div>
+      <div class="hint" style="margin:-4px 0 8px">Tick the levels in the building.</div>
       <div class="chips" id="storeys"></div>
       <div class="addrow">
         <label><span>Level code</span><input type="text" class="code" id="storeyCode" placeholder="M1" maxlength="2"></label>
@@ -177,7 +175,7 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
 
     <div class="card">
       <h3 class="c-vol">Project volumes / buildings</h3>
-      <div class="hint" style="margin:-4px 0 8px">Optional. Tick when the project is split into several buildings or volumes. Items marked "per volume" are duplicated once per volume; otherwise the volume code stays ZZ.</div>
+      <div class="hint" style="margin:-4px 0 8px">Tick when the project is split into several buildings or volumes</div>
       <div class="chips" id="volumes"></div>
       <div class="addrow">
         <label><span>Volume code</span><input type="text" class="code" id="volCode" placeholder="14" maxlength="2"></label>
@@ -232,7 +230,6 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
   <div class="summary" id="summary"></div>
   <div class="card">
     <h3>Export</h3>
-    <p>The TIDP is a macro-free Excel workbook: Cover, one sheet per document type, and a flat <b>Data</b> sheet linked by formula to the content sheets so edits made in Excel flow through to the raw list. When Outsourcing is ticked on step 1, the internal resourcing note for the Project Lead (Word) is exported at the same time.</p>
     <div class="hint">This export downloads:</div>
     <ul class="files" id="exportFiles"></ul>
     <button class="btn accent" id="btnExport">Export</button>
@@ -241,8 +238,12 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
 </section>
 </main>
 
-<footer>Bond Bryan Architects · Smarter Working Group · Library <span id="libVer"></span> · The Library is maintained in GitHub; this page holds no project data of its own.</footer>
+<footer>Bond Bryan Architects · Smarter Working Group · Library <span id="libVer"></span></footer>
 <div id="toast"></div>
+<dialog class="intro wide" id="scopeDlg"><h3>Confirmation of BBA scope required</h3>
+  <p>These documents are not part of our standard scope and are agreed on a project to project basis, review your contract against this list before selecting those for export</p>
+  <div class="scopewrap"><table class="docs"><thead><tr><th style="width:30px"></th><th>Code</th><th>Name</th><th>Note</th></tr></thead><tbody id="scopeBody"></tbody></table></div>
+  <div class="row" style="justify-content:flex-end"><button class="btn secondary" id="scopeCancel">Cancel</button><button class="btn" id="scopeOk">Validate</button></div></dialog>
 <dialog class="intro" id="intro"><h3 id="introTitle"></h3><p id="introText"></p><form method="dialog" class="row" style="justify-content:flex-end"><button class="btn">OK, understood</button></form></dialog>
 
 <script src="vendor/exceljs.min.js"></script>

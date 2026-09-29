@@ -59,11 +59,11 @@ A JSON validator (VS Code, or https://jsonlint.com) catches typos before committ
 
 ## Project set-up
 
-Nothing is saved: the page holds no project data, and each TIDP is issued as revision P01 dated on the day of export. On step 1, untick the RIBA stages outside the appointment: a Library item whose stages all fall outside the ticked ones is unticked by default on step 2 (items with no stage information are unaffected), and unticked stages are left blank in the export. The tender stages (3+, 4a, 4b) ticked on step 1 are the only tender columns exported.
+Nothing is saved: the page holds no project data, and each TIDP is issued as revision P01 dated on the day of export. *Reset* on step 1 clears the set-up and the ticks and shows the guidance pop-ups again. On step 1, untick the RIBA stages outside the appointment: a Library item whose stages all fall outside the ticked ones is unticked by default on step 2 (items with no stage information are unaffected), and unticked stages are left blank in the export. The tender stages (3+, 4a, 4b) ticked on step 1 are the only tender columns exported.
 
 ## Export
 
-One button exports the TIDP and, when *Outsourcing* is ticked, the resourcing note:
+One button exports the TIDP and the resourcing note together:
 
 - `<code>-BBA-XX-XX-L-<role>-1001 Task Information Delivery Plan_<discipline>.xlsx`
 - `<code>-BBA-XX-XX-T-<role>-0010 ResourcingNote_<discipline>.docx`
@@ -74,4 +74,4 @@ Sheets: `Cover`, one sheet per document type with rows (`Drawings`, `Images`, `L
 
 ### Resourcing note
 
-Produced when *Outsourcing* is ticked on step 1. A Word document for the Project Lead listing items needing scope confirmation, Outsourcing Partner items and internal items, with the Library comments. Internal only.
+Always exported with the TIDP. A Word document for the Project Lead listing items needing scope confirmation, Outsourcing Partner items and internal team items (including the *Internal* items that are not in the issued TIDP), with the Library comments. It records whether an Outsourcing Partner may be used (step 1). Internal only.

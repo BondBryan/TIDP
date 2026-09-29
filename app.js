@@ -5,17 +5,20 @@
   'use strict';
 
   // ------------------------------------------------------------------ state
+  const newProject = () => ({
+    name: '', code: '', issuer: '', sector: '', works: 'new', outsourcing: false,
+    storeys: [], volumes: [], stageDates: { 1: '', 2: '', 3: '', 4: '', 5: '', 6: '', 7: '' },
+    stageOn: { 1: true, 2: true, 3: true, 4: true, 5: true, 6: true, 7: true },
+    tenders: { '3+': true, '4a': true, '4b': true }
+  });
+  const newUi = () => ({ tab: 'Drawings', search: '', status: '', showOff: true });
   const S = {
     lib: null,
-    project: {
-      name: '', code: '', issuer: '', sector: '', works: 'new', outsourcing: false,
-      storeys: [], volumes: [], stageDates: { 1: '', 2: '', 3: '', 4: '', 5: '', 6: '', 7: '' },
-      stageOn: { 1: true, 2: true, 3: true, 4: true, 5: true, 6: true, 7: true },
-      tenders: { '3+': true, '4a': true, '4b': true }
-    },
+    project: newProject(),
     sel: {},                       // id -> true/false overrides of the sector default
-    ui: { tab: 'Drawings', search: '', status: '', showOff: true }
+    ui: newUi()
   };
+  const FIXED_CODES = ['ZZ', 'XX']; // always created; shown ticked and locked on step 1
   const REV = 'P01';               // every TIDP produced here is the first issue, dated today
   const STAGE_COLOURS = ['E88EB9', '59A3A1', 'F9C829', '6DA97D', '8D8FB9', 'E5C683', '5092BF'];
   const STAGES = [1, 2, 3, 4, 5, 6, 7];
@@ -50,9 +53,13 @@
     $('libVer').textContent = 'v' + S.lib.meta.version + ' (' + S.lib.meta.extracted + ')';
     $('pSector').innerHTML = '<option value="">Select a sector or discipline…</option>' + L.sectors.map(s => `<option>${esc(s)}</option>`).join('');
     $('statusFilter').innerHTML = '<option value="">All statuses</option>' + L.statuses.map(s => `<option value="${esc(s)}">${esc(STATUS_SHORT(s))}</option>`).join('');
+    defaultLevels();
+  }
+  function defaultLevels() {
+    const L = S.lib.lists;
     // default storeys: every level code except ZZ/XX, 00 + 01 + RF ticked (mirrors the Info tab defaults)
-    S.project.storeys = L.levels.filter(c => c !== 'ZZ' && c !== 'XX').map(c => ({ code: c, name: L.storeyNames[c] || c, on: ['00', '01', 'RF'].includes(c) }));
-    S.project.volumes = L.volumes.filter(c => c !== 'ZZ' && c !== 'XX').map(c => ({ code: c, name: '', on: false }));
+    S.project.storeys = L.levels.filter(c => !FIXED_CODES.includes(c)).map(c => ({ code: c, name: L.storeyNames[c] || c, on: ['00', '01', 'RF'].includes(c) }));
+    S.project.volumes = L.volumes.filter(c => !FIXED_CODES.includes(c)).map(c => ({ code: c, name: '', on: false }));
   }
 
   // ------------------------------------------------------------------ selection logic
@@ -139,8 +146,9 @@
     $('pName').value = p.name; $('pCode').value = p.code;
     $('pIssuer').value = p.issuer; $('pSector').value = p.sector; $('pWorks').value = p.works; $('pOutsourcing').checked = p.outsourcing;
     $('chipOut').classList.toggle('on', p.outsourcing);
-    $('storeys').innerHTML = p.storeys.map((s, i) => `<label class="chip ${s.on ? 'on' : ''}"><input type="checkbox" data-storey="${i}" ${s.on ? 'checked' : ''}> ${esc(s.code)} <small>${esc(s.name)}</small></label>`).join('');
-    $('volumes').innerHTML = p.volumes.map((v, i) => `<label class="chip ${v.on ? 'on' : ''}"><input type="checkbox" data-volume="${i}" ${v.on ? 'checked' : ''}> ${esc(v.code)} <small>${esc(v.name)}</small></label>`).join('');
+    const locked = FIXED_CODES.map(c => `<label class="chip locked" title="${c} is always created"><input type="checkbox" checked disabled> ${c}</label>`).join('');
+    $('storeys').innerHTML = locked + p.storeys.map((s, i) => `<label class="chip ${s.on ? 'on' : ''}"><input type="checkbox" data-storey="${i}" ${s.on ? 'checked' : ''}> ${esc(s.code)} <small>${esc(s.name)}</small></label>`).join('');
+    $('volumes').innerHTML = locked + p.volumes.map((v, i) => `<label class="chip ${v.on ? 'on' : ''}"><input type="checkbox" data-volume="${i}" ${v.on ? 'checked' : ''}> ${esc(v.code)} <small>${esc(v.name)}</small></label>`).join('');
     $('stageDates').innerHTML = S.lib.lists.stages.map(s => {
       const on = p.stageOn[s.n];
       return `<div class="stage ${on ? '' : 'off'}" style="border-color:#${STAGE_COLOURS[s.n - 1]}"><label><input type="checkbox" data-stageon="${s.n}" ${on ? 'checked' : ''}><b>Stage ${s.n}</b></label><span class="hint">${esc(s.name)}</span><input type="date" data-stage="${s.n}" value="${p.stageDates[s.n] || ''}" ${on ? '' : 'disabled'}></div>`;
@@ -193,11 +201,11 @@
     const op = rows.filter(r => STATUS_KEY(r.status) === 'op').length, conf = rows.filter(r => STATUS_KEY(r.status) === 'confirm').length;
     $('summary').innerHTML = [
       ['Documents issued', issued, 'across ' + gen.filter(g => g.tab !== 'Internal').length + ' sheets'],
-      ['Internal items', internal, 'not in the issued TIDP'],
+      ['Internal items', internal, 'not in the issued TIDP; listed in the resourcing note'],
       ['Outsourcing Partner candidates', op, p.outsourcing ? 'in the resourcing note' : 'outsourcing not selected'],
-      ['Scope to confirm', conf, 'Confirmation of BBA scope required'],
+      ['Scope to confirm', conf, 'Confirmation of BBA scope required', '<button class="btn secondary small" id="btnScope">Review now</button>'],
       ['Storeys × volumes', p.storeys.filter(s => s.on).length + ' × ' + (p.volumes.filter(v => v.on).length || '-'), 'duplication applied']
-    ].map(([l, v, s]) => `<div class="kpi"><b>${v}</b>${l}<br><span>${s}</span></div>`).join('');
+    ].map(([l, v, s, extra]) => `<div class="kpi"><b>${v}</b>${l}<br><span>${s}</span>${extra ? '<br>' + extra : ''}</div>`).join('');
     const issues = [];
     if (!p.sector) issues.push('No sector or discipline selected.');
     if (!p.code) issues.push('No project code: file references will read "ABCDE".');
@@ -205,11 +213,30 @@
     if (!p.storeys.some(s => s.on)) issues.push('No storeys ticked: per-storey drawings will not be generated.');
     if (!STAGES.some(n => p.stageOn[n])) issues.push('No RIBA stage ticked on step 1.');
     $('exportWarn').innerHTML = issues.length ? `<div class="warn"><b>Before exporting:</b> ${issues.join(' ')}</div>` : '<div class="ok">Set-up complete. The export will contain ' + issued + ' issued documents.</div>';
-    const files = [fileName(fileRef()) + '.xlsx', ...(p.outsourcing ? [fileName(noteRef()) + '.docx'] : [])];
-    $('exportFiles').innerHTML = files.map(f => `<li>${esc(f)}</li>`).join('');
-    $('btnExport').textContent = p.outsourcing ? 'Export TIDP and resourcing note' : 'Export TIDP';
-    $('exportHint').textContent = p.outsourcing ? 'Your browser may ask once to allow this page to download multiple files.' : 'Tick "Outsourcing" on step 1 to include the internal resourcing note.';
+    $('exportFiles').innerHTML = [fileName(fileRef()) + '.xlsx', fileName(noteRef()) + '.docx'].map(f => `<li>${esc(f)}</li>`).join('');
+    $('btnExport').textContent = 'Export TIDP and resourcing note';
+    $('exportHint').textContent = 'Your browser may ask once to allow this page to download multiple files.';
   }
+
+  // ------------------------------------------------------------------ scope confirmation review (second route to the step 2 ticks)
+  const scopeDocs = () => S.lib.documents.filter(d => STATUS_KEY(d.status) === 'confirm');
+  function openScope() {
+    let html = '', tab = null;
+    for (const d of scopeDocs()) {
+      if (d.tab !== tab) { tab = d.tab; html += `<tr class="series"><td colspan="4">${esc(tab)}</td></tr>`; }
+      html += `<tr class="${isOn(d) ? '' : 'off'}"><td><input type="checkbox" data-scope="${esc(d.id)}" ${isOn(d) ? 'checked' : ''}></td>
+        <td class="num">${esc(d.type)}-${esc(d.number)}</td><td class="desc">${esc(d.description)}</td><td>${esc(d.comments)}</td></tr>`;
+    }
+    $('scopeBody').innerHTML = html;
+    $('scopeDlg').showModal();
+  }
+  $('summary').addEventListener('click', e => { if (e.target.id === 'btnScope') openScope(); });
+  $('scopeBody').addEventListener('change', e => { if (e.target.dataset.scope) e.target.closest('tr').classList.toggle('off', !e.target.checked); });
+  $('scopeCancel').addEventListener('click', () => $('scopeDlg').close());
+  $('scopeOk').addEventListener('click', () => {
+    $('scopeBody').querySelectorAll('input[data-scope]').forEach(i => setOn(S.lib.documents.find(d => d.id === i.dataset.scope), i.checked));
+    $('scopeDlg').close(); renderAll(); toast('Scope selection updated');
+  });
 
   // ------------------------------------------------------------------ intro pop-ups
   const introSeen = {};
@@ -223,6 +250,16 @@
   }
   document.querySelectorAll('[data-intro]').forEach(b => b.addEventListener('click', () => showIntro(b.dataset.intro, true)));
   showIntro(1);
+
+  $('btnReset').addEventListener('click', () => {
+    if (!confirm('Clear the project set-up and all deliverable ticks, and go back to the defaults?')) return;
+    S.project = newProject(); S.sel = {}; S.ui = newUi();
+    if (S.lib) defaultLevels();
+    ['storeyCode', 'storeyName', 'volCode', 'volName', 'search'].forEach(id => $(id).value = '');
+    $('statusFilter').value = ''; $('showOff').checked = true;
+    Object.keys(introSeen).forEach(k => delete introSeen[k]);
+    go(1);
+  });
 
   // ------------------------------------------------------------------ events
   document.querySelectorAll('nav.steps button, [data-goto]').forEach(b => b.addEventListener('click', () => go(b.dataset.step || b.dataset.goto)));
@@ -274,10 +311,10 @@
     const btn = e.currentTarget; btn.disabled = true;
     try {
       toast('Building the export…');
-      const xlsx = await buildWorkbook(), note = S.project.outsourcing ? await buildNote() : null;
+      const xlsx = await buildWorkbook(), note = await buildNote();
       download(xlsx, fileName(fileRef()) + '.xlsx');
-      if (note) setTimeout(() => download(note, fileName(noteRef()) + '.docx'), 400);
-      toast(note ? 'TIDP and resourcing note exported' : 'TIDP exported');
+      setTimeout(() => download(note, fileName(noteRef()) + '.docx'), 400);
+      toast('TIDP and resourcing note exported');
     } catch (err) { console.error(err); alert('The export failed: ' + err.message); }
     finally { btn.disabled = false; }
   });
@@ -389,11 +426,12 @@
   async function buildNote() {
     const D = window.docx, p = S.project, gen = generate(true);
     const rows = gen.flatMap(g => g.groups.flatMap(x => x.rows));
-    const count = k => rows.filter(r => STATUS_KEY(r.status) === k).length;
+    const cat = r => r.tab === 'Internal' ? 'internal' : STATUS_KEY(r.status);
+    const count = k => rows.filter(r => cat(r) === k).length;
     const sections = [['confirm', 'Confirmation of BBA scope required', 'Items to confirm against the appointment before they are committed.'],
       ['op', 'Outsourcing Partner items', 'Candidates for the Outsourcing Partner. The Project Lead co-ordinates scope, programme and quality checks.'],
       ['cdp', 'Contractor Designed Portion items', 'Items expected from the contractor or specialist; BBA reviews only.'],
-      ['internal', 'Internal team items', 'Delivered by the Bond Bryan project team; the Project Lead allocates resource.']];
+      ['internal', 'Internal team items', 'Delivered by the Bond Bryan project team, including the internal items that are not in the issued TIDP; the Project Lead allocates resource.']];
     const P = (t, o = {}) => new D.Paragraph({ children: [new D.TextRun({ text: t, font: 'Arial', size: o.size || 20, bold: o.bold, color: o.color })], spacing: { after: o.after ?? 100 }, heading: o.h });
     const cellOpts = { margins: { top: 40, bottom: 40, left: 80, right: 80 } };
     const cell = (t, w, bold, fill) => new D.TableCell({ ...cellOpts, width: { size: w, type: D.WidthType.DXA }, shading: fill ? { fill } : undefined, children: [new D.Paragraph({ children: [new D.TextRun({ text: String(t ?? ''), font: 'Arial', size: 16, bold })] })] });
@@ -401,10 +439,10 @@
     const children = [
       ...(logo ? [new D.Paragraph({ children: [new D.ImageRun({ data: new Uint8Array(logo), transformation: { width: 240, height: 41 } })], spacing: { after: 300 } })] : []),
       P('INTERNAL RESOURCING NOTE', { size: 32, bold: true }), P('Task Information Delivery Plan · Internal, not for issue', { color: '8C8280' }),
-      P(`Project: ${p.name}   Code: ${p.code}   Revision: ${REV}   Date: ${today()}   Sector or discipline: ${p.sector}   Issued by: ${p.issuer}`, { after: 200 }),
+      P(`Project: ${p.name}   Code: ${p.code}   Revision: ${REV}   Date: ${today()}   Sector or discipline: ${p.sector}   Issued by: ${p.issuer}   Outsourcing Partner: ${p.outsourcing ? 'may be used' : 'not selected'}`, { after: 200 }),
       P(`Summary: ${rows.length} deliverables in total, of which ${count('confirm')} requiring scope confirmation, ${count('op')} Outsourcing Partner candidates and ${count('internal')} internal team items.`, { after: 300 })];
     for (const [k, title, intro] of sections) {
-      const list = rows.filter(r => STATUS_KEY(r.status) === k); if (!list.length) continue;
+      const list = rows.filter(r => cat(r) === k); if (!list.length) continue;
       children.push(P(`${title} (${list.length})`, { size: 24, bold: true, after: 60 }), P(intro, { color: '444444', after: 120 }));
       const W = [1900, 1100, 3900, 1000, 1000, 3100];
       const trs = [new D.TableRow({ tableHeader: true, children: ['Reference', 'Sheet', 'Description', 'Format', 'First stage', 'Comment'].map((h, i) => cell(h, W[i], true, 'D9D9D9')) })];
