@@ -1,7 +1,7 @@
 {
  "meta": {
   "name": "Bond Bryan TIDP Library",
-  "version": "2026.1",
+  "version": "2026.2",
   "source": "BB_TaskInformationDeliveryPlan-2026.xlsm",
   "extracted": "2026-09-17",
   "documents": 223,
@@ -210,6 +210,11 @@
    "Landscape": "L",
    "Interior Design": "I",
    "default": "A"
+  },
+  "disciplineBySector": {
+   "Landscape": "Landscape",
+   "Interior Design": "Interior Design",
+   "default": "Architect"
   }
  },
  "documents": [
@@ -1221,7 +1226,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
-   "comments": "Set up at Stage 4 by Outsourcing Partner, based on currnent regs and explar drawing.",
+   "comments": "Set up at Stage 4 by Outsourcing Partner, based on current regs and exemplar drawings.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -1270,7 +1275,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
-   "comments": "Set up at Stage 4 by Outsourcing Partner, based on explar drawing. Project Lead to co-ordinate and review against Approved Docs.",
+   "comments": "Set up at Stage 4 by Outsourcing Partner, based on exemplar drawing. Project Lead to co-ordinate and review against Approved Docs.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -2642,7 +2647,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
-   "comments": "Outsourcing Partner canset up using exemplar drawings.",
+   "comments": "Outsourcing Partner can set up using exemplar drawings.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -2691,7 +2696,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
-   "comments": "Outsourcing Partner canset up using exemplar drawings.",
+   "comments": "Outsourcing Partner can set up using exemplar drawings.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -2740,7 +2745,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
-   "comments": "Typical details part of tmeplate. Bespoke to be developed by internal team.",
+   "comments": "Typical details part of template. Bespoke to be developed by internal team.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -2789,7 +2794,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
-   "comments": "Typical details part of tmeplate. Bespoke to be developed by internal team.",
+   "comments": "Typical details part of template. Bespoke to be developed by internal team.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -3328,7 +3333,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
-   "comments": "Outsourcing Partner canset up using exemplar drawings.",
+   "comments": "Outsourcing Partner can set up using exemplar drawings.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -3524,7 +3529,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
-   "comments": "Outsourcing Partner canset up intitial details, with either internal team finalising, or Project lead co-ordinating with Outsourcing Partner to finalise.",
+   "comments": "Outsourcing Partner can set up initial details, with either internal team finalising, or Project lead co-ordinating with Outsourcing Partner to finalise.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -3622,7 +3627,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
-   "comments": "Outsourcing Partner canset up intitial details, with either internal team finalising, or Project lead co-ordinating with Outsourcing Partner to finalise.",
+   "comments": "Outsourcing Partner can set up initial details, with either internal team finalising, or Project lead co-ordinating with Outsourcing Partner to finalise.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -3867,7 +3872,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
-   "comments": "Model set up and co-ordinated by internal team. Outsourcing Partner candevelop balustrade and dimensional information. Internal team to co-ordinate to suit Approved Docs.",
+   "comments": "Model set up and co-ordinated by internal team. Outsourcing Partner can develop balustrade and dimensional information. Internal team to co-ordinate to suit Approved Docs.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -3916,7 +3921,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
-   "comments": "Model set up and co-ordinated by internal team. Outsourcing Partner candevelop balustrade and dimensional information. Internal team to co-ordinate to suit Approved Docs.",
+   "comments": "Model set up and co-ordinated by internal team. Outsourcing Partner can develop balustrade and dimensional information. Internal team to co-ordinate to suit Approved Docs.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -4014,7 +4019,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
-   "comments": "Model set up and co-ordinated by Internal Team. Outsourcing Partner candevelop dimensional information based on manufacturers information.",
+   "comments": "Model set up and co-ordinated by Internal Team. Outsourcing Partner can develop dimensional information based on manufacturers information.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -4161,7 +4166,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Project Lead to review if required and allocate intenral resource accordingly.",
+   "comments": "Project Lead to review if required and allocate internal resource accordingly.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -4504,7 +4509,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "Typicals Only, Internal team item only.",
+   "comments": "Typical Only, Internal team item only.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -4602,7 +4607,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "Beam encasements: Strategy to be agreed with contractor, Outsourcing Partner canset up/model using exemplar drawings. Beam encasements to be modelled for co-ordination and clash detection.",
+   "comments": "Beam encasements: Strategy to be agreed with contractor, Outsourcing Partner can set up/model using exemplar drawings. Beam encasements to be modelled for co-ordination and clash detection.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -5092,7 +5097,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
-   "comments": "Feature areas remains under the internal team to ensure we are in control of design aspects.",
+   "comments": "Feature areas remain under the internal team to ensure we are in control of design aspects.",
    "sectors": {
     "Education": true,
     "Residential": true,

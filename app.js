@@ -8,26 +8,36 @@
   const S = {
     lib: null,
     project: {
-      name: '', code: '', rev: 'P01', date: today(), issuer: '', sector: '', works: 'new', outsourcing: false,
-      storeys: [], volumes: [], stageDates: { 1: '', 2: '', 3: '', 4: '', 5: '', 6: '', 7: '' }
+      name: '', code: '', issuer: '', sector: '', works: 'new', outsourcing: false,
+      storeys: [], volumes: [], stageDates: { 1: '', 2: '', 3: '', 4: '', 5: '', 6: '', 7: '' },
+      stageOn: { 1: true, 2: true, 3: true, 4: true, 5: true, 6: true, 7: true },
+      tenders: { '3+': true, '4a': true, '4b': true }
     },
     sel: {},                       // id -> true/false overrides of the sector default
     ui: { tab: 'Drawings', search: '', status: '', showOff: true }
   };
-  const APP_VERSION = '0.1-poc';
+  const REV = 'P01';               // every TIDP produced here is the first issue, dated today
   const STAGE_COLOURS = ['E88EB9', '59A3A1', 'F9C829', '6DA97D', '8D8FB9', 'E5C683', '5092BF'];
+  const STAGES = [1, 2, 3, 4, 5, 6, 7];
+  const TENDERS = ['3+', '4a', '4b'];
   const STATUS_KEY = s => /outsourc/i.test(s) ? 'op' : /confirm/i.test(s) ? 'confirm' : /cdp/i.test(s) ? 'cdp' : 'internal';
   const STATUS_SHORT = s => ({ op: 'Outsourcing Partner', confirm: 'Scope confirmation', cdp: 'CDP item', internal: 'Internal team' })[STATUS_KEY(s)];
   const CONTENT_TABS = ['Drawings', 'Images', 'Lists', 'Models', 'Text', 'Video'];
+  const INTROS = {
+    1: ['Project set-up', 'Enter the project details once. Everything below drives the file references, the sector selection and the storey and volume duplication. Nothing here can break the Library.'],
+    2: ['Deliverables', 'Pre-selected from the Library for your sector and works type. Untick what the appointment does not cover, tick what it adds. Titles, numbers and formats come from the Library and are not editable here, which keeps every project on the practice standard.'],
+    3: ['Review & export', 'Check the totals then export.']
+  };
 
   function today() { return new Date().toISOString().slice(0, 10); }
   const $ = id => document.getElementById(id);
   const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
   // ------------------------------------------------------------------ load library
+  try { localStorage.removeItem('tidp-draft'); } catch (e) { /* drafts from earlier versions are no longer used */ }
   fetch('library.json', { cache: 'no-store' })
     .then(r => { if (!r.ok) throw new Error(r.status + ' ' + r.statusText); return r.json(); })
-    .then(lib => { S.lib = lib; initFromLibrary(); restoreDraft(); renderAll(); })
+    .then(lib => { S.lib = lib; initFromLibrary(); renderAll(); })
     .catch(e => {
       $('libInfo').textContent = 'Library not loaded';
       $('setupWarn').style.display = 'block';
@@ -38,12 +48,11 @@
     const L = S.lib.lists;
     $('libInfo').textContent = S.lib.meta.documents + ' Library items · v' + S.lib.meta.version;
     $('libVer').textContent = 'v' + S.lib.meta.version + ' (' + S.lib.meta.extracted + ')';
-    $('pSector').innerHTML = '<option value="">Select a sector…</option>' + L.sectors.map(s => `<option>${esc(s)}</option>`).join('');
+    $('pSector').innerHTML = '<option value="">Select a sector or discipline…</option>' + L.sectors.map(s => `<option>${esc(s)}</option>`).join('');
     $('statusFilter').innerHTML = '<option value="">All statuses</option>' + L.statuses.map(s => `<option value="${esc(s)}">${esc(STATUS_SHORT(s))}</option>`).join('');
     // default storeys: every level code except ZZ/XX, 00 + 01 + RF ticked (mirrors the Info tab defaults)
     S.project.storeys = L.levels.filter(c => c !== 'ZZ' && c !== 'XX').map(c => ({ code: c, name: L.storeyNames[c] || c, on: ['00', '01', 'RF'].includes(c) }));
     S.project.volumes = L.volumes.filter(c => c !== 'ZZ' && c !== 'XX').map(c => ({ code: c, name: '', on: false }));
-    $('pDate').value = S.project.date;
   }
 
   // ------------------------------------------------------------------ selection logic
@@ -52,6 +61,9 @@
     if (p.sector && d.sectors[p.sector] === false) return false;
     if (d.buildType === 'existing' && p.works === 'new') return false;
     if (d.buildType === 'new' && p.works === 'existing') return false;
+    // items tied to stages are dropped when none of their stages is in the appointment
+    const used = STAGES.filter(n => d.stages[n]);
+    if (used.length && !used.some(n => p.stageOn[n])) return false;
     return true;
   }
   const isOn = d => (d.id in S.sel) ? S.sel[d.id] : defaultOn(d);
@@ -59,15 +71,23 @@
 
   // ------------------------------------------------------------------ generation (mirrors the VBA GenerateTIDP)
   function role() { const m = S.lib.lists.roleBySector; return m[S.project.sector] || m.default; }
+  function discipline() { const m = S.lib.lists.disciplineBySector || {}; return m[S.project.sector] || m.default || 'Architect'; }
   function storeyDesc(base, code) {
     let d = base; if (/plans$/i.test(d)) d = d.slice(0, -1);
     const name = (S.project.storeys.find(s => s.code === code) || {}).name || S.lib.lists.storeyNames[code] || code;
     return name + ' ' + d;
   }
-  function stageValue(libVal, n) {
-    if (!libVal) return '';
-    if (libVal === 'YYYY-MM-DD') { const d = S.project.stageDates[n]; return d ? parseDate(d) : 'YYYY-MM-DD'; }
-    return libVal;
+  /** Stage values for a document, restricted to the ticked stages. When the Library's first-issue
+      stage is not ticked, the first ticked stage the document runs through becomes its first issue. */
+  function stageValues(d) {
+    const on = S.project.stageOn, vals = STAGES.map(n => on[n] ? d.stages[n] : null);
+    const first = STAGES.find(n => d.stages[n] === 'YYYY-MM-DD');
+    if (first && !on[first]) { const i = vals.findIndex(v => v); if (i >= 0) vals[i] = 'YYYY-MM-DD'; }
+    return vals.map((v, i) => {
+      if (!v) return '';
+      if (v === 'YYYY-MM-DD') { const dt = S.project.stageDates[i + 1]; return dt ? parseDate(dt) : 'YYYY-MM-DD'; }
+      return v;
+    });
   }
   function parseDate(iso) { const [y, m, d] = iso.split('-').map(Number); return new Date(Date.UTC(y, m - 1, d)); }
 
@@ -93,12 +113,12 @@
         } else if (d.volDup && volumes.length) {
           for (const v of volumes) combos.push([d.level, v, d.description]);
         } else combos.push([d.level, d.volume, d.description]);
+        const stages = stageValues(d);
         for (const [lvl, vol, desc] of combos) {
           g.rows.push({
             id: d.id, project: p.code || 'ABCDE', originator: d.originator, volume: vol, level: lvl, type: d.type, role: role(),
             number: d.number, description: desc, format: d.format, scale: d.scale, workPackage: d.workPackage,
-            stages: [1, 2, 3, 4, 5, 6, 7].map(n => stageValue(d.stages[n], n)),
-            tender: d.tender, status: d.status, comments: d.comments, series: d.series, tab
+            stages, tender: d.tender, status: d.status, comments: d.comments, series: d.series, tab
           });
         }
       }
@@ -107,22 +127,25 @@
     return out;
   }
   const docRef = r => [r.project, r.originator, r.volume, r.level, r.type, r.role, r.number].filter(Boolean).join('-');
-  function fileRef() {
-    const tidp = S.lib.documents.find(d => d.tab === 'Lists' && d.number === '1001');
-    return `${S.project.code || 'ABCDE'}-BBA-XX-XX-L-A-1001 ${tidp ? tidp.description : 'Task Information Delivery Plan_Architect'}`;
-  }
+  const fileName = s => s.replace(/[\\/:*?"<>|]+/g, '-');
+  function fileRef() { return `${S.project.code || 'ABCDE'}-BBA-XX-XX-L-${role()}-1001 Task Information Delivery Plan_${discipline()}`; }
+  function noteRef() { return `${S.project.code || 'ABCDE'}-BBA-XX-XX-T-${role()}-0010 ResourcingNote_${discipline()}`; }
 
   // ------------------------------------------------------------------ rendering
   function renderAll() { renderProject(); renderDocs(); renderSummary(); }
 
   function renderProject() {
     const p = S.project;
-    $('pName').value = p.name; $('pCode').value = p.code; $('pRev').value = p.rev; $('pDate').value = p.date;
+    $('pName').value = p.name; $('pCode').value = p.code;
     $('pIssuer').value = p.issuer; $('pSector').value = p.sector; $('pWorks').value = p.works; $('pOutsourcing').checked = p.outsourcing;
     $('chipOut').classList.toggle('on', p.outsourcing);
     $('storeys').innerHTML = p.storeys.map((s, i) => `<label class="chip ${s.on ? 'on' : ''}"><input type="checkbox" data-storey="${i}" ${s.on ? 'checked' : ''}> ${esc(s.code)} <small>${esc(s.name)}</small></label>`).join('');
     $('volumes').innerHTML = p.volumes.map((v, i) => `<label class="chip ${v.on ? 'on' : ''}"><input type="checkbox" data-volume="${i}" ${v.on ? 'checked' : ''}> ${esc(v.code)} <small>${esc(v.name)}</small></label>`).join('');
-    $('stageDates').innerHTML = S.lib.lists.stages.map(s => `<div class="stage" style="border-color:#${STAGE_COLOURS[s.n - 1]}"><b>Stage ${s.n}</b><span class="hint">${esc(s.name)}</span><input type="date" data-stage="${s.n}" value="${p.stageDates[s.n] || ''}"></div>`).join('');
+    $('stageDates').innerHTML = S.lib.lists.stages.map(s => {
+      const on = p.stageOn[s.n];
+      return `<div class="stage ${on ? '' : 'off'}" style="border-color:#${STAGE_COLOURS[s.n - 1]}"><label><input type="checkbox" data-stageon="${s.n}" ${on ? 'checked' : ''}><b>Stage ${s.n}</b></label><span class="hint">${esc(s.name)}</span><input type="date" data-stage="${s.n}" value="${p.stageDates[s.n] || ''}" ${on ? '' : 'disabled'}></div>`;
+    }).join('');
+    $('tenders').innerHTML = TENDERS.map(t => `<label class="chip ${p.tenders[t] ? 'on' : ''}"><input type="checkbox" data-tender="${t}" ${p.tenders[t] ? 'checked' : ''}> Tender ${t}</label>`).join('');
   }
 
   function renderDocs() {
@@ -133,7 +156,7 @@
       return `<button class="${u.tab === t ? 'active' : ''}" data-tab="${t}">${t}<span class="c">${n}/${tot}</span></button>`;
     }).join('');
     const w = $('setupWarn');
-    if (!p.sector) { w.style.display = 'block'; w.textContent = 'No sector selected yet: every Library item is shown as selected. Choose the sector on step 1 to apply the Library defaults.'; }
+    if (!p.sector) { w.style.display = 'block'; w.textContent = 'No sector or discipline selected yet: every Library item is shown as selected. Choose the sector or discipline on step 1 to apply the Library defaults.'; }
     else w.style.display = 'none';
 
     const q = u.search.trim().toLowerCase();
@@ -146,7 +169,7 @@
     for (const d of docs) {
       if (d.series !== series) { series = d.series; html += `<tr class="series"><td colspan="12">${esc(series)}</td></tr>`; }
       const on = isOn(d), k = STATUS_KEY(d.status);
-      const stg = [1, 2, 3, 4, 5, 6, 7].map(n => `<span class="stg ${d.stages[n] ? 'on' : ''}" style="background:#${STAGE_COLOURS[n - 1]}" title="Stage ${n}: ${esc(d.stages[n] || 'not required')}">${n}</span>`).join('');
+      const stg = STAGES.map(n => `<span class="stg ${d.stages[n] ? 'on' : ''} ${p.stageOn[n] ? '' : 'out'}" style="background:#${STAGE_COLOURS[n - 1]}" title="Stage ${n}: ${esc(d.stages[n] || 'not required')}${p.stageOn[n] ? '' : ' (stage not in this appointment)'}">${n}</span>`).join('');
       const dup = [d.floorDup ? `× ${storeyN} storeys` : '', d.volDup && volN ? `× ${volN} volumes` : ''].filter(Boolean).join(', ');
       const flag = d.buildType === 'existing' ? ' <span class="pill" title="Existing building only">existing</span>' : '';
       html += `<tr class="${on ? '' : 'off'}" data-id="${esc(d.id)}">
@@ -167,8 +190,6 @@
     const issued = gen.filter(g => g.tab !== 'Internal').reduce((n, g) => n + g.count, 0);
     const internal = (gen.find(g => g.tab === 'Internal') || { count: 0 }).count;
     const rows = gen.flatMap(g => g.groups.flatMap(x => x.rows));
-    const byStatus = {};
-    for (const r of rows) byStatus[r.status] = (byStatus[r.status] || 0) + 1;
     const op = rows.filter(r => STATUS_KEY(r.status) === 'op').length, conf = rows.filter(r => STATUS_KEY(r.status) === 'confirm').length;
     $('summary').innerHTML = [
       ['Documents issued', issued, 'across ' + gen.filter(g => g.tab !== 'Internal').length + ' sheets'],
@@ -177,42 +198,62 @@
       ['Scope to confirm', conf, 'Confirmation of BBA scope required'],
       ['Storeys × volumes', p.storeys.filter(s => s.on).length + ' × ' + (p.volumes.filter(v => v.on).length || '-'), 'duplication applied']
     ].map(([l, v, s]) => `<div class="kpi"><b>${v}</b>${l}<br><span>${s}</span></div>`).join('');
-    $('statusBreakdown').innerHTML = '<table class="docs"><tbody>' + Object.entries(byStatus).map(([s, n]) => `<tr><td><span class="st ${STATUS_KEY(s)}"></span>${esc(s)}</td><td><b>${n}</b></td></tr>`).join('') + '</tbody></table>';
     const issues = [];
-    if (!p.sector) issues.push('No sector selected.');
+    if (!p.sector) issues.push('No sector or discipline selected.');
     if (!p.code) issues.push('No project code: file references will read "ABCDE".');
     if (!p.name) issues.push('No project name.');
     if (!p.storeys.some(s => s.on)) issues.push('No storeys ticked: per-storey drawings will not be generated.');
+    if (!STAGES.some(n => p.stageOn[n])) issues.push('No RIBA stage ticked on step 1.');
     $('exportWarn').innerHTML = issues.length ? `<div class="warn"><b>Before exporting:</b> ${issues.join(' ')}</div>` : '<div class="ok">Set-up complete. The export will contain ' + issued + ' issued documents.</div>';
-    $('btnNote').disabled = !p.outsourcing;
-    $('noteHint').textContent = p.outsourcing ? '' : 'Tick "Outsourcing" on step 1 to enable the note.';
+    const files = [fileName(fileRef()) + '.xlsx', ...(p.outsourcing ? [fileName(noteRef()) + '.docx'] : [])];
+    $('exportFiles').innerHTML = files.map(f => `<li>${esc(f)}</li>`).join('');
+    $('btnExport').textContent = p.outsourcing ? 'Export TIDP and resourcing note' : 'Export TIDP';
+    $('exportHint').textContent = p.outsourcing ? 'Your browser may ask once to allow this page to download multiple files.' : 'Tick "Outsourcing" on step 1 to include the internal resourcing note.';
   }
+
+  // ------------------------------------------------------------------ intro pop-ups
+  const introSeen = {};
+  function showIntro(n, force) {
+    if (!INTROS[n] || (introSeen[n] && !force)) return;
+    introSeen[n] = true;
+    const dlg = $('intro');
+    $('introTitle').textContent = INTROS[n][0]; $('introText').textContent = INTROS[n][1];
+    if (dlg.open) dlg.close();
+    if (dlg.showModal) dlg.showModal(); else alert(INTROS[n][1]);
+  }
+  document.querySelectorAll('[data-intro]').forEach(b => b.addEventListener('click', () => showIntro(b.dataset.intro, true)));
+  showIntro(1);
 
   // ------------------------------------------------------------------ events
   document.querySelectorAll('nav.steps button, [data-goto]').forEach(b => b.addEventListener('click', () => go(b.dataset.step || b.dataset.goto)));
   function go(n) {
     document.querySelectorAll('nav.steps button').forEach(b => b.classList.toggle('active', b.dataset.step === String(n)));
     document.querySelectorAll('section.step').forEach(s => s.classList.toggle('active', s.id === 'step' + n));
-    window.scrollTo(0, 0); renderAll();
+    window.scrollTo(0, 0); if (S.lib) renderAll(); showIntro(n);
   }
-  const bind = (id, key, ev = 'input') => $(id).addEventListener(ev, e => { S.project[key] = e.target.type === 'checkbox' ? e.target.checked : e.target.value; if (key === 'outsourcing') $('chipOut').classList.toggle('on', e.target.checked); saveDraft(); });
-  bind('pName', 'name'); bind('pCode', 'code'); bind('pRev', 'rev'); bind('pDate', 'date'); bind('pIssuer', 'issuer');
+  const bind = (id, key, ev = 'input') => $(id).addEventListener(ev, e => { S.project[key] = e.target.type === 'checkbox' ? e.target.checked : e.target.value; if (key === 'outsourcing') $('chipOut').classList.toggle('on', e.target.checked); });
+  bind('pName', 'name'); bind('pCode', 'code'); bind('pIssuer', 'issuer');
   bind('pSector', 'sector', 'change'); bind('pWorks', 'works', 'change'); bind('pOutsourcing', 'outsourcing', 'change');
   $('pCode').addEventListener('input', e => { e.target.value = e.target.value.toUpperCase(); S.project.code = e.target.value; });
-  $('storeys').addEventListener('change', e => { const i = e.target.dataset.storey; if (i != null) { S.project.storeys[i].on = e.target.checked; renderProject(); saveDraft(); } });
-  $('volumes').addEventListener('change', e => { const i = e.target.dataset.volume; if (i != null) { S.project.volumes[i].on = e.target.checked; renderProject(); saveDraft(); } });
-  $('stageDates').addEventListener('change', e => { const n = e.target.dataset.stage; if (n) { S.project.stageDates[n] = e.target.value; saveDraft(); } });
+  $('storeys').addEventListener('change', e => { const i = e.target.dataset.storey; if (i != null) { S.project.storeys[i].on = e.target.checked; renderProject(); } });
+  $('volumes').addEventListener('change', e => { const i = e.target.dataset.volume; if (i != null) { S.project.volumes[i].on = e.target.checked; renderProject(); } });
+  $('stageDates').addEventListener('change', e => {
+    const t = e.target;
+    if (t.dataset.stage) S.project.stageDates[t.dataset.stage] = t.value;
+    if (t.dataset.stageon) { S.project.stageOn[t.dataset.stageon] = t.checked; renderProject(); }
+  });
+  $('tenders').addEventListener('change', e => { const t = e.target.dataset.tender; if (t) { S.project.tenders[t] = e.target.checked; renderProject(); } });
   $('addStorey').addEventListener('click', () => {
     const code = $('storeyCode').value.trim().toUpperCase(), name = $('storeyName').value.trim();
     if (!code) return toast('Enter a level code');
     if (S.project.storeys.some(s => s.code === code)) return toast('Level ' + code + ' already exists');
-    S.project.storeys.push({ code, name: name || code, on: true }); $('storeyCode').value = $('storeyName').value = ''; renderProject(); saveDraft();
+    S.project.storeys.push({ code, name: name || code, on: true }); $('storeyCode').value = $('storeyName').value = ''; renderProject();
   });
   $('addVolume').addEventListener('click', () => {
     const code = $('volCode').value.trim().toUpperCase(), name = $('volName').value.trim();
     if (!code) return toast('Enter a volume code');
     if (S.project.volumes.some(v => v.code === code)) return toast('Volume ' + code + ' already exists');
-    S.project.volumes.push({ code, name, on: true }); $('volCode').value = $('volName').value = ''; renderProject(); saveDraft();
+    S.project.volumes.push({ code, name, on: true }); $('volCode').value = $('volName').value = ''; renderProject();
   });
   $('tabFilter').addEventListener('click', e => { const t = e.target.closest('button'); if (t) { S.ui.tab = t.dataset.tab; renderDocs(); } });
   $('search').addEventListener('input', e => { S.ui.search = e.target.value; renderDocs(); });
@@ -221,65 +262,51 @@
   $('docBody').addEventListener('change', e => {
     const id = e.target.dataset.sel; if (!id) return;
     const d = S.lib.documents.find(x => x.id === id); setOn(d, e.target.checked);
-    e.target.closest('tr').classList.toggle('off', !e.target.checked); renderTabCounts(); saveDraft();
+    e.target.closest('tr').classList.toggle('off', !e.target.checked); renderDocs();
   });
-  function renderTabCounts() { renderDocs(); }
   function shownDocs() { return [...document.querySelectorAll('#docBody input[data-sel]')].map(i => S.lib.documents.find(d => d.id === i.dataset.sel)); }
-  $('selAll').addEventListener('click', () => { shownDocs().forEach(d => setOn(d, true)); renderDocs(); saveDraft(); });
-  $('selNone').addEventListener('click', () => { shownDocs().forEach(d => setOn(d, false)); renderDocs(); saveDraft(); });
-  $('selReset').addEventListener('click', () => { if (confirm('Discard all manual ticks and return to the Library defaults for this sector?')) { S.sel = {}; renderDocs(); saveDraft(); } });
+  $('selAll').addEventListener('click', () => { shownDocs().forEach(d => setOn(d, true)); renderDocs(); });
+  $('selNone').addEventListener('click', () => { shownDocs().forEach(d => setOn(d, false)); renderDocs(); });
+  $('selReset').addEventListener('click', () => { if (confirm('Discard all manual ticks and return to the Library defaults for this sector?')) { S.sel = {}; renderDocs(); } });
 
-  // ------------------------------------------------------------------ save / load project file
-  function projectFile() { return { app: 'BB TIDP Builder', appVersion: APP_VERSION, libraryVersion: S.lib.meta.version, saved: new Date().toISOString(), project: S.project, selections: S.sel }; }
-  $('btnSave').addEventListener('click', () => {
-    const p = S.project; download(new Blob([JSON.stringify(projectFile(), null, 1)], { type: 'application/json' }), `${p.code || 'ABCDE'} - TIDP - ${p.rev} - ${p.date}.tidp.json`);
+  // ------------------------------------------------------------------ export (Excel + resourcing note in one go)
+  $('btnExport').addEventListener('click', async e => {
+    const btn = e.currentTarget; btn.disabled = true;
+    try {
+      toast('Building the export…');
+      const xlsx = await buildWorkbook(), note = S.project.outsourcing ? await buildNote() : null;
+      download(xlsx, fileName(fileRef()) + '.xlsx');
+      if (note) setTimeout(() => download(note, fileName(noteRef()) + '.docx'), 400);
+      toast(note ? 'TIDP and resourcing note exported' : 'TIDP exported');
+    } catch (err) { console.error(err); alert('The export failed: ' + err.message); }
+    finally { btn.disabled = false; }
   });
-  $('btnLoad').addEventListener('click', () => $('fileLoad').click());
-  $('fileLoad').addEventListener('change', e => {
-    const f = e.target.files[0]; if (!f) return;
-    f.text().then(t => { applyProjectFile(JSON.parse(t)); toast('Loaded ' + f.name); }).catch(() => toast('That file is not a TIDP project file'));
-    e.target.value = '';
-  });
-  function applyProjectFile(j) {
-    if (!j || !j.project) throw new Error('bad');
-    S.project = Object.assign(S.project, j.project); S.sel = j.selections || {};
-    if (j.libraryVersion && j.libraryVersion !== S.lib.meta.version) toast('Saved with Library v' + j.libraryVersion + '; the current Library is v' + S.lib.meta.version + '. Review the selection.');
-    renderAll(); saveDraft();
-  }
-  function saveDraft() { try { localStorage.setItem('tidp-draft', JSON.stringify(projectFile())); $('draftInfo').textContent = 'Draft kept in this browser'; } catch (e) { /* storage unavailable */ } renderSummaryLazy(); }
-  function restoreDraft() { try { const d = localStorage.getItem('tidp-draft'); if (d) { const j = JSON.parse(d); S.project = Object.assign(S.project, j.project); S.sel = j.selections || {}; $('draftInfo').textContent = 'Draft restored from this browser (' + new Date(j.saved).toLocaleString('en-GB') + ')'; } } catch (e) { /* ignore */ } }
-  let lazyT; function renderSummaryLazy() { clearTimeout(lazyT); lazyT = setTimeout(renderSummary, 150); }
 
   // ------------------------------------------------------------------ Excel export (ExcelJS)
-  $('btnExcel').addEventListener('click', async () => {
-    try { toast('Building the workbook…'); const blob = await buildWorkbook(); download(blob, `TIDP - ${S.project.name || 'Project'} - ${S.project.rev} - ${S.project.date}.xlsx`); toast('Excel exported'); }
-    catch (e) { console.error(e); alert('The export failed: ' + e.message); }
-  });
-
   async function buildWorkbook() {
     const p = S.project, gen = generate(false), wb = new ExcelJS.Workbook();
     wb.creator = 'Bond Bryan Architects - TIDP Builder'; wb.created = new Date();
     const thin = { style: 'thin', color: { argb: 'FFBFBFBF' } }, border = { top: thin, left: thin, bottom: thin, right: thin };
-    const HEAD7 = ['Project', 'Originator', 'Volume / system', 'Level', 'Type', 'Role', 'Number', '', '', '', '', 'Stage 1', 'Stage 2', 'Stage 3', 'Stage 4', 'Stage 5', 'Stage 6', 'Stage 7', 'Tender', '', ''];
-    const HEAD8 = ['', '', '', '', '', '', '', 'Description', 'Format', 'Scale', 'Work Package', ...S.lib.lists.stages.map(s => s.name), '3+', '4a', '4b'];
-    const WIDTHS = [11, 9, 9, 7, 6, 6, 9, 52, 12, 15, 38, 14, 14, 14, 14, 14, 14, 14, 5.5, 5.5, 5.5];
+    const tenders = TENDERS.filter(t => p.tenders[t]), NCOL = 18 + tenders.length;
+    const HEAD7 = ['Project', 'Originator', 'Volume / system', 'Level', 'Type', 'Role', 'Number', '', '', '', '', 'Stage 1', 'Stage 2', 'Stage 3', 'Stage 4', 'Stage 5', 'Stage 6', 'Stage 7', ...tenders.map((_, i) => i ? '' : 'Tender')];
+    const HEAD8 = ['', '', '', '', '', '', '', 'Description', 'Format', 'Scale', 'Work Package', ...S.lib.lists.stages.map(s => s.name), ...tenders];
+    const WIDTHS = [11, 9, 9, 7, 6, 6, 9, 52, 12, 15, 38, 14, 14, 14, 14, 14, 14, 14, ...tenders.map(() => 5.5)];
+    const date = parseDate(today());
     const logoId = await loadLogo(wb);
 
     // ---- Cover
     const cover = wb.addWorksheet('Cover', { pageSetup: { orientation: 'portrait', fitToPage: true } });
-    cover.columns = [{ width: 24 }, { width: 60 }, { width: 30 }];
+    cover.columns = [{ width: 24 }, { width: 60 }];
     if (logoId != null) cover.addImage(logoId, { tl: { col: 0, row: 0 }, ext: { width: 300, height: 51 } });
     cover.getCell('A5').value = 'TASK INFORMATION DELIVERY PLAN'; cover.getCell('A5').font = { bold: true, size: 16 };
-    const info = [['Project', p.name], ['Project code', p.code], ['File reference', fileRef() + ' - ' + p.rev], ['Date', parseDate(p.date)], ['Revision', p.rev], ['Sector', p.sector], ['Works', { new: 'New build', existing: 'Existing building', mixed: 'New build and existing' }[p.works]], ['Issued by', p.issuer], ['Issuing party', 'Bond Bryan']];
+    const info = [['Project', p.name], ['Project code', p.code], ['File reference', fileRef() + ' - ' + REV], ['Date', date], ['Revision', REV], ['Sector or discipline', p.sector], ['Works', { new: 'New build', existing: 'Existing building', mixed: 'New build and existing' }[p.works]], ['Issued by', p.issuer], ['Issuing party', 'Bond Bryan']];
     info.forEach(([k, v], i) => { const r = 7 + i; cover.getCell(r, 1).value = k; cover.getCell(r, 1).font = { bold: true }; cover.getCell(r, 2).value = v; if (v instanceof Date) cover.getCell(r, 2).numFmt = 'yyyy-mm-dd'; });
     let r = 7 + info.length + 1;
     cover.getCell(r, 1).value = 'Contents'; cover.getCell(r, 1).font = { bold: true, size: 12 }; r++;
-    [['Sheet', 'Documents', 'Note'], ...gen.map(g => [g.tab, g.count, '']), ['Data', gen.reduce((n, g) => n + g.count, 0), 'Flat list, linked by formula to the sheets above, for database / CDE use']].forEach((row, i) => {
+    [['Sheet', 'Documents'], ...gen.map(g => [g.tab, g.count]), ['Data', gen.reduce((n, g) => n + g.count, 0)]].forEach((row, i) => {
       row.forEach((v, c) => { const cell = cover.getCell(r, c + 1); cell.value = v; cell.border = border; if (i === 0) { cell.font = { bold: true }; cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFD9D9D9' } }; } });
       r++;
     });
-    cover.getCell(r + 1, 1).value = 'Generated by the Bond Bryan TIDP Builder from Library v' + S.lib.meta.version + ' on ' + today() + '. Status and resourcing information is held internally and is not part of this issue.';
-    cover.getCell(r + 1, 1).font = { italic: true, size: 9, color: { argb: 'FF8C8280' } };
     cover.headerFooter.oddFooter = '&C' + 'Bond Bryan';
 
     // ---- content sheets
@@ -288,31 +315,32 @@
       const ws = wb.addWorksheet(g.tab, { views: [{ state: 'frozen', ySplit: 8 }], pageSetup: { orientation: 'landscape', fitToPage: true, fitToWidth: 1, fitToHeight: 0, paperSize: 8 } });
       ws.columns = WIDTHS.map(w => ({ width: w }));
       ws.getCell('A1').value = 'TASK INFORMATION DELIVERY PLAN'; ws.getCell('A1').font = { bold: true, size: 14 }; ws.mergeCells('A1:E1');
-      [['Project Name', p.name], ['File Ref', fileRef() + ' - ' + p.rev], ['Date', parseDate(p.date)]].forEach(([k, v], i) => {
+      [['Project Name', p.name], ['File Ref', fileRef() + ' - ' + REV], ['Date', date]].forEach(([k, v], i) => {
         const row = 3 + i; ws.getCell(row, 1).value = k; ws.getCell(row, 1).font = { bold: true }; ws.mergeCells(row, 1, row, 2);
-        ws.getCell(row, 3).value = v; if (v instanceof Date) ws.getCell(row, 3).numFmt = 'yyyy-mm-dd'; ws.mergeCells(row, 3, row, 5);
+        ws.getCell(row, 3).value = v; if (v instanceof Date) ws.getCell(row, 3).numFmt = 'yyyy-mm-dd'; ws.mergeCells(row, 3, row, i < 2 ? 8 : 5);
       });
       HEAD7.forEach((h, c) => { const cell = ws.getCell(7, c + 1); cell.value = h || null; });
       HEAD8.forEach((h, c) => { const cell = ws.getCell(8, c + 1); cell.value = h || null; });
-      for (let c = 1; c <= 21; c++) for (const row of [7, 8]) {
+      for (let c = 1; c <= NCOL; c++) for (const row of [7, 8]) {
         const cell = ws.getCell(row, c);
         cell.font = { bold: true, size: 9 }; cell.alignment = { vertical: 'middle', horizontal: 'center', wrapText: true }; cell.border = border;
-        if (c >= 12 && c <= 18) cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF' + STAGE_COLOURS[c - 12] } };
+        if (c >= 12 && c <= 18 && !p.stageOn[c - 11]) { cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFEDEDED' } }; cell.font = { bold: true, size: 9, color: { argb: 'FF8C8280' } }; }
+        else if (c >= 12 && c <= 18) cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF' + STAGE_COLOURS[c - 12] } };
         else cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFD9D9D9' } };
       }
       for (let c = 1; c <= 7; c++) ws.mergeCells(7, c, 8, c);
-      ws.mergeCells('S7:U7');
+      if (tenders.length > 1) ws.mergeCells(7, 19, 7, NCOL);
       ws.getRow(8).height = 60;
 
       let rn = 9;
       for (const grp of g.groups) {
         const hr = ws.getRow(rn);
         hr.getCell(1).value = grp.series; hr.font = { bold: true };
-        for (let c = 1; c <= 21; c++) { hr.getCell(c).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFD9D9D9' } }; if (c >= 12) hr.getCell(c).value = '◦'; }
+        for (let c = 1; c <= NCOL; c++) { hr.getCell(c).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFD9D9D9' } }; if (c >= 12) hr.getCell(c).value = '◦'; }
         ws.mergeCells(rn, 1, rn, 11); hr.height = 19; rn++;
         for (const x of grp.rows) {
           const row = ws.getRow(rn);
-          const vals = [x.project, x.originator, x.volume, x.level, x.type, x.role, x.number, x.description, x.format, x.scale, x.workPackage, ...x.stages, x.tender['3+'] ? '✓' : '', x.tender['4a'] ? '✓' : '', x.tender['4b'] ? '✓' : ''];
+          const vals = [x.project, x.originator, x.volume, x.level, x.type, x.role, x.number, x.description, x.format, x.scale, x.workPackage, ...x.stages, ...tenders.map(t => x.tender[t] ? '✓' : '')];
           vals.forEach((v, c) => {
             const cell = row.getCell(c + 1); cell.value = v === '' ? null : v; cell.border = border; cell.font = { size: 9 };
             if (c === 6) cell.numFmt = '@';
@@ -324,25 +352,22 @@
           rn++;
         }
       }
-      ws.autoFilter = { from: { row: 8, column: 1 }, to: { row: rn - 1, column: 21 } };
+      ws.autoFilter = { from: { row: 8, column: 1 }, to: { row: rn - 1, column: NCOL } };
       ws.headerFooter.oddFooter = '&L' + (p.name || '') + '&C' + 'Bond Bryan' + '&R' + 'Page &P of &N';
     }
 
     // ---- Data sheet (formula links, so edits on the content sheets flow through)
-    const data = wb.addWorksheet('Data', { views: [{ state: 'frozen', ySplit: $('optDataHeader').checked ? 1 : 0 }] });
+    const data = wb.addWorksheet('Data', { views: [{ state: 'frozen', ySplit: 1 }] });
     data.columns = [{ width: 34 }, { width: 11 }, { width: 30 }, ...WIDTHS.map(w => ({ width: w }))];
-    let dr = 1;
-    if ($('optDataHeader').checked) {
-      const heads = ['Document reference', 'Document type', 'Series', ...HEAD8.map((h, i) => h || HEAD7[i])];
-      heads.forEach((h, c) => { const cell = data.getCell(1, c + 1); cell.value = h; cell.font = { bold: true }; cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFD9D9D9' } }; });
-      dr = 2;
-    }
+    const heads = ['Document reference', 'Document type', 'Series', ...HEAD8.map((h, i) => h || HEAD7[i])];
+    heads.forEach((h, c) => { const cell = data.getCell(1, c + 1); cell.value = h; cell.font = { bold: true }; cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFD9D9D9' } }; });
+    let dr = 2;
     const q = s => `'${s.replace(/'/g, "''")}'`;
     for (const d of dataRows) {
       const sh = q(d.sheet), row = data.getRow(dr);
       row.getCell(1).value = { formula: ['A', 'B', 'C', 'D', 'E', 'F', 'G'].map(c => `${sh}!${c}${d.row}`).join('&"-"&') };
       row.getCell(2).value = d.tab; row.getCell(3).value = d.series;
-      for (let c = 1; c <= 21; c++) {
+      for (let c = 1; c <= NCOL; c++) {
         const ref = `${sh}!${colLetter(c)}${d.row}`, cell = row.getCell(3 + c);
         cell.value = { formula: `IF(${ref}="","",${ref})` };
         if (c >= 12 && c <= 18) cell.numFmt = 'yyyy-mm-dd';
@@ -350,45 +375,45 @@
       }
       dr++;
     }
-    data.autoFilter = dr > 2 ? { from: 'A1', to: { row: dr - 1, column: 24 } } : undefined;
+    data.autoFilter = dr > 2 ? { from: 'A1', to: { row: dr - 1, column: 3 + NCOL } } : undefined;
     wb.calcProperties.fullCalcOnLoad = true;
     return new Blob([await wb.xlsx.writeBuffer()], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
   }
   function colLetter(n) { let s = ''; while (n > 0) { const m = (n - 1) % 26; s = String.fromCharCode(65 + m) + s; n = (n - m - 1) / 26; } return s; }
-  async function loadLogo(wb) {
-    try { const r = await fetch('logo.png'); if (!r.ok) return null; const buf = await r.arrayBuffer(); return wb.addImage({ buffer: buf, extension: 'png' }); } catch (e) { return null; }
+  async function logoBytes() {
+    try { const r = await fetch('logo.png'); return r.ok ? await r.arrayBuffer() : null; } catch (e) { return null; }
   }
+  async function loadLogo(wb) { const buf = await logoBytes(); return buf ? wb.addImage({ buffer: buf, extension: 'png' }) : null; }
 
   // ------------------------------------------------------------------ resourcing note (docx)
-  $('btnNote').addEventListener('click', async () => {
-    try { const blob = await buildNote(); download(blob, `TIDP Resourcing Note - ${S.project.name || 'Project'} - ${S.project.rev} - ${S.project.date}.docx`); toast('Resourcing note exported'); }
-    catch (e) { console.error(e); alert('The note failed: ' + e.message); }
-  });
   async function buildNote() {
     const D = window.docx, p = S.project, gen = generate(true);
     const rows = gen.flatMap(g => g.groups.flatMap(x => x.rows));
-    const sections = [['op', 'Outsourcing Partner items', 'Candidates for the Outsourcing Partner. The Project Lead co-ordinates scope, programme and quality checks.'],
-      ['confirm', 'Confirmation of BBA scope required', 'Items to confirm against the appointment before they are committed.'],
+    const count = k => rows.filter(r => STATUS_KEY(r.status) === k).length;
+    const sections = [['confirm', 'Confirmation of BBA scope required', 'Items to confirm against the appointment before they are committed.'],
+      ['op', 'Outsourcing Partner items', 'Candidates for the Outsourcing Partner. The Project Lead co-ordinates scope, programme and quality checks.'],
       ['cdp', 'Contractor Designed Portion items', 'Items expected from the contractor or specialist; BBA reviews only.'],
       ['internal', 'Internal team items', 'Delivered by the Bond Bryan project team; the Project Lead allocates resource.']];
     const P = (t, o = {}) => new D.Paragraph({ children: [new D.TextRun({ text: t, font: 'Arial', size: o.size || 20, bold: o.bold, color: o.color })], spacing: { after: o.after ?? 100 }, heading: o.h });
     const cellOpts = { margins: { top: 40, bottom: 40, left: 80, right: 80 } };
     const cell = (t, w, bold, fill) => new D.TableCell({ ...cellOpts, width: { size: w, type: D.WidthType.DXA }, shading: fill ? { fill } : undefined, children: [new D.Paragraph({ children: [new D.TextRun({ text: String(t ?? ''), font: 'Arial', size: 16, bold })] })] });
-    const children = [P('INTERNAL RESOURCING NOTE', { size: 32, bold: true }), P('Task Information Delivery Plan · Internal, not for issue', { color: '8C8280' }),
-      P(`Project: ${p.name}   Code: ${p.code}   Revision: ${p.rev}   Date: ${p.date}   Sector: ${p.sector}   Issued by: ${p.issuer}`, { after: 200 }),
-      P(`Summary: ${rows.length} deliverables in total, of which ${rows.filter(r => STATUS_KEY(r.status) === 'op').length} Outsourcing Partner candidates, ${rows.filter(r => STATUS_KEY(r.status) === 'confirm').length} requiring scope confirmation and ${rows.filter(r => STATUS_KEY(r.status) === 'internal').length} internal team items.`, { after: 300 })];
+    const logo = await logoBytes();
+    const children = [
+      ...(logo ? [new D.Paragraph({ children: [new D.ImageRun({ data: new Uint8Array(logo), transformation: { width: 240, height: 41 } })], spacing: { after: 300 } })] : []),
+      P('INTERNAL RESOURCING NOTE', { size: 32, bold: true }), P('Task Information Delivery Plan · Internal, not for issue', { color: '8C8280' }),
+      P(`Project: ${p.name}   Code: ${p.code}   Revision: ${REV}   Date: ${today()}   Sector or discipline: ${p.sector}   Issued by: ${p.issuer}`, { after: 200 }),
+      P(`Summary: ${rows.length} deliverables in total, of which ${count('confirm')} requiring scope confirmation, ${count('op')} Outsourcing Partner candidates and ${count('internal')} internal team items.`, { after: 300 })];
     for (const [k, title, intro] of sections) {
       const list = rows.filter(r => STATUS_KEY(r.status) === k); if (!list.length) continue;
       children.push(P(`${title} (${list.length})`, { size: 24, bold: true, after: 60 }), P(intro, { color: '444444', after: 120 }));
       const W = [1900, 1100, 3900, 1000, 1000, 3100];
-      const trs = [new D.TableRow({ tableHeader: true, children: ['Reference', 'Sheet', 'Description', 'Format', 'First stage', 'Library comment'].map((h, i) => cell(h, W[i], true, 'D9D9D9')) })];
+      const trs = [new D.TableRow({ tableHeader: true, children: ['Reference', 'Sheet', 'Description', 'Format', 'First stage', 'Comment'].map((h, i) => cell(h, W[i], true, 'D9D9D9')) })];
       for (const r of list) {
         const first = r.stages.findIndex(s => s); const fs = first >= 0 ? 'Stage ' + (first + 1) + (r.stages[first] instanceof Date ? ' · ' + r.stages[first].toISOString().slice(0, 10) : '') : '';
         trs.push(new D.TableRow({ children: [docRef(r), r.tab, r.description, r.format, fs, r.comments].map((v, i) => cell(v, W[i])) }));
       }
       children.push(new D.Table({ rows: trs, width: { size: 12000, type: D.WidthType.DXA } }), P('', { after: 200 }));
     }
-    children.push(P('Generated by the Bond Bryan TIDP Builder. Status wording follows the practice Library; this note is a planning aid for the Project Lead and is not contractual.', { size: 16, color: '8C8280' }));
     const doc = new D.Document({ sections: [{ properties: { page: { size: { orientation: D.PageOrientation.LANDSCAPE }, margin: { top: 900, bottom: 900, left: 900, right: 900 } } }, children }] });
     return D.Packer.toBlob(doc);
   }
@@ -396,5 +421,5 @@
   // ------------------------------------------------------------------ helpers
   function download(blob, name) { const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 2000); }
   let toastT; function toast(msg) { const t = $('toast'); t.textContent = msg; t.style.display = 'block'; clearTimeout(toastT); toastT = setTimeout(() => t.style.display = 'none', 3500); }
-  window.TIDP = { S, generate, buildWorkbook, buildNote }; // for tests
+  window.TIDP = { S, generate, buildWorkbook, buildNote, fileRef, noteRef }; // for tests
 })();

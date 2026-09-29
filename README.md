@@ -51,18 +51,27 @@ Rules (same as the spreadsheet Library):
 - `stages`: `"YYYY-MM-DD"` marks the stage a document is first issued (the app replaces it with the project's stage date); `"Ongoing"` for later stages; `null` when not required.
 - `floorDup` / `volDup`: duplicate the row per ticked storey / volume. Storey rows get the level code and the description becomes "Ground Floor <description>" ("Plans" becomes "Plan").
 - `buildType`: `"any"` (default), `"existing"` (pre-selected only when the project involves existing buildings), `"new"` (new build only).
-- Bump `meta.version` when you publish a change; saved project files record which Library version they were made with.
+- Bump `meta.version` when you publish a change.
+- `disciplineBySector` gives the discipline name used in the exported file names (`default` is `Architect`), alongside `roleBySector` for the role code.
+- Comment typos corrected in v2026.2 were fixed in `library.json` only; correct them in the source xlsm too before re-running `extract_library.py`.
 
 A JSON validator (VS Code, or https://jsonlint.com) catches typos before committing. Any malformed file shows "Library not loaded" on the page rather than a broken TIDP.
 
-## Project files
+## Project set-up
 
-*Save project file* downloads `<code> - TIDP - <rev>.tidp.json`: the project set-up and the manual ticks. Store it in the project's TIDP folder next to the exported Excel; *Open a saved TIDP* restores it for the next revision. The browser also keeps a draft locally, for convenience only.
+Nothing is saved: the page holds no project data, and each TIDP is issued as revision P01 dated on the day of export. On step 1, untick the RIBA stages outside the appointment: a Library item whose stages all fall outside the ticked ones is unticked by default on step 2 (items with no stage information are unaffected), and unticked stages are left blank in the export. The tender stages (3+, 4a, 4b) ticked on step 1 are the only tender columns exported.
 
-## Excel export
+## Export
+
+One button exports the TIDP and, when *Outsourcing* is ticked, the resourcing note:
+
+- `<code>-BBA-XX-XX-L-<role>-1001 Task Information Delivery Plan_<discipline>.xlsx`
+- `<code>-BBA-XX-XX-T-<role>-0010 ResourcingNote_<discipline>.docx`
+
+### Excel
 
 Sheets: `Cover`, one sheet per document type with rows (`Drawings`, `Images`, `Lists`, `Models`, `Text`, `Video`), then `Data`. Internal items, Status and Outsourcing Comments are never exported. `Data` is one row per document, every cell a formula linking to the content sheets, so edits made in Excel flow through to the raw list. No macros, no external links, no data validation to break.
 
-## Resourcing note
+### Resourcing note
 
-Available when *Outsourcing* is ticked on step 1. A Word document for the Project Lead listing Outsourcing Partner items, items needing scope confirmation and internal items, with the Library comments. Internal only.
+Produced when *Outsourcing* is ticked on step 1. A Word document for the Project Lead listing items needing scope confirmation, Outsourcing Partner items and internal items, with the Library comments. Internal only.

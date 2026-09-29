@@ -54,7 +54,31 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--accent-2);outlin
 .stages{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
 .stage{border-left:5px solid var(--line);padding:6px 10px;background:var(--panel);border-radius:0 4px 4px 0}
 .stage b{display:block;font-size:12px}
-.stage input{margin-top:4px}
+.stage input[type=date]{margin-top:4px}
+.stage label{display:flex;align-items:center;gap:6px;cursor:pointer}
+.stage.off{background:#e6e6e6;border-color:#bdbdbd !important;color:var(--muted)}
+.stage.off input[type=date]{background:#eee;color:var(--muted);cursor:not-allowed}
+.stage-tenders{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px}
+.stage-tenders b{font-size:12px}
+.addrow{display:grid;grid-template-columns:72px minmax(0,1fr) auto;gap:8px;align-items:end;margin-top:10px}
+.addrow span{display:block;font-size:12px;color:var(--ink-2);margin-bottom:3px}
+.addrow input{text-transform:none}
+.addrow input.code{text-transform:uppercase}
+:root{--c-proj:#0b6fb8;--c-vol:#d35400;--c-lvl:#1e8449;--c-role:#a0287a}
+.c-proj{color:var(--c-proj)}.c-vol{color:var(--c-vol)}.c-lvl{color:var(--c-lvl)}.c-role{color:var(--c-role)}
+.codeex{margin:0 0 16px;padding:10px 14px;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel)}
+.codeex code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:16px;font-weight:700;letter-spacing:.5px}
+.codeex code span{font-weight:700}
+.codeex .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;margin-top:4px;font-weight:700}
+label.f span.c-proj,label.f span.c-role,h3.c-lvl,h3.c-vol{font-weight:700}
+.card h3.c-lvl{color:var(--c-lvl)}.card h3.c-vol{color:var(--c-vol)}
+.info{border:1px solid var(--line);background:#fff;border-radius:50%;width:22px;height:22px;font-size:12px;font-weight:700;cursor:pointer;margin-left:8px;vertical-align:middle;color:var(--ink-2)}
+dialog.intro{border:0;border-radius:8px;padding:24px 26px;max-width:520px;width:calc(100% - 32px);box-shadow:0 10px 40px rgba(0,0,0,.25)}
+dialog.intro::backdrop{background:rgba(0,0,0,.45)}
+dialog.intro h3{margin:0 0 10px;font-size:16px}
+dialog.intro p{margin:0 0 18px;color:var(--ink-2)}
+ul.files{margin:6px 0 14px;padding-left:18px}
+ul.files li{margin:4px 0;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;word-break:break-all}
 .toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:10px 0 12px;position:sticky;top:60px;background:#fff;padding:8px 0;z-index:10;border-bottom:1px solid var(--line)}
 .toolbar input[type=text]{width:260px}
 .toolbar select{width:auto}
@@ -73,6 +97,7 @@ table.docs td.num{font-family:ui-monospace,Menlo,Consolas,monospace;white-space:
 .st.internal{background:var(--blue)}.st.op{background:var(--green)}.st.confirm{background:var(--amber)}.st.cdp{background:var(--purple)}
 .stg{display:inline-block;width:14px;height:14px;border-radius:3px;margin-right:2px;text-align:center;font-size:10px;line-height:14px;color:#fff;opacity:.25}
 .stg.on{opacity:1}
+.stg.out{background:#bdbdbd !important}
 .tick{color:var(--ink);font-weight:700}
 .tickx{color:#ccc}
 .dup{font-size:11px;color:var(--accent);white-space:nowrap}
@@ -106,27 +131,20 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
 <main>
 <!-- ================= STEP 1 ================= -->
 <section class="step active" id="step1">
-  <h2>Project set-up</h2>
-  <p class="lead">Enter the project details once. Everything below drives the file references, the sector selection and the storey and volume duplication. Nothing here can break the Library.</p>
+  <h2>Project set-up<button class="info" data-intro="1" title="About this step">i</button></h2>
 
-  <div class="row" style="margin-bottom:16px">
-    <button class="btn secondary small" id="btnLoad">Open a saved TIDP (.json)</button>
-    <input type="file" id="fileLoad" accept=".json,application/json" hidden>
-    <span class="hint" id="draftInfo"></span>
+  <div class="codeex">
+    Code example : <code><span class="c-proj">ABCDE</span>-BBA-<span class="c-vol">01</span>-<span class="c-lvl">ZZ</span>-D-<span class="c-role">A</span>-0001</code>
+    <div class="legend"><span class="c-proj">ABCDE · Project code</span><span class="c-vol">01 · Volumes</span><span class="c-lvl">ZZ · Storeys</span><span class="c-role">A · Sector or discipline</span></div>
   </div>
 
   <div class="grid">
     <div class="card">
       <h3>Project</h3>
       <label class="f"><span>Project name</span><input type="text" id="pName" placeholder="e.g. Ridgewood School"></label>
-      <label class="f"><span>Project code (first field of the file reference)</span><input type="text" id="pCode" placeholder="e.g. SRP1044" maxlength="12"></label>
-      <div class="row">
-        <label class="f" style="flex:1"><span>Revision</span><input type="text" id="pRev" value="P01"></label>
-        <label class="f" style="flex:1"><span>Issue date</span><input type="date" id="pDate"></label>
-      </div>
+      <label class="f"><span class="c-proj">Project code (first field of the file reference)</span><input type="text" id="pCode" placeholder="e.g. SRP1044" maxlength="12"></label>
       <label class="f"><span>Issued by</span><input type="text" id="pIssuer" placeholder="Project Lead name"></label>
-      <label class="f"><span>Sector</span><select id="pSector"><option value="">Select a sector…</option></select>
-        <div class="hint">Pre-selects the deliverables flagged for that sector in the Library. Landscape and Interior Design change the role code (L / I).</div></label>
+      <label class="f"><span class="c-role">Sector or Discipline</span><select id="pSector"><option value="">Select a sector or discipline…</option></select></label>
     </div>
 
     <div class="card">
@@ -138,37 +156,42 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
           <option value="mixed">Mixed: new build and existing</option>
         </select>
         <div class="hint">Existing and Demolition deliverables are pre-selected only when existing buildings are involved.</div></label>
-      <label class="f"><span>Outsourcing</span>
-        <label class="chip" id="chipOut"><input type="checkbox" id="pOutsourcing"> Outsourcing Partner may be used on this project</label>
-        <div class="hint">When ticked, a separate internal resourcing note is produced for the Project Lead, listing Outsourcing Partner items, internal items and items needing scope confirmation. The issued Excel never carries this information.</div></label>
     </div>
 
     <div class="card">
-      <h3>Project storeys</h3>
+      <h3>Outsourcing</h3>
+      <label class="chip" id="chipOut"><input type="checkbox" id="pOutsourcing"> Outsourcing Partner may be used on this project</label>
+      <div class="hint">When ticked, a separate internal resourcing note is produced for the Project Lead, listing items needing scope confirmation, Outsourcing Partner items and internal items. The issued Excel never carries this information.</div>
+    </div>
+
+    <div class="card">
+      <h3 class="c-lvl">Project storeys</h3>
       <div class="hint" style="margin:-4px 0 8px">Tick the levels in the building. Drawings marked "per storey" in the Library are duplicated once per level.</div>
       <div class="chips" id="storeys"></div>
-      <div class="row" style="margin-top:10px">
-        <input type="text" id="storeyCode" placeholder="Code (e.g. M1)" maxlength="2" style="width:110px;text-transform:uppercase">
-        <input type="text" id="storeyName" placeholder="Name (e.g. Mezzanine)" style="width:180px">
+      <div class="addrow">
+        <label><span>Level code</span><input type="text" class="code" id="storeyCode" placeholder="M1" maxlength="2"></label>
+        <label><span>Level name</span><input type="text" id="storeyName" placeholder="e.g. Mezzanine"></label>
         <button class="btn secondary small" id="addStorey">Add level</button>
       </div>
     </div>
 
     <div class="card">
-      <h3>Project volumes / buildings</h3>
+      <h3 class="c-vol">Project volumes / buildings</h3>
       <div class="hint" style="margin:-4px 0 8px">Optional. Tick when the project is split into several buildings or volumes. Items marked "per volume" are duplicated once per volume; otherwise the volume code stays ZZ.</div>
       <div class="chips" id="volumes"></div>
-      <div class="row" style="margin-top:10px">
-        <input type="text" id="volCode" placeholder="Code" maxlength="2" style="width:80px">
-        <input type="text" id="volName" placeholder="Name (e.g. Block A)" style="width:180px">
+      <div class="addrow">
+        <label><span>Volume code</span><input type="text" class="code" id="volCode" placeholder="14" maxlength="2"></label>
+        <label><span>Volume name</span><input type="text" id="volName" placeholder="e.g. Block A"></label>
         <button class="btn secondary small" id="addVolume">Add volume</button>
       </div>
     </div>
 
     <div class="card" style="grid-column:1/-1">
-      <h3>Programme: stage delivery dates</h3>
-      <div class="hint" style="margin:-4px 0 10px">Enter the planned issue date for each RIBA stage. It is applied to every deliverable that is first issued at that stage (the "YYYY-MM-DD" placeholder in the Library). Later stages stay "Ongoing". Leave blank to keep the placeholder for the team to fill in Excel.</div>
+      <h3>Programme: stages and delivery dates</h3>
+      <div class="hint" style="margin:-4px 0 10px">Untick the RIBA stages the appointment does not cover: deliverables only required at unticked stages are left out of the deliverables review. Enter the planned issue date for each ticked stage. It is applied to every deliverable that is first issued at that stage (the "YYYY-MM-DD" placeholder in the Library). Later stages stay "Ongoing". Leave blank to keep the placeholder for the team to fill in Excel.</div>
       <div class="stages" id="stageDates"></div>
+      <div class="stage-tenders"><b>Tender stages in the TIDP:</b><span id="tenders" class="chips"></span>
+        <span class="hint">Unticked tender stages are left out of the exported Excel.</span></div>
     </div>
   </div>
 
@@ -179,8 +202,7 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
 
 <!-- ================= STEP 2 ================= -->
 <section class="step" id="step2">
-  <h2>Deliverables</h2>
-  <p class="lead">Pre-selected from the Library for your sector and works type. Untick what the appointment does not cover, tick what it adds. Titles, numbers and formats come from the Library and are not editable here, which keeps every project on the practice standard.</p>
+  <h2>Deliverables<button class="info" data-intro="2" title="About this step">i</button></h2>
   <div class="toolbar">
     <div class="tabs" id="tabFilter"></div>
     <input type="text" id="search" placeholder="Search description, number, work package…">
@@ -205,38 +227,23 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
 
 <!-- ================= STEP 3 ================= -->
 <section class="step" id="step3">
-  <h2>Review &amp; export</h2>
-  <p class="lead">Check the totals, save the project file to the project server (so the TIDP can be reopened and revised), then export.</p>
+  <h2>Review &amp; export<button class="info" data-intro="3" title="About this step">i</button></h2>
   <div id="exportWarn"></div>
   <div class="summary" id="summary"></div>
-  <div class="grid">
-    <div class="card">
-      <h3>1. Save the project file</h3>
-      <p>A small <b>.json</b> file with the project details and selections. Save it in the project's TIDP folder next to the Excel. Reopen it on step 1 to issue the next revision.</p>
-      <button class="btn secondary" id="btnSave">Save project file</button>
-    </div>
-    <div class="card">
-      <h3>2. Export the TIDP (Excel)</h3>
-      <p>Macro-free workbook: Cover, one sheet per document type, and a flat <b>Data</b> sheet linked by formula to the content sheets so edits made in Excel flow through to the raw list.</p>
-      <label class="chip" style="margin-bottom:10px"><input type="checkbox" id="optDataHeader" checked> Header row on the Data sheet</label>
-      <br><button class="btn accent" id="btnExcel">Export Excel</button>
-    </div>
-    <div class="card">
-      <h3>3. Internal resourcing note</h3>
-      <p>For the Project Lead only. Lists Outsourcing Partner items, internal team items and items needing scope confirmation, with the Library comments. Produced as a Word document.</p>
-      <button class="btn secondary" id="btnNote">Export resourcing note</button>
-      <div class="hint" id="noteHint"></div>
-    </div>
-  </div>
-  <div class="card" style="margin-top:16px">
-    <h3>Selected deliverables by status</h3>
-    <div id="statusBreakdown"></div>
+  <div class="card">
+    <h3>Export</h3>
+    <p>The TIDP is a macro-free Excel workbook: Cover, one sheet per document type, and a flat <b>Data</b> sheet linked by formula to the content sheets so edits made in Excel flow through to the raw list. When Outsourcing is ticked on step 1, the internal resourcing note for the Project Lead (Word) is exported at the same time.</p>
+    <div class="hint">This export downloads:</div>
+    <ul class="files" id="exportFiles"></ul>
+    <button class="btn accent" id="btnExport">Export</button>
+    <div class="hint" id="exportHint"></div>
   </div>
 </section>
 </main>
 
 <footer>Bond Bryan Architects · Smarter Working Group · Library <span id="libVer"></span> · The Library is maintained in GitHub; this page holds no project data of its own.</footer>
 <div id="toast"></div>
+<dialog class="intro" id="intro"><h3 id="introTitle"></h3><p id="introText"></p><form method="dialog" class="row" style="justify-content:flex-end"><button class="btn">OK, understood</button></form></dialog>
 
 <script src="vendor/exceljs.min.js"></script>
 <script src="vendor/docx.umd.js"></script>

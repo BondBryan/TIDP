@@ -85,11 +85,13 @@ lists = {
                     "05": "Fifth Floor", "06": "Sixth Floor", "RF": "Roof", "R2": "Roof 2", "R3": "Roof 3"},
     "tabs": ["Drawings", "Images", "Lists", "Models", "Text", "Video", "Internal"],
     "roleBySector": {"Landscape": "L", "Interior Design": "I", "default": "A"},
+    # discipline name used in the exported file names (..._Architect.xlsx)
+    "disciplineBySector": {"Landscape": "Landscape", "Interior Design": "Interior Design", "default": "Architect"},
 }
 
 meta = {
     "name": "Bond Bryan TIDP Library",
-    "version": "2026.1",
+    "version": "2026.2",
     "source": SRC,
     "extracted": datetime.date.today().isoformat(),
     "documents": len(docs),
