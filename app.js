@@ -75,15 +75,35 @@
     return true;
   }
   const isOn = d => (d.id in S.sel) ? S.sel[d.id] : defaultOn(d);
-  /** Items switched on only for disciplines (Landscape, Interior Design) are hidden for every other sector or discipline. */
-  function visible(d) {
-    const s = S.project.sector;
-    if (!s || d.sectors[s]) return true;
+  /** Items switched on only for disciplines (Landscape, Interior Design) are hidden for every other sector or discipline.
+      A series made only of the chosen discipline's items (e.g. "2000 Series - Strategy Plans" for Landscape) replaces
+      the other items in its number range: "2000 Series" covers 2000-2999, "0200 Series" covers 0200-0299. */
+  const disciplineOnly = d => {
     const disciplines = Object.keys(S.lib.lists.roleBySector).filter(k => k !== 'default');
     const onFor = Object.keys(d.sectors).filter(k => d.sectors[k]);
-    return !(onFor.length && onFor.every(k => disciplines.includes(k)));
+    return onFor.length > 0 && onFor.every(k => disciplines.includes(k));
+  };
+  const blockCache = {};
+  function replacedRanges(sector) {
+    if (blockCache[sector]) return blockCache[sector];
+    const series = {};
+    for (const d of S.lib.documents) (series[d.tab + '|' + d.series] = series[d.tab + '|' + d.series] || []).push(d);
+    const ranges = [];
+    for (const docs of Object.values(series)) {
+      const m = /^(\d{4}) Series/.exec(docs[0].series);
+      if (!m || !docs.every(d => disciplineOnly(d) && d.sectors[sector])) continue;
+      const lo = Number(m[1]), size = 10 ** (m[1].length - m[1].replace(/0+$/, '').length);
+      ranges.push({ tab: docs[0].tab, lo, hi: lo + size });
+    }
+    return (blockCache[sector] = ranges);
   }
-  function setOn(d, v) { if (v === defaultOn(d)) delete S.sel[d.id]; else S.sel[d.id] = v; }
+  function visible(d) {
+    const s = S.project.sector;
+    if (!s) return true;
+    if (disciplineOnly(d)) return !!d.sectors[s];
+    const n = Number(d.number);
+    return !replacedRanges(s).some(r => r.tab === d.tab && n >= r.lo && n < r.hi);
+  }
 
   // ------------------------------------------------------------------ generation (mirrors the VBA GenerateTIDP)
   function role() { const m = S.lib.lists.roleBySector; return m[S.project.sector] || m.default; }

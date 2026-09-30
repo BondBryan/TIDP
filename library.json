@@ -1,9 +1,9 @@
 {
  "meta": {
   "name": "Bond Bryan TIDP Library",
-  "version": "2026.7",
-  "source": "BB_TaskInformationDeliveryPlan-2026.xlsm",
-  "extracted": "2026-09-17",
+  "version": "2026.8",
+  "source": "Smarter Working Group",
+  "extracted": "2026-09",
   "documents": 269,
   "note": "Master list of Task Information Delivery Plan deliverables. Edit in GitHub; the web app reads this file at load."
  },
@@ -770,7 +770,7 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "existing"
   },
   {
    "id": "Drawings-D-1015",
@@ -820,7 +820,7 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "existing"
   },
   {
    "id": "Drawings-D-1016",
@@ -870,7 +870,7 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "existing"
   },
   {
    "id": "Drawings-D-1101",
@@ -2858,7 +2858,7 @@
     "Blue Light": false,
     "Defence & Justice": false,
     "Healthcare": false,
-    "Hotels & Hospitality": false,
+    "Hotels & Hospitality": true,
     "Industrial and Manufacturing": false,
     "Interior Design": false,
     "Landscape": false,
@@ -9012,7 +9012,7 @@
     "Industrial and Manufacturing": false,
     "Interior Design": false,
     "Landscape": false,
-    "Offices and Workspace": true,
+    "Offices and Workspace": false,
     "Retail": true,
     "Science and Research": false,
     "Sport and Leisure": false,
@@ -9534,7 +9534,7 @@
    "description": "Re-use Schedule of Elements",
    "format": "PDF",
    "scale": "NTS @ A1",
-   "workPackage": "Toilets, sanitary",
+   "workPackage": "FF&E, furniture, equipment, kitchen",
    "stages": {
     "0": null,
     "1": null,
@@ -9570,7 +9570,7 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "existing"
   },
   {
    "id": "Lists-L-1001",
