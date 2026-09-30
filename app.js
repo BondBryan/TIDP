@@ -221,11 +221,18 @@
     $('exportWarn').innerHTML = issues.length ? `<div class="warn"><b>Before exporting:</b> ${issues.join(' ')}</div>` : '<div class="ok">Set-up complete. The export will contain ' + issued + ' issued documents.</div>';
     $('exportFiles').innerHTML = [fileName(fileRef()) + '.xlsx', fileName(noteRef()) + '.docx'].map(f => `<li>${esc(f)}</li>`).join('');
     $('btnExport').textContent = 'Export TIDP and resourcing note';
-    $('exportHint').textContent = 'Your browser may ask once to allow this page to download multiple files.';
+    const toReview = scopeNeedsReview() ? scopeDocs().filter(isOn).length : 0;
+    $('exportHint').textContent = toReview
+      ? `${toReview} scope confirmation item${toReview > 1 ? 's are' : ' is'} ticked: the export opens the scope review first, then export once validated.`
+      : 'Your browser may ask once to allow this page to download multiple files.';
   }
 
   // ------------------------------------------------------------------ scope confirmation review (second route to the step 2 ticks)
   const scopeDocs = () => S.lib.documents.filter(d => STATUS_KEY(d.status) === 'confirm');
+  // ticked scope items at the last Validate; any change to them means reviewing again before export
+  let scopeValidated = null;
+  const scopeTicked = () => scopeDocs().filter(isOn).map(d => d.id).join('|');
+  const scopeNeedsReview = () => scopeDocs().some(isOn) && scopeTicked() !== scopeValidated;
   function openScope() {
     let html = '', tab = null;
     for (const d of scopeDocs()) {
@@ -241,7 +248,8 @@
   $('scopeCancel').addEventListener('click', () => $('scopeDlg').close());
   $('scopeOk').addEventListener('click', () => {
     $('scopeBody').querySelectorAll('input[data-scope]').forEach(i => setOn(S.lib.documents.find(d => d.id === i.dataset.scope), i.checked));
-    $('scopeDlg').close(); renderAll(); toast('Scope selection updated');
+    scopeValidated = scopeTicked();
+    $('scopeDlg').close(); renderAll(); toast('Scope selection validated');
   });
 
   // ------------------------------------------------------------------ intro pop-ups
@@ -259,7 +267,7 @@
 
   $('btnReset').addEventListener('click', () => {
     if (!confirm('Clear the project set-up and all deliverable ticks, and go back to the defaults?')) return;
-    S.project = newProject(); S.sel = {}; S.ui = newUi(); projectErr = false; markProject();
+    S.project = newProject(); S.sel = {}; S.ui = newUi(); projectErr = false; markProject(); scopeValidated = null;
     if (S.lib) defaultLevels();
     ['storeyCode', 'storeyName', 'volCode', 'volName', 'search'].forEach(id => $(id).value = '');
     $('statusFilter').value = ''; $('showOff').checked = true;
@@ -347,6 +355,7 @@
 
   // ------------------------------------------------------------------ export (Excel + resourcing note in one go)
   $('btnExport').addEventListener('click', async e => {
+    if (scopeNeedsReview()) { toast('Review the scope confirmation items before exporting'); return openScope(); }
     const btn = e.currentTarget; btn.disabled = true;
     try {
       toast('Building the export…');
