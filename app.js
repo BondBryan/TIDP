@@ -25,6 +25,8 @@
   const TENDERS = ['3+', '4a', '4b'];
   const STATUS_KEY = s => /outsourc/i.test(s) ? 'op' : /confirm/i.test(s) ? 'confirm' : /cdp/i.test(s) ? 'cdp' : 'internal';
   const STATUS_SHORT = s => ({ op: 'Outsourcing Partner', confirm: 'Scope confirmation', cdp: 'CDP item', internal: 'Internal team' })[STATUS_KEY(s)];
+  /** Status as shown on step 2: without outsourcing everything but scope confirmation is assumed internal, so left blank. */
+  const statusLabel = s => S.project.outsourcing ? (STATUS_KEY(s) === 'op' ? 'Potential outsourcing' : STATUS_SHORT(s)) : STATUS_KEY(s) === 'confirm' ? STATUS_SHORT(s) : '';
   const CONTENT_TABS = ['Drawings', 'Images', 'Lists', 'Models', 'Text', 'Video'];
   const INTROS = {
     1: ['Project set-up', 'Enter the project details once. Everything below drives the file references, the sector selection and the storey and volume duplication. Nothing here can break the Library.'],
@@ -52,7 +54,6 @@
     $('libInfo').textContent = S.lib.meta.documents + ' Library items · v' + S.lib.meta.version;
     $('libVer').textContent = 'v' + S.lib.meta.version + ' (' + S.lib.meta.extracted + ')';
     $('pSector').innerHTML = '<option value="">Select a sector or discipline…</option>' + L.sectors.map(s => `<option>${esc(s)}</option>`).join('');
-    $('statusFilter').innerHTML = '<option value="">All statuses</option>' + L.statuses.map(s => `<option value="${esc(s)}">${esc(STATUS_SHORT(s))}</option>`).join('');
     defaultLevels();
   }
   function defaultLevels() {
@@ -167,6 +168,11 @@
     if (!p.sector) { w.style.display = 'block'; w.textContent = 'No sector or discipline selected yet: every Library item is shown as selected. Choose the sector or discipline on step 1 to apply the Library defaults.'; }
     else w.style.display = 'none';
 
+    const statuses = L.lists.statuses.filter(statusLabel);
+    if (!statuses.includes(u.status)) u.status = '';
+    $('statusFilter').innerHTML = '<option value="">All statuses</option>' + statuses.map(s => `<option value="${esc(s)}">${esc(statusLabel(s))}</option>`).join('');
+    $('statusFilter').value = u.status;
+
     const q = u.search.trim().toLowerCase();
     const docs = L.documents.filter(d => d.tab === u.tab)
       .filter(d => !q || (d.number + ' ' + d.description + ' ' + d.workPackage + ' ' + d.series + ' ' + d.format).toLowerCase().includes(q))
@@ -187,7 +193,7 @@
         <td>${esc(d.format)}</td><td>${esc(d.scale)}</td><td>${esc(d.workPackage)}</td>
         <td style="white-space:nowrap">${stg}</td>
         <td class="${d.tender['3+'] ? 'tick' : 'tickx'}">✓</td><td class="${d.tender['4a'] ? 'tick' : 'tickx'}">✓</td><td class="${d.tender['4b'] ? 'tick' : 'tickx'}">✓</td>
-        <td title="${esc(d.status)}"><span class="st ${k}"></span>${esc(STATUS_SHORT(d.status))}</td>
+        <td>${statusLabel(d.status) ? `<span class="st ${k}"></span>${esc(statusLabel(d.status))}` : ''}</td>
         <td class="dup">${dup}</td></tr>`;
     }
     $('docBody').innerHTML = html || '<tr><td colspan="12" class="hint">No items match.</td></tr>';
