@@ -1,7 +1,7 @@
 {
  "meta": {
   "name": "Bond Bryan TIDP Library",
-  "version": "2026.2",
+  "version": "2026.3",
   "source": "BB_TaskInformationDeliveryPlan-2026.xlsm",
   "extracted": "2026-09-17",
   "documents": 223,
@@ -295,7 +295,7 @@
     "4b": false
    },
    "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "",
+   "comments": "For planning and early stage",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -344,7 +344,7 @@
     "4b": false
    },
    "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "",
+   "comments": "Scope to be agreed with Landscape Architect",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -393,7 +393,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "",
+   "comments": "Scope to be agreed with Landscape Architect",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -442,7 +442,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
-   "comments": "",
+   "comments": "Detailed information, setting out, levels, drainage, services, landscaping, external works, etc. to be co-ordinated with Landscape Architect and other consultants.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -736,7 +736,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "",
+   "comments": "Setting out, fire proofing, materials, dimensions, accessories, etc. to be co-ordinated with other consultants.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -1079,7 +1079,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "",
+   "comments": "Technical details to be co-ordinated with other consultants.",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -1128,7 +1128,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "",
+   "comments": "Technical details to be co-ordinated with other consultants.",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -1373,7 +1373,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
-   "comments": "",
+   "comments": "Fully coordinated room layouts in plan and elevations",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -1814,7 +1814,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "",
+   "comments": "Coordinate with SE and M&E consultants to ensure correct slab setting out and co-ordination with services.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -1863,7 +1863,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "",
+   "comments": "Coordinate with SE and M&E consultants to ensure correct slab setting out and co-ordination with services.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -1912,7 +1912,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "Internal team only item.",
+   "comments": "For 3D models coordination, site real coordinated alignment and grid lines coordination with other consultants.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -2059,7 +2059,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "",
+   "comments": "Secure by Design requirements",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -2108,7 +2108,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "",
+   "comments": "Access control, secure line, compartmentation",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -2157,7 +2157,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "",
+   "comments": "Coordinated with PDCDM and other consultants to ensure correct maintenance strategy and co-ordination with services.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -2206,7 +2206,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "",
+   "comments": "Only relevant to specific appointments, Project Lead to review if required and allocate internal resource accordingly.",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -2255,7 +2255,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "",
+   "comments": "Only relevant to specific appointments, Project Lead to review if required and allocate internal resource accordingly.",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -2304,7 +2304,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "Internal team only item.",
+   "comments": "Coordinated with PDCDM",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -2549,7 +2549,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "",
+   "comments": "Only relevant to specific appointments, Project Lead to review if required and allocate internal resource accordingly.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -2598,7 +2598,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "",
+   "comments": "Over and above ironmongery drawing for specific setting out and products (schedule and specification)",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -2843,7 +2843,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
-   "comments": "",
+   "comments": "Typical details part of template. Bespoke to be developed by internal team.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -2892,7 +2892,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "",
+   "comments": "Technical details to be co-ordinated with other consultants.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -3382,7 +3382,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "",
+   "comments": "Technical details to be co-ordinated with other consultants.",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -3431,7 +3431,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "",
+   "comments": "Technical details to be co-ordinated with other consultants.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -3480,7 +3480,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "",
+   "comments": "Technical details to be co-ordinated with other consultants.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -3578,7 +3578,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "",
+   "comments": "Technical details to be co-ordinated with other consultants.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -3725,7 +3725,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "",
+   "comments": "Technical details to be co-ordinated with other consultants. If in agreed scope. Typically CDP items",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -3774,7 +3774,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "",
+   "comments": "Technical details to be co-ordinated with other consultants. If in agreed scope. Typically CDP items",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -3823,7 +3823,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "",
+   "comments": "Technical details to be co-ordinated with other consultants.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -4411,7 +4411,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "As Part of BG Project Pack",
+   "comments": "Technical details to be co-ordinated with manufacturer",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -4459,8 +4459,8 @@
     "4a": false,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
-   "comments": "Project Lead to review if required and allocate resource accordingly.",
+   "status": "Internal Team Item - Project Lead to allocate resource acordingly",
+   "comments": "Technical details to be co-ordinated with other consultants.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -4509,7 +4509,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "Typical Only, Internal team item only.",
+   "comments": "Technical details to be co-ordinated with other consultants.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -4558,7 +4558,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "",
+   "comments": "Technical details to be co-ordinated with other consultants.",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -4656,7 +4656,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "",
+   "comments": "Technical details to be co-ordinated with other consultants.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -4705,7 +4705,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "",
+   "comments": "Technical details to be co-ordinated with other consultants.",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -4754,7 +4754,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "",
+   "comments": "Technical details to be co-ordinated with other consultants.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -4803,7 +4803,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "",
+   "comments": "Scope to be agreed with Landscape Architect",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -4852,7 +4852,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "",
+   "comments": "Scope to be agreed with Landscape Architect",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -4901,7 +4901,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "",
+   "comments": "Scope to be agreed with Landscape Architect",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -4950,7 +4950,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "",
+   "comments": "Scope to be agreed with Landscape Architect",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -4999,7 +4999,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "",
+   "comments": "Scope to be agreed with Landscape Architect",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -5391,7 +5391,7 @@
     "4b": false
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "",
+   "comments": "Additional contract / scope for this item",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -5440,7 +5440,7 @@
     "4b": false
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "",
+   "comments": "Additional contract / scope for this item",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -5587,7 +5587,7 @@
     "4b": false
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "",
+   "comments": "Visuals (external / internal / daylight impact / street scene): Dependant on BBA scope.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -5636,7 +5636,7 @@
     "4b": false
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "",
+   "comments": "Visuals (external / internal / daylight impact / street scene): Dependant on BBA scope.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -5783,7 +5783,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "",
+   "comments": "Over and above Schedule of Accommodation, if required by BBA scope.",
    "sectors": {
     "Education": true,
     "Residential": false,
@@ -6028,7 +6028,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Schedule from manufacturer\n1:100 GA plans, locking suite by specialist subcontractor in conjunction with School at Stage 5",
+   "comments": "Schedule from manufacturer, locking suite, specifications. Typically CDP item",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -7008,7 +7008,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "",
+   "comments": "Typically to FFE consultant",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -7694,7 +7694,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
-   "comments": "Area Data Sheets (ADS): i) Fully developed and completed Area Data Sheets on the proformas included in the Employer's Requirements.\nii) For refurbishment/remodelling Works, relevant plans, sections and elevations to be included, along with and cross referenced to the completed Refurbishment Scope of Works (RSoW).\niii) Where the Contractor requires to derogate against the Employer’s Requirements, a derogation schedule will be required:\n- To set out and reference the specific DfE's Generic Design Brief (GDB) clauses to which they relate to, with detailed reasoning as to the non-compliance;\n- To be aligned with and cross referenced to the information included in the Areas Data Sheets (ADS) and the Refurbishment Scope of Works (RSoW);\niv) An appended clarification schedule shall be provided to capture where compliance with the Employer's Requirements is not relevant to the project;\nv) The derogation schedule shall be updated by the Contractor as and when there are changes as a result of variations/changes and/or changes in accordance with Review Procedure/Contractor’s Design Submission Procedure.\nvi) The Contractor shall notify the Employer of any derogations to the Employer’s Requirements, or issues not previously identified in the derogation schedule, the completed Area Data Sheets (ADS) or the Refurbishment Scope of Works (RSoW) immediately they become apparent.",
+   "comments": "Area Data Sheets (ADS): i) Fully developed and completed Area Data Sheets on the proformas included in the Employer's Requirements. ii) For refurbishment/remodelling Works, relevant plans, sections and elevations to be included, along with and cross referenced to the completed Refurbishment Scope of Works (RSoW).\niii) Where the Contractor requires to derogate against the Employer’s Requirements, a derogation schedule will be required:\n- To set out and reference the specific DfE's Generic Design Brief (GDB) clauses to which they relate to, with detailed reasoning as to the non-compliance;\n- To be aligned with and cross referenced to the information included in the Areas Data Sheets (ADS) and the Refurbishment Scope of Works (RSoW);\niv) An appended clarification schedule shall be provided to capture where compliance with the Employer's Requirements is not relevant to the project;\nv) The derogation schedule shall be updated by the Contractor as and when there are changes as a result of variations/changes and/or changes in accordance with Review Procedure/Contractor’s Design Submission Procedure.\nvi) The Contractor shall notify the Employer of any derogations to the Employer’s Requirements, or issues not previously identified in the derogation schedule, the completed Area Data Sheets (ADS) or the Refurbishment Scope of Works (RSoW) immediately they become apparent.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -7743,7 +7743,7 @@
     "4b": false
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "",
+   "comments": "Scope to be agreed with Landscape Architect",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -8086,7 +8086,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "",
+   "comments": "Clash detection report to be produced by internal team. Clash detection to be co-ordinated with other consultants.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -8478,7 +8478,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "",
+   "comments": "Federated model to be produced by internal team. Clash detection to be co-ordinated with other consultants.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -8526,8 +8526,8 @@
     "4a": true,
     "4b": true
    },
-   "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "",
+   "status": "Confirmation of BBA scope required",
+   "comments": "Additional contract / scope for this item",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -8625,7 +8625,7 @@
     "4b": false
    },
    "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "",
+   "comments": "At project completion",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -9017,7 +9017,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "",
+   "comments": "Clash detection report to be produced by internal team. Clash detection to be co-ordinated with other consultants.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -9066,7 +9066,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "",
+   "comments": "To be coordinated with main contractor",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -9115,7 +9115,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "",
+   "comments": "Additional contract / scope may be needed for this item",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -9164,7 +9164,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "",
+   "comments": "Additional contract / scope may be needed for this item",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -9262,7 +9262,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "",
+   "comments": "Scope to be agreed with Landscape Architect",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -9752,7 +9752,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "",
+   "comments": "Additional contract / scope may be needed for this item",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -9801,7 +9801,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "",
+   "comments": "Coordinate with BIM Support team",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -9850,7 +9850,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "",
+   "comments": "Coordinate with BIM Support team",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -9899,7 +9899,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "",
+   "comments": "Coordinate with BIM Support team",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -10046,7 +10046,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "",
+   "comments": "Additional contract / scope may be needed for this item",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -10143,8 +10143,8 @@
     "4a": true,
     "4b": true
    },
-   "status": "Internal Team Item - Project Lead to allocate resource acordingly",
-   "comments": "",
+   "status": "Confirmation of BBA scope required",
+   "comments": "Additional contract / scope may be needed for this item",
    "sectors": {
     "Education": true,
     "Residential": true,

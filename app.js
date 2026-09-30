@@ -208,7 +208,7 @@
     $('summary').innerHTML = [
       ['Documents issued', issued, 'across ' + gen.filter(g => g.tab !== 'Internal').length + ' sheets'],
       ['Internal items', internal, 'not in the issued TIDP; listed in the resourcing note'],
-      ['Outsourcing Partner candidates', op, p.outsourcing ? 'in the resourcing note' : 'outsourcing not selected'],
+      ['Documents suitable for outsourcing', op, p.outsourcing ? 'in the resourcing note' : 'outsourcing not selected'],
       ['Scope to confirm', conf, 'Confirmation of BBA scope required', '<button class="btn secondary small" id="btnScope">Review now</button>'],
       ['Storeys × volumes', p.storeys.filter(s => s.on).length + ' × ' + (p.volumes.filter(v => v.on).length || '-'), 'duplication applied']
     ].map(([l, v, s, extra]) => `<div class="kpi"><b>${v}</b>${l}<br><span>${s}</span>${extra ? '<br>' + extra : ''}</div>`).join('');
@@ -432,12 +432,13 @@
   async function buildNote() {
     const D = window.docx, p = S.project, gen = generate(true);
     const rows = gen.flatMap(g => g.groups.flatMap(x => x.rows));
-    const cat = r => r.tab === 'Internal' ? 'internal' : STATUS_KEY(r.status);
+    const cat = r => r.tab === 'Internal' ? 'internalUse' : STATUS_KEY(r.status);
     const count = k => rows.filter(r => cat(r) === k).length;
     const sections = [['confirm', 'Confirmation of BBA scope required', 'Items to confirm against the appointment before they are committed.'],
       ['op', 'Outsourcing Partner items', 'Candidates for the Outsourcing Partner. The Project Lead co-ordinates scope, programme and quality checks.'],
       ['cdp', 'Contractor Designed Portion items', 'Items expected from the contractor or specialist; BBA reviews only.'],
-      ['internal', 'Internal team items', 'Delivered by the Bond Bryan project team, including the internal items that are not in the issued TIDP; the Project Lead allocates resource.']];
+      ['internal', 'Internal Team Items', 'General documents produced by the Bond Bryan project team; the Project Lead allocates resource.'],
+      ['internalUse', 'Internal usage only', 'Documents for Bond Bryan internal use only; they are not part of the issued TIDP.']];
     const P = (t, o = {}) => new D.Paragraph({ children: [new D.TextRun({ text: t, font: 'Arial', size: o.size || 20, bold: o.bold, color: o.color })], spacing: { after: o.after ?? 100 }, heading: o.h });
     const cellOpts = { margins: { top: 40, bottom: 40, left: 80, right: 80 } };
     const cell = (t, w, bold, fill) => new D.TableCell({ ...cellOpts, width: { size: w, type: D.WidthType.DXA }, shading: fill ? { fill } : undefined, children: [new D.Paragraph({ children: [new D.TextRun({ text: String(t ?? ''), font: 'Arial', size: 16, bold })] })] });
@@ -446,7 +447,7 @@
       ...(logo ? [new D.Paragraph({ children: [new D.ImageRun({ data: new Uint8Array(logo), transformation: { width: 240, height: 41 } })], spacing: { after: 300 } })] : []),
       P('INTERNAL RESOURCING NOTE', { size: 32, bold: true }), P('Task Information Delivery Plan · Internal, not for issue', { color: '8C8280' }),
       P(`Project: ${p.name}   Code: ${p.code}   Revision: ${REV}   Date: ${today()}   Sector or discipline: ${p.sector}   Issued by: ${p.issuer}   Outsourcing Partner: ${p.outsourcing ? 'may be used' : 'not selected'}`, { after: 200 }),
-      P(`Summary: ${rows.length} deliverables in total, of which ${count('confirm')} requiring scope confirmation, ${count('op')} Outsourcing Partner candidates and ${count('internal')} internal team items.`, { after: 300 })];
+      P(`Summary: ${rows.length} deliverables in total, of which ${count('confirm')} requiring scope confirmation, ${count('op')} documents suitable for outsourcing, ${count('internal')} internal team items and ${count('internalUse')} for internal usage only.`, { after: 300 })];
     for (const [k, title, intro] of sections) {
       const list = rows.filter(r => cat(r) === k); if (!list.length) continue;
       children.push(P(`${title} (${list.length})`, { size: 24, bold: true, after: 60 }), P(intro, { color: '444444', after: 120 }));
