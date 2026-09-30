@@ -1,7 +1,7 @@
 {
  "meta": {
   "name": "Bond Bryan TIDP Library",
-  "version": "2026.3",
+  "version": "2026.4",
   "source": "BB_TaskInformationDeliveryPlan-2026.xlsm",
   "extracted": "2026-09-17",
   "documents": 223,
@@ -539,7 +539,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Internal Team Item - Project Lead to allocate resource acordingly",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -4165,7 +4165,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Internal Team Item - Project Lead to allocate resource acordingly",
    "comments": "Project Lead to review if required and allocate internal resource accordingly.",
    "sectors": {
     "Education": true,
