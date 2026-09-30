@@ -209,7 +209,9 @@
       ['Documents issued', issued, 'across ' + gen.filter(g => g.tab !== 'Internal').length + ' sheets'],
       ['Internal items', internal, 'not in the issued TIDP; listed in the resourcing note'],
       ['Documents suitable for outsourcing', op, p.outsourcing ? 'in the resourcing note' : 'outsourcing not selected'],
-      ['Scope to confirm', conf, 'Confirmation of BBA scope required', '<button class="btn secondary small" id="btnScope">Review now</button>'],
+      ['Scope to confirm', conf, 'Confirmation of BBA scope required', scopeValidated !== null && scopeValidated === scopeTicked()
+        ? '<button class="btn small done" id="btnScope" title="Scope reviewed. Click to reopen and edit">✓ Validated</button>'
+        : '<button class="btn secondary small" id="btnScope">Review now</button>'],
       ['Storeys × volumes', p.storeys.filter(s => s.on).length + ' × ' + (p.volumes.filter(v => v.on).length || '-'), 'duplication applied']
     ].map(([l, v, s, extra]) => `<div class="kpi"><b>${v}</b>${l}<br><span>${s}</span>${extra ? '<br>' + extra : ''}</div>`).join('');
     const issues = [];
