@@ -7,8 +7,8 @@
   // ------------------------------------------------------------------ state
   const newProject = () => ({
     name: '', code: '', issuer: '', sector: '', works: 'new', outsourcing: false,
-    storeys: [], volumes: [], stageDates: { 1: '', 2: '', 3: '', 4: '', 5: '', 6: '', 7: '' },
-    stageOn: { 1: true, 2: true, 3: true, 4: true, 5: true, 6: true, 7: true },
+    storeys: [], volumes: [], stageDates: { 0: '', 1: '', 2: '', 3: '', 4: '', 5: '', 6: '', 7: '' },
+    stageOn: { 0: true, 1: true, 2: true, 3: true, 4: true, 5: true, 6: true, 7: true },
     tenders: { '3+': true, '4a': true, '4b': true }
   });
   const newUi = () => ({ tab: 'Drawings', search: '', status: '', showOff: true });
@@ -20,8 +20,8 @@
   };
   const FIXED_CODES = ['ZZ', 'XX']; // always created; shown ticked and locked on step 1
   const REV = 'P01';               // every TIDP produced here is the first issue, dated today
-  const STAGE_COLOURS = ['E88EB9', '59A3A1', 'F9C829', '6DA97D', '8D8FB9', 'E5C683', '5092BF'];
-  const STAGES = [1, 2, 3, 4, 5, 6, 7];
+  const STAGE_COLOURS = ['D98C6B', 'E88EB9', '59A3A1', 'F9C829', '6DA97D', '8D8FB9', 'E5C683', '5092BF']; // indexed by RIBA stage 0-7
+  const STAGES = [0, 1, 2, 3, 4, 5, 6, 7];
   const TENDERS = ['3+', '4a', '4b'];
   const STATUS_KEY = s => /outsourc/i.test(s) ? 'op' : /confirm/i.test(s) ? 'confirm' : /cdp/i.test(s) ? 'cdp' : 'internal';
   const STATUS_SHORT = s => ({ op: 'Outsourcing Partner', confirm: 'Scope confirmation', cdp: 'CDP item', internal: 'Internal team' })[STATUS_KEY(s)];
@@ -75,6 +75,14 @@
     return true;
   }
   const isOn = d => (d.id in S.sel) ? S.sel[d.id] : defaultOn(d);
+  /** Items switched on only for disciplines (Landscape, Interior Design) are hidden for every other sector or discipline. */
+  function visible(d) {
+    const s = S.project.sector;
+    if (!s || d.sectors[s]) return true;
+    const disciplines = Object.keys(S.lib.lists.roleBySector).filter(k => k !== 'default');
+    const onFor = Object.keys(d.sectors).filter(k => d.sectors[k]);
+    return !(onFor.length && onFor.every(k => disciplines.includes(k)));
+  }
   function setOn(d, v) { if (v === defaultOn(d)) delete S.sel[d.id]; else S.sel[d.id] = v; }
 
   // ------------------------------------------------------------------ generation (mirrors the VBA GenerateTIDP)
@@ -93,7 +101,7 @@
     if (first && !on[first]) { const i = vals.findIndex(v => v); if (i >= 0) vals[i] = 'YYYY-MM-DD'; }
     return vals.map((v, i) => {
       if (!v) return '';
-      if (v === 'YYYY-MM-DD') { const dt = S.project.stageDates[i + 1]; return dt ? parseDate(dt) : 'YYYY-MM-DD'; }
+      if (v === 'YYYY-MM-DD') { const dt = S.project.stageDates[STAGES[i]]; return dt ? parseDate(dt) : 'YYYY-MM-DD'; }
       return v;
     });
   }
@@ -106,7 +114,7 @@
     const volumes = p.volumes.filter(v => v.on).map(v => v.code);
     const tabs = includeInternal ? [...CONTENT_TABS, 'Internal'] : CONTENT_TABS;
     for (const tab of tabs) {
-      const docs = S.lib.documents.filter(d => d.tab === tab && isOn(d));
+      const docs = S.lib.documents.filter(d => d.tab === tab && visible(d) && isOn(d));
       if (!docs.length) continue;
       const groups = [];
       for (const d of docs) {
@@ -136,14 +144,7 @@
   }
   const docRef = r => [r.project, r.originator, r.volume, r.level, r.type, r.role, r.number].filter(Boolean).join('-');
   const fileName = s => s.replace(/[\\/:*?"<>|]+/g, '-');
-  /** The Library's TIDP entry for the selected sector or discipline (1001 Architect, 1004 Landscape, 1005 Interior Design). */
-  function tidpDoc() {
-    return S.lib.documents.find(d => d.tab === 'Lists' && /^Task Information Delivery Plan_/.test(d.description) && (!S.project.sector || d.sectors[S.project.sector] !== false));
-  }
-  function fileRef() {
-    const t = tidpDoc();
-    return `${S.project.code || 'ABCDE'}-BBA-XX-XX-L-${role()}-${t ? t.number : '1001'} ${t ? t.description : 'Task Information Delivery Plan_' + discipline()}`;
-  }
+  function fileRef() { return `${S.project.code || 'ABCDE'}-BBA-XX-XX-L-${role()}-1001 Task Information Delivery Plan_${discipline()}`; }
   function noteRef() { return `${S.project.code || 'ABCDE'}-BBA-XX-XX-T-${role()}-0010 ResourcingNote_${discipline()}`; }
 
   // ------------------------------------------------------------------ rendering
@@ -159,7 +160,7 @@
     $('volumes').innerHTML = locked + p.volumes.map((v, i) => `<label class="chip ${v.on ? 'on' : ''}"><input type="checkbox" data-volume="${i}" ${v.on ? 'checked' : ''}> ${esc(v.code)} <small>${esc(v.name)}</small></label>`).join('');
     $('stageDates').innerHTML = S.lib.lists.stages.map(s => {
       const on = p.stageOn[s.n];
-      return `<div class="stage ${on ? '' : 'off'}" style="border-color:#${STAGE_COLOURS[s.n - 1]}"><label><input type="checkbox" data-stageon="${s.n}" ${on ? 'checked' : ''}><b>Stage ${s.n}</b></label><span class="hint">${esc(s.name)}</span><input type="date" data-stage="${s.n}" value="${p.stageDates[s.n] || ''}" ${on ? '' : 'disabled'}></div>`;
+      return `<div class="stage ${on ? '' : 'off'}" style="border-color:#${STAGE_COLOURS[s.n]}"><label><input type="checkbox" data-stageon="${s.n}" ${on ? 'checked' : ''}><b>Stage ${s.n}</b></label><span class="hint">${esc(s.name)}</span><input type="date" data-stage="${s.n}" value="${p.stageDates[s.n] || ''}" ${on ? '' : 'disabled'}></div>`;
     }).join('');
     $('tenders').innerHTML = TENDERS.map(t => `<label class="chip ${p.tenders[t] ? 'on' : ''}"><input type="checkbox" data-tender="${t}" ${p.tenders[t] ? 'checked' : ''}> Tender ${t}</label>`).join('');
   }
@@ -168,7 +169,7 @@
     const p = S.project, u = S.ui, L = S.lib;
     const tabs = [...CONTENT_TABS, 'Internal'];
     $('tabFilter').innerHTML = tabs.map(t => {
-      const n = L.documents.filter(d => d.tab === t && isOn(d)).length, tot = L.documents.filter(d => d.tab === t).length;
+      const n = L.documents.filter(d => d.tab === t && visible(d) && isOn(d)).length, tot = L.documents.filter(d => d.tab === t && visible(d)).length;
       return `<button class="${u.tab === t ? 'active' : ''}" data-tab="${t}">${t}<span class="c">${n}/${tot}</span></button>`;
     }).join('');
     const w = $('setupWarn');
@@ -181,7 +182,7 @@
     $('statusFilter').value = u.status;
 
     const q = u.search.trim().toLowerCase();
-    const docs = L.documents.filter(d => d.tab === u.tab)
+    const docs = L.documents.filter(d => d.tab === u.tab && visible(d))
       .filter(d => !q || (d.number + ' ' + d.description + ' ' + d.workPackage + ' ' + d.series + ' ' + d.format).toLowerCase().includes(q))
       .filter(d => !u.status || d.status === u.status)
       .filter(d => u.showOff || isOn(d));
@@ -190,7 +191,7 @@
     for (const d of docs) {
       if (d.series !== series) { series = d.series; html += `<tr class="series"><td colspan="12">${esc(series)}</td></tr>`; }
       const on = isOn(d), k = STATUS_KEY(d.status);
-      const stg = STAGES.map(n => `<span class="stg ${d.stages[n] ? 'on' : ''} ${p.stageOn[n] ? '' : 'out'}" style="background:#${STAGE_COLOURS[n - 1]}" title="Stage ${n}: ${esc(d.stages[n] || 'not required')}${p.stageOn[n] ? '' : ' (stage not in this appointment)'}">${n}</span>`).join('');
+      const stg = STAGES.map(n => `<span class="stg ${d.stages[n] ? 'on' : ''} ${p.stageOn[n] ? '' : 'out'}" style="background:#${STAGE_COLOURS[n]}" title="Stage ${n}: ${esc(d.stages[n] || 'not required')}${p.stageOn[n] ? '' : ' (stage not in this appointment)'}">${n}</span>`).join('');
       const dup = [d.floorDup ? `× ${storeyN} storeys` : '', d.volDup && volN ? `× ${volN} volumes` : ''].filter(Boolean).join(', ');
       const flag = d.buildType === 'existing' ? ' <span class="pill" title="Existing building only">existing</span>' : '';
       html += `<tr class="${on ? '' : 'off'}" data-id="${esc(d.id)}">
@@ -237,7 +238,7 @@
   }
 
   // ------------------------------------------------------------------ scope confirmation review (second route to the step 2 ticks)
-  const scopeDocs = () => S.lib.documents.filter(d => STATUS_KEY(d.status) === 'confirm');
+  const scopeDocs = () => S.lib.documents.filter(d => STATUS_KEY(d.status) === 'confirm' && visible(d));
   // ticked scope items at the last Validate; any change to them means reviewing again before export
   let scopeValidated = null;
   const scopeTicked = () => scopeDocs().filter(isOn).map(d => d.id).join('|');
@@ -381,10 +382,10 @@
     const p = S.project, gen = generate(false), wb = new ExcelJS.Workbook();
     wb.creator = 'Bond Bryan Architects - TIDP Builder'; wb.created = new Date();
     const thin = { style: 'thin', color: { argb: 'FFBFBFBF' } }, border = { top: thin, left: thin, bottom: thin, right: thin };
-    const tenders = TENDERS.filter(t => p.tenders[t]), NCOL = 18 + tenders.length;
-    const HEAD7 = ['Project', 'Originator', 'Volume / system', 'Level', 'Type', 'Role', 'Number', '', '', '', '', 'Stage 1', 'Stage 2', 'Stage 3', 'Stage 4', 'Stage 5', 'Stage 6', 'Stage 7', ...tenders.map((_, i) => i ? '' : 'Tender')];
+    const tenders = TENDERS.filter(t => p.tenders[t]), SN = 11 + STAGES.length, NCOL = SN + tenders.length; // stage columns 12..SN
+    const HEAD7 = ['Project', 'Originator', 'Volume / system', 'Level', 'Type', 'Role', 'Number', '', '', '', '', ...STAGES.map(n => 'Stage ' + n), ...tenders.map((_, i) => i ? '' : 'Tender')];
     const HEAD8 = ['', '', '', '', '', '', '', 'Description', 'Format', 'Scale', 'Work Package', ...S.lib.lists.stages.map(s => s.name), ...tenders];
-    const WIDTHS = [11, 9, 9, 7, 6, 6, 9, 52, 12, 15, 38, 14, 14, 14, 14, 14, 14, 14, ...tenders.map(() => 5.5)];
+    const WIDTHS = [11, 9, 9, 7, 6, 6, 9, 52, 12, 15, 38, ...STAGES.map(() => 14), ...tenders.map(() => 5.5)];
     const date = parseDate(today());
     const logoId = await loadLogo(wb);
 
@@ -418,12 +419,12 @@
       for (let c = 1; c <= NCOL; c++) for (const row of [7, 8]) {
         const cell = ws.getCell(row, c);
         cell.font = { bold: true, size: 9 }; cell.alignment = { vertical: 'middle', horizontal: 'center', wrapText: true }; cell.border = border;
-        if (c >= 12 && c <= 18 && !p.stageOn[c - 11]) { cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFEDEDED' } }; cell.font = { bold: true, size: 9, color: { argb: 'FF8C8280' } }; }
-        else if (c >= 12 && c <= 18) cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF' + STAGE_COLOURS[c - 12] } };
+        if (c >= 12 && c <= SN && !p.stageOn[STAGES[c - 12]]) { cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFEDEDED' } }; cell.font = { bold: true, size: 9, color: { argb: 'FF8C8280' } }; }
+        else if (c >= 12 && c <= SN) cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF' + STAGE_COLOURS[STAGES[c - 12]] } };
         else cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFD9D9D9' } };
       }
       for (let c = 1; c <= 7; c++) ws.mergeCells(7, c, 8, c);
-      if (tenders.length > 1) ws.mergeCells(7, 19, 7, NCOL);
+      if (tenders.length > 1) ws.mergeCells(7, SN + 1, 7, NCOL);
       ws.getRow(8).height = 60;
 
       let rn = 9;
@@ -438,8 +439,8 @@
           vals.forEach((v, c) => {
             const cell = row.getCell(c + 1); cell.value = v === '' ? null : v; cell.border = border; cell.font = { size: 9 };
             if (c === 6) cell.numFmt = '@';
-            if (c >= 11 && c <= 17) { cell.alignment = { horizontal: 'center' }; if (v instanceof Date) cell.numFmt = 'yyyy-mm-dd'; else if (v === 'YYYY-MM-DD') cell.font = { size: 9, color: { argb: 'FFFF0000' } }; }
-            if (c >= 18) cell.alignment = { horizontal: 'center' };
+            if (c >= 11 && c < SN) { cell.alignment = { horizontal: 'center' }; if (v instanceof Date) cell.numFmt = 'yyyy-mm-dd'; else if (v === 'YYYY-MM-DD') cell.font = { size: 9, color: { argb: 'FFFF0000' } }; }
+            if (c >= SN) cell.alignment = { horizontal: 'center' };
           });
           row.height = 19;
           dataRows.push({ sheet: g.tab, row: rn, tab: g.tab, series: grp.series });
@@ -464,7 +465,7 @@
       for (let c = 1; c <= NCOL; c++) {
         const ref = `${sh}!${colLetter(c)}${d.row}`, cell = row.getCell(3 + c);
         cell.value = { formula: `IF(${ref}="","",${ref})` };
-        if (c >= 12 && c <= 18) cell.numFmt = 'yyyy-mm-dd';
+        if (c >= 12 && c <= SN) cell.numFmt = 'yyyy-mm-dd';
         if (c === 7) cell.numFmt = '@';
       }
       dr++;
@@ -505,7 +506,7 @@
       const W = [1900, 1100, 3900, 1000, 1000, 3100];
       const trs = [new D.TableRow({ tableHeader: true, children: ['Reference', 'Sheet', 'Description', 'Format', 'First stage', 'Comment'].map((h, i) => cell(h, W[i], true, 'D9D9D9')) })];
       for (const r of list) {
-        const first = r.stages.findIndex(s => s); const fs = first >= 0 ? 'Stage ' + (first + 1) + (r.stages[first] instanceof Date ? ' · ' + r.stages[first].toISOString().slice(0, 10) : '') : '';
+        const first = r.stages.findIndex(s => s); const fs = first >= 0 ? 'Stage ' + STAGES[first] + (r.stages[first] instanceof Date ? ' · ' + r.stages[first].toISOString().slice(0, 10) : '') : '';
         trs.push(new D.TableRow({ children: [docRef(r), r.tab, r.description, r.format, fs, r.comments].map((v, i) => cell(v, W[i])) }));
       }
       children.push(new D.Table({ rows: trs, width: { size: 12000, type: D.WidthType.DXA } }), P('', { after: 200 }));
