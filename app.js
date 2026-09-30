@@ -189,7 +189,7 @@
       html += `<tr class="${on ? '' : 'off'}" data-id="${esc(d.id)}">
         <td><input type="checkbox" data-sel="${esc(d.id)}" ${on ? 'checked' : ''}></td>
         <td class="num">${esc(d.type)}-${esc(d.number)}</td>
-        <td class="desc">${esc(d.description)}${flag}</td>
+        <td class="desc">${esc(d.description)}${d.comments ? '<i class="cmt" aria-label="Has a comment">i</i>' : ''}${flag}</td>
         <td>${esc(d.format)}</td><td>${esc(d.scale)}</td><td>${esc(d.workPackage)}</td>
         <td style="white-space:nowrap">${stg}</td>
         <td class="${d.tender['3+'] ? 'tick' : 'tickx'}">✓</td><td class="${d.tender['4a'] ? 'tick' : 'tickx'}">✓</td><td class="${d.tender['4b'] ? 'tick' : 'tickx'}">✓</td>
@@ -302,6 +302,20 @@
   $('search').addEventListener('input', e => { S.ui.search = e.target.value; renderDocs(); });
   $('statusFilter').addEventListener('change', e => { S.ui.status = e.target.value; renderDocs(); });
   $('showOff').addEventListener('change', e => { S.ui.showOff = e.target.checked; renderDocs(); });
+  // hovering a row shows its Library comment
+  const tip = $('tip');
+  $('docBody').addEventListener('mousemove', e => {
+    const tr = e.target.closest('tr[data-id]'), d = tr && S.lib.documents.find(x => x.id === tr.dataset.id);
+    if (!d || !d.comments) { tip.style.display = 'none'; return; }
+    if (tip.dataset.id !== d.id) { tip.dataset.id = d.id; tip.innerHTML = '<b>Comment</b>' + esc(d.comments); }
+    tip.style.display = 'block';
+    const x = e.clientX + 14, y = e.clientY + 16, w = tip.offsetWidth, h = tip.offsetHeight;
+    tip.style.left = Math.max(8, x + w > innerWidth - 8 ? e.clientX - w - 14 : x) + 'px';
+    tip.style.top = Math.max(8, y + h > innerHeight - 8 ? e.clientY - h - 12 : y) + 'px';
+  });
+  const hideTip = () => { tip.style.display = 'none'; };
+  $('docBody').addEventListener('mouseleave', hideTip);
+  addEventListener('scroll', hideTip, { passive: true });
   $('docBody').addEventListener('change', e => {
     const id = e.target.dataset.sel; if (!id) return;
     const d = S.lib.documents.find(x => x.id === id); setOn(d, e.target.checked);

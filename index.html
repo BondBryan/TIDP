@@ -116,6 +116,9 @@ table.docs td.num{font-family:ui-monospace,Menlo,Consolas,monospace;white-space:
 .err{background:#fde8e8;border:1px solid #f5b5b5;padding:10px 12px;border-radius:4px;margin:10px 0}
 .ok{background:#e8f6e6;border:1px solid #b9dfb3;padding:10px 12px;border-radius:4px;margin:10px 0}
 footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid var(--line)}
+#tip{position:fixed;max-width:420px;background:var(--ink);color:#fff;padding:8px 11px;border-radius:6px;font-size:12px;line-height:1.45;white-space:pre-line;pointer-events:none;display:none;z-index:60;box-shadow:0 4px 16px rgba(0,0,0,.25)}
+#tip b{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--accent-2);margin-bottom:3px}
+.cmt{display:inline-block;width:14px;height:14px;border-radius:50%;border:1px solid var(--accent);color:var(--accent);font-size:10px;font-weight:700;line-height:12px;text-align:center;margin-left:6px;vertical-align:1px;font-style:normal}
 #toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;border-radius:6px;display:none;z-index:50}
 @media (max-width:700px){header{padding:10px 16px}main{padding:14px 16px}nav.steps{padding:6px 16px;overflow-x:auto}.toolbar{position:static}table.docs th{position:static}}
 @media print{header,nav,.toolbar,footer{display:none}}
@@ -240,6 +243,7 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
 
 <footer>Bond Bryan Architects · Smarter Working Group · Library <span id="libVer"></span></footer>
 <div id="toast"></div>
+<div id="tip" role="tooltip"></div>
 <dialog class="intro wide" id="scopeDlg"><h3>Confirmation of BBA scope required</h3>
   <p>These documents are not part of our standard scope and are agreed on a project to project basis, review your contract against this list before selecting those for export</p>
   <div class="scopewrap"><table class="docs"><thead><tr><th style="width:30px"></th><th>Code</th><th>Name</th><th>Note</th></tr></thead><tbody id="scopeBody"></tbody></table></div>
