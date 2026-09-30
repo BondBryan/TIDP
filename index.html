@@ -119,6 +119,10 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
 #tip{position:fixed;max-width:420px;background:var(--ink);color:#fff;padding:8px 11px;border-radius:6px;font-size:12px;line-height:1.45;white-space:pre-line;pointer-events:none;display:none;z-index:60;box-shadow:0 4px 16px rgba(0,0,0,.25)}
 #tip b{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--accent-2);margin-bottom:3px}
 .cmt{display:inline-block;width:14px;height:14px;border-radius:50%;border:1px solid var(--accent);color:var(--accent);font-size:10px;font-weight:700;line-height:12px;text-align:center;margin-left:6px;vertical-align:1px;font-style:normal}
+.card.missing{outline:3px solid #d62828;outline-offset:-1px}
+.card.missing h3{color:#d62828}
+.f.missing input,.f.missing select{border-color:#d62828;background:#fff5f5}
+#projectErr{border-color:#d62828;color:#a4161a;font-weight:700}
 #toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;border-radius:6px;display:none;z-index:50}
 @media (max-width:700px){header{padding:10px 16px}main{padding:14px 16px}nav.steps{padding:6px 16px;overflow-x:auto}.toolbar{position:static}table.docs th{position:static}}
 @media print{header,nav,.toolbar,footer{display:none}}
@@ -148,8 +152,10 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
     <div class="legend"><span class="c-proj">ABCDE · Project code</span><span class="c-vol">01 · Volumes</span><span class="c-lvl">ZZ · Storeys</span><span class="c-role">A · Sector or discipline</span></div>
   </div>
 
+  <div id="projectErr" class="err" role="alert" style="display:none">You need to fill Project Information first</div>
+
   <div class="grid">
-    <div class="card">
+    <div class="card" id="cardProject">
       <h3>Project</h3>
       <label class="f"><span>Project name</span><input type="text" id="pName" placeholder="e.g. Ridgewood School"></label>
       <label class="f"><span class="c-proj">Project code (first field of the file reference)</span><input type="text" id="pCode" placeholder="e.g. SRP1044" maxlength="12"></label>
@@ -189,7 +195,7 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
 
     <div class="card" style="grid-column:1/-1">
       <h3>Programme: stages and delivery dates</h3>
-      <div class="hint" style="margin:-4px 0 10px">Untick the RIBA stages the appointment does not cover: deliverables only required at unticked stages are left out of the deliverables review. Enter the planned issue date for each ticked stage. It is applied to every deliverable that is first issued at that stage (the "YYYY-MM-DD" placeholder in the Library). Later stages stay "Ongoing". Leave blank to keep the placeholder for the team to fill in Excel.</div>
+      <div class="hint" style="margin:-4px 0 10px">Untick the RIBA stages and tenders the appointment does not cover. Enter the planned issue date for each ticked stage. Leave blank if unknown</div>
       <div class="stages" id="stageDates"></div>
       <div class="stage-tenders"><b>Tender stages in the TIDP:</b><span id="tenders" class="chips"></span>
         <span class="hint">Unticked tender stages are left out of the exported Excel.</span></div>

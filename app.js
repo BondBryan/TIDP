@@ -259,7 +259,7 @@
 
   $('btnReset').addEventListener('click', () => {
     if (!confirm('Clear the project set-up and all deliverable ticks, and go back to the defaults?')) return;
-    S.project = newProject(); S.sel = {}; S.ui = newUi();
+    S.project = newProject(); S.sel = {}; S.ui = newUi(); projectErr = false; markProject();
     if (S.lib) defaultLevels();
     ['storeyCode', 'storeyName', 'volCode', 'volName', 'search'].forEach(id => $(id).value = '');
     $('statusFilter').value = ''; $('showOff').checked = true;
@@ -269,7 +269,26 @@
 
   // ------------------------------------------------------------------ events
   document.querySelectorAll('nav.steps button, [data-goto]').forEach(b => b.addEventListener('click', () => go(b.dataset.step || b.dataset.goto)));
+  // step 1 minimum: these fields must be filled before the deliverables can be reviewed
+  const REQUIRED = { name: 'pName', code: 'pCode', issuer: 'pIssuer', sector: 'pSector' };
+  let projectErr = false;
+  const missingFields = () => Object.keys(REQUIRED).filter(k => !String(S.project[k] || '').trim());
+  function markProject() {
+    const miss = missingFields();
+    if (!miss.length) projectErr = false;
+    $('projectErr').style.display = projectErr ? 'block' : 'none';
+    $('cardProject').classList.toggle('missing', projectErr);
+    for (const [k, id] of Object.entries(REQUIRED)) $(id).closest('.f').classList.toggle('missing', projectErr && miss.includes(k));
+  }
+  $('cardProject').addEventListener('input', markProject);
+  $('cardProject').addEventListener('change', markProject);
+
   function go(n) {
+    if (String(n) !== '1' && missingFields().length) {
+      projectErr = true; markProject();
+      $('projectErr').scrollIntoView({ block: 'center', behavior: 'smooth' });
+      return;
+    }
     document.querySelectorAll('nav.steps button').forEach(b => b.classList.toggle('active', b.dataset.step === String(n)));
     document.querySelectorAll('section.step').forEach(s => s.classList.toggle('active', s.id === 'step' + n));
     window.scrollTo(0, 0); if (S.lib) renderAll(); showIntro(n);
