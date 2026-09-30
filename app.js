@@ -136,7 +136,14 @@
   }
   const docRef = r => [r.project, r.originator, r.volume, r.level, r.type, r.role, r.number].filter(Boolean).join('-');
   const fileName = s => s.replace(/[\\/:*?"<>|]+/g, '-');
-  function fileRef() { return `${S.project.code || 'ABCDE'}-BBA-XX-XX-L-${role()}-1001 Task Information Delivery Plan_${discipline()}`; }
+  /** The Library's TIDP entry for the selected sector or discipline (1001 Architect, 1004 Landscape, 1005 Interior Design). */
+  function tidpDoc() {
+    return S.lib.documents.find(d => d.tab === 'Lists' && /^Task Information Delivery Plan_/.test(d.description) && (!S.project.sector || d.sectors[S.project.sector] !== false));
+  }
+  function fileRef() {
+    const t = tidpDoc();
+    return `${S.project.code || 'ABCDE'}-BBA-XX-XX-L-${role()}-${t ? t.number : '1001'} ${t ? t.description : 'Task Information Delivery Plan_' + discipline()}`;
+  }
   function noteRef() { return `${S.project.code || 'ABCDE'}-BBA-XX-XX-T-${role()}-0010 ResourcingNote_${discipline()}`; }
 
   // ------------------------------------------------------------------ rendering
