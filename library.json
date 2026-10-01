@@ -1,7 +1,7 @@
 {
  "meta": {
   "name": "Bond Bryan TIDP Library",
-  "version": "2026.8",
+  "version": "2026.9",
   "source": "Smarter Working Group",
   "extracted": "2026-09",
   "documents": 269,
@@ -768,8 +768,8 @@
     "Sport and Leisure": false,
     "Other": false
    },
-   "floorDup": false,
-   "volDup": false,
+   "floorDup": true,
+   "volDup": true,
    "buildType": "existing"
   },
   {
@@ -818,8 +818,8 @@
     "Sport and Leisure": false,
     "Other": false
    },
-   "floorDup": false,
-   "volDup": false,
+   "floorDup": true,
+   "volDup": true,
    "buildType": "existing"
   },
   {
@@ -868,8 +868,8 @@
     "Sport and Leisure": false,
     "Other": false
    },
-   "floorDup": false,
-   "volDup": false,
+   "floorDup": true,
+   "volDup": true,
    "buildType": "existing"
   },
   {
@@ -933,7 +933,7 @@
    "number": "1102",
    "description": "Hard Landscape Plans",
    "format": "PDF/DWG",
-   "scale": "1:500 @ A1",
+   "scale": "1:200 @ A1",
    "workPackage": "Site, landscape, levels",
    "stages": {
     "0": null,
@@ -983,7 +983,7 @@
    "number": "1103",
    "description": "Soft Landscape Plans",
    "format": "PDF/DWG",
-   "scale": "1:500 @ A1",
+   "scale": "1:200 @ A1",
    "workPackage": "Site, landscape, levels",
    "stages": {
     "0": null,
@@ -1033,7 +1033,7 @@
    "number": "1104",
    "description": "Kerbs Layout",
    "format": "PDF/DWG",
-   "scale": "1:500 @ A1",
+   "scale": "1:200 @ A1",
    "workPackage": "Site, landscape, levels",
    "stages": {
     "0": null,
@@ -1083,7 +1083,7 @@
    "number": "1105",
    "description": "Fence Arrangement",
    "format": "PDF/DWG",
-   "scale": "1:500 @ A1",
+   "scale": "1:200 @ A1",
    "workPackage": "Site, landscape, levels",
    "stages": {
     "0": null,
@@ -1133,7 +1133,7 @@
    "number": "1106",
    "description": "Proposed Levels",
    "format": "PDF/DWG",
-   "scale": "1:500 @ A1",
+   "scale": "1:200 @ A1",
    "workPackage": "Site, landscape, levels",
    "stages": {
     "0": null,
@@ -1183,7 +1183,7 @@
    "number": "1107",
    "description": "External Sports Markings - Summer",
    "format": "PDF/DWG",
-   "scale": "1:500 @ A1",
+   "scale": "1:200 @ A1",
    "workPackage": "Site, landscape, levels",
    "stages": {
     "0": null,
@@ -1233,7 +1233,7 @@
    "number": "1108",
    "description": "External Sports Markings - Winter",
    "format": "PDF/DWG",
-   "scale": "1:500 @ A1",
+   "scale": "1:200 @ A1",
    "workPackage": "Site, landscape, levels",
    "stages": {
     "0": null,
@@ -1283,7 +1283,7 @@
    "number": "1109",
    "description": "All Weather Pitch",
    "format": "PDF/DWG",
-   "scale": "1:500 @ A1",
+   "scale": "1:200 @ A1",
    "workPackage": "Site, landscape, levels",
    "stages": {
     "0": null,
@@ -2034,7 +2034,7 @@
    "description": "Site GA Elevations",
    "format": "PDF/DWG",
    "scale": "1:100 @ A1",
-   "workPackage": "ZZ: Multiple",
+   "workPackage": "Site, landscape, levels",
    "stages": {
     "0": null,
     "1": null,
@@ -2069,7 +2069,7 @@
     "Other": false
    },
    "floorDup": false,
-   "volDup": true,
+   "volDup": false,
    "buildType": "any"
   },
   {
@@ -2134,7 +2134,7 @@
    "description": "Site Detailed Elevations",
    "format": "PDF/DWG",
    "scale": "1:50 @ A1",
-   "workPackage": "Façade, cladding, masonry",
+   "workPackage": "Site, landscape, levels",
    "stages": {
     "0": null,
     "1": null,
@@ -2169,7 +2169,7 @@
     "Other": false
    },
    "floorDup": false,
-   "volDup": true,
+   "volDup": false,
    "buildType": "any"
   },
   {
@@ -2283,7 +2283,7 @@
    "number": "3401",
    "description": "Interior Elevations",
    "format": "PDF/DWG",
-   "scale": "1:100 @ A1",
+   "scale": "1:50 @ A1",
    "workPackage": "ZZ: Multiple",
    "stages": {
     "0": null,
@@ -2333,8 +2333,8 @@
    "number": "3402",
    "description": "Typical Kitchen Elevations",
    "format": "PDF/DWG",
-   "scale": "1:100 @ A1",
-   "workPackage": "ZZ: Multiple",
+   "scale": "1:20 @ A1",
+   "workPackage": "FF&E, furniture, equipment, kitchen",
    "stages": {
     "0": null,
     "1": null,
@@ -2434,7 +2434,7 @@
    "description": "Site GA Sections",
    "format": "PDF/DWG",
    "scale": "1:100 @ A1",
-   "workPackage": "ZZ: Multiple",
+   "workPackage": "Site, landscape, levels",
    "stages": {
     "0": null,
     "1": null,
@@ -2469,7 +2469,7 @@
     "Other": false
    },
    "floorDup": false,
-   "volDup": true,
+   "volDup": false,
    "buildType": "any"
   },
   {
@@ -2584,7 +2584,7 @@
    "description": "Substructure Detailed Sections",
    "format": "PDF/DWG",
    "scale": "1:50 @ A1",
-   "workPackage": "ZZ: Multiple",
+   "workPackage": "Structure, slabs, steelwork",
    "stages": {
     "0": null,
     "1": null,
@@ -2634,7 +2634,7 @@
    "description": "Site Detailed GA Sections",
    "format": "PDF/DWG",
    "scale": "1:50 @ A1",
-   "workPackage": "ZZ: Multiple",
+   "workPackage": "Site, landscape, levels",
    "stages": {
     "0": null,
     "1": null,
@@ -2669,7 +2669,7 @@
     "Other": false
    },
    "floorDup": false,
-   "volDup": true,
+   "volDup": false,
    "buildType": "any"
   },
   {
@@ -2934,7 +2934,7 @@
    "description": "Bathroom Types",
    "format": "PDF",
    "scale": "1:20 @ A1",
-   "workPackage": "ZZ: Multiple",
+   "workPackage": "Toilets, sanitary",
    "stages": {
     "0": null,
     "1": null,
@@ -2984,7 +2984,7 @@
    "description": "Kitchen Types",
    "format": "PDF",
    "scale": "1:20 @ A1",
-   "workPackage": "ZZ: Multiple",
+   "workPackage": "FF&E, furniture, equipment, kitchen",
    "stages": {
     "0": null,
     "1": null,
@@ -3034,7 +3034,7 @@
    "description": "Shower Room Types",
    "format": "PDF",
    "scale": "1:20 @ A1",
-   "workPackage": "ZZ: Multiple",
+   "workPackage": "Toilets, sanitary",
    "stages": {
     "0": null,
     "1": null,
@@ -3084,7 +3084,7 @@
    "description": "WC Types",
    "format": "PDF",
    "scale": "1:20 @ A1",
-   "workPackage": "ZZ: Multiple",
+   "workPackage": "Toilets, sanitary",
    "stages": {
     "0": null,
     "1": null,
@@ -3232,7 +3232,7 @@
    "type": "D",
    "number": "6102",
    "description": "Wall Setting Out Plans",
-   "format": "PDF",
+   "format": "PDF/DWG",
    "scale": "1:50 @ A1",
    "workPackage": "Internal Partitions",
    "stages": {
@@ -3332,7 +3332,7 @@
    "type": "D",
    "number": "6201",
    "description": "Slab Setting Out Plans",
-   "format": "PDF",
+   "format": "PDF/DWG",
    "scale": "1:100 @ A1",
    "workPackage": "Structure, slabs, steelwork",
    "stages": {
@@ -3684,7 +3684,7 @@
    "description": "Materials and Delivery Flow Plans",
    "format": "PDF",
    "scale": "1:100 @ A1",
-   "workPackage": "Access Control & Security",
+   "workPackage": "ZZ: Multiple",
    "stages": {
     "0": null,
     "1": null,
@@ -3734,7 +3734,7 @@
    "description": "People Flow Plans",
    "format": "PDF",
    "scale": "1:100 @ A1",
-   "workPackage": "Access Control & Security",
+   "workPackage": "ZZ: Multiple",
    "stages": {
     "0": null,
     "1": null,
@@ -3832,7 +3832,7 @@
    "type": "D",
    "number": "6601",
    "description": "Small Power Setting Out Plan",
-   "format": "PDF",
+   "format": "PDF/DWG",
    "scale": "1:50 @ A1",
    "workPackage": "Coordination",
    "stages": {
@@ -3882,7 +3882,7 @@
    "type": "D",
    "number": "6602",
    "description": "Small Power Typical Setting Out",
-   "format": "PDF",
+   "format": "PDF/DWG",
    "scale": "1:50 @ A1",
    "workPackage": "Coordination",
    "stages": {
@@ -3984,7 +3984,7 @@
    "description": "Metal Decking",
    "format": "PDF",
    "scale": "1:100 @ A1",
-   "workPackage": "Stairs, balustrades, metalwork",
+   "workPackage": "Structure, slabs, steelwork",
    "stages": {
     "0": null,
     "1": null,
@@ -4084,7 +4084,7 @@
    "description": "Containment Plans",
    "format": "PDF",
    "scale": "1:100 @ A1",
-   "workPackage": "ZZ: Multiple",
+   "workPackage": "Coordination",
    "stages": {
     "0": null,
     "1": null,
@@ -4934,7 +4934,7 @@
    "description": "Floor Build-up Types",
    "format": "PDF",
    "scale": "1:10 @ A1",
-   "workPackage": "ZZ: Multiple",
+   "workPackage": "Structure, slabs, steelwork",
    "stages": {
     "0": null,
     "1": null,
@@ -6484,7 +6484,7 @@
    "description": "Typical Riser Details",
    "format": "PDF",
    "scale": "1:10 @ A1",
-   "workPackage": "Façade, cladding, masonry",
+   "workPackage": "Coordination",
    "stages": {
     "0": null,
     "1": null,
@@ -6584,7 +6584,7 @@
    "description": "Dry Riser Details",
    "format": "PDF",
    "scale": "1:10 @ A1",
-   "workPackage": "Façade, cladding, masonry",
+   "workPackage": "Building Control, CDM, Compliance",
    "stages": {
     "0": null,
     "1": null,
@@ -6884,7 +6884,7 @@
    "description": "Typical Bike Stand Details",
    "format": "PDF",
    "scale": "1:10 @ A1",
-   "workPackage": "Other",
+   "workPackage": "Site, landscape, levels",
    "stages": {
     "0": null,
     "1": null,
@@ -6934,7 +6934,7 @@
    "description": "Typical Mesh Fence & Gate Details",
    "format": "PDF",
    "scale": "1:10 @ A1",
-   "workPackage": "Other",
+   "workPackage": "Site, landscape, levels",
    "stages": {
     "0": null,
     "1": null,
@@ -6984,7 +6984,7 @@
    "description": "Typical Pipe and Column Protection Details",
    "format": "PDF",
    "scale": "1:10 @ A1",
-   "workPackage": "Other",
+   "workPackage": "Site, landscape, levels",
    "stages": {
     "0": null,
     "1": null,
@@ -7034,7 +7034,7 @@
    "description": "Vehicle and Pedestrian Entrance Gate Details",
    "format": "PDF",
    "scale": "1:10 @ A1",
-   "workPackage": "Other",
+   "workPackage": "Site, landscape, levels",
    "stages": {
     "0": null,
     "1": null,
@@ -9234,7 +9234,7 @@
    "description": "Bathroom, Shower Room and WC Types Schedule",
    "format": "PDF",
    "scale": "NTS @ A1",
-   "workPackage": "FF&E, furniture, equipment, kitchen",
+   "workPackage": "Toilets, sanitary",
    "stages": {
     "0": null,
     "1": null,
@@ -9582,7 +9582,7 @@
    "type": "L",
    "number": "1001",
    "description": "Task Information Delivery Plan",
-   "format": "PDF",
+   "format": "XLS/XLSX",
    "scale": "A4 Document",
    "workPackage": "XX: n/a",
    "stages": {
@@ -10933,7 +10933,7 @@
    "number": "4003",
    "description": "AR/VR Model (BIMx, Oculus,…)",
    "format": "BIMX",
-   "scale": "NTS",
+   "scale": "N/A",
    "workPackage": "Coordination",
    "stages": {
     "0": null,
@@ -11934,7 +11934,7 @@
    "description": "Planning Consultation Boards",
    "format": "PDF",
    "scale": "A1 Document",
-   "workPackage": "Building Control, CDM, Compliance",
+   "workPackage": "XX: n/a",
    "stages": {
     "0": null,
     "1": null,
@@ -12581,7 +12581,7 @@
    "level": "ZZ",
    "type": "V",
    "number": "3001",
-   "description": "Flythrough visualisation",
+   "description": "Flythrough Visualisation",
    "format": "MOV",
    "scale": "N/A",
    "workPackage": "XX: n/a",
