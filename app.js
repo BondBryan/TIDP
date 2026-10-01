@@ -75,6 +75,7 @@
     return true;
   }
   const isOn = d => (d.id in S.sel) ? S.sel[d.id] : defaultOn(d);
+  function setOn(d, v) { if (v === defaultOn(d)) delete S.sel[d.id]; else S.sel[d.id] = v; }
   /** Items switched on only for disciplines (Landscape, Interior Design) are hidden for every other sector or discipline.
       A series made only of the chosen discipline's items (e.g. "2000 Series - Strategy Plans" for Landscape) replaces
       the other items in its number range: "2000 Series" covers 2000-2999, "0200 Series" covers 0200-0299. */
