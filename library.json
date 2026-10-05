@@ -1,10 +1,10 @@
 {
  "meta": {
   "name": "Bond Bryan TIDP Library",
-  "version": "2026.14",
+  "version": "2026.15",
   "source": "Smarter Working Group",
   "extracted": "2026-10",
-  "documents": 346,
+  "documents": 345,
   "note": "Master list of Task Information Delivery Plan deliverables. Edit in GitHub; the web app reads this file at load."
  },
  "lists": {
@@ -150,7 +150,7 @@
   ],
   "statuses": [
    "Internal Team Item - Project Lead to allocate resource accordingly",
-   "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "Confirmation of BBA scope required",
    "CDP Item"
   ],
@@ -380,14 +380,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-1006",
+   "id": "Drawings-D-1015",
    "tab": "Drawings",
    "series": "1000 Series - GA Site Plans",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "XX",
    "type": "D",
-   "number": "1006",
+   "number": "1015",
    "description": "Existing and Proposed Block Plans",
    "format": "PDF/DWG",
    "scale": "1:500 @ A1",
@@ -404,8 +404,8 @@
    },
    "tender": {
     "3+": true,
-    "4a": true,
-    "4b": true
+    "4a": false,
+    "4b": false
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
    "comments": "Added v2026.14 (Example TIDP review P01). Evidence: Telford Theatre, Adpar Street.",
@@ -431,14 +431,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-1007",
+   "id": "Drawings-D-1025",
    "tab": "Drawings",
    "series": "1000 Series - GA Site Plans",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "XX",
    "type": "D",
-   "number": "1007",
+   "number": "1025",
    "description": "Proposed Site Plan",
    "format": "PDF/DWG",
    "scale": "1:500 @ A1",
@@ -482,14 +482,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-1008",
+   "id": "Drawings-D-1035",
    "tab": "Drawings",
    "series": "1000 Series - GA Site Plans",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "XX",
    "type": "D",
-   "number": "1008",
+   "number": "1035",
    "description": "Demolition Site Plan",
    "format": "PDF/DWG",
    "scale": "1:500 @ A1",
@@ -533,14 +533,14 @@
    "buildType": "existing"
   },
   {
-   "id": "Drawings-D-1014",
+   "id": "Drawings-D-1045",
    "tab": "Drawings",
    "series": "1000 Series - Analysis",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "1014",
+   "number": "1045",
    "description": "Existing Building Fabric Analysis",
    "format": "PDF/DWG",
    "scale": "1:100 @ A1",
@@ -584,14 +584,14 @@
    "buildType": "existing"
   },
   {
-   "id": "Drawings-D-1015",
+   "id": "Drawings-D-1055",
    "tab": "Drawings",
    "series": "1000 Series - Analysis",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "1015",
+   "number": "1055",
    "description": "Historic Analysis",
    "format": "PDF/DWG",
    "scale": "1:100 @ A1",
@@ -635,14 +635,14 @@
    "buildType": "existing"
   },
   {
-   "id": "Drawings-D-1016",
+   "id": "Drawings-D-1065",
    "tab": "Drawings",
    "series": "1000 Series - Analysis",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "1016",
+   "number": "1065",
    "description": "Survey Request Markup",
    "format": "PDF/DWG",
    "scale": "1:100 @ A1",
@@ -1016,8 +1016,8 @@
    },
    "tender": {
     "3+": true,
-    "4a": false,
-    "4b": false
+    "4a": true,
+    "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
    "comments": "",
@@ -1121,8 +1121,8 @@
     "4a": false,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
-   "comments": "Detailed information, setting out, levels, drainage, services, landscaping, external works, etc. to be co-ordinated with Landscape Architect and other consultants.",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
+   "comments": "Detailed information, setting out, levels, drainage, services, landscaping, external works, etc. to be coordinated with Landscape Architect and other consultants.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -2601,7 +2601,7 @@
     "4b": false
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "From LW2 residential TIDP (Landscape).. Landscape_Other version (only if needed); Education uses D-2205",
+   "comments": "From LW2 residential TIDP (Landscape). Landscape_Other version (only if needed); Education uses D-2205",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -3158,8 +3158,8 @@
    },
    "tender": {
     "3+": true,
-    "4a": true,
-    "4b": true
+    "4a": false,
+    "4b": false
    },
    "status": "Confirmation of BBA scope required",
    "comments": "Added v2026.14 (Example TIDP review P01). Tall residential schemes, coordinate with wind consultant. Evidence: Kidbrooke Village.",
@@ -3366,7 +3366,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Setting out, fire proofing, materials, dimensions, accessories, etc. to be co-ordinated with other consultants.",
+   "comments": "Setting out, fire proofing, materials, dimensions, accessories, etc. to be coordinated with other consultants.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -3417,7 +3417,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Setting out, fire proofing, materials, dimensions, accessories, etc. to be co-ordinated with other consultants.",
+   "comments": "Setting out, fire proofing, materials, dimensions, accessories, etc. to be coordinated with other consultants.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -3440,14 +3440,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-3103",
+   "id": "Drawings-D-3110",
    "tab": "Drawings",
    "series": "3100 Series - Detailed Elevations",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "3103",
+   "number": "3110",
    "description": "Shopfront Elevations",
    "format": "PDF/DWG",
    "scale": "1:50 @ A1",
@@ -3620,7 +3620,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -3644,14 +3644,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-3402",
+   "id": "Drawings-D-3410",
    "tab": "Drawings",
    "series": "3400 Series - Interior Elevations",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "3402",
+   "number": "3410",
    "description": "Typical Kitchen Elevations",
    "format": "PDF/DWG",
    "scale": "1:20 @ A1",
@@ -3671,7 +3671,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": false,
@@ -3695,14 +3695,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-3403",
+   "id": "Drawings-D-3420",
    "tab": "Drawings",
    "series": "3400 Series - Interior Elevations",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "3403",
+   "number": "3420",
    "description": "Sports Hall Internal Elevations (impact zones, wall protection, equipment fixings)",
    "format": "PDF",
    "scale": "1:50 @ A1",
@@ -3899,14 +3899,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-4102",
+   "id": "Drawings-D-4110",
    "tab": "Drawings",
    "series": "4100 Series - Detailed GA Sections",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "4102",
+   "number": "4110",
    "description": "Brick Base / Toe Levels Sections & Elevations",
    "format": "PDF/DWG",
    "scale": "1:50 @ A1",
@@ -3927,7 +3927,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Technical details to be co-ordinated with other consultants.",
+   "comments": "Technical details to be coordinated with other consultants.",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -3950,14 +3950,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-4103",
+   "id": "Drawings-D-4120",
    "tab": "Drawings",
    "series": "4100 Series - Detailed GA Sections",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "4103",
+   "number": "4120",
    "description": "Substructure Detailed Sections",
    "format": "PDF/DWG",
    "scale": "1:50 @ A1",
@@ -3978,7 +3978,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Technical details to be co-ordinated with other consultants.",
+   "comments": "Technical details to be coordinated with other consultants.",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -4052,14 +4052,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-4105",
+   "id": "Drawings-D-4130",
    "tab": "Drawings",
    "series": "4100 Series - Detailed GA Sections",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "4105",
+   "number": "4130",
    "description": "Spectator Seating and Sightline Sections (C-values, telescopic seating)",
    "format": "PDF/DWG",
    "scale": "1:50 @ A1",
@@ -4181,7 +4181,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "Set up at Stage 4 by Outsourcing Partner, based on current regs and exemplar drawings.",
    "sectors": {
     "Education": true,
@@ -4205,14 +4205,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-5002",
+   "id": "Drawings-D-5005",
    "tab": "Drawings",
    "series": "5000 Series - Individual Space/Room Layouts",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "5002",
+   "number": "5005",
    "description": "Individual Room Layouts",
    "format": "PDF",
    "scale": "1:20 @ A1",
@@ -4232,8 +4232,8 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
-   "comments": "Set up at Stage 4 by Outsourcing Partner, based on exemplar drawing. Project Lead to co-ordinate and review against Approved Docs.",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
+   "comments": "Set up at Stage 4 by Outsourcing Partner, based on exemplar drawing. Project Lead to coordinate and review against Approved Docs.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -4256,14 +4256,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-5003",
+   "id": "Drawings-D-5010",
    "tab": "Drawings",
    "series": "5000 Series - Individual Space/Room Layouts",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "5003",
+   "number": "5010",
    "description": "Apartment / Bedroom Types",
    "format": "PDF",
    "scale": "1:50 @ A1",
@@ -4307,14 +4307,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-5004",
+   "id": "Drawings-D-5015",
    "tab": "Drawings",
    "series": "5000 Series - Individual Space/Room Layouts",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "5004",
+   "number": "5015",
    "description": "C-Sheets",
    "format": "PDF",
    "scale": "1:20 @ A1",
@@ -4334,7 +4334,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "Fully coordinated room layouts in plan and elevations",
    "sectors": {
     "Education": false,
@@ -4358,14 +4358,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-5005",
+   "id": "Drawings-D-5020",
    "tab": "Drawings",
    "series": "5000 Series - Individual Space/Room Layouts",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "5005",
+   "number": "5020",
    "description": "Bathroom Types",
    "format": "PDF",
    "scale": "1:20 @ A1",
@@ -4385,7 +4385,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": false,
@@ -4409,14 +4409,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-5006",
+   "id": "Drawings-D-5025",
    "tab": "Drawings",
    "series": "5000 Series - Individual Space/Room Layouts",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "5006",
+   "number": "5025",
    "description": "Kitchen Types",
    "format": "PDF",
    "scale": "1:20 @ A1",
@@ -4436,7 +4436,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": false,
@@ -4460,14 +4460,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-5007",
+   "id": "Drawings-D-5030",
    "tab": "Drawings",
    "series": "5000 Series - Individual Space/Room Layouts",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "5007",
+   "number": "5030",
    "description": "Shower Room Types",
    "format": "PDF",
    "scale": "1:20 @ A1",
@@ -4487,7 +4487,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": false,
@@ -4511,14 +4511,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-5008",
+   "id": "Drawings-D-5035",
    "tab": "Drawings",
    "series": "5000 Series - Individual Space/Room Layouts",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "5008",
+   "number": "5035",
    "description": "WC Types",
    "format": "PDF",
    "scale": "1:20 @ A1",
@@ -4538,7 +4538,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": false,
@@ -4562,14 +4562,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-5009",
+   "id": "Drawings-D-5040",
    "tab": "Drawings",
    "series": "5000 Series - Individual Space/Room Layouts",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "5009",
+   "number": "5040",
    "description": "Pool Hall General Arrangement (tank, surrounds, lanes, moveable floor / boom)",
    "format": "PDF/DWG",
    "scale": "1:50 @ A1",
@@ -4613,14 +4613,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-5010",
+   "id": "Drawings-D-5045",
    "tab": "Drawings",
    "series": "5000 Series - Individual Space/Room Layouts",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "5010",
+   "number": "5045",
    "description": "Changing Room Layouts",
    "format": "PDF",
    "scale": "1:50 @ A1",
@@ -4664,14 +4664,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-5011",
+   "id": "Drawings-D-5050",
    "tab": "Drawings",
    "series": "5000 Series - Individual Space/Room Layouts",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "5011",
+   "number": "5050",
    "description": "Changing Places and Hygiene Room Layouts",
    "format": "PDF",
    "scale": "1:20 @ A1",
@@ -4715,14 +4715,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-5012",
+   "id": "Drawings-D-5055",
    "tab": "Drawings",
    "series": "5000 Series - Individual Space/Room Layouts",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "5012",
+   "number": "5055",
    "description": "Cycle Store and End-of-Trip Facilities Layouts",
    "format": "PDF",
    "scale": "1:50 @ A1",
@@ -4766,14 +4766,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-5015",
+   "id": "Drawings-D-5060",
    "tab": "Drawings",
    "series": "5000 Series - Individual Space/Room Layouts",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "5015",
+   "number": "5060",
    "description": "Appliance / Vehicle Bay Layout and Floor Markings",
    "format": "PDF",
    "scale": "1:50 @ A1",
@@ -4868,14 +4868,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-6002",
+   "id": "Drawings-D-6010",
    "tab": "Drawings",
    "series": "6000 Series - Fire Strategy Plans",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "6002",
+   "number": "6010",
    "description": "Structural Fire Protection Strategy Plans (intumescent and encasement)",
    "format": "PDF",
    "scale": "1:100 @ A1",
@@ -4891,7 +4891,7 @@
     "7": null
    },
    "tender": {
-    "3+": false,
+    "3+": true,
     "4a": true,
     "4b": true
    },
@@ -4970,14 +4970,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-6102",
+   "id": "Drawings-D-6110",
    "tab": "Drawings",
    "series": "6100 Series - Wall Strategy Plans",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "6102",
+   "number": "6110",
    "description": "Wall Setting Out Plans",
    "format": "PDF/DWG",
    "scale": "1:50 @ A1",
@@ -4997,7 +4997,7 @@
     "4a": false,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "Project lead to ensure correct partition interfacing is indicated. Lines of fire rating are achieved, commentary on specific detailing set out to be added by internal team.",
    "sectors": {
     "Education": true,
@@ -5021,14 +5021,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-6103",
+   "id": "Drawings-D-6120",
    "tab": "Drawings",
    "series": "6100 Series - Wall Strategy Plans",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "6103",
+   "number": "6120",
    "description": "Patressing Plans and Typical Pattress Details",
    "format": "PDF",
    "scale": "1:50 @ A1",
@@ -5045,10 +5045,10 @@
    },
    "tender": {
     "3+": false,
-    "4a": true,
+    "4a": false,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "v2026.14: first issue Stage 4.",
    "sectors": {
     "Education": true,
@@ -5100,7 +5100,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Coordinate with SE and M&E consultants to ensure correct slab setting out and co-ordination with services.",
+   "comments": "Coordinate with SE and M&E consultants to ensure correct slab setting out and coordination with services.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -5123,14 +5123,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-6202",
+   "id": "Drawings-D-6210",
    "tab": "Drawings",
    "series": "6200 Series - Slab Setting Out Plans",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "6202",
+   "number": "6210",
    "description": "Pool Tank Setting Out Plans and Sections",
    "format": "PDF/DWG",
    "scale": "1:50 @ A1",
@@ -5174,14 +5174,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-6203",
+   "id": "Drawings-D-6220",
    "tab": "Drawings",
    "series": "6200 Series - Slab Setting Out Plans",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "6203",
+   "number": "6220",
    "description": "Builderswork Plans",
    "format": "PDF",
    "scale": "1:100 @ A1",
@@ -5202,7 +5202,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Coordinate with SE and M&E consultants to ensure correct slab setting out and co-ordination with services.",
+   "comments": "Coordinate with SE and M&E consultants to ensure correct slab setting out and coordination with services.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -5225,14 +5225,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-6204",
+   "id": "Drawings-D-6230",
    "tab": "Drawings",
    "series": "6200 Series - Slab Setting Out Plans",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "6204",
+   "number": "6230",
    "description": "Raised Access Floor and Floor Box Setting Out Plans",
    "format": "PDF/DWG",
    "scale": "1:100 @ A1",
@@ -5276,14 +5276,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-6250",
+   "id": "Drawings-D-6240",
    "tab": "Drawings",
    "series": "6200 Series - Slab Setting Out Plans",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "6250",
+   "number": "6240",
    "description": "Building Grid and Cuboid",
    "format": "PDF/DWG",
    "scale": "1:100 @ A1",
@@ -5378,14 +5378,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-6302",
+   "id": "Drawings-D-6310",
    "tab": "Drawings",
    "series": "6300 Series - FFE Plans",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "6302",
+   "number": "6310",
    "description": "Sports Equipment and Fixings Layout Plans (goals, posts, nets, divider curtains)",
    "format": "PDF",
    "scale": "1:100 @ A1",
@@ -5429,14 +5429,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-6304",
+   "id": "Drawings-D-6320",
    "tab": "Drawings",
    "series": "6300 Series - FFE Plans",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "6304",
+   "number": "6320",
    "description": "Space Planning / Test Fit Plans (Cat B)",
    "format": "PDF",
    "scale": "1:100 @ A1",
@@ -5531,14 +5531,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-6402",
+   "id": "Drawings-D-6410",
    "tab": "Drawings",
    "series": "6400 Series - Zoning & Circulation Strategy Plans",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "6402",
+   "number": "6410",
    "description": "SBD Strategy Plans",
    "format": "PDF",
    "scale": "1:100 @ A1",
@@ -5559,7 +5559,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Secure by Design requirements",
+   "comments": "Secured by Design requirements",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -5582,14 +5582,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-6403",
+   "id": "Drawings-D-6420",
    "tab": "Drawings",
    "series": "6400 Series - Zoning & Circulation Strategy Plans",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "6403",
+   "number": "6420",
    "description": "Access and Security Strategy Plans",
    "format": "PDF",
    "scale": "1:100 @ A1",
@@ -5633,14 +5633,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-6404",
+   "id": "Drawings-D-6430",
    "tab": "Drawings",
    "series": "6400 Series - Zoning & Circulation Strategy Plans",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "6404",
+   "number": "6430",
    "description": "Materials and Delivery Flow Plans",
    "format": "PDF",
    "scale": "1:100 @ A1",
@@ -5684,14 +5684,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-6405",
+   "id": "Drawings-D-6440",
    "tab": "Drawings",
    "series": "6400 Series - Zoning & Circulation Strategy Plans",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "6405",
+   "number": "6440",
    "description": "People Flow Plans",
    "format": "PDF",
    "scale": "1:100 @ A1",
@@ -5735,14 +5735,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-6406",
+   "id": "Drawings-D-6450",
    "tab": "Drawings",
    "series": "6400 Series - Zoning & Circulation Strategy Plans",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "6406",
+   "number": "6450",
    "description": "Occupancy and Density Strategy Plans",
    "format": "PDF",
    "scale": "1:200 @ A1",
@@ -5814,7 +5814,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Coordinated with PDCDM and other consultants to ensure correct maintenance strategy and co-ordination with services.",
+   "comments": "Coordinated with PDCDM and other consultants to ensure correct maintenance strategy and coordination with services.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -5865,37 +5865,37 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Only relevant to specific appointments, Project Lead to review if required and allocate internal resource accordingly.",
+   "comments": "Only relevant to specific appointments, Project Lead to review if required and allocate internal resource accordingly. v2026.14: bespoke item, not ticked by default for any sector: Project Lead ticks it when in scope. Duplicated per storey and volume.",
    "sectors": {
     "Education": false,
-    "Residential": true,
+    "Residential": false,
     "Blue Light": false,
     "Defence & Justice": false,
     "Healthcare": false,
-    "Hotels & Hospitality": true,
+    "Hotels & Hospitality": false,
     "Industrial and Manufacturing": false,
-    "Interior Design": true,
+    "Interior Design": false,
     "Landscape_Education": false,
     "Landscape_Other": false,
-    "Offices and Workspace": true,
-    "Retail": true,
-    "Science and Research": true,
+    "Offices and Workspace": false,
+    "Retail": false,
+    "Science and Research": false,
     "Sport and Leisure": false,
-    "Other": true
+    "Other": false
    },
-   "floorDup": false,
-   "volDup": false,
+   "floorDup": true,
+   "volDup": true,
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-6602",
+   "id": "Drawings-D-6610",
    "tab": "Drawings",
    "series": "6600 Series - Small Power Setting Out",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "6602",
+   "number": "6610",
    "description": "Small Power Typical Setting Out",
    "format": "PDF/DWG",
    "scale": "1:50 @ A1",
@@ -6041,14 +6041,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-6802",
+   "id": "Drawings-D-6810",
    "tab": "Drawings",
    "series": "6800 Series - Metalwork Plans",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "6802",
+   "number": "6810",
    "description": "Metalwork Plan",
    "format": "PDF",
    "scale": "1:100 @ A1",
@@ -6092,14 +6092,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-6903",
+   "id": "Drawings-D-6901",
    "tab": "Drawings",
    "series": "6900 Series - Other Detailed Plans",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "6903",
+   "number": "6901",
    "description": "Containment Plans",
    "format": "PDF",
    "scale": "1:100 @ A1",
@@ -6143,15 +6143,15 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-6904",
+   "id": "Drawings-D-6910",
    "tab": "Drawings",
    "series": "6900 Series - Other Detailed Plans",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "6904",
-   "description": "Ironmongery and Lock Suiting Strategy Plans",
+   "number": "6910",
+   "description": "Ironmongery and Lock Suiting Plans",
    "format": "PDF",
    "scale": "1:100 @ A1",
    "workPackage": "ZZ: Multiple",
@@ -6221,7 +6221,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "Outsourcing Partner can set up using exemplar drawings.",
    "sectors": {
     "Education": true,
@@ -6476,7 +6476,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "Outsourcing Partner can set up using exemplar drawings.",
    "sectors": {
     "Education": true,
@@ -6527,7 +6527,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "Typical details part of template. Bespoke to be developed by internal team.",
    "sectors": {
     "Education": true,
@@ -6551,14 +6551,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7102",
+   "id": "Drawings-D-7105",
    "tab": "Drawings",
    "series": "7100 Series - Door Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7102",
+   "number": "7105",
    "description": "Internal Door Details (Head, Jamb, Sill)",
    "format": "PDF",
    "scale": "1:10 @ A1",
@@ -6578,7 +6578,7 @@
     "4a": false,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "Typical details part of template. Bespoke to be developed by internal team.",
    "sectors": {
     "Education": true,
@@ -6602,14 +6602,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7103",
+   "id": "Drawings-D-7115",
    "tab": "Drawings",
    "series": "7100 Series - Door Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7103",
+   "number": "7115",
    "description": "Metal Door Details",
    "format": "PDF",
    "scale": "1:10 @ A1",
@@ -6629,7 +6629,7 @@
     "4a": false,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "Typical details part of template. Bespoke to be developed by internal team.",
    "sectors": {
     "Education": true,
@@ -6653,14 +6653,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7104",
+   "id": "Drawings-D-7125",
    "tab": "Drawings",
    "series": "7100 Series - Door Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7104",
+   "number": "7125",
    "description": "Dock Leveller, Dock Shelter and Sectional / Roller Shutter Door Details",
    "format": "PDF",
    "scale": "1:20 @ A1",
@@ -6936,7 +6936,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Technical details to be co-ordinated with other consultants.",
+   "comments": "Technical details to be coordinated with other consultants.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -6959,14 +6959,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7152",
+   "id": "Drawings-D-7155",
    "tab": "Drawings",
    "series": "7150 Series - Floor Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7152",
+   "number": "7155",
    "description": "Floor Build-up Types",
    "format": "PDF",
    "scale": "1:10 @ A1",
@@ -7010,14 +7010,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7153",
+   "id": "Drawings-D-7160",
    "tab": "Drawings",
    "series": "7150 Series - Floor Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7153",
+   "number": "7160",
    "description": "Sports Floor Build-up Details (sprung / area-elastic)",
    "format": "PDF",
    "scale": "1:10 @ A1",
@@ -7061,15 +7061,15 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7154",
+   "id": "Drawings-D-7165",
    "tab": "Drawings",
    "series": "7150 Series - Floor Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7154",
-   "description": "Floor Types Plans",
+   "number": "7165",
+   "description": "Build-up Types Plans",
    "format": "PDF",
    "scale": "1:100 @ A1",
    "workPackage": "Structure, slabs, steelwork",
@@ -7089,7 +7089,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Added v2026.14 (Example TIDP review P01). Plans keyed to Floor Build-up Types. Evidence: EMD Waltham Forest, CNWL, UOW STEM, Adpar Street.",
+   "comments": "Added v2026.14 (Example TIDP review P01). Floor build-up types per storey, keyed to D-7155 Floor Build-up Types (named to avoid \"Ground Floor Floor ...\" on storey rows). Evidence: EMD Waltham Forest, CNWL, UOW STEM, Adpar Street.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -7163,14 +7163,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7202",
+   "id": "Drawings-D-7205",
    "tab": "Drawings",
    "series": "7200 Series - Furniture Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7202",
+   "number": "7205",
    "description": "Bar/Servery/Counter Details",
    "format": "PDF",
    "scale": "1:20 @ A1",
@@ -7214,14 +7214,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7203",
+   "id": "Drawings-D-7211",
    "tab": "Drawings",
    "series": "7200 Series - Furniture Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7203",
+   "number": "7211",
    "description": "Coat Cupboard Shelves",
    "format": "PDF",
    "scale": "1:20 @ A1",
@@ -7241,7 +7241,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": false,
@@ -7265,14 +7265,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7204",
+   "id": "Drawings-D-7216",
    "tab": "Drawings",
    "series": "7200 Series - Furniture Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7204",
+   "number": "7216",
    "description": "Utility Cupboard Worktops",
    "format": "PDF",
    "scale": "1:20 @ A1",
@@ -7292,7 +7292,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": false,
@@ -7316,14 +7316,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7205",
+   "id": "Drawings-D-7221",
    "tab": "Drawings",
    "series": "7200 Series - Furniture Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7205",
+   "number": "7221",
    "description": "Wardrobe Types",
    "format": "PDF",
    "scale": "1:20 @ A1",
@@ -7343,7 +7343,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": false,
@@ -7367,14 +7367,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7206",
+   "id": "Drawings-D-7225",
    "tab": "Drawings",
    "series": "7200 Series - Furniture Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7206",
+   "number": "7225",
    "description": "Typical Kitchen, Kitchenette and Tea Point Details",
    "format": "PDF",
    "scale": "1:20 @ A1",
@@ -7418,14 +7418,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7207",
+   "id": "Drawings-D-7230",
    "tab": "Drawings",
    "series": "7200 Series - Furniture Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7207",
+   "number": "7230",
    "description": "General Furniture Details",
    "format": "PDF",
    "scale": "1:20 @ A1",
@@ -7469,14 +7469,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7208",
+   "id": "Drawings-D-7235",
    "tab": "Drawings",
    "series": "7200 Series - Furniture Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7208",
+   "number": "7235",
    "description": "Laboratory Furniture Details (benching, storage, fume cupboards, service booms, emergency stations)",
    "format": "PDF",
    "scale": "1:20 @ A1",
@@ -7751,7 +7751,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "Outsourcing Partner can set up using exemplar drawings.",
    "sectors": {
     "Education": true,
@@ -7775,14 +7775,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7252",
+   "id": "Drawings-D-7255",
    "tab": "Drawings",
    "series": "7250 Series - Balustrade & Guarding Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7252",
+   "number": "7255",
    "description": "Balcony Types",
    "format": "PDF",
    "scale": "1:20 @ A1",
@@ -7803,7 +7803,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Technical details to be co-ordinated with other consultants.",
+   "comments": "Technical details to be coordinated with other consultants.",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -7826,14 +7826,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7253",
+   "id": "Drawings-D-7260",
    "tab": "Drawings",
    "series": "7250 Series - Balustrade & Guarding Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7253",
+   "number": "7260",
    "description": "Railings, Guardings, Balustrade and Barrier Types",
    "format": "PDF",
    "scale": "1:10 @ A1",
@@ -7854,7 +7854,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Technical details to be co-ordinated with other consultants.",
+   "comments": "Technical details to be coordinated with other consultants.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -7877,14 +7877,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7254",
+   "id": "Drawings-D-7265",
    "tab": "Drawings",
    "series": "7250 Series - Balustrade & Guarding Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7254",
+   "number": "7265",
    "description": "Typical Bollards, Railings, Guardings and Barrier Details",
    "format": "PDF",
    "scale": "1:10 @ A1",
@@ -7905,7 +7905,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Technical details to be co-ordinated with other consultants.",
+   "comments": "Technical details to be coordinated with other consultants.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -7928,14 +7928,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7255",
+   "id": "Drawings-D-7270",
    "tab": "Drawings",
    "series": "7250 Series - Balustrade & Guarding Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7255",
+   "number": "7270",
    "description": "Balustrade and Barrier Strategy Plans (incl. barrier loading)",
    "format": "PDF",
    "scale": "1:100 @ A1",
@@ -7951,7 +7951,7 @@
     "7": null
    },
    "tender": {
-    "3+": false,
+    "3+": true,
     "4a": true,
     "4b": true
    },
@@ -8006,8 +8006,8 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
-   "comments": "Outsourcing Partner can set up initial details, with either internal team finalising, or Project lead co-ordinating with Outsourcing Partner to finalise.",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
+   "comments": "Outsourcing Partner can set up initial details, with either internal team finalising, or Project lead coordinating with Outsourcing Partner to finalise.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -8030,14 +8030,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7302",
+   "id": "Drawings-D-7305",
    "tab": "Drawings",
    "series": "7300 Series - Roof & Roof Accessories Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7302",
+   "number": "7305",
    "description": "External Soffit Details",
    "format": "PDF",
    "scale": "1:10 @ A1",
@@ -8058,7 +8058,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Technical details to be co-ordinated with other consultants.",
+   "comments": "Technical details to be coordinated with other consultants.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -8081,14 +8081,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7303",
+   "id": "Drawings-D-7315",
    "tab": "Drawings",
    "series": "7300 Series - Roof & Roof Accessories Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7303",
+   "number": "7315",
    "description": "Rooflight, AOV and Access Hatch Details",
    "format": "PDF",
    "scale": "1:10 @ A1",
@@ -8108,8 +8108,8 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
-   "comments": "Outsourcing Partner can set up initial details, with either internal team finalising, or Project lead co-ordinating with Outsourcing Partner to finalise.",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
+   "comments": "Outsourcing Partner can set up initial details, with either internal team finalising, or Project lead coordinating with Outsourcing Partner to finalise.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -8132,17 +8132,17 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7304",
+   "id": "Drawings-D-7320",
    "tab": "Drawings",
    "series": "7300 Series - Roof & Roof Accessories Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7304",
+   "number": "7320",
    "description": "Roof Types Plans and Build-ups",
    "format": "PDF",
-   "scale": "1:100 / 1:10 @ A1",
+   "scale": "1:100/1:10 @ A1",
    "workPackage": "Roof, drainage",
    "stages": {
     "0": null,
@@ -8336,14 +8336,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7352",
+   "id": "Drawings-D-7355",
    "tab": "Drawings",
    "series": "7350 Series - Signage Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7352",
+   "number": "7355",
    "description": "Internal Signage / Vinyl Elevations",
    "format": "PDF",
    "scale": "1:10 @ A1",
@@ -8364,7 +8364,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Technical details to be co-ordinated with other consultants. If in agreed scope. Typically CDP items",
+   "comments": "Technical details to be coordinated with other consultants. If in agreed scope. Typically CDP items",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -8387,14 +8387,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7353",
+   "id": "Drawings-D-7360",
    "tab": "Drawings",
    "series": "7350 Series - Signage Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7353",
+   "number": "7360",
    "description": "Wayfinding Signage Details",
    "format": "PDF",
    "scale": "1:10 @ A1",
@@ -8415,7 +8415,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Technical details to be co-ordinated with other consultants. If in agreed scope. Typically CDP items",
+   "comments": "Technical details to be coordinated with other consultants. If in agreed scope. Typically CDP items",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -8466,7 +8466,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Technical details to be co-ordinated with other consultants.",
+   "comments": "Technical details to be coordinated with other consultants.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -8489,14 +8489,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7402",
+   "id": "Drawings-D-7405",
    "tab": "Drawings",
    "series": "7400 Series - Slab & Waterproofing Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7402",
+   "number": "7405",
    "description": "Pool Tank, Edge Channel and Tiling Details",
    "format": "PDF",
    "scale": "1:10 @ A1",
@@ -8701,7 +8701,7 @@
    "level": "ZZ",
    "type": "D",
    "number": "7451",
-   "description": "Stair 1 Plan & Section Details",
+   "description": "Stair Plan & Section Details",
    "format": "PDF",
    "scale": "1:20 @ A1",
    "workPackage": "Stairs, balustrades, metalwork",
@@ -8720,8 +8720,8 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
-   "comments": "Model set up and co-ordinated by internal team. Outsourcing Partner can develop balustrade and dimensional information. Internal team to co-ordinate to suit Approved Docs.",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
+   "comments": "Model set up and coordinated by internal team. Outsourcing Partner can develop balustrade and dimensional information. Internal team to coordinate to suit Approved Docs. v2026.14: single stair record, one drawing set per stair (former D-7452 Stair 2 merged).",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -8744,65 +8744,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7452",
+   "id": "Drawings-D-7455",
    "tab": "Drawings",
    "series": "7450 Series - Stairs & Ramp Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7452",
-   "description": "Stair 2 Plan & Section Details",
-   "format": "PDF",
-   "scale": "1:20 @ A1",
-   "workPackage": "Stairs, balustrades, metalwork",
-   "stages": {
-    "0": null,
-    "1": null,
-    "2": null,
-    "3": "YYYY-MM-DD",
-    "4": "Ongoing",
-    "5": "Ongoing",
-    "6": null,
-    "7": null
-   },
-   "tender": {
-    "3+": false,
-    "4a": true,
-    "4b": true
-   },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
-   "comments": "Model set up and co-ordinated by internal team. Outsourcing Partner can develop balustrade and dimensional information. Internal team to co-ordinate to suit Approved Docs.",
-   "sectors": {
-    "Education": true,
-    "Residential": true,
-    "Blue Light": true,
-    "Defence & Justice": true,
-    "Healthcare": true,
-    "Hotels & Hospitality": true,
-    "Industrial and Manufacturing": true,
-    "Interior Design": true,
-    "Landscape_Education": false,
-    "Landscape_Other": false,
-    "Offices and Workspace": true,
-    "Retail": true,
-    "Science and Research": true,
-    "Sport and Leisure": true,
-    "Other": true
-   },
-   "floorDup": false,
-   "volDup": false,
-   "buildType": "any"
-  },
-  {
-   "id": "Drawings-D-7453",
-   "tab": "Drawings",
-   "series": "7450 Series - Stairs & Ramp Details",
-   "originator": "BBA",
-   "volume": "ZZ",
-   "level": "ZZ",
-   "type": "D",
-   "number": "7453",
+   "number": "7455",
    "description": "Roof Maintenance Stair Details",
    "format": "PDF",
    "scale": "1:20 @ A1",
@@ -8822,7 +8771,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -8873,8 +8822,8 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
-   "comments": "Model set up and co-ordinated by Internal Team. Outsourcing Partner can develop dimensional information based on manufacturers information.",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
+   "comments": "Model set up and coordinated by Internal Team. Outsourcing Partner can develop dimensional information based on manufacturers information.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -9026,7 +8975,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -9050,14 +8999,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7552",
+   "id": "Drawings-D-7555",
    "tab": "Drawings",
    "series": "7550 Series - Window and Glazed Screen Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7552",
+   "number": "7555",
    "description": "Glazed Screen Head / Jamb / Sill Details",
    "format": "PDF",
    "scale": "1:10 @ A1",
@@ -9077,7 +9026,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -9101,14 +9050,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7553",
+   "id": "Drawings-D-7560",
    "tab": "Drawings",
    "series": "7550 Series - Window and Glazed Screen Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7553",
+   "number": "7560",
    "description": "Shopfront Details (stallriser, fascia, entrance)",
    "format": "PDF",
    "scale": "1:10 @ A1",
@@ -9203,14 +9152,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7602",
+   "id": "Drawings-D-7605",
    "tab": "Drawings",
    "series": "7600 Series - Wall Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7602",
+   "number": "7605",
    "description": "External Wall Section Details",
    "format": "PDF",
    "scale": "1:10 @ A1",
@@ -9254,14 +9203,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7603",
+   "id": "Drawings-D-7610",
    "tab": "Drawings",
    "series": "7600 Series - Wall Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7603",
+   "number": "7610",
    "description": "External Wall Build-ups",
    "format": "PDF",
    "scale": "1:10 @ A1",
@@ -9305,14 +9254,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7604",
+   "id": "Drawings-D-7615",
    "tab": "Drawings",
    "series": "7600 Series - Wall Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7604",
+   "number": "7615",
    "description": "Internal Wall Plan Junction Details",
    "format": "PDF",
    "scale": "1:10 @ A1",
@@ -9356,14 +9305,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7605",
+   "id": "Drawings-D-7620",
    "tab": "Drawings",
    "series": "7600 Series - Wall Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7605",
+   "number": "7620",
    "description": "Internal Wall Section Details",
    "format": "PDF",
    "scale": "1:10 @ A1",
@@ -9407,14 +9356,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7607",
+   "id": "Drawings-D-7625",
    "tab": "Drawings",
    "series": "7600 Series - Wall Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7607",
+   "number": "7625",
    "description": "Typical Riser Details",
    "format": "PDF",
    "scale": "1:10 @ A1",
@@ -9435,7 +9384,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Technical details to be co-ordinated with other consultants.",
+   "comments": "Technical details to be coordinated with other consultants.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -9458,14 +9407,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7608",
+   "id": "Drawings-D-7630",
    "tab": "Drawings",
    "series": "7600 Series - Wall Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7608",
+   "number": "7630",
    "description": "Typical Fire Stopping Details",
    "format": "PDF",
    "scale": "1:10 @ A1",
@@ -9486,7 +9435,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Technical details to be co-ordinated with other consultants.",
+   "comments": "Technical details to be coordinated with other consultants.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -9509,14 +9458,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7609",
+   "id": "Drawings-D-7635",
    "tab": "Drawings",
    "series": "7600 Series - Wall Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7609",
+   "number": "7635",
    "description": "Dry Riser Details",
    "format": "PDF",
    "scale": "1:10 @ A1",
@@ -9537,7 +9486,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Technical details to be co-ordinated with other consultants.",
+   "comments": "Technical details to be coordinated with other consultants.",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -9560,14 +9509,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7611",
+   "id": "Drawings-D-7640",
    "tab": "Drawings",
    "series": "7600 Series - Wall Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7611",
+   "number": "7640",
    "description": "Internal Wall Types (build-ups)",
    "format": "PDF",
    "scale": "1:10 @ A1",
@@ -9639,7 +9588,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Beam encasements: Strategy to be agreed with contractor, Outsourcing Partner can set up/model using exemplar drawings. Beam encasements to be modelled for co-ordination and clash detection. v2026.14: merged with former Drawings-D-7606 Column / Beam Enclosure Details (Technical details to be co-ordinated with manufacturer).",
+   "comments": "Beam encasements: Strategy to be agreed with contractor, Outsourcing Partner can set up/model using exemplar drawings. Beam encasements to be modelled for coordination and clash detection. v2026.14: merged with former Drawings-D-7606 Column / Beam Enclosure Details (Technical details to be coordinated with manufacturer).",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -9690,7 +9639,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Technical details to be co-ordinated with other consultants.",
+   "comments": "Technical details to be coordinated with other consultants.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -9713,14 +9662,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7702",
+   "id": "Drawings-D-7705",
    "tab": "Drawings",
    "series": "7700 Series - Other Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7702",
+   "number": "7705",
    "description": "Podium Ventilation Grates",
    "format": "PDF",
    "scale": "1:10 @ A1",
@@ -9741,7 +9690,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Technical details to be co-ordinated with other consultants.",
+   "comments": "Technical details to be coordinated with other consultants.",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -9764,14 +9713,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7703",
+   "id": "Drawings-D-7710",
    "tab": "Drawings",
    "series": "7700 Series - Other Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7703",
+   "number": "7710",
    "description": "Entrance Canopy",
    "format": "PDF",
    "scale": "1:10 @ A1",
@@ -9792,7 +9741,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Technical details to be co-ordinated with other consultants.",
+   "comments": "Technical details to be coordinated with other consultants.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -9815,14 +9764,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7704",
+   "id": "Drawings-D-7715",
    "tab": "Drawings",
    "series": "7700 Series - Other Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7704",
+   "number": "7715",
    "description": "External Canopies and Storage Drawings",
    "format": "PDF",
    "scale": "1:50/1:20 @ A1",
@@ -9866,14 +9815,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7705",
+   "id": "Drawings-D-7720",
    "tab": "Drawings",
    "series": "7700 Series - Other Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7705",
+   "number": "7720",
    "description": "Typical Fittings Setting Out (wall-mounted equipment)",
    "format": "PDF",
    "scale": "1:20 @ A1",
@@ -9890,7 +9839,7 @@
    },
    "tender": {
     "3+": false,
-    "4a": true,
+    "4a": false,
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
@@ -9917,14 +9866,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7706",
+   "id": "Drawings-D-7725",
    "tab": "Drawings",
    "series": "7700 Series - Other Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7706",
+   "number": "7725",
    "description": "Movable and Folding Partition Details",
    "format": "PDF",
    "scale": "1:10 @ A1",
@@ -9968,14 +9917,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7707",
+   "id": "Drawings-D-7730",
    "tab": "Drawings",
    "series": "7700 Series - Other Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7707",
+   "number": "7730",
    "description": "Auditorium and Stage Details (stage, balcony fronts, seating guarding)",
    "format": "PDF",
    "scale": "1:20 @ A1",
@@ -10019,14 +9968,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7708",
+   "id": "Drawings-D-7735",
    "tab": "Drawings",
    "series": "7700 Series - Other Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7708",
+   "number": "7735",
    "description": "Technical Access Details (lighting balconies, fly tower and loft ladders)",
    "format": "PDF",
    "scale": "1:20 @ A1",
@@ -10121,14 +10070,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7752",
+   "id": "Drawings-D-7755",
    "tab": "Drawings",
    "series": "7750 Series - External Works Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7752",
+   "number": "7755",
    "description": "Typical Mesh Fence & Gate Details",
    "format": "PDF",
    "scale": "1:10 @ A1",
@@ -10172,14 +10121,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7753",
+   "id": "Drawings-D-7760",
    "tab": "Drawings",
    "series": "7750 Series - External Works Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7753",
+   "number": "7760",
    "description": "Typical Pipe and Column Protection Details",
    "format": "PDF",
    "scale": "1:10 @ A1",
@@ -10223,14 +10172,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-7754",
+   "id": "Drawings-D-7765",
    "tab": "Drawings",
    "series": "7750 Series - External Works Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "7754",
+   "number": "7765",
    "description": "Vehicle and Pedestrian Entrance Gate Details",
    "format": "PDF",
    "scale": "1:10 @ A1",
@@ -10301,7 +10250,7 @@
     "4a": false,
     "4b": false
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -10352,7 +10301,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "Feature areas remain under the internal team to ensure we are in control of design aspects.",
    "sectors": {
     "Education": true,
@@ -10403,7 +10352,7 @@
     "4a": false,
     "4b": false
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -10454,7 +10403,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -10478,14 +10427,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-8152",
+   "id": "Drawings-D-8155",
    "tab": "Drawings",
    "series": "8150 Series - Floor Finishes Plans",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "8152",
+   "number": "8155",
    "description": "Sports Hall Court Layout and Line Marking Plans",
    "format": "PDF/DWG",
    "scale": "1:100 @ A1",
@@ -10556,7 +10505,7 @@
     "4a": false,
     "4b": false
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -10607,7 +10556,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "Interior Design Strategy / Finishes Boards: included on finishes drawings.",
    "sectors": {
     "Education": true,
@@ -10631,14 +10580,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-8302",
+   "id": "Drawings-D-8310",
    "tab": "Drawings",
    "series": "8300 Series - Other Finishes Drawings",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "8302",
+   "number": "8310",
    "description": "Finishes Boards (internal and external)",
    "format": "PDF",
    "scale": "NTS @ A3",
@@ -10710,7 +10659,7 @@
     "4b": false
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Dependant on BBA scope.",
+   "comments": "Dependent on BBA scope.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -10733,14 +10682,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-9002",
+   "id": "Drawings-D-9010",
    "tab": "Drawings",
    "series": "9000 Series - Miscellaneous",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "9002",
+   "number": "9010",
    "description": "Conveyance Plans",
    "format": "PDF",
    "scale": "1:100 @ A1",
@@ -10784,14 +10733,14 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-9003",
+   "id": "Drawings-D-9030",
    "tab": "Drawings",
    "series": "9000 Series - Miscellaneous",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "9003",
+   "number": "9030",
    "description": "Sales Plans",
    "format": "PDF",
    "scale": "1:100 @ A1",
@@ -10863,7 +10812,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Landscape version of D-6250 (landscape has no 6000 drawings folder). For 3D models coordination, site real coordinated alignment and grid lines coordination with other consultants.",
+   "comments": "Landscape version of D-6240 (landscape has no 6000 drawings folder). For 3D models coordination, site real coordinated alignment and grid lines coordination with other consultants.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -10965,7 +10914,7 @@
     "4b": false
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Visuals (external / internal / daylight impact / street scene): Dependant on BBA scope.",
+   "comments": "Visuals (external / internal / daylight impact / street scene): Dependent on BBA scope.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -11016,7 +10965,7 @@
     "4b": false
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Visuals (external / internal / daylight impact / street scene): Dependant on BBA scope.",
+   "comments": "Visuals (external / internal / daylight impact / street scene): Dependent on BBA scope.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -11067,7 +11016,7 @@
     "4b": false
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Visuals (external / internal / daylight impact / street scene): Dependant on BBA scope.",
+   "comments": "Visuals (external / internal / daylight impact / street scene): Dependent on BBA scope.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -11117,7 +11066,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -11141,14 +11090,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-0002",
+   "id": "Lists-L-0010",
    "tab": "Lists",
    "series": "0000 Series - Areas",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "L",
-   "number": "0002",
+   "number": "0010",
    "description": "Schedule of Accommodation",
    "format": "PDF",
    "scale": "NTS @ A1",
@@ -11168,8 +11117,8 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
-   "comments": "Proposed Schedule of Accommodation: Included in Area Data Sheets.",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
+   "comments": "Proposed Schedule of Accommodation. DfE / CF25 schools use L-0020 Schedule of Spaces instead.",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -11192,14 +11141,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-0003",
+   "id": "Lists-L-0020",
    "tab": "Lists",
    "series": "0000 Series - Areas",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "L",
-   "number": "0003",
+   "number": "0020",
    "description": "Schedule of Spaces",
    "format": "XLS/XLSX",
    "scale": "A4 Document",
@@ -11321,7 +11270,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -11345,14 +11294,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-0102",
+   "id": "Lists-L-0110",
    "tab": "Lists",
    "series": "0100 Series - Doors",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "L",
-   "number": "0102",
+   "number": "0110",
    "description": "External Doors Schedules",
    "format": "PDF",
    "scale": "NTS @ A1",
@@ -11372,7 +11321,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -11396,14 +11345,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-0103",
+   "id": "Lists-L-0120",
    "tab": "Lists",
    "series": "0100 Series - Doors",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "L",
-   "number": "0103",
+   "number": "0120",
    "description": "Internal Doors Elevations",
    "format": "PDF",
    "scale": "NTS @ A1",
@@ -11423,7 +11372,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -11447,14 +11396,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-0104",
+   "id": "Lists-L-0130",
    "tab": "Lists",
    "series": "0100 Series - Doors",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "L",
-   "number": "0104",
+   "number": "0130",
    "description": "External Doors Elevations",
    "format": "PDF",
    "scale": "NTS @ A1",
@@ -11474,7 +11423,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -11498,14 +11447,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-0105",
+   "id": "Lists-L-0140",
    "tab": "Lists",
    "series": "0100 Series - Doors",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "L",
-   "number": "0105",
+   "number": "0140",
    "description": "Ironmongery Sets Schedule",
    "format": "PDF",
    "scale": "NTS @ A1",
@@ -11627,7 +11576,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -11651,14 +11600,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-0202",
+   "id": "Lists-L-0210",
    "tab": "Lists",
    "series": "0200 Series - Windows, Louvres and Glazed Screens",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "L",
-   "number": "0202",
+   "number": "0210",
    "description": "Louvres Schedules",
    "format": "PDF",
    "scale": "NTS @ A1",
@@ -11678,7 +11627,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -11702,14 +11651,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-0203",
+   "id": "Lists-L-0220",
    "tab": "Lists",
    "series": "0200 Series - Windows, Louvres and Glazed Screens",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "L",
-   "number": "0203",
+   "number": "0220",
    "description": "Internal Glazed Screens Schedules",
    "format": "PDF",
    "scale": "NTS @ A1",
@@ -11729,7 +11678,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -11753,14 +11702,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-0204",
+   "id": "Lists-L-0230",
    "tab": "Lists",
    "series": "0200 Series - Windows, Louvres and Glazed Screens",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "L",
-   "number": "0204",
+   "number": "0230",
    "description": "Windows Elevations",
    "format": "PDF",
    "scale": "NTS @ A1",
@@ -11780,7 +11729,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -11804,14 +11753,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-0205",
+   "id": "Lists-L-0240",
    "tab": "Lists",
    "series": "0200 Series - Windows, Louvres and Glazed Screens",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "L",
-   "number": "0205",
+   "number": "0240",
    "description": "Louvres Elevations",
    "format": "PDF",
    "scale": "NTS @ A1",
@@ -11831,7 +11780,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -11855,14 +11804,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-0206",
+   "id": "Lists-L-0250",
    "tab": "Lists",
    "series": "0200 Series - Windows, Louvres and Glazed Screens",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "L",
-   "number": "0206",
+   "number": "0250",
    "description": "Internal Glazed Screens Elevations",
    "format": "PDF",
    "scale": "NTS @ A1",
@@ -11882,7 +11831,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -11984,7 +11933,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -12008,14 +11957,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-0302",
+   "id": "Lists-L-0310",
    "tab": "Lists",
    "series": "0300 Series - Curtain Walls",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "L",
-   "number": "0302",
+   "number": "0310",
    "description": "Curtain Walls Elevations",
    "format": "PDF",
    "scale": "NTS @ A1",
@@ -12035,7 +11984,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -12137,7 +12086,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -12392,7 +12341,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -12443,7 +12392,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -12467,14 +12416,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-0602",
+   "id": "Lists-L-0610",
    "tab": "Lists",
    "series": "0600 Series - Finishes",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "L",
-   "number": "0602",
+   "number": "0610",
    "description": "External Finishes Schedules and Product Information",
    "format": "PDF",
    "scale": "NTS @ A1",
@@ -12494,7 +12443,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "Added v2026.14 (Example TIDP review P01). CF25 DEIR External Finishes Information (IE301, IE401, IE511), architecture. Evidence: Ilkley GS.",
    "sectors": {
     "Education": true,
@@ -12569,14 +12518,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-0702",
+   "id": "Lists-L-0705",
    "tab": "Lists",
    "series": "0700 Series - Other Schedules",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "L",
-   "number": "0702",
+   "number": "0705",
    "description": "Balcony Types Schedule",
    "format": "PDF",
    "scale": "NTS @ A1",
@@ -12596,7 +12545,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": false,
@@ -12620,14 +12569,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-0703",
+   "id": "Lists-L-0710",
    "tab": "Lists",
    "series": "0700 Series - Other Schedules",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "L",
-   "number": "0703",
+   "number": "0710",
    "description": "Coat Cupboard Schedule",
    "format": "PDF",
    "scale": "NTS @ A1",
@@ -12647,7 +12596,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": false,
@@ -12671,14 +12620,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-0704",
+   "id": "Lists-L-0715",
    "tab": "Lists",
    "series": "0700 Series - Other Schedules",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "L",
-   "number": "0704",
+   "number": "0715",
    "description": "Utility Cupboard Schedule",
    "format": "PDF",
    "scale": "NTS @ A1",
@@ -12698,7 +12647,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": false,
@@ -12722,14 +12671,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-0705",
+   "id": "Lists-L-0720",
    "tab": "Lists",
    "series": "0700 Series - Other Schedules",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "L",
-   "number": "0705",
+   "number": "0720",
    "description": "Wardrobe Schedule",
    "format": "PDF",
    "scale": "NTS @ A1",
@@ -12749,7 +12698,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": false,
@@ -12773,14 +12722,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-0706",
+   "id": "Lists-L-0725",
    "tab": "Lists",
    "series": "0700 Series - Other Schedules",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "L",
-   "number": "0706",
+   "number": "0725",
    "description": "Kitchen Types Schedule",
    "format": "PDF",
    "scale": "NTS @ A1",
@@ -12800,7 +12749,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": false,
@@ -12824,14 +12773,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-0707",
+   "id": "Lists-L-0730",
    "tab": "Lists",
    "series": "0700 Series - Other Schedules",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "L",
-   "number": "0707",
+   "number": "0730",
    "description": "Bathroom, Shower Room and WC Types Schedule",
    "format": "PDF",
    "scale": "NTS @ A1",
@@ -12851,7 +12800,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": false,
@@ -12875,14 +12824,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-0708",
+   "id": "Lists-L-0735",
    "tab": "Lists",
    "series": "0700 Series - Other Schedules",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "L",
-   "number": "0708",
+   "number": "0735",
    "description": "FFE Schedule",
    "format": "PDF",
    "scale": "NTS @ A1",
@@ -12926,14 +12875,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-0709",
+   "id": "Lists-L-0740",
    "tab": "Lists",
    "series": "0700 Series - Other Schedules",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "L",
-   "number": "0709",
+   "number": "0740",
    "description": "Movable Partition Schedules and Elevations",
    "format": "PDF",
    "scale": "NTS @ A1",
@@ -12953,7 +12902,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -12977,14 +12926,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-0710",
+   "id": "Lists-L-0745",
    "tab": "Lists",
    "series": "0700 Series - Other Schedules",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "L",
-   "number": "0710",
+   "number": "0745",
    "description": "Material Samples Schedules",
    "format": "XLS/XLSX",
    "scale": "A4 Document",
@@ -13028,14 +12977,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-0711",
+   "id": "Lists-L-0750",
    "tab": "Lists",
    "series": "0700 Series - Other Schedules",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "L",
-   "number": "0711",
+   "number": "0750",
    "description": "Internal Blinds Schedule",
    "format": "PDF",
    "scale": "NTS @ A1",
@@ -13052,7 +13001,7 @@
    },
    "tender": {
     "3+": false,
-    "4a": true,
+    "4a": false,
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
@@ -13181,14 +13130,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-0714",
+   "id": "Lists-L-0755",
    "tab": "Lists",
    "series": "0700 Series - Other Schedules",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "L",
-   "number": "0714",
+   "number": "0755",
    "description": "Anti-ligature and Secure Fittings Schedule",
    "format": "PDF",
    "scale": "NTS @ A1",
@@ -13232,14 +13181,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-0717",
+   "id": "Lists-L-0760",
    "tab": "Lists",
    "series": "0700 Series - Other Schedules",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "L",
-   "number": "0717",
+   "number": "0760",
    "description": "Laboratory FF&E and Benching Schedule",
    "format": "PDF",
    "scale": "NTS @ A1",
@@ -13385,14 +13334,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-1002",
+   "id": "Lists-L-1010",
    "tab": "Lists",
    "series": "1000 Series - Programmes",
    "originator": "BBA",
    "volume": "XX",
    "level": "XX",
    "type": "L",
-   "number": "1002",
+   "number": "1010",
    "description": "Design Programme (BB)",
    "format": "PDF",
    "scale": "A4 Document",
@@ -13436,14 +13385,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-1003",
+   "id": "Lists-L-1020",
    "tab": "Lists",
    "series": "1000 Series - Programmes",
    "originator": "BBA",
    "volume": "XX",
    "level": "XX",
    "type": "L",
-   "number": "1003",
+   "number": "1020",
    "description": "DEIR (BB tasks)",
    "format": "XLS/XLSX",
    "scale": "A4 Document",
@@ -13640,14 +13589,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-4002",
+   "id": "Lists-L-4010",
    "tab": "Lists",
    "series": "4000 Series - Trackers",
    "originator": "BBA",
    "volume": "XX",
    "level": "XX",
    "type": "L",
-   "number": "4002",
+   "number": "4010",
    "description": "Delay Schedule",
    "format": "PDF",
    "scale": "A4 Document",
@@ -13691,14 +13640,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-4003",
+   "id": "Lists-L-4020",
    "tab": "Lists",
    "series": "4000 Series - Trackers",
    "originator": "BBA",
    "volume": "XX",
    "level": "XX",
    "type": "L",
-   "number": "4003",
+   "number": "4020",
    "description": "Design Responsibility Matrix",
    "format": "PDF",
    "scale": "A4 Document",
@@ -13742,14 +13691,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-4004",
+   "id": "Lists-L-4030",
    "tab": "Lists",
    "series": "4000 Series - Trackers",
    "originator": "BBA",
    "volume": "XX",
    "level": "XX",
    "type": "L",
-   "number": "4004",
+   "number": "4030",
    "description": "RFI Register",
    "format": "PDF",
    "scale": "A4 Document",
@@ -13793,14 +13742,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-4005",
+   "id": "Lists-L-4040",
    "tab": "Lists",
    "series": "4000 Series - Trackers",
    "originator": "BBA",
    "volume": "XX",
    "level": "XX",
    "type": "L",
-   "number": "4005",
+   "number": "4040",
    "description": "Architectural Records Register",
    "format": "PDF",
    "scale": "A4 Document",
@@ -13895,14 +13844,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-4007",
+   "id": "Lists-L-4050",
    "tab": "Lists",
    "series": "4000 Series - Trackers",
    "originator": "BBA",
    "volume": "XX",
    "level": "XX",
    "type": "L",
-   "number": "4007",
+   "number": "4050",
    "description": "Derogation Schedule",
    "format": "PDF",
    "scale": "A4 Document",
@@ -13973,7 +13922,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Outsourcing Partner item - Project Lead to co-ordinate as required (OP)",
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
    "comments": "Area Data Sheets (ADS): i) Fully developed and completed Area Data Sheets on the proformas included in the Employer's Requirements. ii) For refurbishment/remodelling Works, relevant plans, sections and elevations to be included, along with and cross referenced to the completed Refurbishment Scope of Works (RSoW).\niii) Where the Contractor requires to derogate against the Employer’s Requirements, a derogation schedule will be required:\n- To set out and reference the specific DfE's Generic Design Brief (GDB) clauses to which they relate to, with detailed reasoning as to the non-compliance;\n- To be aligned with and cross referenced to the information included in the Areas Data Sheets (ADS) and the Refurbishment Scope of Works (RSoW);\niv) An appended clarification schedule shall be provided to capture where compliance with the Employer's Requirements is not relevant to the project;\nv) The derogation schedule shall be updated by the Contractor as and when there are changes as a result of variations/changes and/or changes in accordance with Review Procedure/Contractor’s Design Submission Procedure.\nvi) The Contractor shall notify the Employer of any derogations to the Employer’s Requirements, or issues not previously identified in the derogation schedule, the completed Area Data Sheets (ADS) or the Refurbishment Scope of Works (RSoW) immediately they become apparent.",
    "sectors": {
     "Education": true,
@@ -14048,14 +13997,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-6002",
+   "id": "Lists-L-6010",
    "tab": "Lists",
    "series": "6000 Series - Calculations",
    "originator": "BBA",
    "volume": "XX",
    "level": "XX",
    "type": "L",
-   "number": "6002",
+   "number": "6010",
    "description": "Calculations Toilets",
    "format": "PDF",
    "scale": "A4 Document",
@@ -14099,14 +14048,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-6003",
+   "id": "Lists-L-6020",
    "tab": "Lists",
    "series": "6000 Series - Calculations",
    "originator": "BBA",
    "volume": "XX",
    "level": "XX",
    "type": "L",
-   "number": "6003",
+   "number": "6020",
    "description": "Other Calculations",
    "format": "PDF",
    "scale": "A4 Document",
@@ -14201,14 +14150,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-8002",
+   "id": "Lists-L-8010",
    "tab": "Lists",
    "series": "8000 Series - Strategic Lists",
    "originator": "BBA",
    "volume": "XX",
    "level": "XX",
    "type": "L",
-   "number": "8002",
+   "number": "8010",
    "description": "Strategic Headcount List",
    "format": "PDF",
    "scale": "A4 Document",
@@ -14252,14 +14201,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-8003",
+   "id": "Lists-L-8020",
    "tab": "Lists",
    "series": "8000 Series - Strategic Lists",
    "originator": "BBA",
    "volume": "XX",
    "level": "XX",
    "type": "L",
-   "number": "8003",
+   "number": "8020",
    "description": "Strategic Investment Appraisals and Cost",
    "format": "PDF",
    "scale": "A4 Document",
@@ -14354,14 +14303,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-9002",
+   "id": "Lists-L-9010",
    "tab": "Lists",
    "series": "9000 Series - Miscellaneous",
    "originator": "BBA",
    "volume": "XX",
    "level": "XX",
    "type": "L",
-   "number": "9002",
+   "number": "9010",
    "description": "BIM Clash Rendition",
    "format": "BCF",
    "scale": "N/A",
@@ -14382,7 +14331,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Clash detection report to be produced by internal team. Clash detection to be co-ordinated with other consultants.",
+   "comments": "Clash detection report to be produced by internal team. Clash detection to be coordinated with other consultants.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -14405,14 +14354,14 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-9003",
+   "id": "Lists-L-9020",
    "tab": "Lists",
    "series": "9000 Series - Miscellaneous",
    "originator": "BBA",
    "volume": "XX",
    "level": "XX",
    "type": "L",
-   "number": "9003",
+   "number": "9020",
    "description": "Snagging Lists",
    "format": "PDF",
    "scale": "A4 Document",
@@ -14739,7 +14688,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Federated model to be produced by internal team. Clash detection to be co-ordinated with other consultants.",
+   "comments": "Federated model to be produced by internal team. Clash detection to be coordinated with other consultants.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -14770,7 +14719,7 @@
    "level": "ZZ",
    "type": "M",
    "number": "4003",
-   "description": "AR/VR Model (BIMx, Oculus,…)",
+   "description": "AR/VR Model (BIMx, Meta Quest, …)",
    "format": "BIMX",
    "scale": "N/A",
    "workPackage": "Coordination",
@@ -15351,7 +15300,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Clash detection report to be produced by internal team. Clash detection to be co-ordinated with other consultants.",
+   "comments": "Clash detection report to be produced by internal team. Clash detection to be coordinated with other consultants.",
    "sectors": {
     "Education": true,
     "Residential": true,
