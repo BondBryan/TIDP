@@ -1,7 +1,7 @@
 {
  "meta": {
   "name": "Bond Bryan TIDP Library",
-  "version": "2026.12",
+  "version": "2026.13",
   "source": "Smarter Working Group",
   "extracted": "2026-10",
   "documents": 329,
@@ -5008,8 +5008,8 @@
     "Hotels & Hospitality": true,
     "Industrial and Manufacturing": true,
     "Interior Design": true,
-    "Landscape_Education": true,
-    "Landscape_Other": true,
+    "Landscape_Education": false,
+    "Landscape_Other": false,
     "Offices and Workspace": true,
     "Retail": true,
     "Science and Research": true,
@@ -9945,7 +9945,7 @@
     "4b": false
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Miscellaneous",
+   "comments": "Dependant on BBA scope.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -9955,8 +9955,8 @@
     "Hotels & Hospitality": true,
     "Industrial and Manufacturing": true,
     "Interior Design": true,
-    "Landscape_Education": false,
-    "Landscape_Other": false,
+    "Landscape_Education": true,
+    "Landscape_Other": true,
     "Offices and Workspace": true,
     "Retail": true,
     "Science and Research": true,
@@ -10070,35 +10070,35 @@
    "buildType": "any"
   },
   {
-   "id": "Drawings-D-9010",
+   "id": "Drawings-D-9020",
    "tab": "Drawings",
    "series": "9000 Series - Miscellaneous",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
-   "number": "9010",
-   "description": "Miscellaneous Landscape Drawings",
-   "format": "PDF",
+   "number": "9020",
+   "description": "Building Grid and Cuboid",
+   "format": "PDF/DWG",
    "scale": "1:100 @ A1",
-   "workPackage": "Other",
+   "workPackage": "Coordination",
    "stages": {
     "0": null,
     "1": null,
-    "2": null,
-    "3": null,
-    "4": null,
-    "5": null,
+    "2": "YYYY-MM-DD",
+    "3": "Ongoing",
+    "4": "Ongoing",
+    "5": "Ongoing",
     "6": null,
     "7": null
    },
    "tender": {
-    "3+": false,
-    "4a": false,
-    "4b": false
+    "3+": true,
+    "4a": true,
+    "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Landscape version (default)",
+   "comments": "Landscape version of D-6250 (landscape has no 6000 drawings folder). For 3D models coordination, site real coordinated alignment and grid lines coordination with other consultants.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -11702,57 +11702,6 @@
    "buildType": "any"
   },
   {
-   "id": "Lists-L-0602",
-   "tab": "Lists",
-   "series": "0600 Series - Finishes",
-   "originator": "BBA",
-   "volume": "ZZ",
-   "level": "ZZ",
-   "type": "L",
-   "number": "0602",
-   "description": "External Finishes Schedules and Information",
-   "format": "PDF",
-   "scale": "NTS @ A1",
-   "workPackage": "Finishes",
-   "stages": {
-    "0": null,
-    "1": null,
-    "2": null,
-    "3": "YYYY-MM-DD",
-    "4": "Ongoing",
-    "5": "Ongoing",
-    "6": null,
-    "7": null
-   },
-   "tender": {
-    "3+": true,
-    "4a": true,
-    "4b": true
-   },
-   "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "CF25 DRM: External Finishes Information (IE301, IE401, IE511)",
-   "sectors": {
-    "Education": false,
-    "Residential": false,
-    "Blue Light": false,
-    "Defence & Justice": false,
-    "Healthcare": false,
-    "Hotels & Hospitality": false,
-    "Industrial and Manufacturing": false,
-    "Interior Design": false,
-    "Landscape_Education": true,
-    "Landscape_Other": true,
-    "Offices and Workspace": false,
-    "Retail": false,
-    "Science and Research": false,
-    "Sport and Leisure": false,
-    "Other": false
-   },
-   "floorDup": false,
-   "volDup": true,
-   "buildType": "any"
-  },
-  {
    "id": "Lists-L-0701",
    "tab": "Lists",
    "series": "0700 Series - Other Schedules",
@@ -12362,6 +12311,57 @@
    },
    "floorDup": false,
    "volDup": false,
+   "buildType": "any"
+  },
+  {
+   "id": "Lists-L-0713",
+   "tab": "Lists",
+   "series": "0700 Series - Other Schedules",
+   "originator": "BBA",
+   "volume": "ZZ",
+   "level": "ZZ",
+   "type": "L",
+   "number": "0713",
+   "description": "External Finishes Schedules and Information",
+   "format": "PDF",
+   "scale": "NTS @ A1",
+   "workPackage": "Finishes",
+   "stages": {
+    "0": null,
+    "1": null,
+    "2": null,
+    "3": "YYYY-MM-DD",
+    "4": "Ongoing",
+    "5": "Ongoing",
+    "6": null,
+    "7": null
+   },
+   "tender": {
+    "3+": true,
+    "4a": true,
+    "4b": true
+   },
+   "status": "Internal Team Item - Project Lead to allocate resource accordingly",
+   "comments": "CF25 DRM: External Finishes Information (IE301, IE401, IE511). Landscape files it in 0700-OtherSchedules (landscape 0600 folder is project specific)",
+   "sectors": {
+    "Education": false,
+    "Residential": false,
+    "Blue Light": false,
+    "Defence & Justice": false,
+    "Healthcare": false,
+    "Hotels & Hospitality": false,
+    "Industrial and Manufacturing": false,
+    "Interior Design": false,
+    "Landscape_Education": true,
+    "Landscape_Other": true,
+    "Offices and Workspace": false,
+    "Retail": false,
+    "Science and Research": false,
+    "Sport and Leisure": false,
+    "Other": false
+   },
+   "floorDup": false,
+   "volDup": true,
    "buildType": "any"
   },
   {
@@ -13566,7 +13566,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "",
+   "comments": "Server: save ArchiCAD .pln (record model) or Revit .rvt. External distribution: ArchiCAD .pla (archive file with libraries embedded) or .rvt",
    "sectors": {
     "Education": true,
     "Residential": true,
