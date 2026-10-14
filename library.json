@@ -1,10 +1,10 @@
 {
  "meta": {
   "name": "Bond Bryan TIDP Library",
-  "version": "2026.15",
-  "source": "Smarter Working Group",
+  "version": "2026.17",
+  "source": "Bond Bryan Architects",
   "extracted": "2026-10",
-  "documents": 345,
+  "documents": 351,
   "note": "Master list of Task Information Delivery Plan deliverables. Edit in GitHub; the web app reads this file at load."
  },
  "lists": {
@@ -408,7 +408,7 @@
     "4b": false
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Added v2026.14 (Example TIDP review P01). Evidence: Telford Theatre, Adpar Street.",
+   "comments": "",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -510,7 +510,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Added v2026.14 (Example TIDP review P01). Only where demolition works. Evidence: Loughborough CTF, Adpar Street, Wigan and Leigh.",
+   "comments": "Only where demolition works.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -2856,7 +2856,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Added v2026.14 (Example TIDP review P01). Existing buildings only: extent of works / strip-out / retained elements (DfE: Refurbishment and Remodelling Strategy). Evidence: Ilkley GS, Wigan and Leigh, EMD Waltham Forest.",
+   "comments": "Existing buildings only: extent of works / strip-out / retained elements (DfE: Refurbishment and Remodelling Strategy).",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -2907,7 +2907,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Site-wide, single floor (Arthur). Coordinate with the Architect and Fire Engineer",
+   "comments": "Site-wide, single floor. Coordinate with the Architect and Fire Engineer",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -2958,7 +2958,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Site-wide, single floor (Arthur). Secure line, access control, circulation",
+   "comments": "Site-wide, single floor. Secure line, access control, circulation",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -3009,7 +3009,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Site-wide, single floor (Arthur). Secured by Design requirements",
+   "comments": "Site-wide, single floor. Secured by Design requirements",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -3060,7 +3060,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Site-wide, single floor (Arthur)",
+   "comments": "Site-wide, single floor",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -3111,7 +3111,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Site-wide, single floor (Arthur)",
+   "comments": "Site-wide, single floor",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -3162,7 +3162,7 @@
     "4b": false
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Added v2026.14 (Example TIDP review P01). Tall residential schemes, coordinate with wind consultant. Evidence: Kidbrooke Village.",
+   "comments": "Tall residential schemes, coordinate with wind consultant.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -4692,7 +4692,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Added v2026.14 (Example TIDP review P01). AD M Vol 2 (2021 amendment) Changing Places in certain new public buildings; SEND hygiene rooms. Thresholds to confirm per project. Evidence: Ilkley GS, Telford Theatre, CNWL, Wigan and Leigh.",
+   "comments": "AD M Vol 2 (2021 amendment) Changing Places in certain new public buildings; SEND hygiene rooms. Thresholds to confirm per project.",
    "sectors": {
     "Education": true,
     "Residential": false,
@@ -4896,7 +4896,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Added v2026.14 (Example TIDP review P01). Coordinate with SE and fire engineer (DfE: Fire Precaution Accessories Drawings). Evidence: CNWL, Wigan and Leigh, Ilkley GS, BCG High Wycombe.",
+   "comments": "Coordinate with SE and fire engineer (DfE: Fire Precaution Accessories Drawings).",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -4905,7 +4905,7 @@
     "Healthcare": true,
     "Hotels & Hospitality": true,
     "Industrial and Manufacturing": true,
-    "Interior Design": true,
+    "Interior Design": false,
     "Landscape_Education": false,
     "Landscape_Other": false,
     "Offices and Workspace": true,
@@ -5049,7 +5049,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
-   "comments": "v2026.14: first issue Stage 4.",
+   "comments": "First issue Stage 4.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -5211,7 +5211,7 @@
     "Healthcare": true,
     "Hotels & Hospitality": true,
     "Industrial and Manufacturing": true,
-    "Interior Design": true,
+    "Interior Design": false,
     "Landscape_Education": false,
     "Landscape_Other": false,
     "Offices and Workspace": true,
@@ -5219,6 +5219,57 @@
     "Science and Research": true,
     "Sport and Leisure": true,
     "Other": true
+   },
+   "floorDup": true,
+   "volDup": true,
+   "buildType": "any"
+  },
+  {
+   "id": "Drawings-D-6220-I",
+   "tab": "Drawings",
+   "series": "6200 Series - Slab Setting Out Plans",
+   "originator": "BBA",
+   "volume": "ZZ",
+   "level": "ZZ",
+   "type": "D",
+   "number": "6220",
+   "description": "Builderswork Plans",
+   "format": "PDF",
+   "scale": "1:100 @ A1",
+   "workPackage": "Structure, slabs, steelwork",
+   "stages": {
+    "0": null,
+    "1": null,
+    "2": null,
+    "3": null,
+    "4": "YYYY-MM-DD",
+    "5": "Ongoing",
+    "6": null,
+    "7": null
+   },
+   "tender": {
+    "3+": false,
+    "4a": false,
+    "4b": true
+   },
+   "status": "Confirmation of BBA scope required",
+   "comments": "Interior Design version (only if needed). Coordinate with SE and M&E consultants to ensure correct slab setting out and coordination with services.",
+   "sectors": {
+    "Education": false,
+    "Residential": false,
+    "Blue Light": false,
+    "Defence & Justice": false,
+    "Healthcare": false,
+    "Hotels & Hospitality": false,
+    "Industrial and Manufacturing": false,
+    "Interior Design": true,
+    "Landscape_Education": false,
+    "Landscape_Other": false,
+    "Offices and Workspace": false,
+    "Retail": false,
+    "Science and Research": false,
+    "Sport and Leisure": false,
+    "Other": false
    },
    "floorDup": true,
    "volDup": true,
@@ -5313,7 +5364,7 @@
     "Healthcare": true,
     "Hotels & Hospitality": true,
     "Industrial and Manufacturing": true,
-    "Interior Design": true,
+    "Interior Design": false,
     "Landscape_Education": false,
     "Landscape_Other": false,
     "Offices and Workspace": true,
@@ -5661,7 +5712,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "v2026.14: incl. large equipment routes and tracking (Science and Research).",
+   "comments": "Includes large equipment routes and tracking (Science and Research).",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -5712,7 +5763,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "v2026.14: incl. large equipment routes and tracking (Science and Research).",
+   "comments": "Includes large equipment routes and tracking (Science and Research).",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -5865,7 +5916,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Only relevant to specific appointments, Project Lead to review if required and allocate internal resource accordingly. v2026.14: bespoke item, not ticked by default for any sector: Project Lead ticks it when in scope. Duplicated per storey and volume.",
+   "comments": "Only relevant to specific appointments, Project Lead to review if required and allocate internal resource accordingly. Bespoke item, not ticked by default for any sector: Project Lead ticks it when in scope. Duplicated per storey and volume.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -5976,7 +6027,7 @@
     "Healthcare": true,
     "Hotels & Hospitality": true,
     "Industrial and Manufacturing": true,
-    "Interior Design": true,
+    "Interior Design": false,
     "Landscape_Education": false,
     "Landscape_Other": false,
     "Offices and Workspace": true,
@@ -5984,6 +6035,57 @@
     "Science and Research": true,
     "Sport and Leisure": true,
     "Other": true
+   },
+   "floorDup": true,
+   "volDup": true,
+   "buildType": "any"
+  },
+  {
+   "id": "Drawings-D-6751-I",
+   "tab": "Drawings",
+   "series": "6750 Series - Hazard Identification Plans",
+   "originator": "BBA",
+   "volume": "ZZ",
+   "level": "ZZ",
+   "type": "D",
+   "number": "6751",
+   "description": "Hazard Identification Plans",
+   "format": "PDF",
+   "scale": "1:100 @ A1",
+   "workPackage": "Building Control, CDM, Compliance",
+   "stages": {
+    "0": null,
+    "1": null,
+    "2": null,
+    "3": "YYYY-MM-DD",
+    "4": "Ongoing",
+    "5": "Ongoing",
+    "6": null,
+    "7": null
+   },
+   "tender": {
+    "3+": true,
+    "4a": true,
+    "4b": true
+   },
+   "status": "Confirmation of BBA scope required",
+   "comments": "Interior Design version (only if needed): DfE projects. Coordinated with PDCDM.",
+   "sectors": {
+    "Education": false,
+    "Residential": false,
+    "Blue Light": false,
+    "Defence & Justice": false,
+    "Healthcare": false,
+    "Hotels & Hospitality": false,
+    "Industrial and Manufacturing": false,
+    "Interior Design": true,
+    "Landscape_Education": false,
+    "Landscape_Other": false,
+    "Offices and Workspace": false,
+    "Retail": false,
+    "Science and Research": false,
+    "Sport and Leisure": false,
+    "Other": false
    },
    "floorDup": true,
    "volDup": true,
@@ -7089,7 +7191,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Added v2026.14 (Example TIDP review P01). Floor build-up types per storey, keyed to D-7155 Floor Build-up Types (named to avoid \"Ground Floor Floor ...\" on storey rows). Evidence: EMD Waltham Forest, CNWL, UOW STEM, Adpar Street.",
+   "comments": "Floor build-up types per storey, keyed to D-7155 Floor Build-up Types.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -7098,7 +7200,7 @@
     "Healthcare": true,
     "Hotels & Hospitality": true,
     "Industrial and Manufacturing": true,
-    "Interior Design": true,
+    "Interior Design": false,
     "Landscape_Education": false,
     "Landscape_Other": false,
     "Offices and Workspace": true,
@@ -7497,7 +7599,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Added v2026.14 (Example TIDP review P01). Evidence: UOW STEM, CNWL.",
+   "comments": "",
    "sectors": {
     "Education": true,
     "Residential": false,
@@ -7956,7 +8058,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Added v2026.14 (Example TIDP review P01). Evidence: BCG High Wycombe, Loughborough CTF, Wigan and Leigh, UOW STEM.",
+   "comments": "",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -8160,7 +8262,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Added v2026.14 (Example TIDP review P01). Evidence: EMD Waltham Forest, UOW STEM, BCG High Wycombe, Adpar Street.",
+   "comments": "",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -8721,7 +8823,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
-   "comments": "Model set up and coordinated by internal team. Outsourcing Partner can develop balustrade and dimensional information. Internal team to coordinate to suit Approved Docs. v2026.14: single stair record, one drawing set per stair (former D-7452 Stair 2 merged).",
+   "comments": "Model set up and coordinated by internal team. Outsourcing Partner can develop balustrade and dimensional information. Internal team to coordinate to suit Approved Docs. One drawing set per stair.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -9537,7 +9639,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Added v2026.14 (Example TIDP review P01). Pairs with External Wall Build-ups. Evidence: 7 of 16 examples.",
+   "comments": "Pairs with External Wall Build-ups.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -9588,7 +9690,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Beam encasements: Strategy to be agreed with contractor, Outsourcing Partner can set up/model using exemplar drawings. Beam encasements to be modelled for coordination and clash detection. v2026.14: merged with former Drawings-D-7606 Column / Beam Enclosure Details (Technical details to be coordinated with manufacturer).",
+   "comments": "Beam encasements: Strategy to be agreed with contractor, Outsourcing Partner can set up/model using exemplar drawings. Beam encasements to be modelled for coordination and clash detection. Includes column / beam enclosure details (technical details to be coordinated with manufacturer).",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -9843,7 +9945,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Added v2026.14 (Example TIDP review P01). Evidence: BCG High Wycombe, CNWL.",
+   "comments": "",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -9894,7 +9996,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Added v2026.14 (Example TIDP review P01). Links to Lists Movable Partition Schedules and Elevations. Evidence: CNWL, UOW STEM, Wigan and Leigh.",
+   "comments": "Links to Lists Movable Partition Schedules and Elevations.",
    "sectors": {
     "Education": true,
     "Residential": false,
@@ -9945,7 +10047,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Added v2026.14 (Example TIDP review P01). Arts and Culture projects (no Arts sector yet: flagged Sport and Leisure / Other). Evidence: Telford Theatre, EMD Waltham Forest.",
+   "comments": "Arts and Culture projects.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -9996,7 +10098,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Added v2026.14 (Example TIDP review P01). Arts and Culture projects (no Arts sector yet: flagged Sport and Leisure / Other). Evidence: EMD Waltham Forest, Telford Theatre.",
+   "comments": "Arts and Culture projects.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -10158,7 +10260,7 @@
     "Healthcare": true,
     "Hotels & Hospitality": true,
     "Industrial and Manufacturing": true,
-    "Interior Design": true,
+    "Interior Design": false,
     "Landscape_Education": false,
     "Landscape_Other": false,
     "Offices and Workspace": true,
@@ -10166,6 +10268,57 @@
     "Science and Research": true,
     "Sport and Leisure": true,
     "Other": true
+   },
+   "floorDup": false,
+   "volDup": false,
+   "buildType": "any"
+  },
+  {
+   "id": "Drawings-D-7760-I",
+   "tab": "Drawings",
+   "series": "7750 Series - External Works Details",
+   "originator": "BBA",
+   "volume": "ZZ",
+   "level": "ZZ",
+   "type": "D",
+   "number": "7760",
+   "description": "Typical Pipe and Column Protection Details",
+   "format": "PDF",
+   "scale": "1:10 @ A1",
+   "workPackage": "Site, landscape, levels",
+   "stages": {
+    "0": null,
+    "1": null,
+    "2": null,
+    "3": null,
+    "4": "YYYY-MM-DD",
+    "5": "Ongoing",
+    "6": null,
+    "7": null
+   },
+   "tender": {
+    "3+": false,
+    "4a": false,
+    "4b": true
+   },
+   "status": "Confirmation of BBA scope required",
+   "comments": "Interior Design version (only if needed). Scope to be agreed.",
+   "sectors": {
+    "Education": false,
+    "Residential": false,
+    "Blue Light": false,
+    "Defence & Justice": false,
+    "Healthcare": false,
+    "Hotels & Hospitality": false,
+    "Industrial and Manufacturing": false,
+    "Interior Design": true,
+    "Landscape_Education": false,
+    "Landscape_Other": false,
+    "Offices and Workspace": false,
+    "Retail": false,
+    "Science and Research": false,
+    "Sport and Leisure": false,
+    "Other": false
    },
    "floorDup": false,
    "volDup": false,
@@ -10608,7 +10761,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Added v2026.14 (Example TIDP review P01). Evidence: EMD Waltham Forest, Loughborough CTF, BCG High Wycombe, CNWL.",
+   "comments": "",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -11994,7 +12147,7 @@
     "Healthcare": true,
     "Hotels & Hospitality": true,
     "Industrial and Manufacturing": true,
-    "Interior Design": true,
+    "Interior Design": false,
     "Landscape_Education": false,
     "Landscape_Other": false,
     "Offices and Workspace": true,
@@ -12444,7 +12597,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
-   "comments": "Added v2026.14 (Example TIDP review P01). CF25 DEIR External Finishes Information (IE301, IE401, IE511), architecture. Evidence: Ilkley GS.",
+   "comments": "CF25 DEIR External Finishes Information (IE301, IE401, IE511), architecture.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -13005,7 +13158,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "v2026.14: blind strategy plans where required.",
+   "comments": "Blind strategy plans where required.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -13209,7 +13362,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Added v2026.14 (Example TIDP review P01). Evidence: UOW STEM.",
+   "comments": "",
    "sectors": {
     "Education": true,
     "Residential": false,
@@ -13872,7 +14025,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Added v2026.14 (Example TIDP review P01). Departures from Employer's Requirements / ITT / PCSA. Evidence: Adpar Street, Wigan and Leigh (DfE).",
+   "comments": "Departures from Employer's Requirements / ITT / PCSA.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -14340,7 +14493,7 @@
     "Healthcare": true,
     "Hotels & Hospitality": true,
     "Industrial and Manufacturing": true,
-    "Interior Design": true,
+    "Interior Design": false,
     "Landscape_Education": false,
     "Landscape_Other": false,
     "Offices and Workspace": true,
@@ -14348,6 +14501,57 @@
     "Science and Research": true,
     "Sport and Leisure": true,
     "Other": true
+   },
+   "floorDup": false,
+   "volDup": false,
+   "buildType": "any"
+  },
+  {
+   "id": "Lists-L-9010-I",
+   "tab": "Lists",
+   "series": "9000 Series - Miscellaneous",
+   "originator": "BBA",
+   "volume": "XX",
+   "level": "XX",
+   "type": "L",
+   "number": "9010",
+   "description": "BIM Clash Rendition",
+   "format": "BCF",
+   "scale": "N/A",
+   "workPackage": "Coordination",
+   "stages": {
+    "0": null,
+    "1": null,
+    "2": null,
+    "3": "YYYY-MM-DD",
+    "4": "Ongoing",
+    "5": "Ongoing",
+    "6": null,
+    "7": null
+   },
+   "tender": {
+    "3+": true,
+    "4a": true,
+    "4b": true
+   },
+   "status": "Confirmation of BBA scope required",
+   "comments": "Interior Design version (only if needed). Clash detection report to be produced by internal team. Clash detection to be coordinated with other consultants.",
+   "sectors": {
+    "Education": false,
+    "Residential": false,
+    "Blue Light": false,
+    "Defence & Justice": false,
+    "Healthcare": false,
+    "Hotels & Hospitality": false,
+    "Industrial and Manufacturing": false,
+    "Interior Design": true,
+    "Landscape_Education": false,
+    "Landscape_Other": false,
+    "Offices and Workspace": false,
+    "Retail": false,
+    "Science and Research": false,
+    "Sport and Leisure": false,
+    "Other": false
    },
    "floorDup": false,
    "volDup": false,
@@ -14544,7 +14748,7 @@
     "Healthcare": true,
     "Hotels & Hospitality": true,
     "Industrial and Manufacturing": true,
-    "Interior Design": true,
+    "Interior Design": false,
     "Landscape_Education": false,
     "Landscape_Other": false,
     "Offices and Workspace": true,
@@ -14552,6 +14756,57 @@
     "Science and Research": true,
     "Sport and Leisure": true,
     "Other": true
+   },
+   "floorDup": false,
+   "volDup": false,
+   "buildType": "any"
+  },
+  {
+   "id": "Models-M-2002-I",
+   "tab": "Models",
+   "series": "2000 Series - IFC Models",
+   "originator": "BBA",
+   "volume": "ZZ",
+   "level": "ZZ",
+   "type": "M",
+   "number": "2002",
+   "description": "Buildings and Site Model",
+   "format": "IFC2x3",
+   "scale": "1:1",
+   "workPackage": "Coordination",
+   "stages": {
+    "0": null,
+    "1": null,
+    "2": null,
+    "3": "YYYY-MM-DD",
+    "4": "Ongoing",
+    "5": "Ongoing",
+    "6": null,
+    "7": null
+   },
+   "tender": {
+    "3+": true,
+    "4a": true,
+    "4b": true
+   },
+   "status": "Confirmation of BBA scope required",
+   "comments": "Interior Design version (only if needed).",
+   "sectors": {
+    "Education": false,
+    "Residential": false,
+    "Blue Light": false,
+    "Defence & Justice": false,
+    "Healthcare": false,
+    "Hotels & Hospitality": false,
+    "Industrial and Manufacturing": false,
+    "Interior Design": true,
+    "Landscape_Education": false,
+    "Landscape_Other": false,
+    "Offices and Workspace": false,
+    "Retail": false,
+    "Science and Research": false,
+    "Sport and Leisure": false,
+    "Other": false
    },
    "floorDup": false,
    "volDup": false,
@@ -14586,7 +14841,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "v2026.14: Landscape IFC model for coordination.",
+   "comments": "Landscape IFC model for coordination.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -14595,7 +14850,7 @@
     "Healthcare": true,
     "Hotels & Hospitality": true,
     "Industrial and Manufacturing": true,
-    "Interior Design": true,
+    "Interior Design": false,
     "Landscape_Education": true,
     "Landscape_Other": true,
     "Offices and Workspace": true,
@@ -14603,6 +14858,57 @@
     "Science and Research": true,
     "Sport and Leisure": true,
     "Other": true
+   },
+   "floorDup": false,
+   "volDup": false,
+   "buildType": "any"
+  },
+  {
+   "id": "Models-M-2003-I",
+   "tab": "Models",
+   "series": "2000 Series - IFC Models",
+   "originator": "BBA",
+   "volume": "ZZ",
+   "level": "ZZ",
+   "type": "M",
+   "number": "2003",
+   "description": "Site Model",
+   "format": "IFC2x3",
+   "scale": "1:1",
+   "workPackage": "Coordination",
+   "stages": {
+    "0": null,
+    "1": null,
+    "2": null,
+    "3": "YYYY-MM-DD",
+    "4": "Ongoing",
+    "5": "Ongoing",
+    "6": null,
+    "7": null
+   },
+   "tender": {
+    "3+": true,
+    "4a": true,
+    "4b": true
+   },
+   "status": "Confirmation of BBA scope required",
+   "comments": "Interior Design version (only if needed). Site / landscape IFC model for coordination.",
+   "sectors": {
+    "Education": false,
+    "Residential": false,
+    "Blue Light": false,
+    "Defence & Justice": false,
+    "Healthcare": false,
+    "Hotels & Hospitality": false,
+    "Industrial and Manufacturing": false,
+    "Interior Design": true,
+    "Landscape_Education": false,
+    "Landscape_Other": false,
+    "Offices and Workspace": false,
+    "Retail": false,
+    "Science and Research": false,
+    "Sport and Leisure": false,
+    "Other": false
    },
    "floorDup": false,
    "volDup": false,
@@ -14646,7 +14952,7 @@
     "Healthcare": true,
     "Hotels & Hospitality": true,
     "Industrial and Manufacturing": true,
-    "Interior Design": true,
+    "Interior Design": false,
     "Landscape_Education": false,
     "Landscape_Other": false,
     "Offices and Workspace": true,
@@ -15198,7 +15504,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "v2026.14: incl. DTM / client meeting architect's report and monthly design report.",
+   "comments": "Includes DTM / client meeting architect's report and monthly design report.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -16728,7 +17034,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Additional contract / scope may be needed for this item",
+   "comments": "Scope to be agreed. Additional contract / scope may be needed for this item",
    "sectors": {
     "Education": true,
     "Residential": true,
