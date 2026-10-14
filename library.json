@@ -1,10 +1,10 @@
 {
  "meta": {
   "name": "Bond Bryan TIDP Library",
-  "version": "2026.17",
+  "version": "2026.18",
   "source": "Bond Bryan Architects",
   "extracted": "2026-10",
-  "documents": 351,
+  "documents": 354,
   "note": "Master list of Task Information Delivery Plan deliverables. Edit in GitHub; the web app reads this file at load."
  },
  "lists": {
@@ -6293,6 +6293,57 @@
    },
    "floorDup": true,
    "volDup": false,
+   "buildType": "any"
+  },
+  {
+   "id": "Drawings-D-6920",
+   "tab": "Drawings",
+   "series": "6900 Series - Other Detailed Plans",
+   "originator": "BBA",
+   "volume": "ZZ",
+   "level": "ZZ",
+   "type": "D",
+   "number": "6920",
+   "description": "Blinds and Solar Gain Strategy Plans (BREEAM)",
+   "format": "PDF",
+   "scale": "1:100 @ A1",
+   "workPackage": "Sustainability, BREEAM, Carbon",
+   "stages": {
+    "0": null,
+    "1": null,
+    "2": null,
+    "3": "YYYY-MM-DD",
+    "4": "Ongoing",
+    "5": null,
+    "6": null,
+    "7": null
+   },
+   "tender": {
+    "3+": true,
+    "4a": true,
+    "4b": true
+   },
+   "status": "Confirmation of BBA scope required",
+   "comments": "Only if required: BREEAM glare control and solar gain evidence (blind and curtain locations and types per facade / room). Coordinate with the BREEAM assessor and M&E (overheating). Read with Lists L-0750 Internal Blinds Schedule.",
+   "sectors": {
+    "Education": true,
+    "Residential": true,
+    "Blue Light": true,
+    "Defence & Justice": true,
+    "Healthcare": true,
+    "Hotels & Hospitality": true,
+    "Industrial and Manufacturing": true,
+    "Interior Design": true,
+    "Landscape_Education": false,
+    "Landscape_Other": false,
+    "Offices and Workspace": true,
+    "Retail": true,
+    "Science and Research": true,
+    "Sport and Leisure": true,
+    "Other": true
+   },
+   "floorDup": true,
+   "volDup": true,
    "buildType": "any"
   },
   {
@@ -13158,7 +13209,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Blind strategy plans where required.",
+   "comments": "Blind strategy plans where required: see Drawings D-6920 Blinds and Solar Gain Strategy Plans (BREEAM).",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -13382,6 +13433,57 @@
    },
    "floorDup": false,
    "volDup": false,
+   "buildType": "any"
+  },
+  {
+   "id": "Lists-L-0765",
+   "tab": "Lists",
+   "series": "0700 Series - Other Schedules",
+   "originator": "BBA",
+   "volume": "ZZ",
+   "level": "ZZ",
+   "type": "L",
+   "number": "0765",
+   "description": "Lighting Schedule",
+   "format": "PDF",
+   "scale": "NTS @ A1",
+   "workPackage": "FF&E, furniture, equipment, kitchen",
+   "stages": {
+    "0": null,
+    "1": null,
+    "2": null,
+    "3": "YYYY-MM-DD",
+    "4": "Ongoing",
+    "5": "Ongoing",
+    "6": null,
+    "7": null
+   },
+   "tender": {
+    "3+": true,
+    "4a": true,
+    "4b": true
+   },
+   "status": "Confirmation of BBA scope required",
+   "comments": "Interior Design, only if needed: decorative and feature luminaires (design intent, types and locations). Coordinate with the M&E lighting design.",
+   "sectors": {
+    "Education": false,
+    "Residential": false,
+    "Blue Light": false,
+    "Defence & Justice": false,
+    "Healthcare": false,
+    "Hotels & Hospitality": false,
+    "Industrial and Manufacturing": false,
+    "Interior Design": true,
+    "Landscape_Education": false,
+    "Landscape_Other": false,
+    "Offices and Workspace": false,
+    "Retail": false,
+    "Science and Research": false,
+    "Sport and Leisure": false,
+    "Other": false
+   },
+   "floorDup": false,
+   "volDup": true,
    "buildType": "any"
   },
   {
@@ -15984,6 +16086,57 @@
    "floorDup": false,
    "volDup": false,
    "buildType": "any"
+  },
+  {
+   "id": "Text-T-4013",
+   "tab": "Text",
+   "series": "4000 Series - Reports",
+   "originator": "BBA",
+   "volume": "XX",
+   "level": "XX",
+   "type": "T",
+   "number": "4013",
+   "description": "Refurbishment Scope of Works (RSoW)",
+   "format": "PDF",
+   "scale": "A4 Document",
+   "workPackage": "Existing",
+   "stages": {
+    "0": null,
+    "1": null,
+    "2": "YYYY-MM-DD",
+    "3": "Ongoing",
+    "4": "Ongoing",
+    "5": null,
+    "6": null,
+    "7": null
+   },
+   "tender": {
+    "3+": true,
+    "4a": true,
+    "4b": true
+   },
+   "status": "Internal Team Item - Project Lead to allocate resource accordingly",
+   "comments": "Existing buildings only. Written scope of works read with Refurbishment Scope Plans and Elevations (D-2401). DfE projects: cross-reference with the Room / Area Data Sheets (L-5001) and the derogation schedule.",
+   "sectors": {
+    "Education": true,
+    "Residential": true,
+    "Blue Light": true,
+    "Defence & Justice": true,
+    "Healthcare": true,
+    "Hotels & Hospitality": true,
+    "Industrial and Manufacturing": true,
+    "Interior Design": true,
+    "Landscape_Education": false,
+    "Landscape_Other": false,
+    "Offices and Workspace": true,
+    "Retail": true,
+    "Science and Research": true,
+    "Sport and Leisure": true,
+    "Other": true
+   },
+   "floorDup": false,
+   "volDup": false,
+   "buildType": "existing"
   },
   {
    "id": "Text-T-5101",
