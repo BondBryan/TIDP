@@ -6,7 +6,7 @@
 
   // ------------------------------------------------------------------ state
   const newProject = () => ({
-    name: '', code: '', issuer: '', sector: '', works: 'new', outsourcing: false,
+    name: '', code: '', issuer: '', sector: '', works: 'new', outsourcing: false, berkeley: false,
     storeys: [], volumes: [], stageDates: { 0: '', 1: '', 2: '', 3: '', 4: '', 5: '', 6: '', 7: '' },
     stageOn: { 0: true, 1: true, 2: true, 3: true, 4: true, 5: true, 6: true, 7: true },
     tenders: { '3+': true, '4a': true, '4b': true }
@@ -69,6 +69,11 @@
   /** Library record with the chosen sector's overrides applied (e.g. Residential stages and tender ticks
       from the Residential Deliverables Tracker). Records without sectorOverrides are returned unchanged. */
   const eff = d => { const o = S.project.sector && d.sectorOverrides && d.sectorOverrides[S.project.sector]; return o ? { ...d, ...o } : d; };
+  /** Berkeley Group naming (Residential only): document type and code from the Library's Berkeley fields.
+      Records without them keep the Bond Bryan type and number. */
+  const BERK_SECTOR = 'Residential';
+  const berkOn = () => S.project.berkeley && S.project.sector === BERK_SECTOR;
+  const naming = d => berkOn() && d.Berkeley_Naming_Code ? { type: d.Berkeley_Naming_Type, number: d.Berkeley_Naming_Code } : { type: d.type, number: d.number };
   function defaultOn(d) {
     const p = S.project; d = eff(d);
     if (p.sector && d.sectors[p.sector] === false) return false;
@@ -155,8 +160,8 @@
         const sv = stageValues(d);
         for (const [lvl, vol, desc] of combos) {
           g.rows.push({
-            id: d.id, project: p.code || 'ABCDE', originator: d.originator, volume: vol, level: lvl, type: d.type, role: role(),
-            number: d.number, description: desc, format: d.format, scale: d.scale, workPackage: d.workPackage,
+            id: d.id, project: p.code || 'ABCDE', originator: d.originator, volume: vol, level: lvl, type: naming(d).type, role: role(),
+            number: naming(d).number, bbNumber: d.number, description: desc, format: d.format, scale: d.scale, workPackage: d.workPackage,
             stages: sv.vals, first: sv.first, tender: d.tender, gateway: d.gateway || {}, status: d.status, comments: d.comments, series: d.series, tab
           });
         }
@@ -164,7 +169,7 @@
       // within a series: volume / system (C), then level (D), then number (G); ties keep the Library order
       const vRank = rankBy(['ZZ', 'XX', ...p.volumes.map(v => v.code)]), lRank = rankBy(['ZZ', 'XX', ...p.storeys.map(s => s.code)]);
       for (const g of groups) g.rows = g.rows.map((r, i) => [r, i]).sort(([a, i], [b, j]) =>
-        vRank(a.volume) - vRank(b.volume) || lRank(a.level) - lRank(b.level) || a.number.localeCompare(b.number) || i - j).map(([r]) => r);
+        vRank(a.volume) - vRank(b.volume) || lRank(a.level) - lRank(b.level) || a.bbNumber.localeCompare(b.bbNumber) || i - j).map(([r]) => r);
       out.push({ tab, groups, count: groups.reduce((n, g) => n + g.rows.length, 0) });
     }
     return out;
@@ -173,7 +178,10 @@
   function rankBy(list) { const m = new Map(list.map((c, i) => [c, i])); return c => m.has(c) ? m.get(c) : list.length + String(c).charCodeAt(0) / 1000; }
   const docRef = r => [r.project, r.originator, r.volume, r.level, r.type, r.role, r.number].filter(Boolean).join('-');
   const fileName = s => s.replace(/[\\/:*?"<>|]+/g, '-');
-  function fileRef() { return `${S.project.code || 'ABCDE'}-BBA-XX-XX-L-${role()}-1001 Task Information Delivery Plan_${discipline()}`; }
+  function fileRef() {
+    const t = S.lib && S.lib.documents.find(d => d.id === 'Lists-L-1001'), n = t ? naming(t) : { type: 'L', number: '1001' };
+    return `${S.project.code || 'ABCDE'}-BBA-XX-XX-${n.type}-${role()}-${n.number} Task Information Delivery Plan_${discipline()}`;
+  }
   function noteRef() { return `${S.project.code || 'ABCDE'}-BBA-XX-XX-T-${role()}-0010 ResourcingNote_${discipline()}`; }
 
   // ------------------------------------------------------------------ rendering
@@ -184,6 +192,9 @@
     $('pName').value = p.name; $('pCode').value = p.code;
     $('pIssuer').value = p.issuer; $('pSector').value = p.sector; $('pWorks').value = p.works; $('pOutsourcing').checked = p.outsourcing;
     $('chipOut').classList.toggle('on', p.outsourcing);
+    $('berkRow').style.display = p.sector === BERK_SECTOR ? '' : 'none';
+    $('pBerkeley').checked = !!p.berkeley; $('chipBerk').classList.toggle('on', !!p.berkeley);
+    $('exType').textContent = berkOn() ? 'SK' : 'D'; $('exNum').textContent = berkOn() ? '005-0001' : '0001';
     const locked = FIXED_CODES.map(c => `<label class="chip locked" title="${c} is always created"><input type="checkbox" checked disabled> ${c}</label>`).join('');
     $('storeys').innerHTML = locked + p.storeys.map((s, i) => `<label class="chip ${s.on ? 'on' : ''}"><input type="checkbox" data-storey="${i}" ${s.on ? 'checked' : ''}> ${esc(s.code)} <small>${esc(s.name)}</small></label>`).join('');
     $('volumes').innerHTML = locked + p.volumes.map((v, i) => `<label class="chip ${v.on ? 'on' : ''}"><input type="checkbox" data-volume="${i}" ${v.on ? 'checked' : ''}> ${esc(v.code)} <small>${esc(v.name)}</small></label>`).join('');
@@ -225,7 +236,7 @@
       const flag = d.buildType === 'existing' ? ' <span class="pill" title="Existing building only">existing</span>' : '';
       html += `<tr class="${on ? '' : 'off'}" data-id="${esc(d.id)}">
         <td><input type="checkbox" data-sel="${esc(d.id)}" ${on ? 'checked' : ''}></td>
-        <td class="num">${esc(d.type)}-${esc(d.number)}</td>
+        <td class="num">${esc(d.type)}-${esc(d.number)}${berkOn() && d.Berkeley_Naming_Code ? `<br><small title="Berkeley type and code">${esc(d.Berkeley_Naming_Type)} ${esc(d.Berkeley_Naming_Code)}</small>` : ''}</td>
         <td class="desc">${esc(d.description)}${d.comments ? '<i class="cmt" aria-label="Has a comment">i</i>' : ''}${flag}</td>
         <td>${esc(d.format)}</td><td>${esc(d.scale)}</td><td>${esc(d.workPackage)}</td>
         <td style="white-space:nowrap">${stg}</td>
@@ -344,6 +355,15 @@
   const bind = (id, key, ev = 'input') => $(id).addEventListener(ev, e => { S.project[key] = e.target.type === 'checkbox' ? e.target.checked : e.target.value; if (key === 'outsourcing') $('chipOut').classList.toggle('on', e.target.checked); });
   bind('pName', 'name'); bind('pCode', 'code'); bind('pIssuer', 'issuer');
   bind('pSector', 'sector', 'change'); bind('pWorks', 'works', 'change'); bind('pOutsourcing', 'outsourcing', 'change');
+  $('pSector').addEventListener('change', e => {
+    if (e.target.value === BERK_SECTOR) $('berkDlg').showModal(); else S.project.berkeley = false;
+    renderProject();
+  });
+  const setBerk = v => { S.project.berkeley = v; $('berkDlg').close(); renderProject(); toast(v ? 'Berkeley naming will be used in the export' : 'Bond Bryan naming will be used in the export'); };
+  $('berkYes').addEventListener('click', () => setBerk(true));
+  $('berkNo').addEventListener('click', () => setBerk(false));
+  $('berkDlg').addEventListener('cancel', () => { S.project.berkeley = false; });
+  $('pBerkeley').addEventListener('change', e => { S.project.berkeley = e.target.checked; renderProject(); });
   $('pCode').addEventListener('input', e => { e.target.value = e.target.value.toUpperCase(); S.project.code = e.target.value; });
   $('storeys').addEventListener('change', e => { const i = e.target.dataset.storey; if (i != null) { S.project.storeys[i].on = e.target.checked; renderProject(); } });
   $('volumes').addEventListener('change', e => { const i = e.target.dataset.volume; if (i != null) { S.project.volumes[i].on = e.target.checked; renderProject(); } });
@@ -428,7 +448,7 @@
     cover.columns = [{ width: 24 }, { width: 60 }];
     if (logoId != null) cover.addImage(logoId, { tl: { col: 0, row: 0 }, ext: { width: 300, height: 51 } });
     cover.getCell('A5').value = 'TASK INFORMATION DELIVERY PLAN'; cover.getCell('A5').font = { bold: true, size: 16 };
-    const info = [['Project', p.name], ['Project code', p.code], ['File reference', fileRef() + ' - ' + REV], ['Date', date], ['Revision', REV], ['Sector or discipline', p.sector], ['Works', { new: 'New build', existing: 'Existing building', mixed: 'New build and existing' }[p.works]], ['Issued by', p.issuer], ['Issuing party', 'Bond Bryan']];
+    const info = [['Project', p.name], ['Project code', p.code], ['File reference', fileRef() + ' - ' + REV], ['Date', date], ['Revision', REV], ['Sector or discipline', p.sector + (berkOn() ? ' (Berkeley naming)' : '')], ['Works', { new: 'New build', existing: 'Existing building', mixed: 'New build and existing' }[p.works]], ['Issued by', p.issuer], ['Issuing party', 'Bond Bryan']];
     info.forEach(([k, v], i) => { const r = 7 + i; cover.getCell(r, 1).value = k; cover.getCell(r, 1).font = { bold: true }; cover.getCell(r, 2).value = v; if (v instanceof Date) cover.getCell(r, 2).numFmt = 'yyyy-mm-dd'; });
     let r = 7 + info.length + 1;
     cover.getCell(r, 1).value = 'Contents'; cover.getCell(r, 1).font = { bold: true, size: 12 }; r++;
@@ -492,6 +512,7 @@
             }
             if (isProg(c)) {
               cell.numFmt = PCT; cell.alignment = { horizontal: 'center' };
+              if (x.stages[si]) cell.value = 0;   // starts at 0%: staff overtype with 0-100
               if (!x.stages[si]) cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFF2F2F2' } };   // not issued at this stage
               cell.dataValidation = { type: 'decimal', operator: 'between', allowBlank: true, formulae: [0, 100], showErrorMessage: true, errorTitle: 'Progress', error: 'Enter a number from 0 to 100.' };
             }

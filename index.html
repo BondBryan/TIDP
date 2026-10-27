@@ -149,7 +149,7 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
   <div class="stephead"><h2>Project set-up<button class="info" data-intro="1" title="About this step">i</button></h2><button class="btn secondary small" id="btnReset" title="Clear the project set-up and deliverable ticks and show the guidance pop-ups again">Reset</button></div>
 
   <div class="codeex">
-    Code example : <code><span class="c-proj">ABCDE</span>-BBA-<span class="c-vol">01</span>-<span class="c-lvl">ZZ</span>-D-<span class="c-role">A</span>-0001</code>
+    Code example : <code><span class="c-proj">ABCDE</span>-BBA-<span class="c-vol">01</span>-<span class="c-lvl">ZZ</span>-<span id="exType">D</span>-<span class="c-role">A</span>-<span id="exNum">0001</span></code>
     <div class="legend"><span class="c-proj">ABCDE · Project code</span><span class="c-vol">01 · Volumes</span><span class="c-lvl">ZZ · Storeys</span><span class="c-role">A · Sector or discipline</span></div>
   </div>
 
@@ -170,6 +170,8 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
         </select></label>
       <div class="f"><span>Outsourcing</span>
         <label class="chip" id="chipOut"><input type="checkbox" id="pOutsourcing"> Outsourcing Partner may be used on this project</label></div>
+      <div class="f" id="berkRow" style="display:none"><span>Client naming</span>
+        <label class="chip" id="chipBerk"><input type="checkbox" id="pBerkeley"> Berkeley project: use Berkeley document types and codes</label></div>
     </div>
 
     <div class="card">
@@ -255,6 +257,8 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
   <p>These documents are not part of our standard scope and are agreed on a project to project basis, review your contract against this list before selecting those for export</p>
   <div class="scopewrap"><table class="docs"><thead><tr><th style="width:30px"></th><th>Code</th><th>Name</th><th>Note</th></tr></thead><tbody id="scopeBody"></tbody></table></div>
   <div class="row" style="justify-content:flex-end"><button class="btn secondary" id="scopeCancel">Cancel</button><button class="btn" id="scopeOk">Validate</button></div></dialog>
+<dialog class="intro" id="berkDlg"><h3>Is this a Berkeley project?</h3><p>Berkeley Group projects (including St George) use their own document types and codes, e.g. DR 005-2001 instead of D 2001. Choose Yes to export the TIDP with the Berkeley naming. You can change this later on step 1.</p>
+  <div class="row" style="justify-content:flex-end"><button class="btn secondary" id="berkNo">No</button><button class="btn" id="berkYes">Yes, Berkeley project</button></div></dialog>
 <dialog class="intro" id="intro"><h3 id="introTitle"></h3><p id="introText"></p><form method="dialog" class="row" style="justify-content:flex-end"><button class="btn">OK, understood</button></form></dialog>
 
 <script src="vendor/exceljs.min.js"></script>

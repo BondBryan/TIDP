@@ -1,7 +1,7 @@
 {
  "meta": {
   "name": "Bond Bryan TIDP Library",
-  "version": "2026.19",
+  "version": "2026.20",
   "source": "Bond Bryan Architects",
   "extracted": "2026-10",
   "documents": 365,
@@ -280,7 +280,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "SK",
+   "Berkeley_Naming_Code": "005-0001"
   },
   {
    "id": "Drawings-D-1001",
@@ -336,7 +338,9 @@
     "G1": true,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "110-1001"
   },
   {
    "id": "Drawings-D-1005",
@@ -392,7 +396,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "110-1005"
   },
   {
    "id": "Drawings-D-1015",
@@ -448,7 +454,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "110-1015"
   },
   {
    "id": "Drawings-D-1025",
@@ -504,7 +512,9 @@
     "G1": true,
     "G2": true,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "005-1025"
   },
   {
    "id": "Drawings-D-1035",
@@ -560,7 +570,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "200-1035"
   },
   {
    "id": "Drawings-D-1075",
@@ -616,7 +628,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "880-1075"
   },
   {
    "id": "Drawings-D-1045",
@@ -1288,7 +1302,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "070-1101"
   },
   {
    "id": "Drawings-D-1110",
@@ -2184,7 +2200,9 @@
     "G1": true,
     "G2": true,
     "CR": true
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "005-2001"
   },
   {
    "id": "Drawings-D-2020",
@@ -2464,7 +2482,9 @@
     "G1": false,
     "G2": true,
     "CR": true
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "005-2101"
   },
   {
    "id": "Drawings-D-2100",
@@ -3024,7 +3044,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "005-2201"
   },
   {
    "id": "Drawings-D-2300",
@@ -3136,7 +3158,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "200-2301"
   },
   {
    "id": "Drawings-D-2401",
@@ -3192,7 +3216,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "005-2401"
   },
   {
    "id": "Drawings-D-2400",
@@ -3640,7 +3666,9 @@
     "G1": true,
     "G2": true,
     "CR": true
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "190-3001"
   },
   {
    "id": "Drawings-D-3002",
@@ -3752,7 +3780,9 @@
     "G1": false,
     "G2": true,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "190-3101"
   },
   {
    "id": "Drawings-D-3102",
@@ -3864,7 +3894,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "190-3110"
   },
   {
    "id": "Drawings-D-3120",
@@ -3920,7 +3952,9 @@
     "G1": true,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "191-3120"
   },
   {
    "id": "Drawings-D-3201",
@@ -3976,7 +4010,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "190-3201"
   },
   {
    "id": "Drawings-D-3301",
@@ -4032,7 +4068,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "200-3301"
   },
   {
    "id": "Drawings-D-3401",
@@ -4088,7 +4126,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "730-3401"
   },
   {
    "id": "Drawings-D-3410",
@@ -4163,7 +4203,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "770-3410"
   },
   {
    "id": "Drawings-D-3420",
@@ -4275,7 +4317,9 @@
     "G1": true,
     "G2": true,
     "CR": true
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "191-4001"
   },
   {
    "id": "Drawings-D-4002",
@@ -4406,7 +4450,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "191-4101"
   },
   {
    "id": "Drawings-D-4110",
@@ -4481,7 +4527,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "300-4110"
   },
   {
    "id": "Drawings-D-4120",
@@ -4556,7 +4604,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "300-4120"
   },
   {
    "id": "Drawings-D-4104",
@@ -4724,7 +4774,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "191-4201"
   },
   {
    "id": "Drawings-D-5001",
@@ -4780,7 +4832,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "775-5001"
   },
   {
    "id": "Drawings-D-5005",
@@ -4836,7 +4890,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "005-5005"
   },
   {
    "id": "Drawings-D-5010",
@@ -4911,7 +4967,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "705-5010"
   },
   {
    "id": "Drawings-D-5015",
@@ -5023,7 +5081,9 @@
     "G1": false,
     "G2": true,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "775-5020"
   },
   {
    "id": "Drawings-D-5025",
@@ -5079,7 +5139,9 @@
     "G1": false,
     "G2": true,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "770-5025"
   },
   {
    "id": "Drawings-D-5030",
@@ -5135,7 +5197,9 @@
     "G1": false,
     "G2": true,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "775-5030"
   },
   {
    "id": "Drawings-D-5035",
@@ -5191,7 +5255,9 @@
     "G1": false,
     "G2": true,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "775-5035"
   },
   {
    "id": "Drawings-D-5040",
@@ -5546,7 +5612,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "085-6001"
   },
   {
    "id": "Drawings-D-6010",
@@ -5602,7 +5670,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "085-6010"
   },
   {
    "id": "Drawings-D-6101",
@@ -5677,7 +5747,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "710-6101"
   },
   {
    "id": "Drawings-D-6110",
@@ -5752,7 +5824,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "710-6110"
   },
   {
    "id": "Drawings-D-6120",
@@ -5827,7 +5901,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "710-6120"
   },
   {
    "id": "Drawings-D-6130",
@@ -5883,7 +5959,9 @@
     "G1": false,
     "G2": true,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "505-6130"
   },
   {
    "id": "Drawings-D-6201",
@@ -5958,7 +6036,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "070-6201"
   },
   {
    "id": "Drawings-D-6210",
@@ -6070,7 +6150,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "065-6220"
   },
   {
    "id": "Drawings-D-6220-I",
@@ -6238,7 +6320,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "070-6240"
   },
   {
    "id": "Drawings-D-6301",
@@ -6294,7 +6378,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "790-6301"
   },
   {
    "id": "Drawings-D-6310",
@@ -6462,7 +6548,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "005-6401"
   },
   {
    "id": "Drawings-D-6410",
@@ -6518,7 +6606,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "695-6410"
   },
   {
    "id": "Drawings-D-6420",
@@ -6574,7 +6664,9 @@
     "G1": false,
     "G2": true,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "695-6420"
   },
   {
    "id": "Drawings-D-6430",
@@ -6817,7 +6909,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "195-6501"
   },
   {
    "id": "Drawings-D-6601",
@@ -6873,7 +6967,9 @@
     "G1": false,
     "G2": false,
     "CR": true
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "670-6601"
   },
   {
    "id": "Drawings-D-6610",
@@ -6929,7 +7025,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "670-6610"
   },
   {
    "id": "Drawings-D-6751",
@@ -6985,7 +7083,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "HS",
+   "Berkeley_Naming_Code": "700-6751"
   },
   {
    "id": "Drawings-D-6751-I",
@@ -7097,7 +7197,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "400-6801"
   },
   {
    "id": "Drawings-D-6810",
@@ -7153,7 +7255,9 @@
     "G1": false,
     "G2": true,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "095-6810"
   },
   {
    "id": "Drawings-D-6901",
@@ -7265,7 +7369,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "715-6910"
   },
   {
    "id": "Drawings-D-6920",
@@ -7321,7 +7427,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "765-6920"
   },
   {
    "id": "Drawings-D-7001",
@@ -7377,7 +7485,9 @@
     "G1": false,
     "G2": true,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "725-7001"
   },
   {
    "id": "Drawings-D-7000",
@@ -7657,7 +7767,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "510-7051"
   },
   {
    "id": "Drawings-D-7101",
@@ -7713,7 +7825,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "520-7101"
   },
   {
    "id": "Drawings-D-7105",
@@ -7788,7 +7902,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "715-7105"
   },
   {
    "id": "Drawings-D-7115",
@@ -7863,7 +7979,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "520-7115"
   },
   {
    "id": "Drawings-D-7125",
@@ -8218,7 +8336,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "400-7151"
   },
   {
    "id": "Drawings-D-7155",
@@ -8274,7 +8394,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "400-7155"
   },
   {
    "id": "Drawings-D-7160",
@@ -8386,7 +8508,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "400-7165"
   },
   {
    "id": "Drawings-D-7201",
@@ -8442,7 +8566,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "755-7201"
   },
   {
    "id": "Drawings-D-7205",
@@ -8498,7 +8624,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "755-7205"
   },
   {
    "id": "Drawings-D-7211",
@@ -8554,7 +8682,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "785-7211"
   },
   {
    "id": "Drawings-D-7216",
@@ -8610,7 +8740,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "785-7216"
   },
   {
    "id": "Drawings-D-7221",
@@ -8666,7 +8798,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "760-7221"
   },
   {
    "id": "Drawings-D-7225",
@@ -8722,7 +8856,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "770-7225"
   },
   {
    "id": "Drawings-D-7230",
@@ -8778,7 +8914,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "790-7230"
   },
   {
    "id": "Drawings-D-7235",
@@ -9133,7 +9271,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "530-7251"
   },
   {
    "id": "Drawings-D-7255",
@@ -9208,7 +9348,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "525-7255"
   },
   {
    "id": "Drawings-D-7260",
@@ -9283,7 +9425,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "530-7260"
   },
   {
    "id": "Drawings-D-7265",
@@ -9339,7 +9483,9 @@
     "G1": false,
     "G2": true,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "095-7265"
   },
   {
    "id": "Drawings-D-7270",
@@ -9395,7 +9541,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "530-7270"
   },
   {
    "id": "Drawings-D-7301",
@@ -9470,7 +9618,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "535-7301"
   },
   {
    "id": "Drawings-D-7305",
@@ -9526,7 +9676,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "550-7305"
   },
   {
    "id": "Drawings-D-7315",
@@ -9582,7 +9734,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "545-7315"
   },
   {
    "id": "Drawings-D-7320",
@@ -9657,7 +9811,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "535-7320"
   },
   {
    "id": "Drawings-D-7300",
@@ -9825,7 +9981,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "100-7351"
   },
   {
    "id": "Drawings-D-7355",
@@ -9900,7 +10058,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "100-7355"
   },
   {
    "id": "Drawings-D-7360",
@@ -9975,7 +10135,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "100-7360"
   },
   {
    "id": "Drawings-D-7365",
@@ -10031,7 +10193,9 @@
     "G1": false,
     "G2": true,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "100-7365"
   },
   {
    "id": "Drawings-D-7401",
@@ -10087,7 +10251,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "310-7401"
   },
   {
    "id": "Drawings-D-7405",
@@ -10367,7 +10533,9 @@
     "G1": false,
     "G2": true,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "410-7451"
   },
   {
    "id": "Drawings-D-7455",
@@ -10423,7 +10591,9 @@
     "G1": false,
     "G2": true,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "410-7455"
   },
   {
    "id": "Drawings-D-7460",
@@ -10479,7 +10649,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "410-7460"
   },
   {
    "id": "Drawings-D-7501",
@@ -10535,7 +10707,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "040-7501"
   },
   {
    "id": "Drawings-D-7500",
@@ -10703,7 +10877,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "515-7551"
   },
   {
    "id": "Drawings-D-7555",
@@ -10759,7 +10935,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "755-7555"
   },
   {
    "id": "Drawings-D-7560",
@@ -10815,7 +10993,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "510-7560"
   },
   {
    "id": "Drawings-D-7601",
@@ -10871,7 +11051,9 @@
     "G1": false,
     "G2": true,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "500-7601"
   },
   {
    "id": "Drawings-D-7605",
@@ -10946,7 +11128,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "500-7605"
   },
   {
    "id": "Drawings-D-7610",
@@ -11002,7 +11186,9 @@
     "G1": false,
     "G2": true,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "500-7610"
   },
   {
    "id": "Drawings-D-7615",
@@ -11077,7 +11263,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "710-7615"
   },
   {
    "id": "Drawings-D-7620",
@@ -11152,7 +11340,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "710-7620"
   },
   {
    "id": "Drawings-D-7625",
@@ -11208,7 +11398,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "710-7625"
   },
   {
    "id": "Drawings-D-7630",
@@ -11283,7 +11475,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "090-7630"
   },
   {
    "id": "Drawings-D-7635",
@@ -11358,7 +11552,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "700-7635"
   },
   {
    "id": "Drawings-D-7640",
@@ -11414,7 +11610,9 @@
     "G1": false,
     "G2": true,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "195-7640"
   },
   {
    "id": "Drawings-D-7645",
@@ -11470,7 +11668,9 @@
     "G1": false,
     "G2": true,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "710-7645"
   },
   {
    "id": "Drawings-D-7651",
@@ -11526,7 +11726,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "400-7651"
   },
   {
    "id": "Drawings-D-7701",
@@ -11582,7 +11784,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "195-7701"
   },
   {
    "id": "Drawings-D-7705",
@@ -11657,7 +11861,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "095-7705"
   },
   {
    "id": "Drawings-D-7710",
@@ -11713,7 +11919,9 @@
     "G1": false,
     "G2": true,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "500-7710"
   },
   {
    "id": "Drawings-D-7715",
@@ -11769,7 +11977,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "820-7715"
   },
   {
    "id": "Drawings-D-7720",
@@ -11825,7 +12035,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "790-7720"
   },
   {
    "id": "Drawings-D-7725",
@@ -12049,7 +12261,9 @@
     "G1": false,
     "G2": true,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "095-7740"
   },
   {
    "id": "Drawings-D-7751",
@@ -12124,7 +12338,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "820-7751"
   },
   {
    "id": "Drawings-D-7755",
@@ -12199,7 +12415,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "130-7755"
   },
   {
    "id": "Drawings-D-7760",
@@ -12274,7 +12492,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "820-7760"
   },
   {
    "id": "Drawings-D-7760-I",
@@ -12405,7 +12625,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "180-7765"
   },
   {
    "id": "Drawings-D-8001",
@@ -12480,7 +12702,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "725-8001"
   },
   {
    "id": "Drawings-D-8051",
@@ -12536,7 +12760,9 @@
     "G1": false,
     "G2": true,
     "CR": true
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "080-8051"
   },
   {
    "id": "Drawings-D-8101",
@@ -12592,7 +12818,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "735-8101"
   },
   {
    "id": "Drawings-D-8151",
@@ -12667,7 +12895,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "735-8151"
   },
   {
    "id": "Drawings-D-8155",
@@ -12779,7 +13009,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "730-8201"
   },
   {
    "id": "Drawings-D-8301",
@@ -12835,7 +13067,9 @@
     "G1": false,
     "G2": true,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "730-8301"
   },
   {
    "id": "Drawings-D-8310",
@@ -12891,7 +13125,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "730-8310"
   },
   {
    "id": "Drawings-D-9001",
@@ -12947,7 +13183,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "005-9001"
   },
   {
    "id": "Drawings-D-9010",
@@ -13022,7 +13260,9 @@
       "4b": false
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "055-9010"
   },
   {
    "id": "Drawings-D-9030",
@@ -13097,7 +13337,9 @@
       "4b": false
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "050-9030"
   },
   {
    "id": "Drawings-D-9020",
@@ -13209,7 +13451,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "880-9040"
   },
   {
    "id": "Images-I-1001",
@@ -13265,7 +13509,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "IMG",
+   "Berkeley_Naming_Code": "880-1001"
   },
   {
    "id": "Images-I-3001",
@@ -13321,7 +13567,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "IMG",
+   "Berkeley_Naming_Code": "880-3001"
   },
   {
    "id": "Images-I-3002",
@@ -13377,7 +13625,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "IMG",
+   "Berkeley_Naming_Code": "050-3002"
   },
   {
    "id": "Images-I-3003",
@@ -13433,7 +13683,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "IMG",
+   "Berkeley_Naming_Code": "050-3003"
   },
   {
    "id": "Lists-L-0001",
@@ -13489,7 +13741,9 @@
     "G1": true,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "SC",
+   "Berkeley_Naming_Code": "020-0001"
   },
   {
    "id": "Lists-L-0010",
@@ -13545,7 +13799,9 @@
     "G1": true,
     "G2": true,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "ASC",
+   "Berkeley_Naming_Code": "020-0010"
   },
   {
    "id": "Lists-L-0020",
@@ -13732,7 +13988,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "SC",
+   "Berkeley_Naming_Code": "715-0101"
   },
   {
    "id": "Lists-L-0110",
@@ -13807,7 +14065,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "SC",
+   "Berkeley_Naming_Code": "520-0110"
   },
   {
    "id": "Lists-L-0120",
@@ -13882,7 +14142,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "715-0120"
   },
   {
    "id": "Lists-L-0130",
@@ -13938,7 +14200,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "520-0130"
   },
   {
    "id": "Lists-L-0140",
@@ -14013,7 +14277,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "SC",
+   "Berkeley_Naming_Code": "715-0140"
   },
   {
    "id": "Lists-L-0106",
@@ -14144,7 +14410,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "SC",
+   "Berkeley_Naming_Code": "515-0201"
   },
   {
    "id": "Lists-L-0210",
@@ -14219,7 +14487,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "SC",
+   "Berkeley_Naming_Code": "515-0210"
   },
   {
    "id": "Lists-L-0220",
@@ -14275,7 +14545,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "SC",
+   "Berkeley_Naming_Code": "710-0220"
   },
   {
    "id": "Lists-L-0230",
@@ -14331,7 +14603,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "515-0230"
   },
   {
    "id": "Lists-L-0240",
@@ -14387,7 +14661,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "515-0240"
   },
   {
    "id": "Lists-L-0250",
@@ -14443,7 +14719,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "710-0250"
   },
   {
    "id": "Lists-L-0207",
@@ -14574,7 +14852,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "SC",
+   "Berkeley_Naming_Code": "510-0301"
   },
   {
    "id": "Lists-L-0310",
@@ -14630,7 +14910,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "510-0310"
   },
   {
    "id": "Lists-L-0303",
@@ -14742,7 +15024,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "SC",
+   "Berkeley_Naming_Code": "545-0401"
   },
   {
    "id": "Lists-L-0402",
@@ -15022,7 +15306,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "SC",
+   "Berkeley_Naming_Code": "730-0501"
   },
   {
    "id": "Lists-L-0601",
@@ -15078,7 +15364,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "SC",
+   "Berkeley_Naming_Code": "730-0601"
   },
   {
    "id": "Lists-L-0610",
@@ -15134,7 +15422,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "SC",
+   "Berkeley_Naming_Code": "550-0610"
   },
   {
    "id": "Lists-L-0701",
@@ -15190,7 +15480,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "SC",
+   "Berkeley_Naming_Code": "775-0701"
   },
   {
    "id": "Lists-L-0705",
@@ -15265,7 +15557,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "SC",
+   "Berkeley_Naming_Code": "525-0705"
   },
   {
    "id": "Lists-L-0710",
@@ -15321,7 +15615,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "SC",
+   "Berkeley_Naming_Code": "785-0710"
   },
   {
    "id": "Lists-L-0715",
@@ -15396,7 +15692,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "SC",
+   "Berkeley_Naming_Code": "785-0715"
   },
   {
    "id": "Lists-L-0720",
@@ -15471,7 +15769,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "SC",
+   "Berkeley_Naming_Code": "760-0720"
   },
   {
    "id": "Lists-L-0725",
@@ -15527,7 +15827,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "SC",
+   "Berkeley_Naming_Code": "770-0725"
   },
   {
    "id": "Lists-L-0730",
@@ -15602,7 +15904,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "SC",
+   "Berkeley_Naming_Code": "775-0730"
   },
   {
    "id": "Lists-L-0735",
@@ -15658,7 +15962,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "SC",
+   "Berkeley_Naming_Code": "790-0735"
   },
   {
    "id": "Lists-L-0740",
@@ -15770,7 +16076,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "SC",
+   "Berkeley_Naming_Code": "010-0745"
   },
   {
    "id": "Lists-L-0750",
@@ -15826,7 +16134,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "SC",
+   "Berkeley_Naming_Code": "765-0750"
   },
   {
    "id": "Lists-L-0712",
@@ -16162,7 +16472,9 @@
     "G1": false,
     "G2": true,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "SC",
+   "Berkeley_Naming_Code": "090-0770"
   },
   {
    "id": "Lists-L-0801",
@@ -16274,7 +16586,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "PR",
+   "Berkeley_Naming_Code": "010-1001"
   },
   {
    "id": "Lists-L-1010",
@@ -16330,7 +16644,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "PR",
+   "Berkeley_Naming_Code": "010-1010"
   },
   {
    "id": "Lists-L-1020",
@@ -16386,7 +16702,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "REG",
+   "Berkeley_Naming_Code": "010-1020"
   },
   {
    "id": "Lists-L-2001",
@@ -16442,7 +16760,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "REG",
+   "Berkeley_Naming_Code": "010-2001"
   },
   {
    "id": "Lists-L-3001",
@@ -16498,7 +16818,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "REG",
+   "Berkeley_Naming_Code": "010-3001"
   },
   {
    "id": "Lists-L-4001",
@@ -16554,7 +16876,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "REG",
+   "Berkeley_Naming_Code": "010-4001"
   },
   {
    "id": "Lists-L-4010",
@@ -16629,7 +16953,9 @@
       "4b": false
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "SC",
+   "Berkeley_Naming_Code": "010-4010"
   },
   {
    "id": "Lists-L-4020",
@@ -16685,7 +17011,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "SC",
+   "Berkeley_Naming_Code": "010-4020"
   },
   {
    "id": "Lists-L-4030",
@@ -16741,7 +17069,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "REG",
+   "Berkeley_Naming_Code": "010-4030"
   },
   {
    "id": "Lists-L-4040",
@@ -16797,7 +17127,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "REG",
+   "Berkeley_Naming_Code": "010-4040"
   },
   {
    "id": "Lists-L-4006",
@@ -16909,7 +17241,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "SC",
+   "Berkeley_Naming_Code": "010-4050"
   },
   {
    "id": "Lists-L-5001",
@@ -16965,7 +17299,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "RD",
+   "Berkeley_Naming_Code": "705-5001"
   },
   {
    "id": "Lists-L-6001",
@@ -17021,7 +17357,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "CAL",
+   "Berkeley_Naming_Code": "125-6001"
   },
   {
    "id": "Lists-L-6010",
@@ -17077,7 +17415,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "CAL",
+   "Berkeley_Naming_Code": "775-6010"
   },
   {
    "id": "Lists-L-6020",
@@ -17133,7 +17473,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "CAL",
+   "Berkeley_Naming_Code": "010-6020"
   },
   {
    "id": "Lists-L-8001",
@@ -17189,7 +17531,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "AP",
+   "Berkeley_Naming_Code": "010-8001"
   },
   {
    "id": "Lists-L-8010",
@@ -17245,7 +17589,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "AP",
+   "Berkeley_Naming_Code": "010-8010"
   },
   {
    "id": "Lists-L-8020",
@@ -17301,7 +17647,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "AP",
+   "Berkeley_Naming_Code": "010-8020"
   },
   {
    "id": "Lists-L-9001",
@@ -17357,7 +17705,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "SC",
+   "Berkeley_Naming_Code": "010-9001"
   },
   {
    "id": "Lists-L-9010",
@@ -17413,7 +17763,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "CR",
+   "Berkeley_Naming_Code": "035-9010"
   },
   {
    "id": "Lists-L-9010-I",
@@ -17525,7 +17877,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "SN",
+   "Berkeley_Naming_Code": "010-9020"
   },
   {
    "id": "Models-M-1001",
@@ -17581,7 +17935,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "M3",
+   "Berkeley_Naming_Code": "035-1001"
   },
   {
    "id": "Models-M-2001",
@@ -17637,7 +17993,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "M3",
+   "Berkeley_Naming_Code": "035-2001"
   },
   {
    "id": "Models-M-2002",
@@ -17693,7 +18051,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "M3",
+   "Berkeley_Naming_Code": "035-2002"
   },
   {
    "id": "Models-M-2002-I",
@@ -17805,7 +18165,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "M3",
+   "Berkeley_Naming_Code": "035-2003"
   },
   {
    "id": "Models-M-2003-I",
@@ -17917,7 +18279,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "M3",
+   "Berkeley_Naming_Code": "035-2004"
   },
   {
    "id": "Models-M-3001",
@@ -17973,7 +18337,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "CM",
+   "Berkeley_Naming_Code": "035-3001"
   },
   {
    "id": "Models-M-4003",
@@ -18029,7 +18395,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "VF",
+   "Berkeley_Naming_Code": "035-4003"
   },
   {
    "id": "Text-T-0001",
@@ -18085,7 +18453,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "TN",
+   "Berkeley_Naming_Code": "010-0001"
   },
   {
    "id": "Text-T-1002",
@@ -18141,7 +18511,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "CT",
+   "Berkeley_Naming_Code": "010-1002"
   },
   {
    "id": "Text-T-1004",
@@ -18197,7 +18569,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "CT",
+   "Berkeley_Naming_Code": "010-1004"
   },
   {
    "id": "Text-T-1005",
@@ -18309,7 +18683,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "AGR",
+   "Berkeley_Naming_Code": "010-2001"
   },
   {
    "id": "Text-T-3001",
@@ -18365,7 +18741,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "MM",
+   "Berkeley_Naming_Code": "010-3001"
   },
   {
    "id": "Text-T-4001",
@@ -18440,7 +18818,9 @@
       "4b": false
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "RP",
+   "Berkeley_Naming_Code": "880-4001"
   },
   {
    "id": "Text-T-4002",
@@ -18496,7 +18876,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "RP",
+   "Berkeley_Naming_Code": "010-4002"
   },
   {
    "id": "Text-T-4003",
@@ -18552,7 +18934,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "RP",
+   "Berkeley_Naming_Code": "010-4003"
   },
   {
    "id": "Text-T-4004",
@@ -18608,7 +18992,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "RP",
+   "Berkeley_Naming_Code": "010-4004"
   },
   {
    "id": "Text-T-4005",
@@ -18664,7 +19050,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "CR",
+   "Berkeley_Naming_Code": "010-4005"
   },
   {
    "id": "Text-T-4006",
@@ -18720,7 +19108,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "QA",
+   "Berkeley_Naming_Code": "010-4006"
   },
   {
    "id": "Text-T-4007",
@@ -18776,7 +19166,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "CAL",
+   "Berkeley_Naming_Code": "135-4007"
   },
   {
    "id": "Text-T-4008",
@@ -18832,7 +19224,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "CAL",
+   "Berkeley_Naming_Code": "135-4008"
   },
   {
    "id": "Text-T-4009",
@@ -18907,7 +19301,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "HS",
+   "Berkeley_Naming_Code": "010-4009"
   },
   {
    "id": "Text-T-4010",
@@ -18982,7 +19378,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "STR",
+   "Berkeley_Naming_Code": "880-4010"
   },
   {
    "id": "Text-T-4011",
@@ -19150,7 +19548,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "SPC",
+   "Berkeley_Naming_Code": "025-4013"
   },
   {
    "id": "Text-T-4014",
@@ -19206,7 +19606,9 @@
     "G1": false,
     "G2": true,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "STR",
+   "Berkeley_Naming_Code": "125-4014"
   },
   {
    "id": "Text-T-4015",
@@ -19262,7 +19664,9 @@
     "G1": false,
     "G2": true,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "STR",
+   "Berkeley_Naming_Code": "880-4015"
   },
   {
    "id": "Text-T-5101",
@@ -19318,7 +19722,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "TS",
+   "Berkeley_Naming_Code": "010-5101"
   },
   {
    "id": "Text-T-5301",
@@ -19374,7 +19780,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "CO",
+   "Berkeley_Naming_Code": "010-5301"
   },
   {
    "id": "Text-T-5701",
@@ -19430,7 +19838,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "CO",
+   "Berkeley_Naming_Code": "010-5701"
   },
   {
    "id": "Text-T-5901",
@@ -19486,7 +19896,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "RFI",
+   "Berkeley_Naming_Code": "010-5901"
   },
   {
    "id": "Text-T-6001",
@@ -19542,7 +19954,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "PP",
+   "Berkeley_Naming_Code": "880-6001"
   },
   {
    "id": "Text-T-6002",
@@ -19598,7 +20012,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "PP",
+   "Berkeley_Naming_Code": "010-6002"
   },
   {
    "id": "Text-T-6003",
@@ -19654,7 +20070,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "PP",
+   "Berkeley_Naming_Code": "010-6003"
   },
   {
    "id": "Text-T-6004",
@@ -19710,7 +20128,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "PP",
+   "Berkeley_Naming_Code": "010-6004"
   },
   {
    "id": "Text-T-7001",
@@ -19766,7 +20186,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "SPC",
+   "Berkeley_Naming_Code": "025-7001"
   },
   {
    "id": "Text-T-7002",
@@ -19841,7 +20263,9 @@
       "4b": true
      }
     }
-   }
+   },
+   "Berkeley_Naming_Type": "SPC",
+   "Berkeley_Naming_Code": "025-7002"
   },
   {
    "id": "Text-T-8302",
@@ -19897,7 +20321,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "RP",
+   "Berkeley_Naming_Code": "135-8302"
   },
   {
    "id": "Text-T-9001",
@@ -19953,7 +20379,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "PRC",
+   "Berkeley_Naming_Code": "010-9001"
   },
   {
    "id": "Text-T-9002",
@@ -20009,7 +20437,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "PRC",
+   "Berkeley_Naming_Code": "010-9002"
   },
   {
    "id": "Text-T-9003",
@@ -20065,7 +20495,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "PRC",
+   "Berkeley_Naming_Code": "010-9003"
   },
   {
    "id": "Text-T-9005",
@@ -20121,7 +20553,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "RP",
+   "Berkeley_Naming_Code": "010-9005"
   },
   {
    "id": "Text-T-9006",
@@ -20177,7 +20611,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "RP",
+   "Berkeley_Naming_Code": "010-9006"
   },
   {
    "id": "Text-T-9007",
@@ -20233,7 +20669,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "RP",
+   "Berkeley_Naming_Code": "135-9007"
   },
   {
    "id": "Text-T-9008",
@@ -20289,7 +20727,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "OM",
+   "Berkeley_Naming_Code": "010-9008"
   },
   {
    "id": "Text-T-9009",
@@ -20457,7 +20897,9 @@
     "G1": false,
     "G2": false,
     "CR": false
-   }
+   },
+   "Berkeley_Naming_Type": "AF",
+   "Berkeley_Naming_Code": "050-3001"
   },
   {
    "id": "Internal-I-1002",
