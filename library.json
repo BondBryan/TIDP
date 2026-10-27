@@ -1,7 +1,7 @@
 {
  "meta": {
   "name": "Bond Bryan TIDP Library",
-  "version": "2026.20",
+  "version": "2026.21",
   "source": "Bond Bryan Architects",
   "extracted": "2026-10",
   "documents": 365,
@@ -4892,7 +4892,7 @@
     "CR": false
    },
    "Berkeley_Naming_Type": "DR",
-   "Berkeley_Naming_Code": "005-5005"
+   "Berkeley_Naming_Code": "705-5005"
   },
   {
    "id": "Drawings-D-5010",
@@ -10535,7 +10535,7 @@
     "CR": false
    },
    "Berkeley_Naming_Type": "DR",
-   "Berkeley_Naming_Code": "410-7451"
+   "Berkeley_Naming_Code": "040-7451"
   },
   {
    "id": "Drawings-D-7455",
@@ -11554,7 +11554,7 @@
     }
    },
    "Berkeley_Naming_Type": "DR",
-   "Berkeley_Naming_Code": "700-7635"
+   "Berkeley_Naming_Code": "195-7635"
   },
   {
    "id": "Drawings-D-7640",
@@ -11728,7 +11728,7 @@
     "CR": false
    },
    "Berkeley_Naming_Type": "DR",
-   "Berkeley_Naming_Code": "400-7651"
+   "Berkeley_Naming_Code": "710-7651"
   },
   {
    "id": "Drawings-D-7701",
