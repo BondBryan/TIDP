@@ -23,6 +23,8 @@
   const STAGE_COLOURS = ['D98C6B', 'E88EB9', '59A3A1', 'F9C829', '6DA97D', '8D8FB9', 'E5C683', '5092BF']; // indexed by RIBA stage 0-7
   const STAGES = [0, 1, 2, 3, 4, 5, 6, 7];
   const TENDERS = ['3+', '4a', '4b'];
+  const GATEWAYS = [['G1', 'Gateway 1'], ['G2', 'Gateway 2'], ['CR', 'Construction Record']]; // tick columns, all sectors
+  const PCT = '0"%"';             // progress cells: staff type 0-100, shown as a percentage
   const STATUS_KEY = s => /outsourc/i.test(s) ? 'op' : /confirm/i.test(s) ? 'confirm' : /cdp/i.test(s) ? 'cdp' : 'internal';
   const STATUS_SHORT = s => ({ op: 'Outsourcing Partner', confirm: 'Scope confirmation', cdp: 'CDP item', internal: 'Internal team' })[STATUS_KEY(s)];
   /** Status as shown on step 2: without outsourcing everything but scope confirmation is assumed internal, so left blank. */
@@ -64,8 +66,11 @@
   }
 
   // ------------------------------------------------------------------ selection logic
+  /** Library record with the chosen sector's overrides applied (e.g. Residential stages and tender ticks
+      from the Residential Deliverables Tracker). Records without sectorOverrides are returned unchanged. */
+  const eff = d => { const o = S.project.sector && d.sectorOverrides && d.sectorOverrides[S.project.sector]; return o ? { ...d, ...o } : d; };
   function defaultOn(d) {
-    const p = S.project;
+    const p = S.project; d = eff(d);
     if (p.sector && d.sectors[p.sector] === false) return false;
     if (d.buildType === 'existing' && p.works === 'new') return false;
     if (d.buildType === 'new' && p.works === 'existing') return false;
@@ -114,17 +119,13 @@
     const name = (S.project.storeys.find(s => s.code === code) || {}).name || S.lib.lists.storeyNames[code] || code;
     return name + ' ' + d;
   }
-  /** Stage values for a document, restricted to the ticked stages. When the Library's first-issue
-      stage is not ticked, the first ticked stage the document runs through becomes its first issue. */
+  /** Stage values for a document, restricted to the ticked stages: every stage the document is issued in shows
+      that stage's date (placeholder YYYY-MM-DD until the date is entered on step 1). `first` is the index of the
+      first issue (bold in the export); when the Library's first-issue stage is not ticked, the first ticked stage takes over. */
   function stageValues(d) {
-    const on = S.project.stageOn, vals = STAGES.map(n => on[n] ? d.stages[n] : null);
-    const first = STAGES.find(n => d.stages[n] === 'YYYY-MM-DD');
-    if (first && !on[first]) { const i = vals.findIndex(v => v); if (i >= 0) vals[i] = 'YYYY-MM-DD'; }
-    return vals.map((v, i) => {
-      if (!v) return '';
-      if (v === 'YYYY-MM-DD') { const dt = S.project.stageDates[STAGES[i]]; return dt ? parseDate(dt) : 'YYYY-MM-DD'; }
-      return v;
-    });
+    const on = S.project.stageOn, used = STAGES.map(n => !!(on[n] && d.stages[n]));
+    const vals = used.map((u, i) => { if (!u) return ''; const dt = S.project.stageDates[STAGES[i]]; return dt ? parseDate(dt) : 'YYYY-MM-DD'; });
+    return { vals, first: used.indexOf(true) };
   }
   function parseDate(iso) { const [y, m, d] = iso.split('-').map(Number); return new Date(Date.UTC(y, m - 1, d)); }
 
@@ -138,7 +139,8 @@
       const docs = S.lib.documents.filter(d => d.tab === tab && visible(d) && isOn(d));
       if (!docs.length) continue;
       const groups = [];
-      for (const d of docs) {
+      for (const d0 of docs) {
+        const d = eff(d0);
         let g = groups[groups.length - 1];
         if (!g || g.series !== d.series) { g = { series: d.series, rows: [] }; groups.push(g); }
         const combos = [];
@@ -150,19 +152,25 @@
         } else if (d.volDup && volumes.length) {
           for (const v of volumes) combos.push([d.level, v, d.description]);
         } else combos.push([d.level, d.volume, d.description]);
-        const stages = stageValues(d);
+        const sv = stageValues(d);
         for (const [lvl, vol, desc] of combos) {
           g.rows.push({
             id: d.id, project: p.code || 'ABCDE', originator: d.originator, volume: vol, level: lvl, type: d.type, role: role(),
             number: d.number, description: desc, format: d.format, scale: d.scale, workPackage: d.workPackage,
-            stages, tender: d.tender, status: d.status, comments: d.comments, series: d.series, tab
+            stages: sv.vals, first: sv.first, tender: d.tender, gateway: d.gateway || {}, status: d.status, comments: d.comments, series: d.series, tab
           });
         }
       }
+      // within a series: volume / system (C), then level (D), then number (G); ties keep the Library order
+      const vRank = rankBy(['ZZ', 'XX', ...p.volumes.map(v => v.code)]), lRank = rankBy(['ZZ', 'XX', ...p.storeys.map(s => s.code)]);
+      for (const g of groups) g.rows = g.rows.map((r, i) => [r, i]).sort(([a, i], [b, j]) =>
+        vRank(a.volume) - vRank(b.volume) || lRank(a.level) - lRank(b.level) || a.number.localeCompare(b.number) || i - j).map(([r]) => r);
       out.push({ tab, groups, count: groups.reduce((n, g) => n + g.rows.length, 0) });
     }
     return out;
   }
+  /** Sort key from a list of codes: listed codes in list order, then anything else alphabetically. */
+  function rankBy(list) { const m = new Map(list.map((c, i) => [c, i])); return c => m.has(c) ? m.get(c) : list.length + String(c).charCodeAt(0) / 1000; }
   const docRef = r => [r.project, r.originator, r.volume, r.level, r.type, r.role, r.number].filter(Boolean).join('-');
   const fileName = s => s.replace(/[\\/:*?"<>|]+/g, '-');
   function fileRef() { return `${S.project.code || 'ABCDE'}-BBA-XX-XX-L-${role()}-1001 Task Information Delivery Plan_${discipline()}`; }
@@ -210,9 +218,9 @@
     const storeyN = p.storeys.filter(s => s.on).length, volN = p.volumes.filter(v => v.on).length;
     let html = '', series = null;
     for (const d of docs) {
-      if (d.series !== series) { series = d.series; html += `<tr class="series"><td colspan="12">${esc(series)}</td></tr>`; }
-      const on = isOn(d), k = STATUS_KEY(d.status);
-      const stg = STAGES.map(n => `<span class="stg ${d.stages[n] ? 'on' : ''} ${p.stageOn[n] ? '' : 'out'}" style="background:#${STAGE_COLOURS[n]}" title="Stage ${n}: ${esc(d.stages[n] || 'not required')}${p.stageOn[n] ? '' : ' (stage not in this appointment)'}">${n}</span>`).join('');
+      if (d.series !== series) { series = d.series; html += `<tr class="series"><td colspan="15">${esc(series)}</td></tr>`; }
+      const on = isOn(d), k = STATUS_KEY(d.status), e = eff(d), gw = d.gateway || {};
+      const stg = STAGES.map(n => `<span class="stg ${e.stages[n] ? 'on' : ''} ${p.stageOn[n] ? '' : 'out'}" style="background:#${STAGE_COLOURS[n]}" title="Stage ${n}: ${e.stages[n] === 'YYYY-MM-DD' ? 'first issue' : e.stages[n] ? 'issued' : 'not required'}${p.stageOn[n] ? '' : ' (stage not in this appointment)'}">${n}</span>`).join('');
       const dup = [d.floorDup ? `× ${storeyN} storeys` : '', d.volDup && volN ? `× ${volN} volumes` : ''].filter(Boolean).join(', ');
       const flag = d.buildType === 'existing' ? ' <span class="pill" title="Existing building only">existing</span>' : '';
       html += `<tr class="${on ? '' : 'off'}" data-id="${esc(d.id)}">
@@ -221,11 +229,12 @@
         <td class="desc">${esc(d.description)}${d.comments ? '<i class="cmt" aria-label="Has a comment">i</i>' : ''}${flag}</td>
         <td>${esc(d.format)}</td><td>${esc(d.scale)}</td><td>${esc(d.workPackage)}</td>
         <td style="white-space:nowrap">${stg}</td>
-        <td class="${d.tender['3+'] ? 'tick' : 'tickx'}">✓</td><td class="${d.tender['4a'] ? 'tick' : 'tickx'}">✓</td><td class="${d.tender['4b'] ? 'tick' : 'tickx'}">✓</td>
+        ${TENDERS.map(t => `<td class="${e.tender[t] ? 'tick' : 'tickx'}">✓</td>`).join('')}
+        ${GATEWAYS.map(([g, name]) => `<td class="${gw[g] ? 'tick' : 'tickx'}" title="${name}">✓</td>`).join('')}
         <td>${statusLabel(d.status) ? `<span class="st ${k}"></span>${esc(statusLabel(d.status))}` : ''}</td>
         <td class="dup">${dup}</td></tr>`;
     }
-    $('docBody').innerHTML = html || '<tr><td colspan="12" class="hint">No items match.</td></tr>';
+    $('docBody').innerHTML = html || '<tr><td colspan="15" class="hint">No items match.</td></tr>';
   }
 
   function renderSummary() {
@@ -403,10 +412,14 @@
     const p = S.project, gen = generate(false), wb = new ExcelJS.Workbook();
     wb.creator = 'Bond Bryan Architects - TIDP Builder'; wb.created = new Date();
     const thin = { style: 'thin', color: { argb: 'FFBFBFBF' } }, border = { top: thin, left: thin, bottom: thin, right: thin };
-    const tenders = TENDERS.filter(t => p.tenders[t]), SN = 11 + STAGES.length, NCOL = SN + tenders.length; // stage columns 12..SN
-    const HEAD7 = ['Project', 'Originator', 'Volume / system', 'Level', 'Type', 'Role', 'Number', '', '', '', '', ...STAGES.map(n => 'Stage ' + n), ...tenders.map((_, i) => i ? '' : 'Tender')];
-    const HEAD8 = ['', '', '', '', '', '', '', 'Description', 'Format', 'Scale', 'Work Package', ...S.lib.lists.stages.map(s => s.name), ...tenders];
-    const WIDTHS = [11, 9, 9, 7, 6, 6, 9, 52, 12, 15, 38, ...STAGES.map(() => 14), ...tenders.map(() => 5.5)];
+    // columns: A..K fixed, then a stage column + a Progress column per RIBA stage (L..AA), then tenders, then Gateway 1 / 2 / Construction Record
+    const tenders = TENDERS.filter(t => p.tenders[t]), SN = 11 + 2 * STAGES.length, TN = SN + tenders.length, NCOL = TN + GATEWAYS.length;
+    const stageCol = i => 12 + 2 * i, progCol = i => 13 + 2 * i;           // i = index in STAGES
+    const stageOf = c => (c >= 12 && c <= SN) ? Math.floor((c - 12) / 2) : -1, isProg = c => c >= 12 && c <= SN && (c - 12) % 2 === 1;
+    const HEAD7 = ['Project', 'Originator', 'Volume / system', 'Level', 'Type', 'Role', 'Number', '', '', '', '', ...STAGES.flatMap(n => ['Stage ' + n, '']), ...tenders.map((_, i) => i ? '' : 'Tender'), ...GATEWAYS.map(g => g[1])];
+    const HEAD8 = ['', '', '', '', '', '', '', 'Description', 'Format', 'Scale', 'Work Package', ...S.lib.lists.stages.flatMap(s => [s.name, 'Progress']), ...tenders, ...GATEWAYS.map(() => '')];
+    const DATAHEAD = ['Project', 'Originator', 'Volume / system', 'Level', 'Type', 'Role', 'Number', 'Description', 'Format', 'Scale', 'Work Package', ...STAGES.flatMap(n => ['Stage ' + n, 'Stage ' + n + ' Progress']), ...tenders.map(t => 'Tender ' + t), ...GATEWAYS.map(g => g[1])];
+    const WIDTHS = [11, 9, 9, 7, 6, 6, 9, 52, 12, 15, 38, ...STAGES.flatMap(() => [14, 5.71]), ...tenders.map(() => 5.5), ...GATEWAYS.map(() => 5.71)]; // 5.71 = 45 px
     const date = parseDate(today());
     const logoId = await loadLogo(wb);
 
@@ -438,36 +451,61 @@
       HEAD7.forEach((h, c) => { const cell = ws.getCell(7, c + 1); cell.value = h || null; });
       HEAD8.forEach((h, c) => { const cell = ws.getCell(8, c + 1); cell.value = h || null; });
       for (let c = 1; c <= NCOL; c++) for (const row of [7, 8]) {
-        const cell = ws.getCell(row, c);
+        const cell = ws.getCell(row, c), si = stageOf(c);
         cell.font = { bold: true, size: 9 }; cell.alignment = { vertical: 'middle', horizontal: 'center', wrapText: true }; cell.border = border;
-        if (c >= 12 && c <= SN && !p.stageOn[STAGES[c - 12]]) { cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFEDEDED' } }; cell.font = { bold: true, size: 9, color: { argb: 'FF8C8280' } }; }
-        else if (c >= 12 && c <= SN) cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF' + STAGE_COLOURS[STAGES[c - 12]] } };
+        if ((row === 8 && isProg(c)) || c > TN) cell.alignment = { ...cell.alignment, textRotation: 90 };
+        if (si >= 0 && !p.stageOn[STAGES[si]]) { cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFEDEDED' } }; cell.font = { bold: true, size: 9, color: { argb: 'FF8C8280' } }; }
+        else if (si >= 0) cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF' + STAGE_COLOURS[STAGES[si]] } };
         else cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFD9D9D9' } };
       }
       for (let c = 1; c <= 7; c++) ws.mergeCells(7, c, 8, c);
-      if (tenders.length > 1) ws.mergeCells(7, SN + 1, 7, NCOL);
+      STAGES.forEach((_, i) => ws.mergeCells(7, stageCol(i), 7, progCol(i)));
+      if (tenders.length > 1) ws.mergeCells(7, SN + 1, 7, TN);
+      for (let c = TN + 1; c <= NCOL; c++) ws.mergeCells(7, c, 8, c);
       ws.getRow(8).height = 60;
 
       let rn = 9;
       for (const grp of g.groups) {
-        const hr = ws.getRow(rn);
+        const hr = ws.getRow(rn), r1 = rn + 1, r2 = rn + grp.rows.length;
         hr.getCell(1).value = grp.series; hr.font = { bold: true };
-        for (let c = 1; c <= NCOL; c++) { hr.getCell(c).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFD9D9D9' } }; if (c >= 12) hr.getCell(c).value = '◦'; }
+        for (let c = 1; c <= NCOL; c++) {
+          const cell = hr.getCell(c);
+          cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFD9D9D9' } };
+          if (isProg(c)) {   // category progress: average over the deliverables issued at that stage (blank progress counts as 0)
+            const S_ = colLetter(c - 1), P_ = colLetter(c);
+            cell.value = { formula: `IF(COUNTA(${S_}${r1}:${S_}${r2})=0,"",SUM(${P_}${r1}:${P_}${r2})/COUNTA(${S_}${r1}:${S_}${r2}))` };
+            cell.numFmt = PCT; cell.alignment = { horizontal: 'center' }; cell.font = { bold: true, size: 9 };
+          } else if (c >= 12) cell.value = '◦';
+        }
         ws.mergeCells(rn, 1, rn, 11); hr.height = 19; rn++;
         for (const x of grp.rows) {
           const row = ws.getRow(rn);
-          const vals = [x.project, x.originator, x.volume, x.level, x.type, x.role, x.number, x.description, x.format, x.scale, x.workPackage, ...x.stages, ...tenders.map(t => x.tender[t] ? '✓' : '')];
-          vals.forEach((v, c) => {
-            const cell = row.getCell(c + 1); cell.value = v === '' ? null : v; cell.border = border; cell.font = { size: 9 };
-            if (c === 6) cell.numFmt = '@';
-            if (c >= 11 && c < SN) { cell.alignment = { horizontal: 'center' }; if (v instanceof Date) cell.numFmt = 'yyyy-mm-dd'; else if (v === 'YYYY-MM-DD') cell.font = { size: 9, color: { argb: 'FFFF0000' } }; }
-            if (c >= SN) cell.alignment = { horizontal: 'center' };
+          const vals = [x.project, x.originator, x.volume, x.level, x.type, x.role, x.number, x.description, x.format, x.scale, x.workPackage,
+            ...x.stages.flatMap(v => [v, '']), ...tenders.map(t => x.tender[t] ? '✓' : ''), ...GATEWAYS.map(([k]) => x.gateway[k] ? '✓' : '')];
+          vals.forEach((v, i) => {
+            const c = i + 1, cell = row.getCell(c), si = stageOf(c); cell.value = v === '' ? null : v; cell.border = border; cell.font = { size: 9 };
+            if (c === 7) cell.numFmt = '@';
+            if (si >= 0 && !isProg(c)) {
+              cell.alignment = { horizontal: 'center' };
+              if (v instanceof Date) cell.numFmt = 'yyyy-mm-dd'; else if (v === 'YYYY-MM-DD') cell.font = { size: 9, color: { argb: 'FFFF0000' } };
+              if (v && si === x.first) cell.font = { ...cell.font, bold: true };   // first issue in bold
+            }
+            if (isProg(c)) {
+              cell.numFmt = PCT; cell.alignment = { horizontal: 'center' };
+              if (!x.stages[si]) cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFF2F2F2' } };   // not issued at this stage
+              cell.dataValidation = { type: 'decimal', operator: 'between', allowBlank: true, formulae: [0, 100], showErrorMessage: true, errorTitle: 'Progress', error: 'Enter a number from 0 to 100.' };
+            }
+            if (c > SN) cell.alignment = { horizontal: 'center' };
           });
           row.height = 19;
           dataRows.push({ sheet: g.tab, row: rn, tab: g.tab, series: grp.series });
           rn++;
         }
       }
+      if (rn > 9) STAGES.forEach((_, i) => ws.addConditionalFormatting({   // progress shown as a bar, 0 to 100
+        ref: `${colLetter(progCol(i))}9:${colLetter(progCol(i))}${rn - 1}`,
+        rules: [{ type: 'dataBar', priority: i + 1, gradient: false, cfvo: [{ type: 'num', value: 0 }, { type: 'num', value: 100 }], color: { argb: 'FF6DA97D' } }]
+      }));
       ws.autoFilter = { from: { row: 8, column: 1 }, to: { row: rn - 1, column: NCOL } };
       ws.headerFooter.oddFooter = '&L' + (p.name || '') + '&C' + 'Bond Bryan' + '&R' + 'Page &P of &N';
     }
@@ -475,7 +513,7 @@
     // ---- Data sheet (formula links, so edits on the content sheets flow through)
     const data = wb.addWorksheet('Data', { views: [{ state: 'frozen', ySplit: 1 }] });
     data.columns = [{ width: 34 }, { width: 11 }, { width: 30 }, ...WIDTHS.map(w => ({ width: w }))];
-    const heads = ['Document reference', 'Document type', 'Series', ...HEAD8.map((h, i) => h || HEAD7[i])];
+    const heads = ['Document reference', 'Document type', 'Series', ...DATAHEAD];
     heads.forEach((h, c) => { const cell = data.getCell(1, c + 1); cell.value = h; cell.font = { bold: true }; cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFD9D9D9' } }; });
     let dr = 2;
     const q = s => `'${s.replace(/'/g, "''")}'`;
@@ -486,7 +524,7 @@
       for (let c = 1; c <= NCOL; c++) {
         const ref = `${sh}!${colLetter(c)}${d.row}`, cell = row.getCell(3 + c);
         cell.value = { formula: `IF(${ref}="","",${ref})` };
-        if (c >= 12 && c <= SN) cell.numFmt = 'yyyy-mm-dd';
+        if (c >= 12 && c <= SN) cell.numFmt = isProg(c) ? PCT : 'yyyy-mm-dd';
         if (c === 7) cell.numFmt = '@';
       }
       dr++;

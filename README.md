@@ -35,6 +35,7 @@ Edit `library.json` in GitHub (pencil icon, then *Commit changes*). Each documen
  "format": "PDF/DWG", "scale": "1:200 @ A1", "workPackage": "ZZ: Multiple",
  "stages": {"0": null, "1": null, "2": "YYYY-MM-DD", "3": "Ongoing", "4": "Ongoing", "5": "Ongoing", "6": null, "7": null},
  "tender": {"3+": true, "4a": true, "4b": true},
+ "gateway": {"G1": true, "G2": true, "CR": true},
  "status": "Internal Team Item - Project Lead to allocate resource accordingly",
  "comments": "",
  "sectors": {"Education": true, "Residential": true, "...": true},
@@ -48,7 +49,9 @@ Rules (same as the spreadsheet Library):
 
 - Keep records grouped by `tab` then `series` in numeric order; the app writes them in file order.
 - `id` must be unique: `<tab>-<type>-<number>`.
-- `stages`: `"YYYY-MM-DD"` marks the stage a document is first issued (the app replaces it with the project's stage date); `"Ongoing"` for later stages; `null` when not required.
+- `stages`: `"YYYY-MM-DD"` marks the stage a document is first issued; `"Ongoing"` marks the later stages it is issued in; `null` when not required. In the export every issued stage shows the project's date for that stage (first issue in bold); `YYYY-MM-DD` in red until the date is entered on step 1.
+- `gateway`: ticks for the Gateway 1, Gateway 2 and Construction Record columns of the export (all sectors).
+- `sectorOverrides` (optional): stages and tender ticks that replace the record's own values when the project is set to that sector, e.g. `"sectorOverrides": {"Residential": {"stages": {...}, "tender": {...}}}`. Used for the Residential Deliverables Tracker alignment; leave it out when the sector follows the record's values.
 - `floorDup` / `volDup`: duplicate the row per ticked storey / volume. Storey rows get the level code and the description becomes "Ground Floor <description>" ("Plans" becomes "Plan").
 - `buildType`: `"any"` (default), `"existing"` (pre-selected only when the project involves existing buildings), `"new"` (new build only).
 - Bump `meta.version` when you publish a change.
@@ -70,7 +73,11 @@ One button exports the TIDP and the resourcing note together:
 
 ### Excel
 
-Sheets: `Cover`, one sheet per document type with rows (`Drawings`, `Images`, `Lists`, `Models`, `Text`, `Video`), then `Data`. Internal items, Status and Outsourcing Comments are never exported. `Data` is one row per document, every cell a formula linking to the content sheets, so edits made in Excel flow through to the raw list. No macros, no external links, no data validation to break.
+Sheets: `Cover`, one sheet per document type with rows (`Drawings`, `Images`, `Lists`, `Models`, `Text`, `Video`), then `Data`.
+
+- Each RIBA stage column is followed by a narrow `Progress` column: staff type 0 to 100, shown as a percentage with a progress bar (other values are refused). Each series header row shows the progress of its category at that stage: total progress divided by the number of documents issued at that stage (blank counts as 0).
+- After the tender columns: `Gateway 1`, `Gateway 2` and `Construction Record` tick columns.
+- Within a series, rows are ordered by volume / system (column C), then level (column D), then number (column G). Internal items, Status and Outsourcing Comments are never exported. `Data` is one row per document, every cell a formula linking to the content sheets, so edits made in Excel flow through to the raw list. No macros and no external links; the only data validation is the 0 to 100 check on the Progress cells.
 
 ### Resourcing note
 

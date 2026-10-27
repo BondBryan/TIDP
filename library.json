@@ -1,10 +1,10 @@
 {
  "meta": {
   "name": "Bond Bryan TIDP Library",
-  "version": "2026.18",
+  "version": "2026.19",
   "source": "Bond Bryan Architects",
   "extracted": "2026-10",
-  "documents": 354,
+  "documents": 365,
   "note": "Master list of Task Information Delivery Plan deliverables. Edit in GitHub; the web app reads this file at load."
  },
  "lists": {
@@ -275,7 +275,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1001",
@@ -326,7 +331,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": true,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1005",
@@ -377,7 +387,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1015",
@@ -428,7 +443,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1025",
@@ -479,7 +499,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": true,
+    "G2": true,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1035",
@@ -530,7 +555,68 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "existing"
+   "buildType": "existing",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
+  },
+  {
+   "id": "Drawings-D-1075",
+   "tab": "Drawings",
+   "series": "1000 Series - GA Site Plans",
+   "originator": "BBA",
+   "volume": "ZZ",
+   "level": "XX",
+   "type": "D",
+   "number": "1075",
+   "description": "Parameter Plans",
+   "format": "PDF",
+   "scale": "1:500 @ A1",
+   "workPackage": "Site, landscape, levels",
+   "stages": {
+    "0": null,
+    "1": null,
+    "2": "YYYY-MM-DD",
+    "3": null,
+    "4": null,
+    "5": null,
+    "6": null,
+    "7": null
+   },
+   "tender": {
+    "3+": false,
+    "4a": false,
+    "4b": false
+   },
+   "status": "Confirmation of BBA scope required",
+   "comments": "Only if required for the planning submission (outline or hybrid applications).",
+   "sectors": {
+    "Education": false,
+    "Residential": true,
+    "Blue Light": false,
+    "Defence & Justice": false,
+    "Healthcare": false,
+    "Hotels & Hospitality": false,
+    "Industrial and Manufacturing": false,
+    "Interior Design": false,
+    "Landscape_Education": false,
+    "Landscape_Other": false,
+    "Offices and Workspace": false,
+    "Retail": false,
+    "Science and Research": false,
+    "Sport and Leisure": false,
+    "Other": false
+   },
+   "floorDup": false,
+   "volDup": false,
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1045",
@@ -581,7 +667,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "existing"
+   "buildType": "existing",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1055",
@@ -632,7 +723,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "existing"
+   "buildType": "existing",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1065",
@@ -683,7 +779,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "existing"
+   "buildType": "existing",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1010",
@@ -734,7 +835,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1011",
@@ -785,7 +891,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1020",
@@ -836,7 +947,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1030",
@@ -887,7 +1003,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1040",
@@ -938,7 +1059,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1050",
@@ -989,7 +1115,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1060",
@@ -1040,7 +1171,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1070",
@@ -1091,7 +1227,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1101",
@@ -1142,7 +1283,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1110",
@@ -1193,7 +1339,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1100",
@@ -1244,7 +1395,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1120",
@@ -1295,7 +1451,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1200",
@@ -1346,7 +1507,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1210",
@@ -1397,7 +1563,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1300",
@@ -1448,7 +1619,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1400",
@@ -1499,7 +1675,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1500",
@@ -1550,7 +1731,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1600",
@@ -1601,7 +1787,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1605",
@@ -1652,7 +1843,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1610",
@@ -1703,7 +1899,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1615",
@@ -1754,7 +1955,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1620",
@@ -1805,7 +2011,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1700",
@@ -1856,7 +2067,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-1800",
@@ -1907,7 +2123,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-2001",
@@ -1958,7 +2179,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": true,
+    "G2": true,
+    "CR": true
+   }
   },
   {
    "id": "Drawings-D-2020",
@@ -2009,7 +2235,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-2030",
@@ -2060,7 +2291,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-2040",
@@ -2111,7 +2347,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-2050",
@@ -2162,7 +2403,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-2101",
@@ -2213,7 +2459,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": true
+   }
   },
   {
    "id": "Drawings-D-2100",
@@ -2264,7 +2515,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-2105",
@@ -2315,7 +2571,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-2110",
@@ -2366,7 +2627,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-2115",
@@ -2417,7 +2683,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-2120",
@@ -2468,7 +2739,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-2130",
@@ -2519,7 +2795,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-2140",
@@ -2570,7 +2851,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-2200",
@@ -2621,7 +2907,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-2205",
@@ -2672,7 +2963,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-2201",
@@ -2723,7 +3019,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "existing"
+   "buildType": "existing",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-2300",
@@ -2774,7 +3075,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-2301",
@@ -2825,7 +3131,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "existing"
+   "buildType": "existing",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-2401",
@@ -2876,7 +3187,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "existing"
+   "buildType": "existing",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-2400",
@@ -2927,7 +3243,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-2410",
@@ -2978,7 +3299,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-2420",
@@ -3029,7 +3355,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-2500",
@@ -3080,7 +3411,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-2510",
@@ -3131,7 +3467,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-2600",
@@ -3182,7 +3523,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-2900",
@@ -3233,7 +3579,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-3001",
@@ -3284,7 +3635,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": true,
+    "G2": true,
+    "CR": true
+   }
   },
   {
    "id": "Drawings-D-3002",
@@ -3335,7 +3691,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-3101",
@@ -3386,7 +3747,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-3102",
@@ -3437,7 +3803,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-3110",
@@ -3488,7 +3859,68 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
+  },
+  {
+   "id": "Drawings-D-3120",
+   "tab": "Drawings",
+   "series": "3100 Series - Detailed Elevations",
+   "originator": "BBA",
+   "volume": "ZZ",
+   "level": "ZZ",
+   "type": "D",
+   "number": "3120",
+   "description": "Bay Studies",
+   "format": "PDF",
+   "scale": "1:20 @ A1",
+   "workPackage": "Façade, cladding, masonry",
+   "stages": {
+    "0": null,
+    "1": null,
+    "2": "YYYY-MM-DD",
+    "3": null,
+    "4": null,
+    "5": null,
+    "6": null,
+    "7": null
+   },
+   "tender": {
+    "3+": false,
+    "4a": false,
+    "4b": false
+   },
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
+   "comments": "For the planning application only.",
+   "sectors": {
+    "Education": false,
+    "Residential": true,
+    "Blue Light": false,
+    "Defence & Justice": false,
+    "Healthcare": false,
+    "Hotels & Hospitality": false,
+    "Industrial and Manufacturing": false,
+    "Interior Design": false,
+    "Landscape_Education": false,
+    "Landscape_Other": false,
+    "Offices and Workspace": false,
+    "Retail": false,
+    "Science and Research": false,
+    "Sport and Leisure": false,
+    "Other": false
+   },
+   "floorDup": false,
+   "volDup": true,
+   "buildType": "any",
+   "gateway": {
+    "G1": true,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-3201",
@@ -3539,7 +3971,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "existing"
+   "buildType": "existing",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-3301",
@@ -3590,7 +4027,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "existing"
+   "buildType": "existing",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-3401",
@@ -3641,7 +4083,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-3410",
@@ -3692,7 +4139,31 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": "YYYY-MM-DD",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-3420",
@@ -3743,7 +4214,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-4001",
@@ -3794,7 +4270,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": true,
+    "G2": true,
+    "CR": true
+   }
   },
   {
    "id": "Drawings-D-4002",
@@ -3845,7 +4326,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-4101",
@@ -3896,7 +4382,31 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": "YYYY-MM-DD",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-4110",
@@ -3947,7 +4457,31 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": "YYYY-MM-DD",
+      "4": "Ongoing",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-4120",
@@ -3998,7 +4532,31 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": "YYYY-MM-DD",
+      "4": "Ongoing",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-4104",
@@ -4049,7 +4607,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-4130",
@@ -4100,7 +4663,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-4201",
@@ -4151,7 +4719,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "existing"
+   "buildType": "existing",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-5001",
@@ -4202,7 +4775,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-5005",
@@ -4253,7 +4831,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-5010",
@@ -4304,7 +4887,31 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": true,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": "YYYY-MM-DD",
+      "3": "Ongoing",
+      "4": "Ongoing",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": true,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-5015",
@@ -4355,7 +4962,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-5020",
@@ -4406,7 +5018,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-5025",
@@ -4457,7 +5074,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-5030",
@@ -4508,7 +5130,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-5035",
@@ -4559,7 +5186,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-5040",
@@ -4610,7 +5242,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-5045",
@@ -4661,7 +5298,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-5050",
@@ -4712,7 +5354,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-5055",
@@ -4763,7 +5410,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-5060",
@@ -4814,7 +5466,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-6001",
@@ -4865,7 +5522,31 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": true
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": "YYYY-MM-DD",
+      "3": "Ongoing",
+      "4": "Ongoing",
+      "5": null,
+      "6": "Ongoing",
+      "7": null
+     },
+     "tender": {
+      "3+": true,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-6010",
@@ -4916,7 +5597,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-6101",
@@ -4967,7 +5653,31 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": true
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": "YYYY-MM-DD",
+      "4": "Ongoing",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": true,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-6110",
@@ -5018,7 +5728,31 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": true
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": "YYYY-MM-DD",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": false,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-6120",
@@ -5069,7 +5803,87 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": "YYYY-MM-DD",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
+  },
+  {
+   "id": "Drawings-D-6130",
+   "tab": "Drawings",
+   "series": "6100 Series - Wall Strategy Plans",
+   "originator": "BBA",
+   "volume": "ZZ",
+   "level": "ZZ",
+   "type": "D",
+   "number": "6130",
+   "description": "External Wall Type and Setting Out Plans",
+   "format": "PDF/DWG",
+   "scale": "1:100 @ A1",
+   "workPackage": "Façade, cladding, masonry",
+   "stages": {
+    "0": null,
+    "1": null,
+    "2": null,
+    "3": null,
+    "4": "YYYY-MM-DD",
+    "5": "Ongoing",
+    "6": null,
+    "7": null
+   },
+   "tender": {
+    "3+": false,
+    "4a": true,
+    "4b": true
+   },
+   "status": "Internal Team Item - Project Lead to allocate resource accordingly",
+   "comments": "May not be required if the client accepts loaded GA plans. Setting out not required until Stage 5.",
+   "sectors": {
+    "Education": false,
+    "Residential": true,
+    "Blue Light": false,
+    "Defence & Justice": false,
+    "Healthcare": false,
+    "Hotels & Hospitality": false,
+    "Industrial and Manufacturing": false,
+    "Interior Design": false,
+    "Landscape_Education": false,
+    "Landscape_Other": false,
+    "Offices and Workspace": false,
+    "Retail": false,
+    "Science and Research": false,
+    "Sport and Leisure": false,
+    "Other": false
+   },
+   "floorDup": true,
+   "volDup": true,
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-6201",
@@ -5120,7 +5934,31 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": true
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": "YYYY-MM-DD",
+      "4": "Ongoing",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-6210",
@@ -5171,7 +6009,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-6220",
@@ -5222,7 +6065,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-6220-I",
@@ -5273,7 +6121,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-6230",
@@ -5324,7 +6177,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-6240",
@@ -5375,7 +6233,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-6301",
@@ -5426,7 +6289,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-6310",
@@ -5477,7 +6345,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-6320",
@@ -5528,7 +6401,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-6401",
@@ -5579,7 +6457,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-6410",
@@ -5630,7 +6513,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-6420",
@@ -5664,7 +6552,7 @@
    "comments": "Access control, secure line, compartmentation",
    "sectors": {
     "Education": true,
-    "Residential": false,
+    "Residential": true,
     "Blue Light": true,
     "Defence & Justice": true,
     "Healthcare": false,
@@ -5681,7 +6569,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-6430",
@@ -5732,7 +6625,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-6440",
@@ -5783,7 +6681,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-6450",
@@ -5834,7 +6737,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-6501",
@@ -5885,7 +6793,31 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": "YYYY-MM-DD",
+      "3": "Ongoing",
+      "4": "Ongoing",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": true,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-6601",
@@ -5919,7 +6851,7 @@
    "comments": "Only relevant to specific appointments, Project Lead to review if required and allocate internal resource accordingly. Bespoke item, not ticked by default for any sector: Project Lead ticks it when in scope. Duplicated per storey and volume.",
    "sectors": {
     "Education": false,
-    "Residential": false,
+    "Residential": true,
     "Blue Light": false,
     "Defence & Justice": false,
     "Healthcare": false,
@@ -5936,7 +6868,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": true
+   }
   },
   {
    "id": "Drawings-D-6610",
@@ -5987,7 +6924,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-6751",
@@ -6038,7 +6980,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-6751-I",
@@ -6089,7 +7036,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-6801",
@@ -6140,7 +7092,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-6810",
@@ -6191,7 +7148,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-6901",
@@ -6242,7 +7204,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-6910",
@@ -6293,7 +7260,12 @@
    },
    "floorDup": true,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-6920",
@@ -6344,7 +7316,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7001",
@@ -6395,7 +7372,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7000",
@@ -6446,7 +7428,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7010",
@@ -6497,7 +7484,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7020",
@@ -6548,7 +7540,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7030",
@@ -6599,7 +7596,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7051",
@@ -6650,7 +7652,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7101",
@@ -6701,7 +7708,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7105",
@@ -6752,7 +7764,31 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": "YYYY-MM-DD",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-7115",
@@ -6803,7 +7839,31 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": "YYYY-MM-DD",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-7125",
@@ -6854,7 +7914,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7100",
@@ -6905,7 +7970,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7110",
@@ -6956,7 +8026,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7120",
@@ -7007,7 +8082,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7130",
@@ -7058,7 +8138,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7151",
@@ -7109,7 +8194,31 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": "YYYY-MM-DD",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-7155",
@@ -7160,7 +8269,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7160",
@@ -7211,7 +8325,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7165",
@@ -7262,7 +8381,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7201",
@@ -7313,7 +8437,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7205",
@@ -7364,7 +8493,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7211",
@@ -7398,7 +8532,7 @@
    "comments": "",
    "sectors": {
     "Education": false,
-    "Residential": true,
+    "Residential": false,
     "Blue Light": false,
     "Defence & Justice": false,
     "Healthcare": false,
@@ -7415,7 +8549,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7216",
@@ -7449,7 +8588,7 @@
    "comments": "",
    "sectors": {
     "Education": false,
-    "Residential": true,
+    "Residential": false,
     "Blue Light": false,
     "Defence & Justice": false,
     "Healthcare": false,
@@ -7466,7 +8605,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7221",
@@ -7517,7 +8661,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7225",
@@ -7568,7 +8717,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7230",
@@ -7619,7 +8773,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7235",
@@ -7670,7 +8829,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7200",
@@ -7721,7 +8885,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7210",
@@ -7772,7 +8941,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7215",
@@ -7823,7 +8997,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7220",
@@ -7874,7 +9053,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7251",
@@ -7925,7 +9109,31 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": "YYYY-MM-DD",
+      "4": "Ongoing",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-7255",
@@ -7976,7 +9184,31 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": "YYYY-MM-DD",
+      "4": "Ongoing",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-7260",
@@ -8027,7 +9259,31 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": "YYYY-MM-DD",
+      "4": "Ongoing",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-7265",
@@ -8078,7 +9334,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7270",
@@ -8129,7 +9390,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7301",
@@ -8180,7 +9446,31 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": "YYYY-MM-DD",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": false,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-7305",
@@ -8231,7 +9521,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7315",
@@ -8282,7 +9577,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7320",
@@ -8333,7 +9633,31 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": "YYYY-MM-DD",
+      "4": "Ongoing",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-7300",
@@ -8384,7 +9708,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7310",
@@ -8435,7 +9764,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7351",
@@ -8486,7 +9820,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7355",
@@ -8537,7 +9876,31 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": "YYYY-MM-DD",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-7360",
@@ -8588,7 +9951,87 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": "YYYY-MM-DD",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
+  },
+  {
+   "id": "Drawings-D-7365",
+   "tab": "Drawings",
+   "series": "7350 Series - Signage Details",
+   "originator": "BBA",
+   "volume": "ZZ",
+   "level": "ZZ",
+   "type": "D",
+   "number": "7365",
+   "description": "Signage Key Plans",
+   "format": "PDF",
+   "scale": "1:100 @ A1",
+   "workPackage": "Finishes",
+   "stages": {
+    "0": null,
+    "1": null,
+    "2": null,
+    "3": null,
+    "4": "YYYY-MM-DD",
+    "5": "Ongoing",
+    "6": null,
+    "7": null
+   },
+   "tender": {
+    "3+": false,
+    "4a": true,
+    "4b": true
+   },
+   "status": "Confirmation of BBA scope required",
+   "comments": "May be produced by the interior designer.",
+   "sectors": {
+    "Education": false,
+    "Residential": true,
+    "Blue Light": false,
+    "Defence & Justice": false,
+    "Healthcare": false,
+    "Hotels & Hospitality": false,
+    "Industrial and Manufacturing": false,
+    "Interior Design": false,
+    "Landscape_Education": false,
+    "Landscape_Other": false,
+    "Offices and Workspace": false,
+    "Retail": false,
+    "Science and Research": false,
+    "Sport and Leisure": false,
+    "Other": false
+   },
+   "floorDup": true,
+   "volDup": true,
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7401",
@@ -8639,7 +10082,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7405",
@@ -8690,7 +10138,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7400",
@@ -8741,7 +10194,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7410",
@@ -8792,7 +10250,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7420",
@@ -8843,7 +10306,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7451",
@@ -8894,7 +10362,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7455",
@@ -8945,7 +10418,68 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   }
+  },
+  {
+   "id": "Drawings-D-7460",
+   "tab": "Drawings",
+   "series": "7450 Series - Stairs & Ramp Details",
+   "originator": "BBA",
+   "volume": "ZZ",
+   "level": "ZZ",
+   "type": "D",
+   "number": "7460",
+   "description": "Timber Stair Details",
+   "format": "PDF",
+   "scale": "1:10 @ A1",
+   "workPackage": "Stairs, balustrades, metalwork",
+   "stages": {
+    "0": null,
+    "1": null,
+    "2": null,
+    "3": null,
+    "4": "YYYY-MM-DD",
+    "5": "Ongoing",
+    "6": null,
+    "7": null
+   },
+   "tender": {
+    "3+": false,
+    "4a": true,
+    "4b": true
+   },
+   "status": "Confirmation of BBA scope required",
+   "comments": "Only where there are duplexes, maisonettes or townhouses. Not part of the standard residential scope.",
+   "sectors": {
+    "Education": false,
+    "Residential": false,
+    "Blue Light": false,
+    "Defence & Justice": false,
+    "Healthcare": false,
+    "Hotels & Hospitality": false,
+    "Industrial and Manufacturing": false,
+    "Interior Design": false,
+    "Landscape_Education": false,
+    "Landscape_Other": false,
+    "Offices and Workspace": false,
+    "Retail": false,
+    "Science and Research": false,
+    "Sport and Leisure": false,
+    "Other": false
+   },
+   "floorDup": false,
+   "volDup": false,
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7501",
@@ -8996,7 +10530,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7500",
@@ -9047,7 +10586,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7510",
@@ -9098,7 +10642,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7551",
@@ -9149,7 +10698,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7555",
@@ -9200,7 +10754,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7560",
@@ -9251,7 +10810,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7601",
@@ -9302,7 +10866,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7605",
@@ -9353,7 +10922,31 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": "YYYY-MM-DD",
+      "4": "Ongoing",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-7610",
@@ -9404,7 +10997,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7615",
@@ -9455,7 +11053,31 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": "YYYY-MM-DD",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-7620",
@@ -9506,7 +11128,31 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": "YYYY-MM-DD",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-7625",
@@ -9557,7 +11203,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7630",
@@ -9608,7 +11259,31 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": "YYYY-MM-DD",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-7635",
@@ -9642,7 +11317,7 @@
    "comments": "Technical details to be coordinated with other consultants.",
    "sectors": {
     "Education": false,
-    "Residential": true,
+    "Residential": false,
     "Blue Light": true,
     "Defence & Justice": true,
     "Healthcare": true,
@@ -9659,7 +11334,31 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": "YYYY-MM-DD",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-7640",
@@ -9710,7 +11409,68 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   }
+  },
+  {
+   "id": "Drawings-D-7645",
+   "tab": "Drawings",
+   "series": "7600 Series - Wall Details",
+   "originator": "BBA",
+   "volume": "ZZ",
+   "level": "ZZ",
+   "type": "D",
+   "number": "7645",
+   "description": "Partition Junction and Ceiling Details Key Plans",
+   "format": "PDF",
+   "scale": "1:100 @ A1",
+   "workPackage": "Internal Partitions",
+   "stages": {
+    "0": null,
+    "1": null,
+    "2": null,
+    "3": null,
+    "4": "YYYY-MM-DD",
+    "5": "Ongoing",
+    "6": null,
+    "7": null
+   },
+   "tender": {
+    "3+": false,
+    "4a": true,
+    "4b": true
+   },
+   "status": "Confirmation of BBA scope required",
+   "comments": "Not part of the standard residential scope.",
+   "sectors": {
+    "Education": false,
+    "Residential": false,
+    "Blue Light": false,
+    "Defence & Justice": false,
+    "Healthcare": false,
+    "Hotels & Hospitality": false,
+    "Industrial and Manufacturing": false,
+    "Interior Design": false,
+    "Landscape_Education": false,
+    "Landscape_Other": false,
+    "Offices and Workspace": false,
+    "Retail": false,
+    "Science and Research": false,
+    "Sport and Leisure": false,
+    "Other": false
+   },
+   "floorDup": true,
+   "volDup": true,
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7651",
@@ -9761,7 +11521,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7701",
@@ -9812,7 +11577,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7705",
@@ -9863,7 +11633,31 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": "YYYY-MM-DD",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-7710",
@@ -9914,7 +11708,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7715",
@@ -9965,7 +11764,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7720",
@@ -10016,7 +11820,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7725",
@@ -10067,7 +11876,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7730",
@@ -10118,7 +11932,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7735",
@@ -10169,7 +11988,68 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
+  },
+  {
+   "id": "Drawings-D-7740",
+   "tab": "Drawings",
+   "series": "7700 Series - Other Details",
+   "originator": "BBA",
+   "volume": "ZZ",
+   "level": "ZZ",
+   "type": "D",
+   "number": "7740",
+   "description": "Internal Grille and Damper Details",
+   "format": "PDF",
+   "scale": "1:10 @ A1",
+   "workPackage": "Building Control, CDM, Compliance",
+   "stages": {
+    "0": null,
+    "1": null,
+    "2": null,
+    "3": null,
+    "4": "YYYY-MM-DD",
+    "5": "Ongoing",
+    "6": null,
+    "7": null
+   },
+   "tender": {
+    "3+": false,
+    "4a": true,
+    "4b": true
+   },
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
+   "comments": "",
+   "sectors": {
+    "Education": false,
+    "Residential": true,
+    "Blue Light": false,
+    "Defence & Justice": false,
+    "Healthcare": false,
+    "Hotels & Hospitality": false,
+    "Industrial and Manufacturing": false,
+    "Interior Design": false,
+    "Landscape_Education": false,
+    "Landscape_Other": false,
+    "Offices and Workspace": false,
+    "Retail": false,
+    "Science and Research": false,
+    "Sport and Leisure": false,
+    "Other": false
+   },
+   "floorDup": false,
+   "volDup": false,
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7751",
@@ -10220,7 +12100,31 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": "YYYY-MM-DD",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-7755",
@@ -10271,7 +12175,31 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": "YYYY-MM-DD",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-7760",
@@ -10322,7 +12250,31 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": "YYYY-MM-DD",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-7760-I",
@@ -10373,7 +12325,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-7765",
@@ -10424,7 +12381,31 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": "YYYY-MM-DD",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-8001",
@@ -10475,7 +12456,31 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": "YYYY-MM-DD",
+      "4": "Ongoing",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": true,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-8051",
@@ -10526,7 +12531,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": true
+   }
   },
   {
    "id": "Drawings-D-8101",
@@ -10577,7 +12587,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-8151",
@@ -10628,7 +12643,31 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": true
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": "YYYY-MM-DD",
+      "4": "Ongoing",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-8155",
@@ -10679,7 +12718,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-8201",
@@ -10730,7 +12774,12 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-8301",
@@ -10781,7 +12830,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-8310",
@@ -10832,7 +12886,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-9001",
@@ -10883,7 +12942,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Drawings-D-9010",
@@ -10934,7 +12998,31 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5": "YYYY-MM-DD",
+      "6": "Ongoing",
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": false,
+      "4b": false
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-9030",
@@ -10968,7 +13056,7 @@
    "comments": "Additional contract / scope for this item",
    "sectors": {
     "Education": false,
-    "Residential": true,
+    "Residential": false,
     "Blue Light": false,
     "Defence & Justice": false,
     "Healthcare": false,
@@ -10985,7 +13073,31 @@
    },
    "floorDup": true,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5": "YYYY-MM-DD",
+      "6": "Ongoing",
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": false,
+      "4b": false
+     }
+    }
+   }
   },
   {
    "id": "Drawings-D-9020",
@@ -11036,7 +13148,68 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
+  },
+  {
+   "id": "Drawings-D-9040",
+   "tab": "Drawings",
+   "series": "9000 Series - Miscellaneous",
+   "originator": "BBA",
+   "volume": "ZZ",
+   "level": "ZZ",
+   "type": "D",
+   "number": "9040",
+   "description": "GIA Plans",
+   "format": "PDF",
+   "scale": "1:100 @ A1",
+   "workPackage": "XX: n/a",
+   "stages": {
+    "0": null,
+    "1": null,
+    "2": null,
+    "3": null,
+    "4": null,
+    "5": "YYYY-MM-DD",
+    "6": null,
+    "7": null
+   },
+   "tender": {
+    "3+": false,
+    "4a": false,
+    "4b": false
+   },
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
+   "comments": "",
+   "sectors": {
+    "Education": false,
+    "Residential": true,
+    "Blue Light": false,
+    "Defence & Justice": false,
+    "Healthcare": false,
+    "Hotels & Hospitality": false,
+    "Industrial and Manufacturing": false,
+    "Interior Design": false,
+    "Landscape_Education": false,
+    "Landscape_Other": false,
+    "Offices and Workspace": false,
+    "Retail": false,
+    "Science and Research": false,
+    "Sport and Leisure": false,
+    "Other": false
+   },
+   "floorDup": true,
+   "volDup": true,
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Images-I-1001",
@@ -11087,7 +13260,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Images-I-3001",
@@ -11138,7 +13316,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Images-I-3002",
@@ -11189,7 +13372,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Images-I-3003",
@@ -11240,7 +13428,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0001",
@@ -11291,7 +13484,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": true,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0010",
@@ -11342,7 +13540,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": true,
+    "G2": true,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0020",
@@ -11393,7 +13596,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0004",
@@ -11444,7 +13652,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0101",
@@ -11495,7 +13708,31 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": "YYYY-MM-DD",
+      "4": "Ongoing",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": true,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Lists-L-0110",
@@ -11546,7 +13783,31 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": "YYYY-MM-DD",
+      "4": "Ongoing",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": true,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Lists-L-0120",
@@ -11597,7 +13858,31 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": "YYYY-MM-DD",
+      "4": "Ongoing",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": true,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Lists-L-0130",
@@ -11648,7 +13933,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0140",
@@ -11699,7 +13989,31 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": "YYYY-MM-DD",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Lists-L-0106",
@@ -11750,7 +14064,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0201",
@@ -11801,7 +14120,31 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": "YYYY-MM-DD",
+      "4": "Ongoing",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": true,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Lists-L-0210",
@@ -11852,7 +14195,31 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": "YYYY-MM-DD",
+      "4": "Ongoing",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": true,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Lists-L-0220",
@@ -11903,7 +14270,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0230",
@@ -11954,7 +14326,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0240",
@@ -12005,7 +14382,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0250",
@@ -12056,7 +14438,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0207",
@@ -12107,7 +14494,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0301",
@@ -12158,7 +14550,31 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": "YYYY-MM-DD",
+      "4": "Ongoing",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": true,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Lists-L-0310",
@@ -12209,7 +14625,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0303",
@@ -12260,7 +14681,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0401",
@@ -12311,7 +14737,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0402",
@@ -12362,7 +14793,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0403",
@@ -12413,7 +14849,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0404",
@@ -12464,7 +14905,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0405",
@@ -12515,7 +14961,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0501",
@@ -12566,7 +15017,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0601",
@@ -12617,7 +15073,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0610",
@@ -12668,7 +15129,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0701",
@@ -12719,7 +15185,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0705",
@@ -12770,7 +15241,31 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": "YYYY-MM-DD",
+      "4": "Ongoing",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": true,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Lists-L-0710",
@@ -12821,7 +15316,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0715",
@@ -12872,7 +15372,31 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": "YYYY-MM-DD",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Lists-L-0720",
@@ -12906,7 +15430,7 @@
    "comments": "",
    "sectors": {
     "Education": false,
-    "Residential": true,
+    "Residential": false,
     "Blue Light": false,
     "Defence & Justice": false,
     "Healthcare": false,
@@ -12923,7 +15447,31 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": "YYYY-MM-DD",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Lists-L-0725",
@@ -12974,7 +15522,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0730",
@@ -13025,7 +15578,31 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": "YYYY-MM-DD",
+      "4": "Ongoing",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": true,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Lists-L-0735",
@@ -13076,7 +15653,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0740",
@@ -13127,7 +15709,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0745",
@@ -13178,7 +15765,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0750",
@@ -13229,7 +15821,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0712",
@@ -13280,7 +15877,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0713",
@@ -13331,7 +15933,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0755",
@@ -13382,7 +15989,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0760",
@@ -13433,7 +16045,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0765",
@@ -13484,7 +16101,68 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
+  },
+  {
+   "id": "Lists-L-0770",
+   "tab": "Lists",
+   "series": "0700 Series - Other Schedules",
+   "originator": "BBA",
+   "volume": "ZZ",
+   "level": "ZZ",
+   "type": "L",
+   "number": "0770",
+   "description": "Firestopping Details Schedule",
+   "format": "PDF",
+   "scale": "NTS @ A1",
+   "workPackage": "Building Control, CDM, Compliance",
+   "stages": {
+    "0": null,
+    "1": null,
+    "2": null,
+    "3": null,
+    "4": "YYYY-MM-DD",
+    "5": "Ongoing",
+    "6": null,
+    "7": null
+   },
+   "tender": {
+    "3+": false,
+    "4a": false,
+    "4b": true
+   },
+   "status": "Internal Team Item - Project Lead to allocate resource accordingly",
+   "comments": "",
+   "sectors": {
+    "Education": false,
+    "Residential": true,
+    "Blue Light": false,
+    "Defence & Justice": false,
+    "Healthcare": false,
+    "Hotels & Hospitality": false,
+    "Industrial and Manufacturing": false,
+    "Interior Design": false,
+    "Landscape_Education": false,
+    "Landscape_Other": false,
+    "Offices and Workspace": false,
+    "Retail": false,
+    "Science and Research": false,
+    "Sport and Leisure": false,
+    "Other": false
+   },
+   "floorDup": false,
+   "volDup": false,
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-0801",
@@ -13535,7 +16213,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "existing"
+   "buildType": "existing",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-1001",
@@ -13586,7 +16269,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-1010",
@@ -13637,7 +16325,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-1020",
@@ -13688,7 +16381,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-2001",
@@ -13739,7 +16437,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-3001",
@@ -13790,7 +16493,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-4001",
@@ -13841,7 +16549,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-4010",
@@ -13892,7 +16605,31 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": "YYYY-MM-DD",
+      "3": "Ongoing",
+      "4": "Ongoing",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": false,
+      "4b": false
+     }
+    }
+   }
   },
   {
    "id": "Lists-L-4020",
@@ -13943,7 +16680,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-4030",
@@ -13994,7 +16736,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-4040",
@@ -14045,7 +16792,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-4006",
@@ -14096,7 +16848,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-4050",
@@ -14147,7 +16904,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-5001",
@@ -14198,7 +16960,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-6001",
@@ -14249,7 +17016,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-6010",
@@ -14300,7 +17072,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-6020",
@@ -14351,7 +17128,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-8001",
@@ -14402,7 +17184,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-8010",
@@ -14453,7 +17240,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-8020",
@@ -14504,7 +17296,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-9001",
@@ -14555,7 +17352,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-9010",
@@ -14606,7 +17408,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-9010-I",
@@ -14657,7 +17464,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Lists-L-9020",
@@ -14708,7 +17520,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Models-M-1001",
@@ -14759,7 +17576,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Models-M-2001",
@@ -14810,7 +17632,12 @@
    },
    "floorDup": false,
    "volDup": true,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Models-M-2002",
@@ -14861,7 +17688,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Models-M-2002-I",
@@ -14912,7 +17744,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Models-M-2003",
@@ -14963,7 +17800,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Models-M-2003-I",
@@ -15014,7 +17856,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Models-M-2004",
@@ -15065,7 +17912,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Models-M-3001",
@@ -15116,7 +17968,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Models-M-4003",
@@ -15167,7 +18024,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-0001",
@@ -15218,7 +18080,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-1002",
@@ -15269,7 +18136,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-1004",
@@ -15320,7 +18192,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-1005",
@@ -15371,7 +18248,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-2001",
@@ -15422,7 +18304,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-3001",
@@ -15473,7 +18360,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-4001",
@@ -15524,7 +18416,31 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": true,
+    "G2": false,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": "YYYY-MM-DD",
+      "3": "Ongoing",
+      "4": null,
+      "5": null,
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": true,
+      "4a": false,
+      "4b": false
+     }
+    }
+   }
   },
   {
    "id": "Text-T-4002",
@@ -15575,7 +18491,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-4003",
@@ -15626,7 +18547,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-4004",
@@ -15677,7 +18603,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-4005",
@@ -15728,7 +18659,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-4006",
@@ -15779,7 +18715,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-4007",
@@ -15830,7 +18771,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-4008",
@@ -15881,7 +18827,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-4009",
@@ -15932,7 +18883,31 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": "YYYY-MM-DD",
+      "3": "Ongoing",
+      "4": "Ongoing",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": true,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Text-T-4010",
@@ -15983,7 +18958,31 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": "YYYY-MM-DD",
+      "3": "Ongoing",
+      "4": "Ongoing",
+      "5": null,
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": true,
+      "4a": true,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Text-T-4011",
@@ -16034,7 +19033,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-4012",
@@ -16085,7 +19089,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-4013",
@@ -16136,7 +19145,124 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "existing"
+   "buildType": "existing",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
+  },
+  {
+   "id": "Text-T-4014",
+   "tab": "Text",
+   "series": "4000 Series - Reports",
+   "originator": "BBA",
+   "volume": "XX",
+   "level": "XX",
+   "type": "T",
+   "number": "4014",
+   "description": "Car and Cycle Parking Strategy Report",
+   "format": "PDF",
+   "scale": "A4 Document",
+   "workPackage": "Site, landscape, levels",
+   "stages": {
+    "0": null,
+    "1": null,
+    "2": "YYYY-MM-DD",
+    "3": "Ongoing",
+    "4": "Ongoing",
+    "5": "Ongoing",
+    "6": null,
+    "7": null
+   },
+   "tender": {
+    "3+": true,
+    "4a": true,
+    "4b": true
+   },
+   "status": "Internal Team Item - Project Lead to allocate resource accordingly",
+   "comments": "Report with supporting drawings.",
+   "sectors": {
+    "Education": false,
+    "Residential": true,
+    "Blue Light": false,
+    "Defence & Justice": false,
+    "Healthcare": false,
+    "Hotels & Hospitality": false,
+    "Industrial and Manufacturing": false,
+    "Interior Design": false,
+    "Landscape_Education": false,
+    "Landscape_Other": false,
+    "Offices and Workspace": false,
+    "Retail": false,
+    "Science and Research": false,
+    "Sport and Leisure": false,
+    "Other": false
+   },
+   "floorDup": false,
+   "volDup": false,
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   }
+  },
+  {
+   "id": "Text-T-4015",
+   "tab": "Text",
+   "series": "4000 Series - Reports",
+   "originator": "BBA",
+   "volume": "XX",
+   "level": "XX",
+   "type": "T",
+   "number": "4015",
+   "description": "Part M Accessibility Strategy",
+   "format": "PDF",
+   "scale": "A4 Document",
+   "workPackage": "Building Control, CDM, Compliance",
+   "stages": {
+    "0": null,
+    "1": null,
+    "2": "YYYY-MM-DD",
+    "3": "Ongoing",
+    "4": "Ongoing",
+    "5": null,
+    "6": null,
+    "7": null
+   },
+   "tender": {
+    "3+": true,
+    "4a": true,
+    "4b": true
+   },
+   "status": "Internal Team Item - Project Lead to allocate resource accordingly",
+   "comments": "Normally needed to discharge the planning condition. Include apartment layouts and routes to entrance doors showing compliance.",
+   "sectors": {
+    "Education": false,
+    "Residential": true,
+    "Blue Light": false,
+    "Defence & Justice": false,
+    "Healthcare": false,
+    "Hotels & Hospitality": false,
+    "Industrial and Manufacturing": false,
+    "Interior Design": false,
+    "Landscape_Education": false,
+    "Landscape_Other": false,
+    "Offices and Workspace": false,
+    "Retail": false,
+    "Science and Research": false,
+    "Sport and Leisure": false,
+    "Other": false
+   },
+   "floorDup": false,
+   "volDup": false,
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-5101",
@@ -16187,7 +19313,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-5301",
@@ -16238,7 +19369,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-5701",
@@ -16289,7 +19425,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-5901",
@@ -16340,7 +19481,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-6001",
@@ -16391,7 +19537,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-6002",
@@ -16442,7 +19593,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-6003",
@@ -16493,7 +19649,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-6004",
@@ -16544,7 +19705,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-7001",
@@ -16595,7 +19761,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-7002",
@@ -16646,7 +19817,31 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": "YYYY-MM-DD",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": false,
+      "4a": false,
+      "4b": true
+     }
+    }
+   }
   },
   {
    "id": "Text-T-8302",
@@ -16697,7 +19892,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-9001",
@@ -16748,7 +19948,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-9002",
@@ -16799,7 +20004,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-9003",
@@ -16850,7 +20060,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-9005",
@@ -16901,7 +20116,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-9006",
@@ -16952,7 +20172,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-9007",
@@ -17003,7 +20228,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-9008",
@@ -17054,7 +20284,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-9009",
@@ -17105,7 +20340,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Text-T-9010",
@@ -17156,7 +20396,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Video-V-3001",
@@ -17207,7 +20452,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Internal-I-1002",
@@ -17258,7 +20508,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Internal-I-2001",
@@ -17309,7 +20564,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Internal-I-2002",
@@ -17360,7 +20620,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Internal-I-4001",
@@ -17411,7 +20676,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Internal-I-5001",
@@ -17462,7 +20732,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Internal-L-7001",
@@ -17513,7 +20788,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Internal-M-4001",
@@ -17564,7 +20844,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Internal-M-4002",
@@ -17615,7 +20900,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Internal-T-0002",
@@ -17666,7 +20956,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Internal-T-1001",
@@ -17717,7 +21012,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Internal-T-1003",
@@ -17768,7 +21068,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Internal-T-5501",
@@ -17819,7 +21124,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Internal-T-8101",
@@ -17870,7 +21180,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Internal-T-8201",
@@ -17921,7 +21236,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Internal-T-8301",
@@ -17972,7 +21292,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Internal-T-8401",
@@ -18023,7 +21348,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Internal-T-8501",
@@ -18074,7 +21404,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Internal-T-8601",
@@ -18125,7 +21460,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Internal-T-9004",
@@ -18176,7 +21516,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Internal-V-1001",
@@ -18227,7 +21572,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   },
   {
    "id": "Internal-V-2001",
@@ -18278,7 +21628,12 @@
    },
    "floorDup": false,
    "volDup": false,
-   "buildType": "any"
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
   }
  ]
 }
