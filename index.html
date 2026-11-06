@@ -64,14 +64,14 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--accent-2);outlin
 .addrow span{display:block;font-size:12px;color:var(--ink-2);margin-bottom:3px}
 .addrow input{text-transform:none}
 .addrow input.code{text-transform:uppercase}
-:root{--c-proj:#0b6fb8;--c-vol:#d35400;--c-lvl:#1e8449;--c-role:#a0287a}
-.c-proj{color:var(--c-proj)}.c-vol{color:var(--c-vol)}.c-lvl{color:var(--c-lvl)}.c-role{color:var(--c-role)}
+:root{--c-proj:#0b6fb8;--c-org:#d4a017;--c-vol:#d35400;--c-lvl:#1e8449;--c-role:#a0287a}
+.c-proj{color:var(--c-proj)}.c-org{color:var(--c-org)}.c-vol{color:var(--c-vol)}.c-lvl{color:var(--c-lvl)}.c-role{color:var(--c-role)}
 .codeex{margin:0 0 16px;padding:10px 14px;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel)}
 .codeex code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:16px;font-weight:700;letter-spacing:.5px}
 .codeex code span{font-weight:700}
 .codeex .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;margin-top:4px;font-weight:700}
-label.f span.c-proj,label.f span.c-role,h3.c-lvl,h3.c-vol{font-weight:700}
-label.f span.c-proj{color:var(--c-proj)}label.f span.c-role{color:var(--c-role)}
+label.f span.c-proj,label.f span.c-org,label.f span.c-role,h3.c-lvl,h3.c-vol{font-weight:700}
+label.f span.c-proj{color:var(--c-proj)}label.f span.c-org{color:var(--c-org)}label.f span.c-role{color:var(--c-role)}
 .chip.locked{background:#e6e6e6;border-color:#d0d0d0;color:var(--muted);cursor:not-allowed}
 .stephead{display:flex;align-items:center;gap:10px;margin-bottom:12px}.stephead h2{margin:0}
 .kpi .btn{margin-top:8px}
@@ -149,8 +149,8 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
   <div class="stephead"><h2>Project set-up<button class="info" data-intro="1" title="About this step">i</button></h2><button class="btn secondary small" id="btnReset" title="Clear the project set-up and deliverable ticks and show the guidance pop-ups again">Reset</button></div>
 
   <div class="codeex">
-    Code example : <code><span class="c-proj">ABCDE</span>-BBA-<span class="c-vol">01</span>-<span class="c-lvl">ZZ</span>-<span id="exType">D</span>-<span class="c-role">A</span>-<span id="exNum">0001</span></code>
-    <div class="legend"><span class="c-proj">ABCDE · Project code</span><span class="c-vol">01 · Volumes</span><span class="c-lvl">ZZ · Storeys</span><span class="c-role">A · Sector or discipline</span></div>
+    Code example : <code><span class="c-proj">ABCDE</span>-<span class="c-org" id="exOrg">BBA</span>-<span class="c-vol">01</span>-<span class="c-lvl">ZZ</span>-<span id="exType">D</span>-<span class="c-role">A</span>-<span id="exNum">0001</span></code>
+    <div class="legend"><span class="c-proj">ABCDE · Project code</span><span class="c-org" id="exOrgLeg">BBA · Issuing office</span><span class="c-vol">01 · Volumes</span><span class="c-lvl">ZZ · Storeys</span><span class="c-role">A · Sector or discipline</span></div>
   </div>
 
   <div id="projectErr" class="err" role="alert" style="display:none">You need to fill Project Information first</div>
@@ -160,6 +160,7 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
       <h3>Project</h3>
       <label class="f"><span>Project name</span><input type="text" id="pName" placeholder="e.g. Ridgewood School"></label>
       <label class="f"><span class="c-proj">Project code (first field of the file reference)</span><input type="text" id="pCode" placeholder="e.g. SRP1044" maxlength="12"></label>
+      <label class="f"><span class="c-org">Issuing office</span><select id="pOffice"><option value="BBA">BondBryan</option><option value="BBF">BondBryan:Fairhursts</option></select></label>
       <label class="f"><span>Issued by</span><input type="text" id="pIssuer" placeholder="Project Lead name"></label>
       <label class="f"><span class="c-role">Sector or Discipline</span><select id="pSector"><option value="">Select a sector or discipline…</option></select></label>
       <label class="f"><span>Nature of the works</span>
@@ -253,7 +254,7 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
 <footer>Bond Bryan Architects · Smarter Working Group · Library <span id="libVer"></span></footer>
 <div id="toast"></div>
 <div id="tip" role="tooltip"></div>
-<dialog class="intro wide" id="scopeDlg"><h3>Confirmation of BBA scope required</h3>
+<dialog class="intro wide" id="scopeDlg"><h3 id="scopeTitle">Confirmation of BBA scope required</h3>
   <p>These documents are not part of our standard scope and are agreed on a project to project basis, review your contract against this list before selecting those for export</p>
   <div class="scopewrap"><table class="docs"><thead><tr><th style="width:30px"></th><th>Code</th><th>Name</th><th>Note</th></tr></thead><tbody id="scopeBody"></tbody></table></div>
   <div class="row" style="justify-content:flex-end"><button class="btn secondary" id="scopeCancel">Cancel</button><button class="btn" id="scopeOk">Validate</button></div></dialog>

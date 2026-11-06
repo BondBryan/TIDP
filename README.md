@@ -73,8 +73,8 @@ Choosing *Residential* on step 1 asks "Is this a Berkeley project?". *Yes* switc
 
 One button exports the TIDP and the resourcing note together:
 
-- `<code>-BBA-XX-XX-L-<role>-1001 Task Information Delivery Plan_<discipline>.xlsx`
-- `<code>-BBA-XX-XX-T-<role>-0010 ResourcingNote_<discipline>.docx`
+- `<code>-<office>-XX-XX-L-<role>-1001 Task Information Delivery Plan_<discipline>.xlsx`
+- `<code>-<office>-XX-XX-T-<role>-0010 ResourcingNote_<discipline>.docx`
 
 ### Excel
 

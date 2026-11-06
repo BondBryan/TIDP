@@ -6,7 +6,7 @@
 
   // ------------------------------------------------------------------ state
   const newProject = () => ({
-    name: '', code: '', issuer: '', sector: '', works: 'new', outsourcing: false, berkeley: false,
+    name: '', code: '', office: 'BBA', issuer: '', sector: '', works: 'new', outsourcing: false, berkeley: false,
     storeys: [], volumes: [], stageDates: { 0: '', 1: '', 2: '', 3: '', 4: '', 5: '', 6: '', 7: '' },
     stageOn: { 0: true, 1: true, 2: true, 3: true, 4: true, 5: true, 6: true, 7: true },
     tenders: { '3+': true, '4a': true, '4b': true }
@@ -22,6 +22,7 @@
   const REV = 'P01';               // every TIDP produced here is the first issue, dated today
   const STAGE_COLOURS = ['D98C6B', 'E88EB9', '59A3A1', 'F9C829', '6DA97D', '8D8FB9', 'E5C683', '5092BF']; // indexed by RIBA stage 0-7
   const STAGES = [0, 1, 2, 3, 4, 5, 6, 7];
+  const OFFICES = { BBA: 'BondBryan', BBF: 'BondBryan:Fairhursts' }; // issuing office: second field of every file reference
   const TENDERS = ['3+', '4a', '4b'];
   const GATEWAYS = [['G1', 'Gateway 1'], ['G2', 'Gateway 2'], ['CR', 'Construction Record']]; // tick columns, all sectors
   const PCT = '0"%"';             // progress cells: staff type 0-100, shown as a percentage
@@ -118,6 +119,8 @@
 
   // ------------------------------------------------------------------ generation (mirrors the VBA GenerateTIDP)
   function role() { const m = S.lib.lists.roleBySector; return m[S.project.sector] || m.default; }
+  const originator = () => OFFICES[S.project.office] ? S.project.office : 'BBA';
+  const officeName = () => OFFICES[originator()];
   function discipline() { const m = S.lib.lists.disciplineBySector || {}; return m[S.project.sector] || m.default || 'Architect'; }
   function storeyDesc(base, code) {
     let d = base; if (/plans$/i.test(d)) d = d.slice(0, -1);
@@ -160,7 +163,7 @@
         const sv = stageValues(d);
         for (const [lvl, vol, desc] of combos) {
           g.rows.push({
-            id: d.id, project: p.code || 'ABCDE', originator: d.originator, volume: vol, level: lvl, type: naming(d).type, role: role(),
+            id: d.id, project: p.code || 'ABCDE', originator: originator(), volume: vol, level: lvl, type: naming(d).type, role: role(),
             number: naming(d).number, bbNumber: d.number, description: desc, format: d.format, scale: d.scale, workPackage: d.workPackage,
             stages: sv.vals, first: sv.first, tender: d.tender, gateway: d.gateway || {}, status: d.status, comments: d.comments, series: d.series, tab
           });
@@ -180,20 +183,21 @@
   const fileName = s => s.replace(/[\\/:*?"<>|]+/g, '-');
   function fileRef() {
     const t = S.lib && S.lib.documents.find(d => d.id === 'Lists-L-1001'), n = t ? naming(t) : { type: 'L', number: '1001' };
-    return `${S.project.code || 'ABCDE'}-BBA-XX-XX-${n.type}-${role()}-${n.number} Task Information Delivery Plan_${discipline()}`;
+    return `${S.project.code || 'ABCDE'}-${originator()}-XX-XX-${n.type}-${role()}-${n.number} Task Information Delivery Plan_${discipline()}`;
   }
-  function noteRef() { return `${S.project.code || 'ABCDE'}-BBA-XX-XX-T-${role()}-0010 ResourcingNote_${discipline()}`; }
+  function noteRef() { return `${S.project.code || 'ABCDE'}-${originator()}-XX-XX-T-${role()}-0010 ResourcingNote_${discipline()}`; }
 
   // ------------------------------------------------------------------ rendering
   function renderAll() { renderProject(); renderDocs(); renderSummary(); }
 
   function renderProject() {
     const p = S.project;
-    $('pName').value = p.name; $('pCode').value = p.code;
+    $('pName').value = p.name; $('pCode').value = p.code; $('pOffice').value = originator();
     $('pIssuer').value = p.issuer; $('pSector').value = p.sector; $('pWorks').value = p.works; $('pOutsourcing').checked = p.outsourcing;
     $('chipOut').classList.toggle('on', p.outsourcing);
     $('berkRow').style.display = p.sector === BERK_SECTOR ? '' : 'none';
     $('pBerkeley').checked = !!p.berkeley; $('chipBerk').classList.toggle('on', !!p.berkeley);
+    $('exOrg').textContent = originator(); $('exOrgLeg').textContent = originator() + ' · Issuing office'; $('scopeTitle').textContent = `Confirmation of ${originator()} scope required`;
     $('exType').textContent = berkOn() ? 'SK' : 'D'; $('exNum').textContent = berkOn() ? '005-0001' : '0001';
     const locked = FIXED_CODES.map(c => `<label class="chip locked" title="${c} is always created"><input type="checkbox" checked disabled> ${c}</label>`).join('');
     $('storeys').innerHTML = locked + p.storeys.map((s, i) => `<label class="chip ${s.on ? 'on' : ''}"><input type="checkbox" data-storey="${i}" ${s.on ? 'checked' : ''}> ${esc(s.code)} <small>${esc(s.name)}</small></label>`).join('');
@@ -258,7 +262,7 @@
       ['Documents issued', issued, 'across ' + gen.filter(g => g.tab !== 'Internal').length + ' sheets'],
       ['Internal items', internal, 'not in the issued TIDP; listed in the resourcing note'],
       ['Documents suitable for outsourcing', op, p.outsourcing ? 'in the resourcing note' : 'outsourcing not selected'],
-      ['Scope to confirm', conf, 'Confirmation of BBA scope required', scopeValidated !== null && scopeValidated === scopeTicked()
+      ['Scope to confirm', conf, `Confirmation of ${originator()} scope required`, scopeValidated !== null && scopeValidated === scopeTicked()
         ? '<button class="btn small done" id="btnScope" title="Scope reviewed. Click to reopen and edit">✓ Validated</button>'
         : '<button class="btn secondary small" id="btnScope">Review now</button>'],
       ['Storeys × volumes', p.storeys.filter(s => s.on).length + ' × ' + (p.volumes.filter(v => v.on).length || '-'), 'duplication applied']
@@ -364,6 +368,7 @@
   $('berkNo').addEventListener('click', () => setBerk(false));
   $('berkDlg').addEventListener('cancel', () => { S.project.berkeley = false; });
   $('pBerkeley').addEventListener('change', e => { S.project.berkeley = e.target.checked; renderProject(); });
+  $('pOffice').addEventListener('change', e => { S.project.office = e.target.value; renderProject(); });
   $('pCode').addEventListener('input', e => { e.target.value = e.target.value.toUpperCase(); S.project.code = e.target.value; });
   $('storeys').addEventListener('change', e => { const i = e.target.dataset.storey; if (i != null) { S.project.storeys[i].on = e.target.checked; renderProject(); } });
   $('volumes').addEventListener('change', e => { const i = e.target.dataset.volume; if (i != null) { S.project.volumes[i].on = e.target.checked; renderProject(); } });
@@ -448,7 +453,7 @@
     cover.columns = [{ width: 24 }, { width: 60 }];
     if (logoId != null) cover.addImage(logoId, { tl: { col: 0, row: 0 }, ext: { width: 300, height: 51 } });
     cover.getCell('A5').value = 'TASK INFORMATION DELIVERY PLAN'; cover.getCell('A5').font = { bold: true, size: 16 };
-    const info = [['Project', p.name], ['Project code', p.code], ['File reference', fileRef() + ' - ' + REV], ['Date', date], ['Revision', REV], ['Sector or discipline', p.sector + (berkOn() ? ' (Berkeley naming)' : '')], ['Works', { new: 'New build', existing: 'Existing building', mixed: 'New build and existing' }[p.works]], ['Issued by', p.issuer], ['Issuing party', 'Bond Bryan']];
+    const info = [['Project', p.name], ['Project code', p.code], ['Issuing office', `${officeName()} (${originator()})`], ['File reference', fileRef() + ' - ' + REV], ['Date', date], ['Revision', REV], ['Sector or discipline', p.sector + (berkOn() ? ' (Berkeley naming)' : '')], ['Works', { new: 'New build', existing: 'Existing building', mixed: 'New build and existing' }[p.works]], ['Issued by', p.issuer], ['Issuing party', officeName()]];
     info.forEach(([k, v], i) => { const r = 7 + i; cover.getCell(r, 1).value = k; cover.getCell(r, 1).font = { bold: true }; cover.getCell(r, 2).value = v; if (v instanceof Date) cover.getCell(r, 2).numFmt = 'yyyy-mm-dd'; });
     let r = 7 + info.length + 1;
     cover.getCell(r, 1).value = 'Contents'; cover.getCell(r, 1).font = { bold: true, size: 12 }; r++;
@@ -566,9 +571,9 @@
     const rows = gen.flatMap(g => g.groups.flatMap(x => x.rows));
     const cat = r => r.tab === 'Internal' ? 'internalUse' : STATUS_KEY(r.status);
     const count = k => rows.filter(r => cat(r) === k).length;
-    const sections = [['confirm', 'Confirmation of BBA scope required', 'Items to confirm against the appointment before they are committed.'],
+    const sections = [['confirm', `Confirmation of ${originator()} scope required`, 'Items to confirm against the appointment before they are committed.'],
       ['op', 'Outsourcing Partner items', 'Candidates for the Outsourcing Partner. The Project Lead co-ordinates scope, programme and quality checks.'],
-      ['cdp', 'Contractor Designed Portion items', 'Items expected from the contractor or specialist; BBA reviews only.'],
+      ['cdp', 'Contractor Designed Portion items', `Items expected from the contractor or specialist; ${originator()} reviews only.`],
       ['internal', 'Internal Team Items', 'General documents produced by the Bond Bryan project team; the Project Lead allocates resource.'],
       ['internalUse', 'Internal usage only', 'Documents for Bond Bryan internal use only; they are not part of the issued TIDP.']];
     const P = (t, o = {}) => new D.Paragraph({ children: [new D.TextRun({ text: t, font: 'Arial', size: o.size || 20, bold: o.bold, color: o.color })], spacing: { after: o.after ?? 100 }, heading: o.h });
@@ -578,7 +583,7 @@
     const children = [
       ...(logo ? [new D.Paragraph({ children: [new D.ImageRun({ data: new Uint8Array(logo), transformation: { width: 240, height: 41 } })], spacing: { after: 300 } })] : []),
       P('INTERNAL RESOURCING NOTE', { size: 32, bold: true }), P('Task Information Delivery Plan · Internal, not for issue', { color: '8C8280' }),
-      P(`Project: ${p.name}   Code: ${p.code}   Revision: ${REV}   Date: ${today()}   Sector or discipline: ${p.sector}   Issued by: ${p.issuer}   Outsourcing Partner: ${p.outsourcing ? 'may be used' : 'not selected'}`, { after: 200 }),
+      P(`Project: ${p.name}   Code: ${p.code}   Issuing office: ${officeName()} (${originator()})   Revision: ${REV}   Date: ${today()}   Sector or discipline: ${p.sector}   Issued by: ${p.issuer}   Outsourcing Partner: ${p.outsourcing ? 'may be used' : 'not selected'}`, { after: 200 }),
       P(`Summary: ${rows.length} deliverables in total, of which ${count('confirm')} requiring scope confirmation, ${count('op')} documents suitable for outsourcing, ${count('internal')} internal team items and ${count('internalUse')} for internal usage only.`, { after: 300 })];
     for (const [k, title, intro] of sections) {
       const list = rows.filter(r => cat(r) === k); if (!list.length) continue;
