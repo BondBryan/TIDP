@@ -443,7 +443,7 @@
     const stageOf = c => (c >= 12 && c <= SN) ? Math.floor((c - 12) / 2) : -1, isProg = c => c >= 12 && c <= SN && (c - 12) % 2 === 1;
     const HEAD7 = ['Project', 'Originator', 'Volume / system', 'Level', 'Type', 'Role', 'Number', '', '', '', '', ...STAGES.flatMap(n => ['Stage ' + n, '']), ...tenders.map((_, i) => i ? '' : 'Tender'), ...GATEWAYS.map(g => g[1])];
     const HEAD8 = ['', '', '', '', '', '', '', 'Description', 'Format', 'Scale', 'Work Package', ...S.lib.lists.stages.flatMap(s => [s.name, 'Progress']), ...tenders, ...GATEWAYS.map(() => '')];
-    const DATAHEAD = ['Project', 'Originator', 'Volume / system', 'Level', 'Type', 'Role', 'Number', 'Description', 'Format', 'Scale', 'Work Package', ...STAGES.flatMap(n => ['Stage ' + n, 'Stage ' + n + ' Progress']), ...tenders.map(t => 'Tender ' + t), ...GATEWAYS.map(g => g[1])];
+    const DATAHEAD = ['Project', 'Originator', 'Volume / system', 'Level', 'Type', 'Role', 'Number', 'Description', 'Format', 'Scale', 'Work Package', ...STAGES.flatMap(n => ['Stage ' + n, '']), ...tenders.map(t => 'Tender ' + t), ...GATEWAYS.map(g => g[1])]; // '' = progress column, not on the Data sheet
     const WIDTHS = [11, 9, 9, 7, 6, 6, 9, 52, 12, 15, 38, ...STAGES.flatMap(() => [14, 5.71]), ...tenders.map(() => 5.5), ...GATEWAYS.map(() => 5.71)]; // 5.71 = 45 px
     const date = parseDate(today());
     const logoId = await loadLogo(wb);
@@ -536,10 +536,11 @@
       ws.headerFooter.oddFooter = '&L' + (p.name || '') + '&C' + 'Bond Bryan' + '&R' + 'Page &P of &N';
     }
 
-    // ---- Data sheet (formula links, so edits on the content sheets flow through)
+    // ---- Data sheet (formula links, so edits on the content sheets flow through); progress columns left out
     const data = wb.addWorksheet('Data', { views: [{ state: 'frozen', ySplit: 1 }] });
-    data.columns = [{ width: 34 }, { width: 11 }, { width: 30 }, ...WIDTHS.map(w => ({ width: w }))];
-    const heads = ['Document reference', 'Document type', 'Series', ...DATAHEAD];
+    const dataCols = DATAHEAD.map((_, i) => i + 1).filter(c => !isProg(c));   // content-sheet columns copied to the Data sheet
+    data.columns = [{ width: 34 }, { width: 11 }, { width: 30 }, ...dataCols.map(c => ({ width: Math.max(WIDTHS[c - 1], DATAHEAD[c - 1].length + 3) }))];
+    const heads = ['Document reference', 'Document type', 'Series', ...dataCols.map(c => DATAHEAD[c - 1])];
     heads.forEach((h, c) => { const cell = data.getCell(1, c + 1); cell.value = h; cell.font = { bold: true }; cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFD9D9D9' } }; });
     let dr = 2;
     const q = s => `'${s.replace(/'/g, "''")}'`;
@@ -547,15 +548,15 @@
       const sh = q(d.sheet), row = data.getRow(dr);
       row.getCell(1).value = { formula: ['A', 'B', 'C', 'D', 'E', 'F', 'G'].map(c => `${sh}!${c}${d.row}`).join('&"-"&') };
       row.getCell(2).value = d.tab; row.getCell(3).value = d.series;
-      for (let c = 1; c <= NCOL; c++) {
-        const ref = `${sh}!${colLetter(c)}${d.row}`, cell = row.getCell(3 + c);
+      dataCols.forEach((c, i) => {
+        const ref = `${sh}!${colLetter(c)}${d.row}`, cell = row.getCell(4 + i);
         cell.value = { formula: `IF(${ref}="","",${ref})` };
-        if (c >= 12 && c <= SN) cell.numFmt = isProg(c) ? PCT : 'yyyy-mm-dd';
+        if (c >= 12 && c <= SN) cell.numFmt = 'yyyy-mm-dd';
         if (c === 7) cell.numFmt = '@';
-      }
+      });
       dr++;
     }
-    data.autoFilter = dr > 2 ? { from: 'A1', to: { row: dr - 1, column: 3 + NCOL } } : undefined;
+    data.autoFilter = dr > 2 ? { from: 'A1', to: { row: dr - 1, column: 3 + dataCols.length } } : undefined;
     wb.calcProperties.fullCalcOnLoad = true;
     return new Blob([await wb.xlsx.writeBuffer()], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
   }
