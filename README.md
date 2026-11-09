@@ -48,7 +48,7 @@ Edit `library.json` in GitHub (pencil icon, then *Commit changes*). Each documen
 Rules (same as the spreadsheet Library):
 
 - Keep records grouped by `tab` then `series` in numeric order; the app writes them in file order.
-- `id` must be unique: `<tab>-<type>-<number>`.
+- `id` must be unique: `<tab>-<type>-<number>`. When the same deliverable needs a different record per discipline (different default or name), or the plain id is already used by an architecture record, add a suffix: `-L` (all three Landscape disciplines), `-LE`, `-LR`, `-LO`, `-LRO` (Landscape Education, Residential, Other, or Residential + Other) and `-I` (Interior Design). Ids are internal only: they never show on screen or in the export.
 - `stages`: `"YYYY-MM-DD"` marks the stage a document is first issued; `"Ongoing"` marks the later stages it is issued in; `null` when not required. In the export every issued stage shows the project's date for that stage (first issue in bold); `YYYY-MM-DD` in red until the date is entered on step 1.
 - `gateway`: ticks for the Gateway 1, Gateway 2 and Construction Record columns of the export (all sectors).
 - `Berkeley_Naming_Type` / `Berkeley_Naming_Code` (Residential records only): the Berkeley Group document type (e.g. `DR`) and code (Berkeley series + Bond Bryan number, e.g. `005-2001`). Used instead of `type` / `number` in the export when the project is a Berkeley project. Records without them keep the Bond Bryan type and number.

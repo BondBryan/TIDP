@@ -88,7 +88,7 @@
   const isOn = d => (d.id in S.sel) ? S.sel[d.id] : defaultOn(d);
   function setOn(d, v) { if (v === defaultOn(d)) delete S.sel[d.id]; else S.sel[d.id] = v; }
   /** Items switched on only for disciplines (Landscape, Interior Design) are hidden for every other sector or discipline.
-      A series made only of the chosen discipline's items (e.g. "2000 Series - Strategy Plans" for Landscape) replaces
+      A series made only of discipline items, at least one of them on for the chosen discipline, (e.g. "2000 Series - Strategy Plans" for Landscape) replaces
       the other items in its number range: "2000 Series" covers 2000-2999, "0200 Series" covers 0200-0299. */
   const disciplineOnly = d => {
     const disciplines = Object.keys(S.lib.lists.roleBySector).filter(k => k !== 'default');
@@ -103,7 +103,7 @@
     const ranges = [];
     for (const docs of Object.values(series)) {
       const m = /^(\d{4}) Series/.exec(docs[0].series);
-      if (!m || !docs.every(d => disciplineOnly(d) && d.sectors[sector])) continue;
+      if (!m || !docs.every(disciplineOnly) || !docs.some(d => d.sectors[sector])) continue;
       const lo = Number(m[1]), size = 10 ** (m[1].length - m[1].replace(/0+$/, '').length);
       ranges.push({ tab: docs[0].tab, lo, hi: lo + size });
     }
