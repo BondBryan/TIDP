@@ -54,6 +54,7 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--accent-2);outlin
 .stages{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
 .stage{border-left:5px solid var(--line);padding:6px 10px;background:var(--panel);border-radius:0 4px 4px 0}
 .stage b{display:block;font-size:12px}
+.stage .hint{display:block;min-height:34px}
 .stage input[type=date]{margin-top:4px}
 .stage label{display:flex;align-items:center;gap:6px;cursor:pointer}
 .stage.off{background:#e6e6e6;border-color:#bdbdbd !important;color:var(--muted)}
@@ -87,7 +88,9 @@ dialog.intro h3{margin:0 0 10px;font-size:16px}
 dialog.intro p{margin:0 0 18px;color:var(--ink-2)}
 ul.files{margin:6px 0 14px;padding-left:18px}
 ul.files li{margin:4px 0;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;word-break:break-all}
-.toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:10px 0 12px;position:sticky;top:60px;background:#fff;padding:8px 0;z-index:10;border-bottom:1px solid var(--line)}
+.toolbar{display:flex;flex-direction:column;gap:8px;margin:10px 0 12px;position:sticky;top:70px;background:#fff;padding:8px 0;z-index:10;border-bottom:1px solid var(--line)}
+.toolbar .controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.toolbar .controls .sep{flex:1}
 .toolbar input[type=text]{width:260px}
 .toolbar select{width:auto}
 .tabs{display:flex;gap:2px;flex-wrap:wrap}
@@ -95,7 +98,7 @@ ul.files li{margin:4px 0;font-family:ui-monospace,Menlo,Consolas,monospace;font-
 .tabs button.active{background:var(--accent);border-color:var(--accent);color:#fff}
 .tabs button .c{opacity:.7;font-size:12px;margin-left:4px}
 table.docs{width:100%;border-collapse:collapse;font-size:13px}
-table.docs th{position:sticky;top:112px;background:var(--panel);text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);font-size:12px;z-index:5}
+table.docs th{position:sticky;top:162px;background:var(--panel);text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);font-size:12px;z-index:5}
 table.docs td{padding:5px 8px;border-bottom:1px solid #eee;vertical-align:top}
 table.docs tr.series td{background:#e9e7e3;font-weight:700;padding:6px 8px;font-size:12px}
 table.docs tr.off td{color:var(--muted)}
@@ -125,6 +128,7 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
 .f.missing input,.f.missing select{border-color:#d62828;background:#fff5f5}
 #projectErr{border-color:#d62828;color:#a4161a;font-weight:700}
 #toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;border-radius:6px;display:none;z-index:50}
+@media (max-width:1200px){table.docs th:nth-child(5),table.docs td:nth-child(5),table.docs th:nth-child(6),table.docs td:nth-child(6){display:none}}
 @media (max-width:700px){header{padding:10px 16px}main{padding:14px 16px}nav.steps{padding:6px 16px;overflow-x:auto}.toolbar{position:static}table.docs th{position:static}}
 @media print{header,nav,.toolbar,footer{display:none}}
 </style>
@@ -149,7 +153,7 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
   <div class="stephead"><h2>Project set-up<button class="info" data-intro="1" title="About this step">i</button></h2><button class="btn secondary small" id="btnReset" title="Clear the project set-up and deliverable ticks and show the guidance pop-ups again">Reset</button></div>
 
   <div class="codeex">
-    Code example : <code><span class="c-proj">ABCDE</span>-<span class="c-org" id="exOrg">BBA</span>-<span class="c-vol">01</span>-<span class="c-lvl">ZZ</span>-<span id="exType">D</span>-<span class="c-role">A</span>-<span id="exNum">0001</span></code>
+    Code example: <code><span class="c-proj">ABCDE</span>-<span class="c-org" id="exOrg">BBA</span>-<span class="c-vol">01</span>-<span class="c-lvl">ZZ</span>-<span id="exType">D</span>-<span class="c-role">A</span>-<span id="exNum">0001</span></code>
     <div class="legend"><span class="c-proj">ABCDE · Project code</span><span class="c-org" id="exOrgLeg">BBA · Issuing office</span><span class="c-vol">01 · Volumes</span><span class="c-lvl">ZZ · Storeys</span><span class="c-role">A · Sector or discipline</span></div>
   </div>
 
@@ -162,7 +166,7 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
       <label class="f"><span class="c-proj">Project code (first field of the file reference)</span><input type="text" id="pCode" placeholder="e.g. SRP1044" maxlength="12"></label>
       <label class="f"><span class="c-org">Issuing office</span><select id="pOffice"><option value="BBA">BondBryan</option><option value="BBF">BondBryan:Fairhursts</option></select></label>
       <label class="f"><span>Issued by</span><input type="text" id="pIssuer" placeholder="Project Lead name"></label>
-      <label class="f"><span class="c-role">Sector or Discipline</span><select id="pSector"><option value="">Select a sector or discipline…</option></select></label>
+      <label class="f"><span class="c-role">Sector or discipline</span><select id="pSector"><option value="">Select a sector or discipline…</option></select></label>
       <label class="f"><span>Nature of the works</span>
         <select id="pWorks">
           <option value="new">New build</option>
@@ -188,7 +192,7 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
 
     <div class="card">
       <h3 class="c-vol">Project volumes / buildings</h3>
-      <div class="hint" style="margin:-4px 0 8px">Tick when the project is split into several buildings or volumes</div>
+      <div class="hint" style="margin:-4px 0 8px">Tick when the project is split into several buildings or volumes.</div>
       <div class="chips" id="volumes"></div>
       <div class="addrow">
         <label><span>Volume code</span><input type="text" class="code" id="volCode" placeholder="14" maxlength="2"></label>
@@ -199,7 +203,7 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
 
     <div class="card" style="grid-column:1/-1">
       <h3>Programme: stages and delivery dates</h3>
-      <div class="hint" style="margin:-4px 0 10px">Untick the RIBA stages and tenders the appointment does not cover. Enter the planned issue date for each ticked stage. Leave blank if unknown</div>
+      <div class="hint" style="margin:-4px 0 10px">Untick the RIBA stages and tenders the appointment does not cover. Enter the planned issue date for each ticked stage. Leave blank if unknown.</div>
       <div class="stages" id="stageDates"></div>
       <div class="stage-tenders"><b>Tender stages in the TIDP:</b><span id="tenders" class="chips"></span>
         <span class="hint">Unticked tender stages are left out of the exported Excel.</span></div>
@@ -216,12 +220,15 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
   <h2>Deliverables<button class="info" data-intro="2" title="About this step">i</button></h2>
   <div class="toolbar">
     <div class="tabs" id="tabFilter"></div>
-    <input type="text" id="search" placeholder="Search description, number, work package…">
-    <select id="statusFilter"><option value="">All statuses</option></select>
-    <label class="chip"><input type="checkbox" id="showOff" checked> Show unselected</label>
-    <button class="btn secondary small" id="selAll">Select all shown</button>
-    <button class="btn secondary small" id="selNone">Clear shown</button>
-    <button class="btn secondary small" id="selReset">Reset to sector defaults</button>
+    <div class="controls">
+      <input type="text" id="search" placeholder="Search description, number, work package…">
+      <select id="statusFilter"><option value="">All statuses</option></select>
+      <label class="chip"><input type="checkbox" id="showOff" checked> Show unselected</label>
+      <span class="sep"></span>
+      <button class="btn secondary small" id="selAll" title="Tick every row shown by the current tab and filters">Select shown</button>
+      <button class="btn secondary small" id="selNone" title="Untick every row shown by the current tab and filters">Clear shown</button>
+      <button class="btn secondary small" id="selReset" title="Discard manual ticks and return to the Library defaults for this sector">Sector defaults</button>
+    </div>
   </div>
   <div id="setupWarn" class="warn" style="display:none"></div>
   <table class="docs">
@@ -255,7 +262,7 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
 <div id="toast"></div>
 <div id="tip" role="tooltip"></div>
 <dialog class="intro wide" id="scopeDlg"><h3 id="scopeTitle">Confirmation of BBA scope required</h3>
-  <p>These documents are not part of our standard scope and are agreed on a project to project basis, review your contract against this list before selecting those for export</p>
+  <p>These documents are outside our standard scope and are agreed project by project. Check the appointment before ticking them for export.</p>
   <div class="scopewrap"><table class="docs"><thead><tr><th style="width:30px"></th><th>Code</th><th>Name</th><th>Note</th></tr></thead><tbody id="scopeBody"></tbody></table></div>
   <div class="row" style="justify-content:flex-end"><button class="btn secondary" id="scopeCancel">Cancel</button><button class="btn" id="scopeOk">Validate</button></div></dialog>
 <dialog class="intro" id="berkDlg"><h3>Is this a Berkeley project?</h3><p>Berkeley Group projects (including St George) use their own document types and codes, e.g. DR 005-2001 instead of D 2001. Choose Yes to export the TIDP with the Berkeley naming. You can change this later on step 1.</p>

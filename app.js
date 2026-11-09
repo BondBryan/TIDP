@@ -28,13 +28,13 @@
   const PCT = '0"%"';             // progress cells: staff type 0-100, shown as a percentage
   const STATUS_KEY = s => /outsourc/i.test(s) ? 'op' : /confirm/i.test(s) ? 'confirm' : /cdp/i.test(s) ? 'cdp' : 'internal';
   const STATUS_SHORT = s => ({ op: 'Outsourcing Partner', confirm: 'Scope confirmation', cdp: 'CDP item', internal: 'Internal team' })[STATUS_KEY(s)];
-  /** Status as shown on step 2: without outsourcing everything but scope confirmation is assumed internal, so left blank. */
-  const statusLabel = s => S.project.outsourcing ? (STATUS_KEY(s) === 'op' ? 'Potential outsourcing' : STATUS_SHORT(s)) : STATUS_KEY(s) === 'confirm' ? STATUS_SHORT(s) : '';
+  /** Status as shown on step 2: internal team items are the default and stay blank; scope confirmation always shows; outsourcing and CDP only when outsourcing is ticked. */
+  const statusLabel = s => { const k = STATUS_KEY(s); if (k === 'internal') return ''; if (k === 'confirm') return STATUS_SHORT(s); return S.project.outsourcing ? (k === 'op' ? 'Potential outsourcing' : STATUS_SHORT(s)) : ''; };
   const CONTENT_TABS = ['Drawings', 'Images', 'Lists', 'Models', 'Text', 'Video'];
   const INTROS = {
     1: ['Project set-up', 'Enter the project details once. Everything below drives the file references, the sector selection and the storey and volume duplication. Nothing here can break the Library.'],
     2: ['Deliverables', 'Pre-selected from the Library for your sector and works type. Untick what the appointment does not cover, tick what it adds. Titles, numbers and formats come from the Library and are not editable here, which keeps every project on the practice standard.'],
-    3: ['Review & export', 'Check the totals then export.']
+    3: ['Review & export', 'Check the summary, then export. The export downloads the TIDP workbook and the internal resourcing note together. If any scope confirmation items are ticked, the scope review opens first.']
   };
 
   function today() { return new Date().toISOString().slice(0, 10); }
@@ -220,7 +220,7 @@
     if (!p.sector) { w.style.display = 'block'; w.textContent = 'No sector or discipline selected yet: every Library item is shown as selected. Choose the sector or discipline on step 1 to apply the Library defaults.'; }
     else w.style.display = 'none';
 
-    const statuses = L.lists.statuses.filter(statusLabel);
+    const statuses = L.lists.statuses.filter(s => statusLabel(s) && L.documents.some(d => d.status === s));
     if (!statuses.includes(u.status)) u.status = '';
     $('statusFilter').innerHTML = '<option value="">All statuses</option>' + statuses.map(s => `<option value="${esc(s)}">${esc(statusLabel(s))}</option>`).join('');
     $('statusFilter').value = u.status;
@@ -265,7 +265,7 @@
       ['Scope to confirm', conf, `Confirmation of ${originator()} scope required`, scopeValidated !== null && scopeValidated === scopeTicked()
         ? '<button class="btn small done" id="btnScope" title="Scope reviewed. Click to reopen and edit">✓ Validated</button>'
         : '<button class="btn secondary small" id="btnScope">Review now</button>'],
-      ['Storeys × volumes', p.storeys.filter(s => s.on).length + ' × ' + (p.volumes.filter(v => v.on).length || '-'), 'duplication applied']
+      ...(() => { const sN = p.storeys.filter(s => s.on).length, vN = p.volumes.filter(v => v.on).length; return [vN ? ['Storeys × volumes', sN + ' × ' + vN, 'duplication applied'] : ['Storeys', sN, 'no volumes ticked']]; })()
     ].map(([l, v, s, extra]) => `<div class="kpi"><b>${v}</b>${l}<br><span>${s}</span>${extra ? '<br>' + extra : ''}</div>`).join('');
     const issues = [];
     if (!p.sector) issues.push('No sector or discipline selected.');
@@ -278,7 +278,7 @@
     $('btnExport').textContent = 'Export TIDP and resourcing note';
     const toReview = scopeNeedsReview() ? scopeDocs().filter(isOn).length : 0;
     $('exportHint').textContent = toReview
-      ? `${toReview} scope confirmation item${toReview > 1 ? 's are' : ' is'} ticked: the export opens the scope review first, then export once validated.`
+      ? `${toReview} scope confirmation item${toReview > 1 ? 's are' : ' is'} ticked: the Export button opens the scope review first; export once validated.`
       : 'Your browser may ask once to allow this page to download multiple files.';
   }
 
@@ -468,7 +468,7 @@
     for (const g of gen) {
       const ws = wb.addWorksheet(g.tab, { views: [{ state: 'frozen', ySplit: 8 }], pageSetup: { orientation: 'landscape', fitToPage: true, fitToWidth: 1, fitToHeight: 0, paperSize: 8 } });
       ws.columns = WIDTHS.map(w => ({ width: w }));
-      ws.getCell('A1').value = 'TASK INFORMATION DELIVERY PLAN'; ws.getCell('A1').font = { bold: true, size: 14 }; ws.mergeCells('A1:E1');
+      ws.getCell('A1').value = 'TASK INFORMATION DELIVERY PLAN'; ws.getCell('A1').font = { bold: true, size: 14 }; ws.mergeCells('A1:H1');
       [['Project Name', p.name], ['File Ref', fileRef() + ' - ' + REV], ['Date', date]].forEach(([k, v], i) => {
         const row = 3 + i; ws.getCell(row, 1).value = k; ws.getCell(row, 1).font = { bold: true }; ws.mergeCells(row, 1, row, 2);
         ws.getCell(row, 3).value = v; if (v instanceof Date) ws.getCell(row, 3).numFmt = 'yyyy-mm-dd'; ws.mergeCells(row, 3, row, i < 2 ? 8 : 5);
@@ -573,7 +573,7 @@
     const cat = r => r.tab === 'Internal' ? 'internalUse' : STATUS_KEY(r.status);
     const count = k => rows.filter(r => cat(r) === k).length;
     const sections = [['confirm', `Confirmation of ${originator()} scope required`, 'Items to confirm against the appointment before they are committed.'],
-      ['op', 'Outsourcing Partner items', 'Candidates for the Outsourcing Partner. The Project Lead co-ordinates scope, programme and quality checks.'],
+      ['op', 'Outsourcing Partner items', 'Candidates for the Outsourcing Partner. The Project Lead coordinates scope, programme and quality checks.'],
       ['cdp', 'Contractor Designed Portion items', `Items expected from the contractor or specialist; ${originator()} reviews only.`],
       ['internal', 'Internal Team Items', 'General documents produced by the Bond Bryan project team; the Project Lead allocates resource.'],
       ['internalUse', 'Internal usage only', 'Documents for Bond Bryan internal use only; they are not part of the issued TIDP.']];

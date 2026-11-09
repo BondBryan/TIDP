@@ -1,4 +1,4 @@
-# TIDP Builder (proof of concept)
+# TIDP Builder
 
 Static web app that generates a Bond Bryan Task Information Delivery Plan from the practice Library and exports a macro-free Excel workbook plus an internal resourcing note. No server, no macros, nothing to install.
 
@@ -57,7 +57,6 @@ Rules (same as the spreadsheet Library):
 - `buildType`: `"any"` (default), `"existing"` (pre-selected only when the project involves existing buildings), `"new"` (new build only).
 - Bump `meta.version` when you publish a change.
 - `disciplineBySector` gives the discipline name used in the exported file names (`default` is `Architect`), alongside `roleBySector` for the role code.
-- Comment typos corrected in v2026.2 were fixed in `library.json` only; correct them in the source xlsm too before re-running `extract_library.py`.
 
 A JSON validator (VS Code, or https://jsonlint.com) catches typos before committing. Any malformed file shows "Library not loaded" on the page rather than a broken TIDP.
 

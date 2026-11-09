@@ -1,7 +1,7 @@
 {
  "meta": {
   "name": "Bond Bryan TIDP Library",
-  "version": "2026.22",
+  "version": "2026.23",
   "source": "Bond Bryan Architects",
   "extracted": "2026-11",
   "documents": 365,
@@ -317,7 +317,7 @@
     "4b": false
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "For planning and early stage",
+   "comments": "For planning and early stage.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -490,7 +490,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "CF25 DRM: Site Plan (IE214, IE301, IE401)",
+   "comments": "CF25 DRM: Site Plan (IE214, IE301, IE401).",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -547,7 +547,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "From LW2 residential TIDP (Landscape). Red line of the landscape scope",
+   "comments": "Red line of the landscape scope.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -604,7 +604,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "From LW2 residential TIDP (Landscape). Red line of the landscape scope",
+   "comments": "Red line of the landscape scope.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -661,7 +661,7 @@
     "4b": false
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Scope to be agreed between Architect and Landscape Architect",
+   "comments": "Scope to be agreed between Architect and Landscape Architect.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -720,7 +720,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "CF25 DRM: Landscape Plan, UGF schedule embedded (IE214, IE301, IE401)",
+   "comments": "CF25 DRM: Landscape Plan, UGF schedule embedded (IE214, IE301, IE401).",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -834,7 +834,7 @@
     "4b": false
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "From LW2 residential TIDP (Landscape).",
+   "comments": "",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -891,7 +891,7 @@
     "4b": false
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "From LW2 residential TIDP (Landscape).",
+   "comments": "",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -1044,7 +1044,7 @@
    "level": "XX",
    "type": "D",
    "number": "1020",
-   "description": "Ownership & Boundaries Plan, Fence Arrangement, Security Access",
+   "description": "Ownership and Boundaries Plan, Fence Arrangement, Security Access",
    "format": "PDF/DWG",
    "scale": "1:500 @ A1",
    "workPackage": "Site, landscape, levels",
@@ -1064,7 +1064,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "CF25 DRM: Fencing and Boundaries Drawings (IE301, IE401) Combines ownership and boundaries, fence arrangement and security access.",
+   "comments": "CF25 DRM: Fencing and Boundaries Drawings (IE301, IE401). Combines ownership and boundaries, fence arrangement and security access.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -1101,7 +1101,7 @@
    "level": "XX",
    "type": "D",
    "number": "1020",
-   "description": "Ownership & Boundaries Plan, Fence Arrangement, Security Access",
+   "description": "Ownership and Boundaries Plan, Fence Arrangement, Security Access",
    "format": "PDF/DWG",
    "scale": "1:500 @ A1",
    "workPackage": "Site, landscape, levels",
@@ -1121,7 +1121,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "CF25 DRM: Fencing and Boundaries Drawings (IE301, IE401) Combines ownership and boundaries, fence arrangement and security access.",
+   "comments": "CF25 DRM: Fencing and Boundaries Drawings (IE301, IE401). Combines ownership and boundaries, fence arrangement and security access.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -1178,7 +1178,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Scope to be agreed between Architect and Landscape Architect",
+   "comments": "Scope to be agreed between Architect and Landscape Architect.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -1237,7 +1237,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Coordinate with Civil Engineer",
+   "comments": "Coordinate with Civil Engineer.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -1583,7 +1583,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "CF25 DRM: Hard Landscape Plans (IE511)",
+   "comments": "CF25 DRM: Hard Landscape Plans (IE511).",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -1756,7 +1756,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Coordinate with Civil Engineer",
+   "comments": "Coordinate with Civil Engineer.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -1813,7 +1813,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "CF25 DRM: Soft Landscape Plans (IE511)",
+   "comments": "CF25 DRM: Soft Landscape Plans (IE511).",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -1870,7 +1870,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "CF25 DRM: Topsoil Depth Plan (IE401). Coordinate with soil resource information",
+   "comments": "CF25 DRM: Topsoil Depth Plan (IE401). Coordinate with soil resource information.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -1927,7 +1927,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "CF25 DRM: Planting Plan (IE511, IE521, IE601)",
+   "comments": "CF25 DRM: Planting Plan (IE511, IE521, IE601).",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -2041,7 +2041,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "From LW2 residential TIDP (Landscape). Pure setting out: tender 4b only",
+   "comments": "Pure setting out: tender 4b only.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -2155,7 +2155,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Schools and sport projects only. CF25 DRM: External Pitches and MUGA Drawings (IE401).",
+   "comments": "Sports provision only; confirm scope. CF25 DRM: External Pitches and MUGA Drawings (IE401).",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -2269,7 +2269,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Schools and sport projects only. CF25 DRM: External Pitches and MUGA Drawings (IE401).",
+   "comments": "Sports provision only; confirm scope. CF25 DRM: External Pitches and MUGA Drawings (IE401).",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -2326,7 +2326,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Schools and sport projects only. CF25 DRM: External Pitches and MUGA Drawings (IE401)",
+   "comments": "Sports provision only; confirm scope. CF25 DRM: External Pitches and MUGA Drawings (IE401).",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -2363,7 +2363,7 @@
    "level": "XX",
    "type": "D",
    "number": "2000",
-   "description": "Trees Strategy Plan, Tree Root Protection /Removals",
+   "description": "Tree Strategy Plan, Tree Root Protection / Removals",
    "format": "PDF/DWG",
    "scale": "1:500 @ A1",
    "workPackage": "Site, landscape, levels",
@@ -2499,7 +2499,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Not a CF25 DRM deliverable: the play strategy is part of the Landscape Strategy Report (IE301)",
+   "comments": "Not a CF25 DRM deliverable: the play strategy is part of the Landscape Strategy Report (IE301).",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -2556,7 +2556,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Not a CF25 DRM deliverable: the play strategy is part of the Landscape Strategy Report (IE301)",
+   "comments": "Not a CF25 DRM deliverable: the play strategy is part of the Landscape Strategy Report (IE301).",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -2670,7 +2670,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "From LW2 residential TIDP (Landscape). CF25: access strategy also part of the Landscape Strategy Report",
+   "comments": "CF25: access strategy also part of the Landscape Strategy Report.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -3051,7 +3051,7 @@
    "level": "XX",
    "type": "D",
    "number": "2140",
-   "description": "Ecology Restraints / Enhancements",
+   "description": "Ecology Constraints / Enhancements",
    "format": "PDF/DWG",
    "scale": "1:500 @ A1",
    "workPackage": "Site, landscape, levels",
@@ -3128,7 +3128,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Not a stand-alone CF25 DRM deliverable: BNG results are embedded on the Landscape Plan (IE301)",
+   "comments": "Not a stand-alone CF25 DRM deliverable: BNG results are embedded on the Landscape Plan (IE301).",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -3185,7 +3185,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Site-wide, single floor. Coordinate with the Architect and Fire Engineer",
+   "comments": "Site-wide, single floor. Coordinate with the Architect and Fire Engineer.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -3301,7 +3301,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Site-wide, single floor. Secure line, access control, circulation",
+   "comments": "Site-wide, single floor. Secure line, access control, circulation.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -3358,7 +3358,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Site-wide, single floor. Secured by Design requirements",
+   "comments": "Site-wide, single floor. Secured by Design requirements.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -3415,7 +3415,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Site-wide, single floor. Secured by Design requirements",
+   "comments": "Site-wide, single floor. Secured by Design requirements.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -3647,7 +3647,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Site-wide, single floor",
+   "comments": "Site-wide, single floor.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -3704,7 +3704,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Site-wide, single floor",
+   "comments": "Site-wide, single floor.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -3818,7 +3818,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "From LW2 residential TIDP (Landscape). Podium and roof landscapes only",
+   "comments": "Podium and roof landscapes only.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -4403,7 +4403,7 @@
    "level": "ZZ",
    "type": "D",
    "number": "4000",
-   "description": "Proposed Landscape GF Sections",
+   "description": "Proposed Landscape GA Sections",
    "format": "PDF/DWG",
    "scale": "1:100 @ A1",
    "workPackage": "Site, landscape, levels",
@@ -4423,7 +4423,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "CF25 DRM: Site Sections (IE214, IE301, IE401)",
+   "comments": "CF25 DRM: Site Sections (IE214, IE301, IE401).",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -4654,7 +4654,7 @@
    "level": "ZZ",
    "type": "D",
    "number": "4110",
-   "description": "Brick Base / Toe Levels Sections & Elevations",
+   "description": "Brick Base / Toe Levels Sections and Elevations",
    "format": "PDF/DWG",
    "scale": "1:50 @ A1",
    "workPackage": "ZZ: Multiple",
@@ -5005,7 +5005,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
-   "comments": "Set up at Stage 4 by Outsourcing Partner, based on current regs and exemplar drawings.",
+   "comments": "Set up at Stage 4 by Outsourcing Partner, based on current Regulations and exemplar drawings.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -5064,7 +5064,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
-   "comments": "Set up at Stage 4 by Outsourcing Partner, based on exemplar drawing. Project Lead to coordinate and review against Approved Docs.",
+   "comments": "Set up at Stage 4 by Outsourcing Partner, based on exemplar drawing. Project Lead to coordinate and review against Approved Documents.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -5201,7 +5201,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
-   "comments": "Fully coordinated room layouts in plan and elevations",
+   "comments": "Fully coordinated room layouts in plan and elevations.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -5994,7 +5994,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
-   "comments": "Project lead to ensure correct partition interfacing is indicated. Lines of fire rating are achieved, commentary on specific detailing set out to be added by internal team.",
+   "comments": "Project Lead to ensure correct partition interfacing is indicated and lines of fire rating are achieved. Commentary on specific detailing and setting out to be added by the internal team.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -6072,7 +6072,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
-   "comments": "First issue Stage 4.",
+   "comments": "",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -6344,7 +6344,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Coordinate with SE and M&E consultants to ensure correct slab setting out and coordination with services.",
+   "comments": "Builderswork openings, chases and penetrations through structure. Coordinate with SE and M&E consultants.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -6403,7 +6403,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Interior Design version (only if needed). Coordinate with SE and M&E consultants to ensure correct slab setting out and coordination with services.",
+   "comments": "Interior Design version (only if needed). Builderswork openings, chases and penetrations through structure. Coordinate with SE and M&E consultants.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -6517,7 +6517,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "For 3D models coordination, site real coordinated alignment and grid lines coordination with other consultants.",
+   "comments": "For 3D model coordination: real-world site alignment and grid lines coordinated with other consultants.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -6723,13 +6723,13 @@
   {
    "id": "Drawings-D-6401",
    "tab": "Drawings",
-   "series": "6400 Series - Zoning & Circulation Strategy Plans",
+   "series": "6400 Series - Zoning and Circulation Strategy Plans",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
    "number": "6401",
-   "description": "Zoning & Circulation Strategy Plans",
+   "description": "Zoning and Circulation Strategy Plans",
    "format": "PDF",
    "scale": "1:100 @ A1",
    "workPackage": "Access Control & Security",
@@ -6782,7 +6782,7 @@
   {
    "id": "Drawings-D-6410",
    "tab": "Drawings",
-   "series": "6400 Series - Zoning & Circulation Strategy Plans",
+   "series": "6400 Series - Zoning and Circulation Strategy Plans",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
@@ -6808,7 +6808,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Secured by Design requirements",
+   "comments": "Secured by Design requirements.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -6841,7 +6841,7 @@
   {
    "id": "Drawings-D-6420",
    "tab": "Drawings",
-   "series": "6400 Series - Zoning & Circulation Strategy Plans",
+   "series": "6400 Series - Zoning and Circulation Strategy Plans",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
@@ -6867,7 +6867,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Access control, secure line, compartmentation",
+   "comments": "Access control, secure line, compartmentation.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -6900,7 +6900,7 @@
   {
    "id": "Drawings-D-6430",
    "tab": "Drawings",
-   "series": "6400 Series - Zoning & Circulation Strategy Plans",
+   "series": "6400 Series - Zoning and Circulation Strategy Plans",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
@@ -6957,7 +6957,7 @@
   {
    "id": "Drawings-D-6440",
    "tab": "Drawings",
-   "series": "6400 Series - Zoning & Circulation Strategy Plans",
+   "series": "6400 Series - Zoning and Circulation Strategy Plans",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
@@ -7014,7 +7014,7 @@
   {
    "id": "Drawings-D-6450",
    "tab": "Drawings",
-   "series": "6400 Series - Zoning & Circulation Strategy Plans",
+   "series": "6400 Series - Zoning and Circulation Strategy Plans",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
@@ -7175,7 +7175,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Only relevant to specific appointments, Project Lead to review if required and allocate internal resource accordingly. Bespoke item, not ticked by default for any sector: Project Lead ticks it when in scope. Duplicated per storey and volume.",
+   "comments": "Only relevant to specific appointments. Project Lead to review if required and allocate internal resource accordingly.",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -7293,7 +7293,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Coordinated with PDCDM",
+   "comments": "Coordinated with PDCDM.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -7584,7 +7584,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Over and above ironmongery drawing for specific setting out and products (schedule and specification)",
+   "comments": "Over and above ironmongery drawing for specific setting out and products (schedule and specification).",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -7798,7 +7798,7 @@
    "level": "ZZ",
    "type": "D",
    "number": "7050",
-   "description": "Landscape Surface Interface/ Junction Details",
+   "description": "Landscape Surface Interface / Junction Details",
    "format": "PDF",
    "scale": "1:10 @ A1",
    "workPackage": "Site, landscape, levels",
@@ -7914,7 +7914,7 @@
    "level": "ZZ",
    "type": "D",
    "number": "7080",
-   "description": "Retention & Upstand Details",
+   "description": "Retention and Upstand Details",
    "format": "PDF",
    "scale": "1:10 @ A1",
    "workPackage": "Site, landscape, levels",
@@ -7991,7 +7991,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "CF25 DRM: External Furniture and Play Equipment Drawings (IE511)",
+   "comments": "CF25 DRM: External Furniture and Play Equipment Drawings (IE511).",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -8687,7 +8687,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "CF25 DRM: External Canopies and Storage Drawings (IE511). Scope to be agreed between Architect and Landscape Architect",
+   "comments": "CF25 DRM: External Canopies and Storage Drawings (IE511). Scope to be agreed between Architect and Landscape Architect.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -8801,7 +8801,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Internal team, as required",
+   "comments": "Internal team, as required.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -8860,7 +8860,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Internal team, as required",
+   "comments": "Internal team, as required.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -9037,7 +9037,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "From LW2 residential TIDP (Landscape). CF25 DRM: Landscape Details (IE401)",
+   "comments": "CF25 DRM: Landscape Details (IE401).",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -9359,7 +9359,7 @@
   {
    "id": "Drawings-D-7251",
    "tab": "Drawings",
-   "series": "7250 Series - Balustrade & Guarding Details",
+   "series": "7250 Series - Balustrade and Guarding Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
@@ -9437,7 +9437,7 @@
   {
    "id": "Drawings-D-7255",
    "tab": "Drawings",
-   "series": "7250 Series - Balustrade & Guarding Details",
+   "series": "7250 Series - Balustrade and Guarding Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
@@ -9515,7 +9515,7 @@
   {
    "id": "Drawings-D-7260",
    "tab": "Drawings",
-   "series": "7250 Series - Balustrade & Guarding Details",
+   "series": "7250 Series - Balustrade and Guarding Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
@@ -9619,7 +9619,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "CF25 DRM: Landscape Details (IE401). Coordinate with the Architect",
+   "comments": "CF25 DRM: Landscape Details (IE401). Coordinate with the Architect.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -9650,7 +9650,7 @@
   {
    "id": "Drawings-D-7265",
    "tab": "Drawings",
-   "series": "7250 Series - Balustrade & Guarding Details",
+   "series": "7250 Series - Balustrade and Guarding Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
@@ -9709,7 +9709,7 @@
   {
    "id": "Drawings-D-7270",
    "tab": "Drawings",
-   "series": "7250 Series - Balustrade & Guarding Details",
+   "series": "7250 Series - Balustrade and Guarding Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
@@ -9794,7 +9794,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "From LW2 residential TIDP (Landscape). CF25 DRM: Fencing and Boundaries, Landscape Details",
+   "comments": "CF25 DRM: Fencing and Boundaries, Landscape Details.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -9825,7 +9825,7 @@
   {
    "id": "Drawings-D-7301",
    "tab": "Drawings",
-   "series": "7300 Series - Roof & Roof Accessories Details",
+   "series": "7300 Series - Roof and Roof Accessories Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
@@ -9851,7 +9851,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
-   "comments": "Outsourcing Partner can set up initial details, with either internal team finalising, or Project lead coordinating with Outsourcing Partner to finalise.",
+   "comments": "Outsourcing Partner can set up initial details, with either internal team finalising, or Project Lead coordinating with Outsourcing Partner to finalise.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -9903,7 +9903,7 @@
   {
    "id": "Drawings-D-7305",
    "tab": "Drawings",
-   "series": "7300 Series - Roof & Roof Accessories Details",
+   "series": "7300 Series - Roof and Roof Accessories Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
@@ -9988,7 +9988,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "From LW2 residential TIDP (Landscape). CF25 DRM: Landscape Details (IE401)",
+   "comments": "CF25 DRM: Landscape Details (IE401).",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -10019,7 +10019,7 @@
   {
    "id": "Drawings-D-7315",
    "tab": "Drawings",
-   "series": "7300 Series - Roof & Roof Accessories Details",
+   "series": "7300 Series - Roof and Roof Accessories Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
@@ -10045,7 +10045,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
-   "comments": "Outsourcing Partner can set up initial details, with either internal team finalising, or Project lead coordinating with Outsourcing Partner to finalise.",
+   "comments": "Outsourcing Partner can set up initial details, with either internal team finalising, or Project Lead coordinating with Outsourcing Partner to finalise.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -10078,7 +10078,7 @@
   {
    "id": "Drawings-D-7320",
    "tab": "Drawings",
-   "series": "7300 Series - Roof & Roof Accessories Details",
+   "series": "7300 Series - Roof and Roof Accessories Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
@@ -10182,7 +10182,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Design intent only if in agreed scope",
+   "comments": "Design intent only if in agreed scope.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -10241,7 +10241,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Technical details to be coordinated with other consultants. If in agreed scope. Typically CDP items",
+   "comments": "Technical details to be coordinated with other consultants. If in agreed scope. Typically CDP items.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -10319,7 +10319,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Technical details to be coordinated with other consultants. If in agreed scope. Typically CDP items",
+   "comments": "Technical details to be coordinated with other consultants. If in agreed scope. Typically CDP items.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -10456,7 +10456,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "CF25 DRM: Landscape Details, topographical details (IE401)",
+   "comments": "CF25 DRM: Landscape Details, topographical details (IE401).",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -10487,7 +10487,7 @@
   {
    "id": "Drawings-D-7401",
    "tab": "Drawings",
-   "series": "7400 Series - Slab & Waterproofing Details",
+   "series": "7400 Series - Slab and Waterproofing Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
@@ -10546,7 +10546,7 @@
   {
    "id": "Drawings-D-7405",
    "tab": "Drawings",
-   "series": "7400 Series - Slab & Waterproofing Details",
+   "series": "7400 Series - Slab and Waterproofing Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
@@ -10629,7 +10629,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "CF25 DRM: Landscape Details, nature habitats (IE401)",
+   "comments": "CF25 DRM: Landscape Details, nature habitats (IE401).",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -10686,7 +10686,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "CF25 DRM: External Pitches and MUGA Drawings, enclosure and below ground details (IE401)",
+   "comments": "CF25 DRM: External Pitches and MUGA Drawings, enclosure and below ground details (IE401).",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -10717,13 +10717,13 @@
   {
    "id": "Drawings-D-7451",
    "tab": "Drawings",
-   "series": "7450 Series - Stairs & Ramp Details",
+   "series": "7450 Series - Stairs and Ramp Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
    "type": "D",
    "number": "7451",
-   "description": "Stair Plan & Section Details",
+   "description": "Stair Plan and Section Details",
    "format": "PDF",
    "scale": "1:20 @ A1",
    "workPackage": "Stairs, balustrades, metalwork",
@@ -10743,7 +10743,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
-   "comments": "Model set up and coordinated by internal team. Outsourcing Partner can develop balustrade and dimensional information. Internal team to coordinate to suit Approved Docs. One drawing set per stair.",
+   "comments": "Model set up and coordinated by internal team. Outsourcing Partner can develop balustrade and dimensional information. Internal team to coordinate to suit Approved Documents. One drawing set per stair.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -10776,7 +10776,7 @@
   {
    "id": "Drawings-D-7455",
    "tab": "Drawings",
-   "series": "7450 Series - Stairs & Ramp Details",
+   "series": "7450 Series - Stairs and Ramp Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
@@ -10835,7 +10835,7 @@
   {
    "id": "Drawings-D-7460",
    "tab": "Drawings",
-   "series": "7450 Series - Stairs & Ramp Details",
+   "series": "7450 Series - Stairs and Ramp Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
@@ -10920,7 +10920,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "From LW2 residential TIDP (Landscape). Podium and roof landscapes only",
+   "comments": "Podium and roof landscapes only.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -10977,7 +10977,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
-   "comments": "Model set up and coordinated by Internal Team. Outsourcing Partner can develop dimensional information based on manufacturers information.",
+   "comments": "Model set up and coordinated by Internal Team. Outsourcing Partner can develop dimensional information based on manufacturers' information.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -11929,7 +11929,7 @@
   {
    "id": "Drawings-D-7651",
    "tab": "Drawings",
-   "series": "7650 Series - Column & Beams Details",
+   "series": "7650 Series - Column and Beam Details",
    "originator": "BBA",
    "volume": "ZZ",
    "level": "ZZ",
@@ -11955,7 +11955,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Beam encasements: Strategy to be agreed with contractor, Outsourcing Partner can set up/model using exemplar drawings. Beam encasements to be modelled for coordination and clash detection. Includes column / beam enclosure details (technical details to be coordinated with manufacturer).",
+   "comments": "Beam encasements: strategy to be agreed with the contractor. Outsourcing Partner can set up / model using exemplar drawings. Beam encasements to be modelled for coordination and clash detection. Includes column / beam enclosure details (technical details to be coordinated with the manufacturer).",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -12210,7 +12210,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Scope to be agreed between Architect and Landscape Architect",
+   "comments": "Scope to be agreed between Architect and Landscape Architect.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -12558,7 +12558,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Scope to be agreed between Architect and Landscape Architect",
+   "comments": "Scope to be agreed between Architect and Landscape Architect.",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -12616,7 +12616,7 @@
    "level": "ZZ",
    "type": "D",
    "number": "7755",
-   "description": "Typical Mesh Fence & Gate Details",
+   "description": "Typical Mesh Fence and Gate Details",
    "format": "PDF",
    "scale": "1:10 @ A1",
    "workPackage": "Site, landscape, levels",
@@ -12636,7 +12636,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Scope to be agreed between Architect and Landscape Architect",
+   "comments": "Scope to be agreed between Architect and Landscape Architect.",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -12714,7 +12714,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Scope to be agreed between Architect and Landscape Architect",
+   "comments": "Scope to be agreed between Architect and Landscape Architect.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -12849,7 +12849,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Scope to be agreed between Architect and Landscape Architect",
+   "comments": "Scope to be agreed between Architect and Landscape Architect.",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -13494,7 +13494,7 @@
     "4b": false
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Additional contract / scope for this item",
+   "comments": "Additional contract / scope for this item.",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -13572,7 +13572,7 @@
     "4b": false
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Additional contract / scope for this item",
+   "comments": "Additional contract / scope for this item.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -14120,7 +14120,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "CF25 DRM: Schedule of Places (IE214, IE301, IE401). DfE Area Standards and Pattern Book",
+   "comments": "CF25 DRM: Schedule of Places (IE214, IE301, IE401). DfE Area Standards and Pattern Book.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -14470,7 +14470,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Schedule from manufacturer, locking suite, specifications. Typically CDP item",
+   "comments": "Schedule from manufacturer, locking suite, specifications. Typically CDP item.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -15653,7 +15653,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
-   "comments": "CF25 DEIR External Finishes Information (IE301, IE401, IE511), architecture.",
+   "comments": "CF25 DEIR External Finishes Information (IE301, IE401, IE511).",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -16201,7 +16201,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Typically to FFE consultant",
+   "comments": "Typically to FFE consultant.",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -16415,7 +16415,7 @@
    "level": "ZZ",
    "type": "L",
    "number": "0712",
-   "description": "Landscape Materials & Elements Schedule",
+   "description": "Landscape Materials and Elements Schedule",
    "format": "PDF",
    "scale": "NTS @ A1",
    "workPackage": "Site, landscape, levels",
@@ -16492,7 +16492,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "CF25 DRM: External Finishes Information (IE301, IE401, IE511). Landscape files it in 0700-OtherSchedules (landscape 0600 folder is project specific)",
+   "comments": "CF25 DRM: External Finishes Information (IE301, IE401, IE511).",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -17445,7 +17445,7 @@
     "4b": false
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "CF25 DRM: Landscape Records Register (IE521, IE601, IE611)",
+   "comments": "CF25 DRM: Landscape Records Register (IE521, IE601, IE611).",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -17561,7 +17561,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
-   "comments": "Area Data Sheets (ADS): i) Fully developed and completed Area Data Sheets on the proformas included in the Employer's Requirements. ii) For refurbishment/remodelling Works, relevant plans, sections and elevations to be included, along with and cross referenced to the completed Refurbishment Scope of Works (RSoW).\niii) Where the Contractor requires to derogate against the Employer’s Requirements, a derogation schedule will be required:\n- To set out and reference the specific DfE's Generic Design Brief (GDB) clauses to which they relate to, with detailed reasoning as to the non-compliance;\n- To be aligned with and cross referenced to the information included in the Areas Data Sheets (ADS) and the Refurbishment Scope of Works (RSoW);\niv) An appended clarification schedule shall be provided to capture where compliance with the Employer's Requirements is not relevant to the project;\nv) The derogation schedule shall be updated by the Contractor as and when there are changes as a result of variations/changes and/or changes in accordance with Review Procedure/Contractor’s Design Submission Procedure.\nvi) The Contractor shall notify the Employer of any derogations to the Employer’s Requirements, or issues not previously identified in the derogation schedule, the completed Area Data Sheets (ADS) or the Refurbishment Scope of Works (RSoW) immediately they become apparent.",
+   "comments": "Room or Area Data Sheets on the client's proformas where provided. Refurbishment schemes: cross-reference to the Refurbishment Scope of Works and the derogation schedule.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -17600,7 +17600,7 @@
    "level": "XX",
    "type": "L",
    "number": "6001",
-   "description": "Calculations Parking",
+   "description": "Parking Calculations",
    "format": "PDF",
    "scale": "A4 Document",
    "workPackage": "Site, landscape, levels",
@@ -17620,7 +17620,7 @@
     "4b": false
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Scope to be agreed between Architect and Landscape Architect",
+   "comments": "Scope to be agreed between Architect and Landscape Architect.",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -17659,7 +17659,7 @@
    "level": "XX",
    "type": "L",
    "number": "6010",
-   "description": "Calculations Toilets",
+   "description": "Toilet Calculations",
    "format": "PDF",
    "scale": "A4 Document",
    "workPackage": "Toilets, sanitary",
@@ -18208,7 +18208,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Server: save ArchiCAD .pln (record model) or Revit .rvt. External distribution: ArchiCAD .pla (archive file with libraries embedded) or .rvt",
+   "comments": "Server: save ArchiCAD .pln (record model) or Revit .rvt. External distribution: ArchiCAD .pla (archive file with libraries embedded) or .rvt.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -18676,7 +18676,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Additional contract / scope for this item",
+   "comments": "Additional contract / scope for this item.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -18794,7 +18794,7 @@
     "4b": false
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "At project completion",
+   "comments": "At project completion.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -18912,7 +18912,7 @@
     "4b": false
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "CF25 DRM: Collateral Warranties (IE521, IE601, IE611). Commercial item for the Project Lead",
+   "comments": "CF25 DRM: Collateral Warranties (IE521, IE601, IE611). Commercial item for the Project Lead.",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -19401,7 +19401,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "To be coordinated with main contractor",
+   "comments": "To be coordinated with main contractor.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -19460,7 +19460,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Additional contract / scope may be needed for this item",
+   "comments": "Additional contract / scope may be needed for this item.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -19519,7 +19519,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Additional contract / scope may be needed for this item",
+   "comments": "Additional contract / scope may be needed for this item.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -19578,7 +19578,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Contribution to joint risk assessment",
+   "comments": "Contribution to joint risk assessment.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -19656,7 +19656,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Scope to be agreed between Architect and Landscape Architect",
+   "comments": "Scope to be agreed between Architect and Landscape Architect.",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -19734,7 +19734,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "CF25 DRM: Landscape Strategy Report (IE214, IE301, IE401)",
+   "comments": "CF25 DRM: Landscape Strategy Report (IE214, IE301, IE401).",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -19791,7 +19791,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "From LW2 residential TIDP (Landscape). CF25 DRM: LEMMP (IE301 to IE611)",
+   "comments": "CF25 DRM: LEMMP (IE301 to IE611).",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -20634,7 +20634,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Additional contract / scope may be needed for this item",
+   "comments": "Additional contract / scope may be needed for this item.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -20673,7 +20673,7 @@
    "level": "XX",
    "type": "T",
    "number": "9001",
-   "description": "BIM Execution Plan (BB Produced)",
+   "description": "BIM Execution Plan (BB produced)",
    "format": "PDF",
    "scale": "A4 Document",
    "workPackage": "Coordination",
@@ -20693,7 +20693,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Coordinate with BIM Support team",
+   "comments": "Coordinate with BIM Support team.",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -20732,7 +20732,7 @@
    "level": "XX",
    "type": "T",
    "number": "9002",
-   "description": "BIM Project Protocol Standard (BB Produced)",
+   "description": "BIM Project Protocol Standard (BB produced)",
    "format": "PDF",
    "scale": "A4 Document",
    "workPackage": "Coordination",
@@ -20752,7 +20752,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Coordinate with BIM Support team",
+   "comments": "Coordinate with BIM Support team.",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -20791,7 +20791,7 @@
    "level": "XX",
    "type": "T",
    "number": "9003",
-   "description": "BIM Other Contractual Documents (BB Produced)",
+   "description": "BIM Other Contractual Documents (BB produced)",
    "format": "PDF",
    "scale": "A4 Document",
    "workPackage": "Coordination",
@@ -20811,7 +20811,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Coordinate with BIM Support team",
+   "comments": "Coordinate with BIM Support team.",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -20988,7 +20988,7 @@
     "4b": false
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Additional contract / scope may be needed for this item",
+   "comments": "Additional contract / scope may be needed for this item.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -21163,7 +21163,7 @@
     "4b": false
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "CF25 DRM: Landscape Record Information (IE521, IE601, IE611)",
+   "comments": "CF25 DRM: Landscape Record Information (IE521, IE601, IE611).",
    "sectors": {
     "Education": false,
     "Residential": false,
@@ -21220,7 +21220,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Scope to be agreed. Additional contract / scope may be needed for this item",
+   "comments": "Scope to be agreed. Additional contract / scope may be needed for this item.",
    "sectors": {
     "Education": true,
     "Residential": true,
