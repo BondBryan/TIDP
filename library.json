@@ -1,7 +1,7 @@
 {
  "meta": {
   "name": "Bond Bryan TIDP Library",
-  "version": "2026.23",
+  "version": "2026.24",
   "source": "Bond Bryan Architects",
   "extracted": "2026-11",
   "documents": 365,
@@ -4972,9 +4972,7 @@
     "G1": false,
     "G2": false,
     "CR": false
-   },
-   "Berkeley_Naming_Type": "DR",
-   "Berkeley_Naming_Code": "191-4201"
+   }
   },
   {
    "id": "Drawings-D-5001",
@@ -7234,7 +7232,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Only relevant to specific appointments, Project Lead to review if required and allocate internal resource accordingly.",
+   "comments": "Only relevant to specific appointments. Project Lead to review if required and allocate internal resource accordingly.",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -7643,7 +7641,7 @@
     "4b": true
    },
    "status": "Confirmation of BBA scope required",
-   "comments": "Only if required: BREEAM glare control and solar gain evidence (blind and curtain locations and types per facade / room). Coordinate with the BREEAM assessor and M&E (overheating). Read with Lists L-0750 Internal Blinds Schedule.",
+   "comments": "Only if required: BREEAM glare control and solar gain evidence (blind and curtain locations and types per facade / room). Coordinate with the BREEAM assessor and M&E (overheating). Read with List-0750 Internal Blinds Schedule.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -8628,7 +8626,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Floor build-up types per storey, keyed to D-7155 Floor Build-up Types.",
+   "comments": "Floor build-up types per storey, keyed to Drawing-7155 Floor Build-up Types.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -14004,7 +14002,7 @@
     "4b": true
    },
    "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
-   "comments": "Proposed Schedule of Accommodation. DfE / CF25 schools use L-0020 Schedule of Spaces instead.",
+   "comments": "Proposed Schedule of Accommodation. DfE / CF25 schools use List-0020 Schedule of Spaces instead.",
    "sectors": {
     "Education": false,
     "Residential": true,
@@ -16376,7 +16374,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Blind strategy plans where required: see Drawings D-6920 Blinds and Solar Gain Strategy Plans (BREEAM).",
+   "comments": "Blind strategy plans where required: see Drawing-6920 Blinds and Solar Gain Strategy Plans (BREEAM).",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -19848,7 +19846,7 @@
     "4b": true
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Existing buildings only. Written scope of works read with Refurbishment Scope Plans and Elevations (D-2401). DfE projects: cross-reference with the Room / Area Data Sheets (L-5001) and the derogation schedule.",
+   "comments": "Existing buildings only. Written scope of works read with Refurbishment Scope Plans and Elevations (Drawing-2401). DfE projects: cross-reference with the Room / Area Data Sheets (List-5001) and the derogation schedule.",
    "sectors": {
     "Education": true,
     "Residential": true,
