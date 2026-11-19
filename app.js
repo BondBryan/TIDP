@@ -1,6 +1,6 @@
 /* TIDP Builder - Bond Bryan Architects, Smarter Working Group
    Static single-page app. Library data comes from library.json (maintained in GitHub).
-   No server, no macros: the browser generates the TIDP and exports Excel / Word files. */
+   No server, no macros: the browser generates the TIDP and exports Excel files. */
 (function () {
   'use strict';
 
@@ -22,7 +22,14 @@
   const REV = 'P01';               // every TIDP produced here is the first issue, dated today
   const STAGE_COLOURS = ['D98C6B', 'E88EB9', '59A3A1', 'F9C829', '6DA97D', '8D8FB9', 'E5C683', '5092BF']; // indexed by RIBA stage 0-7
   const STAGES = [0, 1, 2, 3, 4, 5, 6, 7];
-  const OFFICES = { BBA: 'BondBryan', BBF: 'BondBryan:Fairhursts' }; // issuing office: second field of every file reference
+  // Issuing Company: `code` is the second field of every file reference, `logo` goes on the exported Cover
+  const OFFICES = {
+    BBA: { name: 'BondBryan', code: 'BBA', logo: 'logo.png' },
+    BBF: { name: 'BondBryan:Fairhursts', code: 'BBF', logo: 'logo-bbf.png' },
+    FH: { name: 'Fairhursts', code: 'BBF', logo: 'logo-bbf.png' }
+  };
+  const INTERIORS = { sector: 'Interior Design', logo: 'logo-interiors.png' };   // Interior Design exports carry the Interiors logo, whichever company issues
+  const PW_HASH = '08afe6f51e20d761f01f8a02e7a7e4dc7f52163495762187a31afddaac563453'; // SHA-256 of the access password (published on the TIDP HUB page); see README to change it
   const TENDERS = ['3+', '4a', '4b'];
   const GATEWAYS = [['G1', 'Gateway 1'], ['G2', 'Gateway 2'], ['CR', 'Construction Record']]; // tick columns, all sectors
   const PCT = '0"%"';             // progress cells: staff type 0-100, shown as a percentage
@@ -34,7 +41,7 @@
   const INTROS = {
     1: ['Project set-up', 'Enter the project details once. Everything below drives the file references, the sector selection and the storey and volume duplication. Nothing here can break the Library.'],
     2: ['Deliverables', 'Pre-selected from the Library for your sector and works type. Untick what the appointment does not cover, tick what it adds. Titles, numbers and formats come from the Library and are not editable here, which keeps every project on the practice standard.'],
-    3: ['Review & export', 'Check the summary, then export. The export downloads the TIDP workbook and the internal resourcing note together. If any scope confirmation items are ticked, the scope review opens first.']
+    3: ['Review & export', 'Check the summary, then export. The export downloads the TIDP workbook and, when outsourcing is ticked on step 1, the Outsourcing Tracker listing the documents suitable for outsourcing. If any scope confirmation items are ticked, the scope review opens first.']
   };
 
   function today() { return new Date().toISOString().slice(0, 10); }
@@ -119,8 +126,10 @@
 
   // ------------------------------------------------------------------ generation (mirrors the VBA GenerateTIDP)
   function role() { const m = S.lib.lists.roleBySector; return m[S.project.sector] || m.default; }
-  const originator = () => OFFICES[S.project.office] ? S.project.office : 'BBA';
-  const officeName = () => OFFICES[originator()];
+  const office = () => OFFICES[S.project.office] || OFFICES.BBA;
+  const originator = () => office().code;
+  const officeName = () => office().name;
+  const logoFile = () => S.project.sector === INTERIORS.sector ? INTERIORS.logo : office().logo;
   function discipline() { const m = S.lib.lists.disciplineBySector || {}; return m[S.project.sector] || m.default || 'Architect'; }
   function storeyDesc(base, code) {
     let d = base; if (/plans$/i.test(d)) d = d.slice(0, -1);
@@ -138,12 +147,12 @@
   function parseDate(iso) { const [y, m, d] = iso.split('-').map(Number); return new Date(Date.UTC(y, m - 1, d)); }
 
   /** Returns [{tab, series, rows:[row...]}] for the selected documents, storey/volume duplication applied. */
-  function generate(includeInternal) {
+  function generate() {
     const p = S.project, out = [];
     const storeys = p.storeys.filter(s => s.on).map(s => s.code);
     const volumes = p.volumes.filter(v => v.on).map(v => v.code);
-    const tabs = includeInternal ? [...CONTENT_TABS, 'Internal'] : CONTENT_TABS;
-    for (const tab of tabs) {
+    for (const tab of CONTENT_TABS) {   // Internal items stay in the Library but are not displayed or exported
+
       const docs = S.lib.documents.filter(d => d.tab === tab && visible(d) && isOn(d));
       if (!docs.length) continue;
       const groups = [];
@@ -185,19 +194,24 @@
     const t = S.lib && S.lib.documents.find(d => d.id === 'Lists-L-1001'), n = t ? naming(t) : { type: 'L', number: '1001' };
     return `${S.project.code || 'ABCDE'}-${originator()}-XX-XX-${n.type}-${role()}-${n.number} Task Information Delivery Plan_${discipline()}`;
   }
-  function noteRef() { return `${S.project.code || 'ABCDE'}-${originator()}-XX-XX-T-${role()}-0010 ResourcingNote_${discipline()}`; }
+  function trackerRef() {
+    const t = S.lib && S.lib.documents.find(d => d.id === 'Internal-L-7001');
+    return `${S.project.code || 'ABCDE'}-${originator()}-XX-XX-L-${role()}-${t ? t.number : '7XXX'} Outsourcing Tracker_${REV}`;
+  }
+  /** Selected documents the Library flags as suitable for outsourcing, storey / volume duplication applied. */
+  const outsourcingRows = () => generate().flatMap(g => g.groups.flatMap(x => x.rows)).filter(r => STATUS_KEY(r.status) === 'op');
 
   // ------------------------------------------------------------------ rendering
   function renderAll() { renderProject(); renderDocs(); renderSummary(); }
 
   function renderProject() {
     const p = S.project;
-    $('pName').value = p.name; $('pCode').value = p.code; $('pOffice').value = originator();
+    $('pName').value = p.name; $('pCode').value = p.code; $('pOffice').value = OFFICES[p.office] ? p.office : 'BBA';
     $('pIssuer').value = p.issuer; $('pSector').value = p.sector; $('pWorks').value = p.works; $('pOutsourcing').checked = p.outsourcing;
     $('chipOut').classList.toggle('on', p.outsourcing);
     $('berkRow').style.display = p.sector === BERK_SECTOR ? '' : 'none';
     $('pBerkeley').checked = !!p.berkeley; $('chipBerk').classList.toggle('on', !!p.berkeley);
-    $('exOrg').textContent = originator(); $('exOrgLeg').textContent = originator() + ' · Issuing office'; $('scopeTitle').textContent = `Confirmation of ${originator()} scope required`;
+    $('exOrg').textContent = originator(); $('exOrgLeg').textContent = originator() + ' · Issuing Company';
     $('exType').textContent = berkOn() ? 'SK' : 'D'; $('exNum').textContent = berkOn() ? '005-0001' : '0001';
     const locked = FIXED_CODES.map(c => `<label class="chip locked" title="${c} is always created"><input type="checkbox" checked disabled> ${c}</label>`).join('');
     $('storeys').innerHTML = locked + p.storeys.map((s, i) => `<label class="chip ${s.on ? 'on' : ''}"><input type="checkbox" data-storey="${i}" ${s.on ? 'checked' : ''}> ${esc(s.code)} <small>${esc(s.name)}</small></label>`).join('');
@@ -211,8 +225,8 @@
 
   function renderDocs() {
     const p = S.project, u = S.ui, L = S.lib;
-    const tabs = [...CONTENT_TABS, 'Internal'];
-    $('tabFilter').innerHTML = tabs.map(t => {
+    if (!CONTENT_TABS.includes(u.tab)) u.tab = CONTENT_TABS[0];
+    $('tabFilter').innerHTML = CONTENT_TABS.map(t => {
       const n = L.documents.filter(d => d.tab === t && visible(d) && isOn(d)).length, tot = L.documents.filter(d => d.tab === t && visible(d)).length;
       return `<button class="${u.tab === t ? 'active' : ''}" data-tab="${t}">${t}<span class="c">${n}/${tot}</span></button>`;
     }).join('');
@@ -250,19 +264,18 @@
         <td class="dup">${dup}</td></tr>`;
     }
     $('docBody').innerHTML = html || '<tr><td colspan="15" class="hint">No items match.</td></tr>';
+    layout();
   }
 
   function renderSummary() {
-    const p = S.project, gen = generate(true);
-    const issued = gen.filter(g => g.tab !== 'Internal').reduce((n, g) => n + g.count, 0);
-    const internal = (gen.find(g => g.tab === 'Internal') || { count: 0 }).count;
+    const p = S.project, gen = generate();
+    const issued = gen.reduce((n, g) => n + g.count, 0);
     const rows = gen.flatMap(g => g.groups.flatMap(x => x.rows));
     const op = rows.filter(r => STATUS_KEY(r.status) === 'op').length, conf = rows.filter(r => STATUS_KEY(r.status) === 'confirm').length;
     $('summary').innerHTML = [
-      ['Documents issued', issued, 'across ' + gen.filter(g => g.tab !== 'Internal').length + ' sheets'],
-      ['Internal items', internal, 'not in the issued TIDP; listed in the resourcing note'],
-      ['Documents suitable for outsourcing', op, p.outsourcing ? 'in the resourcing note' : 'outsourcing not selected'],
-      ['Scope to confirm', conf, `Confirmation of ${originator()} scope required`, scopeValidated !== null && scopeValidated === scopeTicked()
+      ['Documents issued', issued, 'across ' + gen.length + ' sheets'],
+      ['Documents suitable for outsourcing', op, p.outsourcing ? 'listed in the Outsourcing Tracker' : 'outsourcing not selected'],
+      ['Scope to confirm', conf, 'Confirmation of scope required', scopeValidated !== null && scopeValidated === scopeTicked()
         ? '<button class="btn small done" id="btnScope" title="Scope reviewed. Click to reopen and edit">✓ Validated</button>'
         : '<button class="btn secondary small" id="btnScope">Review now</button>'],
       ...(() => { const sN = p.storeys.filter(s => s.on).length, vN = p.volumes.filter(v => v.on).length; return [vN ? ['Storeys × volumes', sN + ' × ' + vN, 'duplication applied'] : ['Storeys', sN, 'no volumes ticked']]; })()
@@ -274,12 +287,12 @@
     if (!p.storeys.some(s => s.on)) issues.push('No storeys ticked: per-storey drawings will not be generated.');
     if (!STAGES.some(n => p.stageOn[n])) issues.push('No RIBA stage ticked on step 1.');
     $('exportWarn').innerHTML = issues.length ? `<div class="warn"><b>Before exporting:</b> ${issues.join(' ')}</div>` : '<div class="ok">Set-up complete. The export will contain ' + issued + ' issued documents.</div>';
-    $('exportFiles').innerHTML = [fileName(fileRef()) + '.xlsx', fileName(noteRef()) + '.docx'].map(f => `<li>${esc(f)}</li>`).join('');
-    $('btnExport').textContent = 'Export TIDP and resourcing note';
+    $('exportFiles').innerHTML = [fileName(fileRef()) + '.xlsx', ...(p.outsourcing ? [fileName(trackerRef()) + '.xlsx'] : [])].map(f => `<li>${esc(f)}</li>`).join('');
+    $('btnExport').textContent = p.outsourcing ? 'Export TIDP and Outsourcing Tracker' : 'Export TIDP';
     const toReview = scopeNeedsReview() ? scopeDocs().filter(isOn).length : 0;
     $('exportHint').textContent = toReview
       ? `${toReview} scope confirmation item${toReview > 1 ? 's are' : ' is'} ticked: the Export button opens the scope review first; export once validated.`
-      : 'Your browser may ask once to allow this page to download multiple files.';
+      : p.outsourcing ? 'Your browser may ask once to allow this page to download multiple files.' : '';
   }
 
   // ------------------------------------------------------------------ scope confirmation review (second route to the step 2 ticks)
@@ -318,7 +331,31 @@
     if (dlg.showModal) dlg.showModal(); else alert(INTROS[n][1]);
   }
   document.querySelectorAll('[data-intro]').forEach(b => b.addEventListener('click', () => showIntro(b.dataset.intro, true)));
-  showIntro(1);
+
+  // ------------------------------------------------------------------ password gate (first pop-up; nothing works until it is passed)
+  let unlocked = false;
+  try { unlocked = sessionStorage.getItem('tidp-unlocked') === PW_HASH; } catch (e) { /* storage blocked: ask every time */ }
+  async function sha256(t) {
+    const b = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(t));
+    return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, '0')).join('');
+  }
+  async function tryUnlock() {
+    let ok = false;
+    try { ok = (await sha256($('gatePw').value)) === PW_HASH; }
+    catch (e) { $('gateErr').textContent = 'The password cannot be checked here. Open the TIDP Builder from its https address.'; }
+    if (!ok) { $('gateErr').style.display = 'block'; $('gatePw').select(); return; }
+    unlocked = true; introSeen[1] = true;
+    try { sessionStorage.setItem('tidp-unlocked', PW_HASH); } catch (e) { /* ignore */ }
+    $('gate').close();
+  }
+  if (unlocked) showIntro(1);
+  else {
+    $('gateText').textContent = INTROS[1][1];
+    $('gate').addEventListener('cancel', e => e.preventDefault());   // Esc does not close it
+    $('gateOk').addEventListener('click', tryUnlock);
+    $('gatePw').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); tryUnlock(); } });
+    $('gate').showModal(); $('gatePw').focus();
+  }
 
   $('btnReset').addEventListener('click', () => {
     if (!confirm('Clear the project set-up and all deliverable ticks, and go back to the defaults?')) return;
@@ -331,7 +368,19 @@
   });
 
   // ------------------------------------------------------------------ events
-  document.querySelectorAll('nav.steps button, [data-goto]').forEach(b => b.addEventListener('click', () => go(b.dataset.step || b.dataset.goto)));
+  document.querySelectorAll('nav.steps button[data-step]').forEach(b => b.addEventListener('click', () => go(b.dataset.step)));
+  // Back / Next sit in the top band, always visible
+  let step = 1;
+  const NEXT = { 1: 'Next: review deliverables →', 2: 'Next: review and export →' };
+  $('navBack').addEventListener('click', () => go(step - 1));
+  $('navNext').addEventListener('click', () => go(step + 1));
+  /** Sticky offsets: the step 2 toolbar sits under the top band, the table header under the toolbar. */
+  function layout() {
+    const top = document.querySelector('.topbar').offsetHeight, tb = document.querySelector('.toolbar').offsetHeight;
+    document.documentElement.style.setProperty('--top', top + 'px');
+    document.documentElement.style.setProperty('--top2', (top + tb) + 'px');
+  }
+  addEventListener('resize', layout);
   // step 1 minimum: these fields must be filled before the deliverables can be reviewed
   const REQUIRED = { name: 'pName', code: 'pCode', issuer: 'pIssuer', sector: 'pSector' };
   let projectErr = false;
@@ -347,14 +396,19 @@
   $('cardProject').addEventListener('change', markProject);
 
   function go(n) {
-    if (String(n) !== '1' && missingFields().length) {
+    if (!unlocked) return;
+    n = Math.min(3, Math.max(1, Number(n)));
+    if (n !== 1 && missingFields().length) {
       projectErr = true; markProject();
       $('projectErr').scrollIntoView({ block: 'center', behavior: 'smooth' });
       return;
     }
-    document.querySelectorAll('nav.steps button').forEach(b => b.classList.toggle('active', b.dataset.step === String(n)));
+    step = n;
+    document.querySelectorAll('nav.steps button[data-step]').forEach(b => b.classList.toggle('active', b.dataset.step === String(n)));
+    $('navBack').style.display = n > 1 ? '' : 'none';
+    $('navNext').style.display = NEXT[n] ? '' : 'none'; $('navNext').textContent = NEXT[n] || '';
     document.querySelectorAll('section.step').forEach(s => s.classList.toggle('active', s.id === 'step' + n));
-    window.scrollTo(0, 0); if (S.lib) renderAll(); showIntro(n);
+    window.scrollTo(0, 0); if (S.lib) renderAll(); layout(); showIntro(n);
   }
   const bind = (id, key, ev = 'input') => $(id).addEventListener(ev, e => { S.project[key] = e.target.type === 'checkbox' ? e.target.checked : e.target.value; if (key === 'outsourcing') $('chipOut').classList.toggle('on', e.target.checked); });
   bind('pName', 'name'); bind('pCode', 'code'); bind('pIssuer', 'issuer');
@@ -413,30 +467,33 @@
     const d = S.lib.documents.find(x => x.id === id); setOn(d, e.target.checked);
     e.target.closest('tr').classList.toggle('off', !e.target.checked); renderDocs();
   });
-  function shownDocs() { return [...document.querySelectorAll('#docBody input[data-sel]')].map(i => S.lib.documents.find(d => d.id === i.dataset.sel)); }
-  $('selAll').addEventListener('click', () => { shownDocs().forEach(d => setOn(d, true)); renderDocs(); });
-  $('selNone').addEventListener('click', () => { shownDocs().forEach(d => setOn(d, false)); renderDocs(); });
   $('selReset').addEventListener('click', () => { if (confirm('Discard all manual ticks and return to the Library defaults for this sector?')) { S.sel = {}; renderDocs(); } });
 
-  // ------------------------------------------------------------------ export (Excel + resourcing note in one go)
+  // ------------------------------------------------------------------ export (TIDP, plus the Outsourcing Tracker when outsourcing is ticked)
   $('btnExport').addEventListener('click', async e => {
     if (scopeNeedsReview()) { toast('Review the scope confirmation items before exporting'); return openScope(); }
-    const btn = e.currentTarget; btn.disabled = true;
+    const btn = e.currentTarget, out = S.project.outsourcing; btn.disabled = true;
     try {
       toast('Building the export…');
-      const xlsx = await buildWorkbook(), note = await buildNote();
+      const xlsx = await buildWorkbook(), tracker = out ? await buildTracker() : null;
       download(xlsx, fileName(fileRef()) + '.xlsx');
-      setTimeout(() => download(note, fileName(noteRef()) + '.docx'), 400);
-      toast('TIDP and resourcing note exported');
+      if (tracker) setTimeout(() => download(tracker, fileName(trackerRef()) + '.xlsx'), 400);
+      toast(out ? 'TIDP and Outsourcing Tracker exported' : 'TIDP exported');
     } catch (err) { console.error(err); alert('The export failed: ' + err.message); }
     finally { btn.disabled = false; }
   });
 
   // ------------------------------------------------------------------ Excel export (ExcelJS)
+  const XLSX_MIME = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+  const NOGRID = { showGridLines: false };
+  const COVER_ROW = { name: 7, code: 8, ref: 9, date: 10, rev: 11, issuer: 12, company: 13 };   // column B of the Cover; the content sheets link to these cells
+  const LOGO_BOX = { w: 300, h: 64 };   // px, top-left of the Cover (rows 1 to 4); every logo is fitted inside it
+  const EMU = 9525;                     // per pixel
   async function buildWorkbook() {
-    const p = S.project, gen = generate(false), wb = new ExcelJS.Workbook();
+    const p = S.project, gen = generate(), wb = new ExcelJS.Workbook();
     wb.creator = 'Bond Bryan Architects - TIDP Builder'; wb.created = new Date();
     const thin = { style: 'thin', color: { argb: 'FFBFBFBF' } }, border = { top: thin, left: thin, bottom: thin, right: thin };
+    const GREY = 'FFD9D9D9';
     // columns: A..K fixed, then a stage column + a Progress column per RIBA stage (L..AA), then tenders, then Gateway 1 / 2 / Construction Record
     const tenders = TENDERS.filter(t => p.tenders[t]), SN = 11 + 2 * STAGES.length, TN = SN + tenders.length, NCOL = TN + GATEWAYS.length;
     const stageCol = i => 12 + 2 * i, progCol = i => 13 + 2 * i;           // i = index in STAGES
@@ -445,33 +502,50 @@
     const HEAD8 = ['', '', '', '', '', '', '', 'Description', 'Format', 'Scale', 'Work Package', ...S.lib.lists.stages.flatMap(s => [s.name, 'Progress']), ...tenders, ...GATEWAYS.map(() => '')];
     const DATAHEAD = ['Project', 'Originator', 'Volume / system', 'Level', 'Type', 'Role', 'Number', 'Description', 'Format', 'Scale', 'Work Package', ...STAGES.flatMap(n => ['Stage ' + n, '']), ...tenders.map(t => 'Tender ' + t), ...GATEWAYS.map(g => g[1])]; // '' = progress column, not on the Data sheet
     const WIDTHS = [11, 9, 9, 7, 6, 6, 9, 52, 12, 15, 38, ...STAGES.flatMap(() => [14, 5.71]), ...tenders.map(() => 5.5), ...GATEWAYS.map(() => 5.71)]; // 5.71 = 45 px
+    const CENTRED = [1, 2, 3, 4, 5, 6, 7, 9, 10];   // columns A to G, I and J: values centred
     const date = parseDate(today());
-    const logoId = await loadLogo(wb);
+
+    // ---- Data fields (hidden): the accepted values behind the Level / Format / Work Package drop-downs of the content sheets
+    const FIELDS = [
+      ['Level', 4, [...FIXED_CODES, ...p.storeys.map(s => s.code)]],
+      ['Format', 9, S.lib.lists.formats],
+      ['Work Package', 11, S.lib.lists.workPackages]
+    ].map(([name, col, values], i) => ({ name, col, values: [...new Set(values)], ref: `'Data fields'!$${colLetter(i + 1)}$2:$${colLetter(i + 1)}$${[...new Set(values)].length + 1}` }));
 
     // ---- Cover
-    const cover = wb.addWorksheet('Cover', { pageSetup: { orientation: 'portrait', fitToPage: true } });
-    cover.columns = [{ width: 24 }, { width: 60 }];
-    if (logoId != null) cover.addImage(logoId, { tl: { col: 0, row: 0 }, ext: { width: 300, height: 51 } });
+    const cover = wb.addWorksheet('Cover', { views: [NOGRID], pageSetup: { orientation: 'portrait', fitToPage: true } });
+    const COVER_COLS = [24, 60];
+    cover.columns = COVER_COLS.map(width => ({ width }));
+    for (let r = 1; r <= 4; r++) cover.getRow(r).height = 15;   // fixed 20 px rows under the logo
+    const logo = await loadLogo(wb);
+    if (logo) {
+      // anchored on two cells with its real size, as Excel writes its own pictures (a picture with no size of its own only shows once selected in Excel for Mac)
+      const [c, cOff] = spanTo(logo.w, COVER_COLS.map(w => Math.floor(((256 * w + Math.floor(128 / 7)) / 256) * 7))), [r, rOff] = spanTo(logo.h, [20, 20, 20, 20, 20]);
+      cover.addImage(logo.id, { tl: { nativeCol: 0, nativeColOff: 0, nativeRow: 0, nativeRowOff: 0 }, br: { nativeCol: c, nativeColOff: cOff * EMU, nativeRow: r, nativeRowOff: rOff * EMU }, editAs: 'oneCell' });
+    }
     cover.getCell('A5').value = 'TASK INFORMATION DELIVERY PLAN'; cover.getCell('A5').font = { bold: true, size: 16 };
-    const info = [['Project', p.name], ['Project code', p.code], ['Issuing office', `${officeName()} (${originator()})`], ['File reference', fileRef() + ' - ' + REV], ['Date', date], ['Revision', REV], ['Sector or discipline', p.sector + (berkOn() ? ' (Berkeley naming)' : '')], ['Works', { new: 'New build', existing: 'Existing building', mixed: 'New build and existing' }[p.works]], ['Issued by', p.issuer], ['Issuing party', officeName()]];
-    info.forEach(([k, v], i) => { const r = 7 + i; cover.getCell(r, 1).value = k; cover.getCell(r, 1).font = { bold: true }; cover.getCell(r, 2).value = v; if (v instanceof Date) cover.getCell(r, 2).numFmt = 'yyyy-mm-dd'; });
-    let r = 7 + info.length + 1;
-    cover.getCell(r, 1).value = 'Contents'; cover.getCell(r, 1).font = { bold: true, size: 12 }; r++;
-    [['Sheet', 'Documents'], ...gen.map(g => [g.tab, g.count]), ['Data', gen.reduce((n, g) => n + g.count, 0)]].forEach((row, i) => {
-      row.forEach((v, c) => { const cell = cover.getCell(r, c + 1); cell.value = v; cell.border = border; if (i === 0) { cell.font = { bold: true }; cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFD9D9D9' } }; } });
-      r++;
-    });
+    const info = { name: ['Project', p.name], code: ['Project code', p.code],
+      ref: ['File reference', { formula: `"${(fileRef() + ' - ').replace(/"/g, '""')}"&B${COVER_ROW.rev}`, result: fileRef() + ' - ' + REV }],   // follows the Revision cell
+      date: ['Date', date], rev: ['Revision', REV], issuer: ['Issued by', p.issuer], company: ['Issuing Company', officeName()] };
+    for (const [k, [label, v]] of Object.entries(info)) {
+      const r = COVER_ROW[k]; cover.getCell(r, 1).value = label; cover.getCell(r, 1).font = { bold: true };
+      const cell = cover.getCell(r, 2); cell.value = v; cell.alignment = { horizontal: 'left' }; if (v instanceof Date) cell.numFmt = 'yyyy-mm-dd';
+    }
     cover.headerFooter.oddFooter = '&C' + 'Bond Bryan';
 
     // ---- content sheets
     const dataRows = []; // {sheet, row, tab, series}
     for (const g of gen) {
-      const ws = wb.addWorksheet(g.tab, { views: [{ state: 'frozen', ySplit: 8 }], pageSetup: { orientation: 'landscape', fitToPage: true, fitToWidth: 1, fitToHeight: 0, paperSize: 8 } });
+      const ws = wb.addWorksheet(g.tab, { views: [{ state: 'frozen', ySplit: 8, showGridLines: false }], pageSetup: { orientation: 'landscape', fitToPage: true, fitToWidth: 1, fitToHeight: 0, paperSize: 8 } });
       ws.columns = WIDTHS.map(w => ({ width: w }));
       ws.getCell('A1').value = 'TASK INFORMATION DELIVERY PLAN'; ws.getCell('A1').font = { bold: true, size: 14 }; ws.mergeCells('A1:H1');
-      [['Project Name', p.name], ['File Ref', fileRef() + ' - ' + REV], ['Date', date]].forEach(([k, v], i) => {
-        const row = 3 + i; ws.getCell(row, 1).value = k; ws.getCell(row, 1).font = { bold: true }; ws.mergeCells(row, 1, row, 2);
-        ws.getCell(row, 3).value = v; if (v instanceof Date) ws.getCell(row, 3).numFmt = 'yyyy-mm-dd'; ws.mergeCells(row, 3, row, i < 2 ? 8 : 5);
+      // header block (rows 2 to 6): linked to the Cover, so the information is changed once, on the Cover
+      [['Issuing Company', 'company', officeName()], ['Project Name', 'name', p.name], ['File Ref', 'ref', fileRef() + ' - ' + REV], ['Date', 'date', date], ['Revision', 'rev', REV]].forEach(([k, src, v], i) => {
+        const row = 2 + i, link = `Cover!$B$${COVER_ROW[src]}`, cell = ws.getCell(row, 3);
+        ws.getCell(row, 1).value = k; ws.getCell(row, 1).font = { bold: true }; ws.mergeCells(row, 1, row, 2);
+        cell.value = { formula: link, result: v }; cell.alignment = { horizontal: 'left' }; if (v instanceof Date) cell.numFmt = 'yyyy-mm-dd';
+        cell.dataValidation = { type: 'custom', allowBlank: false, formulae: [`C${row}=${link}`], showErrorMessage: true, errorStyle: 'stop', errorTitle: 'Linked to the Cover sheet', error: 'Change this information in the Cover sheet.' };
+        ws.mergeCells(row, 3, row, 8);
       });
       HEAD7.forEach((h, c) => { const cell = ws.getCell(7, c + 1); cell.value = h || null; });
       HEAD8.forEach((h, c) => { const cell = ws.getCell(8, c + 1); cell.value = h || null; });
@@ -481,7 +555,7 @@
         if ((row === 8 && isProg(c)) || c > TN) cell.alignment = { ...cell.alignment, textRotation: 90 };
         if (si >= 0 && !p.stageOn[STAGES[si]]) { cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFEDEDED' } }; cell.font = { bold: true, size: 9, color: { argb: 'FF8C8280' } }; }
         else if (si >= 0) cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF' + STAGE_COLOURS[STAGES[si]] } };
-        else cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFD9D9D9' } };
+        else cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: GREY } };
       }
       for (let c = 1; c <= 7; c++) ws.mergeCells(7, c, 8, c);
       STAGES.forEach((_, i) => ws.mergeCells(7, stageCol(i), 7, progCol(i)));
@@ -495,12 +569,12 @@
         hr.getCell(1).value = grp.series; hr.font = { bold: true };
         for (let c = 1; c <= NCOL; c++) {
           const cell = hr.getCell(c);
-          cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFD9D9D9' } };
-          if (isProg(c)) {   // category progress: average over the deliverables issued at that stage (blank progress counts as 0)
-            const S_ = colLetter(c - 1), P_ = colLetter(c);
-            cell.value = { formula: `IF(COUNTA(${S_}${r1}:${S_}${r2})=0,"",SUM(${P_}${r1}:${P_}${r2})/COUNTA(${S_}${r1}:${S_}${r2}))` };
+          cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: GREY } };
+          if (isProg(c)) {   // category progress: average of the Progress values entered in the series, whether or not the stage has a date
+            const P_ = colLetter(c);
+            cell.value = { formula: `IF(COUNT(${P_}${r1}:${P_}${r2})=0,"",AVERAGE(${P_}${r1}:${P_}${r2}))` };
             cell.numFmt = PCT; cell.alignment = { horizontal: 'center' }; cell.font = { bold: true, size: 9 };
-          } else if (c >= 12) cell.value = '◦';
+          } else if (c >= 12) { cell.value = '◦'; cell.font = { bold: true, color: { argb: GREY } }; }   // keeps the series row when a column is filtered; same colour as the fill, so not visible
         }
         ws.mergeCells(rn, 1, rn, 11); hr.height = 19; rn++;
         for (const x of grp.rows) {
@@ -509,7 +583,8 @@
             ...x.stages.flatMap(v => [v, '']), ...tenders.map(t => x.tender[t] ? '✓' : ''), ...GATEWAYS.map(([k]) => x.gateway[k] ? '✓' : '')];
           vals.forEach((v, i) => {
             const c = i + 1, cell = row.getCell(c), si = stageOf(c); cell.value = v === '' ? null : v; cell.border = border; cell.font = { size: 9 };
-            if (c === 7) cell.numFmt = '@';
+            if (c === 7 || c === 4) cell.numFmt = '@';
+            if (CENTRED.includes(c)) cell.alignment = { horizontal: 'center' };
             if (si >= 0 && !isProg(c)) {
               cell.alignment = { horizontal: 'center' };
               if (v instanceof Date) cell.numFmt = 'yyyy-mm-dd'; else if (v === 'YYYY-MM-DD') cell.font = { size: 9, color: { argb: 'FFFF0000' } };
@@ -532,6 +607,8 @@
         ref: `${colLetter(progCol(i))}9:${colLetter(progCol(i))}${rn - 1}`,
         rules: [{ type: 'dataBar', priority: i + 1, gradient: false, cfvo: [{ type: 'num', value: 0 }, { type: 'num', value: 100 }], color: { argb: 'FF6DA97D' } }]
       }));
+      // drop-downs from the Data fields sheet, over the table and 200 rows below it, so rows inserted or added by hand keep the accepted values
+      for (const f of FIELDS) ws.dataValidations.add(`${colLetter(f.col)}9:${colLetter(f.col)}${rn + 199}`, { type: 'list', allowBlank: true, formulae: [f.ref], showErrorMessage: true, errorStyle: 'stop', errorTitle: f.name, error: `Choose a ${f.name} from the list. The accepted values are on the hidden "Data fields" sheet.` });
       ws.autoFilter = { from: { row: 8, column: 1 }, to: { row: rn - 1, column: NCOL } };
       ws.headerFooter.oddFooter = '&L' + (p.name || '') + '&C' + 'Bond Bryan' + '&R' + 'Page &P of &N';
     }
@@ -541,7 +618,7 @@
     const dataCols = DATAHEAD.map((_, i) => i + 1).filter(c => !isProg(c));   // content-sheet columns copied to the Data sheet
     data.columns = [{ width: 34 }, { width: 11 }, { width: 30 }, ...dataCols.map(c => ({ width: Math.max(WIDTHS[c - 1], DATAHEAD[c - 1].length + 3) }))];
     const heads = ['Document reference', 'Document type', 'Series', ...dataCols.map(c => DATAHEAD[c - 1])];
-    heads.forEach((h, c) => { const cell = data.getCell(1, c + 1); cell.value = h; cell.font = { bold: true }; cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFD9D9D9' } }; });
+    heads.forEach((h, c) => { const cell = data.getCell(1, c + 1); cell.value = h; cell.font = { bold: true }; cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: GREY } }; });
     let dr = 2;
     const q = s => `'${s.replace(/'/g, "''")}'`;
     for (const d of dataRows) {
@@ -557,52 +634,97 @@
       dr++;
     }
     data.autoFilter = dr > 2 ? { from: 'A1', to: { row: dr - 1, column: 3 + dataCols.length } } : undefined;
+
+    // ---- Data fields sheet (hidden)
+    const fields = wb.addWorksheet('Data fields', { views: [NOGRID], state: 'hidden' });
+    fields.columns = FIELDS.map(f => ({ width: Math.max(14, ...f.values.map(v => String(v).length + 2)) }));
+    FIELDS.forEach((f, i) => {
+      const h = fields.getCell(1, i + 1); h.value = f.name; h.font = { bold: true }; h.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: GREY } };
+      f.values.forEach((v, j) => { const cell = fields.getCell(j + 2, i + 1); cell.value = String(v); cell.numFmt = '@'; });
+    });
+
     wb.calcProperties.fullCalcOnLoad = true;
-    return new Blob([await wb.xlsx.writeBuffer()], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+    const buf = await wb.xlsx.writeBuffer();
+    return new Blob([logo ? await sizePictures(buf, logo) : buf], { type: XLSX_MIME });
   }
   function colLetter(n) { let s = ''; while (n > 0) { const m = (n - 1) % 26; s = String.fromCharCode(65 + m) + s; n = (n - m - 1) / 26; } return s; }
-  async function logoBytes() {
-    try { const r = await fetch('logo.png'); return r.ok ? await r.arrayBuffer() : null; } catch (e) { return null; }
+  /** Cell index and pixel offset reached after `px` pixels across cells of the given pixel sizes. */
+  function spanTo(px, sizes) { let i = 0; while (i < sizes.length - 1 && px >= sizes[i]) px -= sizes[i++]; return [i, Math.round(px)]; }
+  /** Cover logo for the Issuing Company (Interiors logo for Interior Design), fitted inside LOGO_BOX. */
+  async function loadLogo(wb) {
+    try {
+      const r = await fetch(logoFile()); if (!r.ok) return null;
+      const buf = await r.arrayBuffer(), v = new DataView(buf), pw = v.getUint32(16), ph = v.getUint32(20);   // PNG IHDR: width, height
+      const k = Math.min(LOGO_BOX.w / pw, LOGO_BOX.h / ph);
+      return { id: wb.addImage({ buffer: buf, extension: 'png' }), w: Math.round(pw * k), h: Math.round(ph * k) };
+    } catch (e) { return null; }
   }
-  async function loadLogo(wb) { const buf = await logoBytes(); return buf ? wb.addImage({ buffer: buf, extension: 'png' }) : null; }
+  /** ExcelJS writes pictures with an empty size (0 x 0) in the drawing part; Excel for Mac then only draws them once selected.
+      This rewrites the size to the real one. The workbook is returned untouched if anything goes wrong. */
+  async function sizePictures(buf, logo) {
+    try {
+      const zip = await JSZip.loadAsync(buf), name = Object.keys(zip.files).find(n => /^xl\/drawings\/drawing\d+\.xml$/.test(n));
+      if (!name) return buf;
+      const xml = await zip.file(name).async('string');
+      zip.file(name, xml.replace(/<a:ext cx="0" cy="0"\/>/g, `<a:ext cx="${logo.w * EMU}" cy="${logo.h * EMU}"/>`));
+      return await zip.generateAsync({ type: 'arraybuffer', compression: 'DEFLATE', mimeType: XLSX_MIME });
+    } catch (e) { console.warn('Picture size not rewritten', e); return buf; }
+  }
 
-  // ------------------------------------------------------------------ resourcing note (docx)
-  async function buildNote() {
-    const D = window.docx, p = S.project, gen = generate(true);
-    const rows = gen.flatMap(g => g.groups.flatMap(x => x.rows));
-    const cat = r => r.tab === 'Internal' ? 'internalUse' : STATUS_KEY(r.status);
-    const count = k => rows.filter(r => cat(r) === k).length;
-    const sections = [['confirm', `Confirmation of ${originator()} scope required`, 'Items to confirm against the appointment before they are committed.'],
-      ['op', 'Outsourcing Partner items', 'Candidates for the Outsourcing Partner. The Project Lead coordinates scope, programme and quality checks.'],
-      ['cdp', 'Contractor Designed Portion items', `Items expected from the contractor or specialist; ${originator()} reviews only.`],
-      ['internal', 'Internal Team Items', 'General documents produced by the Bond Bryan project team; the Project Lead allocates resource.'],
-      ['internalUse', 'Internal usage only', 'Documents for Bond Bryan internal use only; they are not part of the issued TIDP.']];
-    const P = (t, o = {}) => new D.Paragraph({ children: [new D.TextRun({ text: t, font: 'Arial', size: o.size || 20, bold: o.bold, color: o.color })], spacing: { after: o.after ?? 100 }, heading: o.h });
-    const cellOpts = { margins: { top: 40, bottom: 40, left: 80, right: 80 } };
-    const cell = (t, w, bold, fill) => new D.TableCell({ ...cellOpts, width: { size: w, type: D.WidthType.DXA }, shading: fill ? { fill } : undefined, children: [new D.Paragraph({ children: [new D.TextRun({ text: String(t ?? ''), font: 'Arial', size: 16, bold })] })] });
-    const logo = await logoBytes();
-    const children = [
-      ...(logo ? [new D.Paragraph({ children: [new D.ImageRun({ data: new Uint8Array(logo), transformation: { width: 240, height: 41 } })], spacing: { after: 300 } })] : []),
-      P('INTERNAL RESOURCING NOTE', { size: 32, bold: true }), P('Task Information Delivery Plan · Internal, not for issue', { color: '8C8280' }),
-      P(`Project: ${p.name}   Code: ${p.code}   Issuing office: ${officeName()} (${originator()})   Revision: ${REV}   Date: ${today()}   Sector or discipline: ${p.sector}   Issued by: ${p.issuer}   Outsourcing Partner: ${p.outsourcing ? 'may be used' : 'not selected'}`, { after: 200 }),
-      P(`Summary: ${rows.length} deliverables in total, of which ${count('confirm')} requiring scope confirmation, ${count('op')} documents suitable for outsourcing, ${count('internal')} internal team items and ${count('internalUse')} for internal usage only.`, { after: 300 })];
-    for (const [k, title, intro] of sections) {
-      const list = rows.filter(r => cat(r) === k); if (!list.length) continue;
-      children.push(P(`${title} (${list.length})`, { size: 24, bold: true, after: 60 }), P(intro, { color: '444444', after: 120 }));
-      const W = [1900, 1100, 3900, 1000, 1000, 3100];
-      const trs = [new D.TableRow({ tableHeader: true, children: ['Reference', 'Sheet', 'Description', 'Format', 'First stage', 'Comment'].map((h, i) => cell(h, W[i], true, 'D9D9D9')) })];
-      for (const r of list) {
-        const first = r.stages.findIndex(s => s); const fs = first >= 0 ? 'Stage ' + STAGES[first] + (r.stages[first] instanceof Date ? ' · ' + r.stages[first].toISOString().slice(0, 10) : '') : '';
-        trs.push(new D.TableRow({ children: [docRef(r), r.tab, r.description, r.format, fs, r.comments].map((v, i) => cell(v, W[i])) }));
-      }
-      children.push(new D.Table({ rows: trs, width: { size: 12000, type: D.WidthType.DXA } }), P('', { after: 200 }));
+  // ------------------------------------------------------------------ Outsourcing Tracker (template + Suitable Drawings filled from the TIDP)
+  // The template is the practice Outsourcing Tracker, kept byte for byte: only the cells of the Suitable Drawings sheet
+  // (and the project name and code on the Summary) are written, straight into the sheet XML, so its formatting, drop-downs and rules are untouched.
+  const TRACKER = { file: 'tracker-template.xlsx', sheet: 'Suitable Drawings', first: 6, cols: 7, summary: 'Summary', name: 'B6', code: 'B7' };
+  const xmlEsc = v => String(v).replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c])).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, '');
+  const textCell = (ref, style, v) => v ? `<c r="${ref}"${style}t="inlineStr"><is><t xml:space="preserve">${xmlEsc(v)}</t></is></c>` : `<c r="${ref}"${style}/>`;
+  async function buildTracker() {
+    const p = S.project, r = await fetch(TRACKER.file, { cache: 'no-store' });
+    if (!r.ok) throw new Error('Outsourcing Tracker template not found (' + TRACKER.file + ')');
+    const zip = await JSZip.loadAsync(await r.arrayBuffer());
+    const wbXml = await zip.file('xl/workbook.xml').async('string'), rels = await zip.file('xl/_rels/workbook.xml.rels').async('string');
+    const sheetPath = name => {
+      const tag = (wbXml.match(/<sheet\b[^>]*>/g) || []).find(t => t.includes(`name="${name}"`)), id = tag && /r:id="([^"]+)"/.exec(tag);
+      const rel = id && (rels.match(/<Relationship\b[^>]*>/g) || []).find(t => t.includes(`Id="${id[1]}"`)), target = rel && /Target="([^"]+)"/.exec(rel);
+      if (!target) throw new Error(`The Outsourcing Tracker template has no "${name}" sheet`);
+      return target[1].startsWith('/') ? target[1].slice(1) : 'xl/' + target[1];
+    };
+    /** Writes text into an existing (styled, empty) cell of a sheet XML; the cell keeps its style. */
+    const put = (xml, ref, v) => {
+      const re = new RegExp(`<c r="${ref}"((?: [a-z]+="[^"]*")*)\\s*(?:/>|>\\s*</c>)`);   // empty cell, as written by Excel or openpyxl
+      if (!re.test(xml)) throw new Error('Outsourcing Tracker template: cell ' + ref + ' is not an empty formatted cell');
+      return xml.replace(re, (_, at) => textCell(ref, ((/ s="\d+"/.exec(at) || [''])[0]) + ' ', v));
+    };
+
+    // Summary: project name and code
+    const sumPath = sheetPath(TRACKER.summary);
+    let sum = await zip.file(sumPath).async('string');
+    sum = put(put(sum, TRACKER.name, p.name), TRACKER.code, p.code);
+    zip.file(sumPath, sum);
+
+    // Suitable Drawings: one row per document suitable for outsourcing; column A (For outsourcing) is left for the Project Lead
+    const path = sheetPath(TRACKER.sheet);
+    let xml = await zip.file(path).async('string');
+    const rows = outsourcingRows().map(x => {
+      const first = x.stages.findIndex(s => s);
+      const stage = first < 0 ? '' : 'Stage ' + STAGES[first] + (x.stages[first] instanceof Date ? ' (' + x.stages[first].toISOString().slice(0, 10) + ')' : '');
+      return ['', docRef(x), x.tab, x.description, x.format, stage, x.comments];
+    });
+    const last = Number((/<dimension ref="[A-Z]+\d+:[A-Z]+(\d+)"/.exec(xml) || [])[1] || 0), need = TRACKER.first + rows.length - 1;
+    const styleOf = c => (/ s="\d+"/.exec((new RegExp(`<c r="${colLetter(c)}${TRACKER.first}"[^>]*>`).exec(xml) || [''])[0]) || [''])[0];
+    if (last && need > last) {   // more documents than formatted rows: add rows in the same style and stretch the drop-down, rule, filter and print ranges
+      const styles = Array.from({ length: TRACKER.cols }, (_, i) => styleOf(i + 1));
+      let extra = '';
+      for (let n = last + 1; n <= need; n++) extra += `<row r="${n}">` + styles.map((st, i) => `<c r="${colLetter(i + 1)}${n}"${st}/>`).join('') + '</row>';
+      xml = xml.replace('</sheetData>', extra + '</sheetData>').replace(new RegExp(`((?:ref|sqref)="[A-Z]+\\d+:[A-Z]+)${last}"`, 'g'), `$1${need}"`);
+      zip.file('xl/workbook.xml', wbXml.replace(new RegExp(`('${TRACKER.sheet}'!\\$[A-Z]+\\$\\d+:\\$[A-Z]+\\$)${last}(?=<)`, 'g'), `$1${need}`));
     }
-    const doc = new D.Document({ sections: [{ properties: { page: { size: { orientation: D.PageOrientation.LANDSCAPE }, margin: { top: 900, bottom: 900, left: 900, right: 900 } } }, children }] });
-    return D.Packer.toBlob(doc);
+    rows.forEach((vals, i) => vals.forEach((v, c) => { if (c) xml = put(xml, colLetter(c + 1) + (TRACKER.first + i), v); }));
+    zip.file(path, xml);
+    return new Blob([await zip.generateAsync({ type: 'arraybuffer', compression: 'DEFLATE' })], { type: XLSX_MIME });
   }
 
   // ------------------------------------------------------------------ helpers
   function download(blob, name) { const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 2000); }
   let toastT; function toast(msg) { const t = $('toast'); t.textContent = msg; t.style.display = 'block'; clearTimeout(toastT); toastT = setTimeout(() => t.style.display = 'none', 3500); }
-  window.TIDP = { S, generate, buildWorkbook, buildNote, fileRef, noteRef }; // for tests
+  window.TIDP = { S, generate, buildWorkbook, buildTracker, fileRef, trackerRef }; // for tests
 })();

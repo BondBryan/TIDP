@@ -16,17 +16,20 @@
 html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:14px;line-height:1.4}
 button,input,select,textarea{font:inherit;color:inherit}
 a{color:var(--accent)}
-header{display:flex;align-items:center;gap:20px;padding:14px 24px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:20}
+.topbar{position:sticky;top:0;z-index:20;background:var(--bg)}
+header{display:flex;align-items:center;gap:20px;padding:14px 24px;border-bottom:1px solid var(--line);background:var(--bg)}
 header img{height:34px}
 header h1{font-size:18px;font-weight:700;margin:0;letter-spacing:-.2px}
 header .sub{color:var(--muted);font-size:12px}
 header .spacer{flex:1}
 .pill{display:inline-block;padding:2px 8px;border-radius:999px;background:var(--panel);font-size:12px;color:var(--ink-2)}
-nav.steps{display:flex;gap:4px;padding:10px 24px;border-bottom:1px solid var(--line);background:var(--panel)}
-nav.steps button{border:0;background:transparent;padding:8px 14px;border-radius:var(--radius);cursor:pointer;font-weight:600;color:var(--ink-2)}
-nav.steps button.active{background:var(--ink);color:#fff}
-nav.steps button .n{display:inline-block;width:20px;height:20px;border-radius:50%;background:var(--line);color:var(--ink);text-align:center;line-height:20px;font-size:12px;margin-right:8px}
-nav.steps button.active .n{background:var(--accent-2);color:var(--ink)}
+nav.steps{display:flex;gap:4px;align-items:center;padding:10px 24px;border-bottom:1px solid var(--line);background:var(--panel)}
+nav.steps .spacer{flex:1}
+nav.steps .btn{margin-left:6px;white-space:nowrap}
+nav.steps button[data-step]{border:0;background:transparent;padding:8px 14px;border-radius:var(--radius);cursor:pointer;font-weight:600;color:var(--ink-2)}
+nav.steps button[data-step].active{background:var(--ink);color:#fff}
+nav.steps button[data-step] .n{display:inline-block;width:20px;height:20px;border-radius:50%;background:var(--line);color:var(--ink);text-align:center;line-height:20px;font-size:12px;margin-right:8px}
+nav.steps button[data-step].active .n{background:var(--accent-2);color:var(--ink)}
 main{padding:20px 24px 60px;max-width:1500px}
 section.step{display:none}
 section.step.active{display:block}
@@ -37,7 +40,7 @@ p.lead{margin:0 0 18px;color:var(--ink-2)}
 .card h3{margin:0 0 10px;font-size:13px;text-transform:uppercase;letter-spacing:.6px;color:var(--ink-2)}
 .f{display:block;margin-bottom:10px}
 .f > span{display:block;font-size:12px;color:var(--ink-2);margin-bottom:3px}
-input[type=text],input[type=date],select,textarea{width:100%;padding:7px 9px;border:1px solid var(--line);border-radius:4px;background:#fff}
+input[type=text],input[type=password],input[type=date],select,textarea{width:100%;padding:7px 9px;border:1px solid var(--line);border-radius:4px;background:#fff}
 input:focus,select:focus,textarea:focus{outline:2px solid var(--accent-2);outline-offset:0;border-color:var(--accent)}
 .hint{font-size:12px;color:var(--muted);margin-top:4px}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
@@ -88,7 +91,7 @@ dialog.intro h3{margin:0 0 10px;font-size:16px}
 dialog.intro p{margin:0 0 18px;color:var(--ink-2)}
 ul.files{margin:6px 0 14px;padding-left:18px}
 ul.files li{margin:4px 0;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;word-break:break-all}
-.toolbar{display:flex;flex-direction:column;gap:8px;margin:10px 0 12px;position:sticky;top:70px;background:#fff;padding:8px 0;z-index:10;border-bottom:1px solid var(--line)}
+.toolbar{display:flex;flex-direction:column;gap:8px;margin:10px 0 12px;position:sticky;top:var(--top,120px);background:#fff;padding:8px 0;z-index:10;border-bottom:1px solid var(--line)}
 .toolbar .controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .toolbar .controls .sep{flex:1}
 .toolbar input[type=text]{width:260px}
@@ -98,7 +101,7 @@ ul.files li{margin:4px 0;font-family:ui-monospace,Menlo,Consolas,monospace;font-
 .tabs button.active{background:var(--accent);border-color:var(--accent);color:#fff}
 .tabs button .c{opacity:.7;font-size:12px;margin-left:4px}
 table.docs{width:100%;border-collapse:collapse;font-size:13px}
-table.docs th{position:sticky;top:162px;background:var(--panel);text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);font-size:12px;z-index:5}
+table.docs th{position:sticky;top:var(--top2,212px);background:var(--panel);text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);font-size:12px;z-index:5}
 table.docs td{padding:5px 8px;border-bottom:1px solid #eee;vertical-align:top}
 table.docs tr.series td{background:#e9e7e3;font-weight:700;padding:6px 8px;font-size:12px}
 table.docs tr.off td{color:var(--muted)}
@@ -129,11 +132,12 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
 #projectErr{border-color:#d62828;color:#a4161a;font-weight:700}
 #toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;border-radius:6px;display:none;z-index:50}
 @media (max-width:1200px){table.docs th:nth-child(5),table.docs td:nth-child(5),table.docs th:nth-child(6),table.docs td:nth-child(6){display:none}}
-@media (max-width:700px){header{padding:10px 16px}main{padding:14px 16px}nav.steps{padding:6px 16px;overflow-x:auto}.toolbar{position:static}table.docs th{position:static}}
-@media print{header,nav,.toolbar,footer{display:none}}
+@media (max-width:700px){header{padding:10px 16px}main{padding:14px 16px}nav.steps{padding:6px 16px;overflow-x:auto}.topbar{position:static}.toolbar{position:static}table.docs th{position:static}}
+@media print{.topbar,.toolbar,footer{display:none}}
 </style>
 </head>
 <body>
+<div class="topbar">
 <header>
   <img src="logo.png" alt="Bond Bryan">
   <div><h1>TIDP Builder</h1><div class="sub">Use to generate your project specific Task Information Delivery Plan</div></div>
@@ -145,7 +149,11 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
   <button data-step="1" class="active"><span class="n">1</span>Project set-up</button>
   <button data-step="2"><span class="n">2</span>Deliverables</button>
   <button data-step="3"><span class="n">3</span>Review &amp; export</button>
+  <span class="spacer"></span>
+  <button class="btn secondary" id="navBack" style="display:none">← Back</button>
+  <button class="btn" id="navNext">Next: review deliverables →</button>
 </nav>
+</div>
 
 <main>
 <!-- ================= STEP 1 ================= -->
@@ -154,7 +162,7 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
 
   <div class="codeex">
     Code example: <code><span class="c-proj">ABCDE</span>-<span class="c-org" id="exOrg">BBA</span>-<span class="c-vol">01</span>-<span class="c-lvl">ZZ</span>-<span id="exType">D</span>-<span class="c-role">A</span>-<span id="exNum">0001</span></code>
-    <div class="legend"><span class="c-proj">ABCDE · Project code</span><span class="c-org" id="exOrgLeg">BBA · Issuing office</span><span class="c-vol">01 · Volumes</span><span class="c-lvl">ZZ · Storeys</span><span class="c-role">A · Sector or discipline</span></div>
+    <div class="legend"><span class="c-proj">ABCDE · Project code</span><span class="c-org" id="exOrgLeg">BBA · Issuing Company</span><span class="c-vol">01 · Volumes</span><span class="c-lvl">ZZ · Storeys</span><span class="c-role">A · Sector or discipline</span></div>
   </div>
 
   <div id="projectErr" class="err" role="alert" style="display:none">You need to fill Project Information first</div>
@@ -164,7 +172,7 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
       <h3>Project</h3>
       <label class="f"><span>Project name</span><input type="text" id="pName" placeholder="e.g. Ridgewood School"></label>
       <label class="f"><span class="c-proj">Project code (first field of the file reference)</span><input type="text" id="pCode" placeholder="e.g. SRP1044" maxlength="12"></label>
-      <label class="f"><span class="c-org">Issuing office</span><select id="pOffice"><option value="BBA">BondBryan</option><option value="BBF">BondBryan:Fairhursts</option></select></label>
+      <label class="f"><span class="c-org">Issuing Company</span><select id="pOffice"><option value="BBA">BondBryan</option><option value="BBF">BondBryan:Fairhursts</option><option value="FH">Fairhursts</option></select></label>
       <label class="f"><span>Issued by</span><input type="text" id="pIssuer" placeholder="Project Lead name"></label>
       <label class="f"><span class="c-role">Sector or discipline</span><select id="pSector"><option value="">Select a sector or discipline…</option></select></label>
       <label class="f"><span>Nature of the works</span>
@@ -174,7 +182,7 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
           <option value="mixed">Mixed: new build and existing</option>
         </select></label>
       <div class="f"><span>Outsourcing</span>
-        <label class="chip" id="chipOut"><input type="checkbox" id="pOutsourcing"> Outsourcing Partner may be used on this project</label></div>
+        <label class="chip" id="chipOut"><input type="checkbox" id="pOutsourcing"> Outsourcing may be used on this project</label></div>
       <div class="f" id="berkRow" style="display:none"><span>Client naming</span>
         <label class="chip" id="chipBerk"><input type="checkbox" id="pBerkeley"> Berkeley project: use Berkeley document types and codes</label></div>
     </div>
@@ -210,9 +218,6 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
     </div>
   </div>
 
-  <div class="row" style="margin-top:20px">
-    <button class="btn" data-goto="2">Next: review deliverables →</button>
-  </div>
 </section>
 
 <!-- ================= STEP 2 ================= -->
@@ -225,9 +230,7 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
       <select id="statusFilter"><option value="">All statuses</option></select>
       <label class="chip"><input type="checkbox" id="showOff" checked> Show unselected</label>
       <span class="sep"></span>
-      <button class="btn secondary small" id="selAll" title="Tick every row shown by the current tab and filters">Select shown</button>
-      <button class="btn secondary small" id="selNone" title="Untick every row shown by the current tab and filters">Clear shown</button>
-      <button class="btn secondary small" id="selReset" title="Discard manual ticks and return to the Library defaults for this sector">Sector defaults</button>
+      <button class="btn secondary small" id="selReset" title="Discard manual ticks and return to the Library defaults for this sector">Reset list</button>
     </div>
   </div>
   <div id="setupWarn" class="warn" style="display:none"></div>
@@ -237,10 +240,6 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
     </tr></thead>
     <tbody id="docBody"></tbody>
   </table>
-  <div class="row" style="margin-top:20px">
-    <button class="btn secondary" data-goto="1">← Back</button>
-    <button class="btn" data-goto="3">Next: review and export →</button>
-  </div>
 </section>
 
 <!-- ================= STEP 3 ================= -->
@@ -261,16 +260,22 @@ footer{padding:16px 24px;color:var(--muted);font-size:12px;border-top:1px solid 
 <footer>Bond Bryan Architects · Smarter Working Group · Library <span id="libVer"></span></footer>
 <div id="toast"></div>
 <div id="tip" role="tooltip"></div>
-<dialog class="intro wide" id="scopeDlg"><h3 id="scopeTitle">Confirmation of BBA scope required</h3>
+<dialog class="intro wide" id="scopeDlg"><h3 id="scopeTitle">Confirmation of scope required</h3>
   <p>These documents are outside our standard scope and are agreed project by project. Check the appointment before ticking them for export.</p>
   <div class="scopewrap"><table class="docs"><thead><tr><th style="width:30px"></th><th>Code</th><th>Name</th><th>Note</th></tr></thead><tbody id="scopeBody"></tbody></table></div>
   <div class="row" style="justify-content:flex-end"><button class="btn secondary" id="scopeCancel">Cancel</button><button class="btn" id="scopeOk">Validate</button></div></dialog>
 <dialog class="intro" id="berkDlg"><h3>Is this a Berkeley project?</h3><p>Berkeley Group projects (including St George) use their own document types and codes, e.g. DR 005-2001 instead of D 2001. Choose Yes to export the TIDP with the Berkeley naming. You can change this later on step 1.</p>
   <div class="row" style="justify-content:flex-end"><button class="btn secondary" id="berkNo">No</button><button class="btn" id="berkYes">Yes, Berkeley project</button></div></dialog>
+<dialog class="intro" id="gate"><h3>TIDP Builder</h3>
+  <p id="gateText"></p>
+  <label class="f"><span>Password</span><input type="password" id="gatePw" autocomplete="off"></label>
+  <div class="hint" style="margin:-4px 0 14px">The password can be found on the HUB page for the TIDP.</div>
+  <div id="gateErr" class="err" role="alert" style="display:none">Incorrect password. Check the HUB page for the TIDP and try again.</div>
+  <div class="row" style="justify-content:flex-end"><button class="btn" id="gateOk">Continue</button></div></dialog>
 <dialog class="intro" id="intro"><h3 id="introTitle"></h3><p id="introText"></p><form method="dialog" class="row" style="justify-content:flex-end"><button class="btn">OK, understood</button></form></dialog>
 
 <script src="vendor/exceljs.min.js"></script>
-<script src="vendor/docx.umd.js"></script>
+<script src="vendor/jszip.min.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 {
  "meta": {
   "name": "Bond Bryan TIDP Library",
-  "version": "2026.24",
+  "version": "2026.25",
   "source": "Bond Bryan Architects",
   "extracted": "2026-11",
   "documents": 365,
@@ -152,7 +152,7 @@
   "statuses": [
    "Internal Team Item - Project Lead to allocate resource accordingly",
    "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
-   "Confirmation of BBA scope required",
+   "Confirmation of scope required",
    "CDP Item"
   ],
   "stages": [
@@ -432,7 +432,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "CF25 DRM: Site Location Plan (IE301, IE401). Scope to be agreed with the Architect.",
    "sectors": {
     "Education": false,
@@ -603,7 +603,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Red line of the landscape scope.",
    "sectors": {
     "Education": false,
@@ -890,7 +890,7 @@
     "4a": false,
     "4b": false
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "",
    "sectors": {
     "Education": false,
@@ -1120,7 +1120,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "CF25 DRM: Fencing and Boundaries Drawings (IE301, IE401). Combines ownership and boundaries, fence arrangement and security access.",
    "sectors": {
     "Education": false,
@@ -1352,7 +1352,7 @@
     "4a": false,
     "4b": false
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Only if required for the planning submission (outline or hybrid applications).",
    "sectors": {
     "Education": false,
@@ -2154,7 +2154,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Sports provision only; confirm scope. CF25 DRM: External Pitches and MUGA Drawings (IE401).",
    "sectors": {
     "Education": false,
@@ -2268,7 +2268,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Sports provision only; confirm scope. CF25 DRM: External Pitches and MUGA Drawings (IE401).",
    "sectors": {
     "Education": false,
@@ -2325,7 +2325,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Sports provision only; confirm scope. CF25 DRM: External Pitches and MUGA Drawings (IE401).",
    "sectors": {
     "Education": false,
@@ -2555,7 +2555,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Not a CF25 DRM deliverable: the play strategy is part of the Landscape Strategy Report (IE301).",
    "sectors": {
     "Education": false,
@@ -2726,7 +2726,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "",
    "sectors": {
     "Education": false,
@@ -2840,7 +2840,7 @@
     "4a": false,
     "4b": false
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "CF25 DRM requirement.",
    "sectors": {
     "Education": false,
@@ -3013,7 +3013,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "CF25 DRM requirement.",
    "sectors": {
     "Education": false,
@@ -3070,7 +3070,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "",
    "sectors": {
     "Education": false,
@@ -3127,7 +3127,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Not a stand-alone CF25 DRM deliverable: BNG results are embedded on the Landscape Plan (IE301).",
    "sectors": {
     "Education": false,
@@ -3414,7 +3414,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Site-wide, single floor. Secured by Design requirements.",
    "sectors": {
     "Education": false,
@@ -3471,7 +3471,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Roof terraces and podiums. Coordinate with the Architect and Fire Engineer.",
    "sectors": {
     "Education": false,
@@ -3528,7 +3528,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -3760,7 +3760,7 @@
     "4a": false,
     "4b": false
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Tall residential schemes, coordinate with wind consultant.",
    "sectors": {
     "Education": false,
@@ -3817,7 +3817,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Podium and roof landscapes only.",
    "sectors": {
     "Education": false,
@@ -4110,7 +4110,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -4169,7 +4169,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -4886,7 +4886,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -4945,7 +4945,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "",
    "sectors": {
     "Education": false,
@@ -6400,7 +6400,7 @@
     "4a": false,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Interior Design version (only if needed). Builderswork openings, chases and penetrations through structure. Coordinate with SE and M&E consultants.",
    "sectors": {
     "Education": false,
@@ -6573,7 +6573,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "",
    "sectors": {
     "Education": false,
@@ -6632,7 +6632,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -6805,7 +6805,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Secured by Design requirements.",
    "sectors": {
     "Education": true,
@@ -7172,7 +7172,7 @@
     "4a": false,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Only relevant to specific appointments. Project Lead to review if required and allocate internal resource accordingly.",
    "sectors": {
     "Education": false,
@@ -7231,7 +7231,7 @@
     "4a": false,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Only relevant to specific appointments. Project Lead to review if required and allocate internal resource accordingly.",
    "sectors": {
     "Education": false,
@@ -7349,7 +7349,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Interior Design version (only if needed): DfE projects. Coordinated with PDCDM.",
    "sectors": {
     "Education": false,
@@ -7524,7 +7524,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Only relevant to specific appointments, Project Lead to review if required and allocate internal resource accordingly.",
    "sectors": {
     "Education": false,
@@ -7581,7 +7581,7 @@
     "4a": false,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Over and above ironmongery drawing for specific setting out and products (schedule and specification).",
    "sectors": {
     "Education": true,
@@ -7640,7 +7640,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Only if required: BREEAM glare control and solar gain evidence (blind and curtain locations and types per facade / room). Coordinate with the BREEAM assessor and M&E (overheating). Read with List-0750 Internal Blinds Schedule.",
    "sectors": {
     "Education": true,
@@ -8374,7 +8374,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "CF25 DRM: External Furniture and Play Equipment Drawings (IE511).",
    "sectors": {
     "Education": false,
@@ -8684,7 +8684,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "CF25 DRM: External Canopies and Storage Drawings (IE511). Scope to be agreed between Architect and Landscape Architect.",
    "sectors": {
     "Education": false,
@@ -9616,7 +9616,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "CF25 DRM: Landscape Details (IE401). Coordinate with the Architect.",
    "sectors": {
     "Education": false,
@@ -10179,7 +10179,7 @@
     "4a": false,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Design intent only if in agreed scope.",
    "sectors": {
     "Education": true,
@@ -10238,7 +10238,7 @@
     "4a": false,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Technical details to be coordinated with other consultants. If in agreed scope. Typically CDP items.",
    "sectors": {
     "Education": true,
@@ -10316,7 +10316,7 @@
     "4a": false,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Technical details to be coordinated with other consultants. If in agreed scope. Typically CDP items.",
    "sectors": {
     "Education": true,
@@ -10394,7 +10394,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "May be produced by the interior designer.",
    "sectors": {
     "Education": false,
@@ -10683,7 +10683,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "CF25 DRM: External Pitches and MUGA Drawings, enclosure and below ground details (IE401).",
    "sectors": {
     "Education": false,
@@ -10858,7 +10858,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Only where there are duplexes, maisonettes or townhouses. Not part of the standard residential scope.",
    "sectors": {
     "Education": false,
@@ -10917,7 +10917,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Podium and roof landscapes only.",
    "sectors": {
     "Education": false,
@@ -11893,7 +11893,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Not part of the standard residential scope.",
    "sectors": {
     "Education": false,
@@ -12070,7 +12070,7 @@
     "4a": false,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Technical details to be coordinated with other consultants.",
    "sectors": {
     "Education": false,
@@ -12207,7 +12207,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Scope to be agreed between Architect and Landscape Architect.",
    "sectors": {
     "Education": true,
@@ -12325,7 +12325,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Links to Lists Movable Partition Schedules and Elevations.",
    "sectors": {
     "Education": true,
@@ -12555,7 +12555,7 @@
     "4a": false,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Scope to be agreed between Architect and Landscape Architect.",
    "sectors": {
     "Education": false,
@@ -12633,7 +12633,7 @@
     "4a": false,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Scope to be agreed between Architect and Landscape Architect.",
    "sectors": {
     "Education": false,
@@ -12789,7 +12789,7 @@
     "4a": false,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Interior Design version (only if needed). Scope to be agreed.",
    "sectors": {
     "Education": false,
@@ -13433,7 +13433,7 @@
     "4b": false
    },
    "status": "Internal Team Item - Project Lead to allocate resource accordingly",
-   "comments": "Dependent on BBA scope.",
+   "comments": "Dependent on BondBryan scope.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -13491,7 +13491,7 @@
     "4a": false,
     "4b": false
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Additional contract / scope for this item.",
    "sectors": {
     "Education": false,
@@ -13569,7 +13569,7 @@
     "4a": false,
     "4b": false
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Additional contract / scope for this item.",
    "sectors": {
     "Education": false,
@@ -13765,8 +13765,8 @@
     "4a": false,
     "4b": false
    },
-   "status": "Confirmation of BBA scope required",
-   "comments": "Visuals (external / internal / daylight impact / street scene): Dependent on BBA scope.",
+   "status": "Confirmation of scope required",
+   "comments": "Visuals (external / internal / daylight impact / street scene): Dependent on BondBryan scope.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -13824,8 +13824,8 @@
     "4a": false,
     "4b": false
    },
-   "status": "Confirmation of BBA scope required",
-   "comments": "Visuals (external / internal / daylight impact / street scene): Dependent on BBA scope.",
+   "status": "Confirmation of scope required",
+   "comments": "Visuals (external / internal / daylight impact / street scene): Dependent on BondBryan scope.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -13883,8 +13883,8 @@
     "4a": false,
     "4b": false
    },
-   "status": "Confirmation of BBA scope required",
-   "comments": "Visuals (external / internal / daylight impact / street scene): Dependent on BBA scope.",
+   "status": "Confirmation of scope required",
+   "comments": "Visuals (external / internal / daylight impact / street scene): Dependent on BondBryan scope.",
    "sectors": {
     "Education": true,
     "Residential": true,
@@ -14060,8 +14060,8 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
-   "comments": "Over and above Schedule of Accommodation, if required by BBA scope.",
+   "status": "Confirmation of scope required",
+   "comments": "Over and above Schedule of Accommodation, if required by BondBryan scope.",
    "sectors": {
     "Education": true,
     "Residential": false,
@@ -14467,7 +14467,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Schedule from manufacturer, locking suite, specifications. Typically CDP item.",
    "sectors": {
     "Education": true,
@@ -15361,7 +15361,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "CF25 DRM: Urban Greening Factor Schedule (IE301). Residential: additional fee to be agreed.",
    "sectors": {
     "Education": false,
@@ -15475,7 +15475,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "CF25 DRM: EBN Schedule (IE301). Residential: additional fee to be agreed.",
    "sectors": {
     "Education": false,
@@ -16198,7 +16198,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Typically to FFE consultant.",
    "sectors": {
     "Education": false,
@@ -16660,7 +16660,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Interior Design, only if needed: decorative and feature luminaires (design intent, types and locations). Coordinate with the M&E lighting design.",
    "sectors": {
     "Education": false,
@@ -17499,7 +17499,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Departures from Employer's Requirements / ITT / PCSA.",
    "sectors": {
     "Education": true,
@@ -17617,7 +17617,7 @@
     "4a": false,
     "4b": false
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Scope to be agreed between Architect and Landscape Architect.",
    "sectors": {
     "Education": false,
@@ -17794,7 +17794,7 @@
     "4a": false,
     "4b": false
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -17853,7 +17853,7 @@
     "4a": false,
     "4b": false
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -17912,7 +17912,7 @@
     "4a": false,
     "4b": false
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -18089,7 +18089,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Interior Design version (only if needed). Clash detection report to be produced by internal team. Clash detection to be coordinated with other consultants.",
    "sectors": {
     "Education": false,
@@ -18382,7 +18382,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Interior Design version (only if needed).",
    "sectors": {
     "Education": false,
@@ -18498,7 +18498,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Interior Design version (only if needed). Site / landscape IFC model for coordination.",
    "sectors": {
     "Education": false,
@@ -18614,7 +18614,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Federated model to be produced by internal team. Clash detection to be coordinated with other consultants.",
    "sectors": {
     "Education": true,
@@ -18673,7 +18673,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Additional contract / scope for this item.",
    "sectors": {
     "Education": true,
@@ -19339,7 +19339,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Clash detection report to be produced by internal team. Clash detection to be coordinated with other consultants.",
    "sectors": {
     "Education": true,
@@ -19457,7 +19457,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Additional contract / scope may be needed for this item.",
    "sectors": {
     "Education": true,
@@ -19516,7 +19516,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Additional contract / scope may be needed for this item.",
    "sectors": {
     "Education": true,
@@ -19653,7 +19653,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Scope to be agreed between Architect and Landscape Architect.",
    "sectors": {
     "Education": false,
@@ -20631,7 +20631,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Additional contract / scope may be needed for this item.",
    "sectors": {
     "Education": true,
@@ -20690,7 +20690,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Coordinate with BIM Support team.",
    "sectors": {
     "Education": false,
@@ -20749,7 +20749,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Coordinate with BIM Support team.",
    "sectors": {
     "Education": false,
@@ -20808,7 +20808,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Coordinate with BIM Support team.",
    "sectors": {
     "Education": false,
@@ -20867,7 +20867,7 @@
     "4a": false,
     "4b": false
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -20926,7 +20926,7 @@
     "4a": false,
     "4b": false
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -20985,7 +20985,7 @@
     "4a": false,
     "4b": false
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Additional contract / scope may be needed for this item.",
    "sectors": {
     "Education": true,
@@ -21044,7 +21044,7 @@
     "4a": false,
     "4b": false
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "",
    "sectors": {
     "Education": true,
@@ -21103,7 +21103,7 @@
     "4a": false,
     "4b": false
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "",
    "sectors": {
     "Education": false,
@@ -21217,7 +21217,7 @@
     "4a": true,
     "4b": true
    },
-   "status": "Confirmation of BBA scope required",
+   "status": "Confirmation of scope required",
    "comments": "Scope to be agreed. Additional contract / scope may be needed for this item.",
    "sectors": {
     "Education": true,

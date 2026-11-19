@@ -1,16 +1,18 @@
 # TIDP Builder
 
-Static web app that generates a Bond Bryan Task Information Delivery Plan from the practice Library and exports a macro-free Excel workbook plus an internal resourcing note. No server, no macros, nothing to install.
+Static web app that generates a Bond Bryan Task Information Delivery Plan from the practice Library and exports a macro-free Excel workbook and, when outsourcing is ticked, the project Outsourcing Tracker. No server, no macros, nothing to install.
 
 ## Files
 
 | File | Role |
 |---|---|
 | `index.html` | The page (layout and styles) |
-| `app.js` | Logic: selection, storey/volume duplication, Excel and Word export |
+| `app.js` | Logic: selection, storey/volume duplication, Excel export, password |
 | `library.json` | **The Library.** One record per deliverable, plus value lists. This is the only file the SWG maintains. |
-| `logo.png` | Logo used on the page and the Excel cover |
-| `vendor/exceljs.min.js`, `vendor/docx.umd.js` | Bundled open-source libraries (MIT) for Excel and Word generation. Kept locally so the page works without third-party CDNs. |
+| `logo.png` | BondBryan logo: the page and the Excel Cover |
+| `logo-bbf.png`, `logo-interiors.png` | Cover logos for BondBryan:Fairhursts / Fairhursts and for Interior Design (export only) |
+| `tracker-template.xlsx` | Copy of the practice Outsourcing Tracker template (must contain the `Suitable Drawings` sheet). Replace it here whenever the template changes. |
+| `vendor/exceljs.min.js`, `vendor/jszip.min.js` | Bundled open-source libraries (MIT) for Excel generation and for writing into the tracker template. Kept locally so the page works without third-party CDNs. |
 
 ## Publish on GitHub Pages
 
@@ -60,29 +62,40 @@ Rules (same as the spreadsheet Library):
 
 A JSON validator (VS Code, or https://jsonlint.com) catches typos before committing. Any malformed file shows "Library not loaded" on the page rather than a broken TIDP.
 
+## Password
+
+The first pop-up asks for the password published on the TIDP HUB page; nothing works until it is entered (once per browser tab). `app.js` holds only the SHA-256 hash of the password (`PW_HASH`). To change the password, run `printf 'NewPassword' | shasum -a 256` in Terminal, paste the result into `PW_HASH`, commit, and update the HUB page. This keeps casual visitors out; it is not strong security, as the page and the Library stay publicly downloadable from GitHub Pages.
+
 ## Project set-up
+
+*Issuing Company* (BondBryan, BondBryan:Fairhursts or Fairhursts) sets the originator code in every file reference (`BBA`, or `BBF` for both Fairhursts options) and the logo on the exported Cover. Interior Design exports carry the Interiors logo whichever company issues. The *Internal* Library items are kept in `library.json` but are not displayed or exported.
+
 
 Nothing is saved: the page holds no project data, and each TIDP is issued as revision P01 dated on the day of export. *Reset* on step 1 clears the set-up and the ticks and shows the guidance pop-ups again. On step 1, untick the RIBA stages outside the appointment: a Library item whose stages all fall outside the ticked ones is unticked by default on step 2 (items with no stage information are unaffected), and unticked stages are left blank in the export. The tender stages (3+, 4a, 4b) ticked on step 1 are the only tender columns exported.
 
 ## Berkeley projects
 
-Choosing *Residential* on step 1 asks "Is this a Berkeley project?". *Yes* switches the export to the Berkeley document types and codes (Type and Number columns, Data sheet, resourcing note and the TIDP's own file reference, e.g. `PR` `010-1001`). The choice shows on step 1 as a tick box and can be changed at any time; choosing another sector switches it off. Project code, originator and revision stay as set by the Project Lead.
+Choosing *Residential* on step 1 asks "Is this a Berkeley project?". *Yes* switches the export to the Berkeley document types and codes (Type and Number columns, Data sheet, Outsourcing Tracker and the TIDP's own file reference, e.g. `PR` `010-1001`). The choice shows on step 1 as a tick box and can be changed at any time; choosing another sector switches it off. Project code, originator and revision stay as set by the Project Lead.
 
 ## Export
 
-One button exports the TIDP and the resourcing note together:
+One button exports the TIDP and, when *Outsourcing may be used on this project* is ticked, the Outsourcing Tracker:
 
 - `<code>-<office>-XX-XX-L-<role>-1001 Task Information Delivery Plan_<discipline>.xlsx`
-- `<code>-<office>-XX-XX-T-<role>-0010 ResourcingNote_<discipline>.docx`
+- `<code>-<office>-XX-XX-L-<role>-7001 Outsourcing Tracker_P01.xlsx`
 
 ### Excel
 
-Sheets: `Cover`, one sheet per document type with rows (`Drawings`, `Images`, `Lists`, `Models`, `Text`, `Video`), then `Data`.
+Sheets: `Cover`, one sheet per document type with rows (`Drawings`, `Images`, `Lists`, `Models`, `Text`, `Video`), `Data`, then `Data fields` (hidden). Gridlines are off everywhere except `Data`.
 
-- Each RIBA stage column is followed by a narrow `Progress` column, set to 0% wherever the document is issued at that stage: staff overtype 0 to 100, shown as a percentage with a progress bar (other values are refused). Each series header row shows the progress of its category at that stage: total progress divided by the number of documents issued at that stage (blank counts as 0).
+- `Cover`: logo, Project, Project code, File reference, Date, Revision, Issued by, Issuing Company. The file reference follows the Revision cell.
+- Rows 2 to 6 of each content sheet (Issuing Company, Project Name, File Ref, Date, Revision) are formulas linked to the Cover. A data validation rule refuses anything typed over them with the message "Change this information in the Cover sheet." (Excel does not run validation when a cell is cleared with Delete or pasted over.)
+- Level (D), Format (I) and Work Package (K) are drop-downs fed by the hidden `Data fields` sheet, over the table and 200 rows below it. To accept a new value, unhide `Data fields` and add it inside the list.
+- Each RIBA stage column is followed by a narrow `Progress` column, set to 0% wherever the document is issued at that stage: staff overtype 0 to 100, shown as a percentage with a progress bar (other values are refused). Each series header row shows the average of the Progress values entered in its series at that stage, whether or not the stage has a date.
+- Series header rows carry a marker in the stage, tender and gateway columns so they stay visible when a column is filtered; it is the same colour as the cell and cannot be seen.
 - After the tender columns: `Gateway 1`, `Gateway 2` and `Construction Record` tick columns.
-- Within a series, rows are ordered by volume / system (column C), then level (column D), then number (column G). Internal items, Status and Outsourcing Comments are never exported. `Data` is one row per document, every cell a formula linking to the content sheets, so edits made in Excel flow through to the raw list. No macros and no external links; the only data validation is the 0 to 100 check on the Progress cells.
+- Within a series, rows are ordered by volume / system (column C), then level (column D), then number (column G). Internal items, Status and Outsourcing Comments are never exported. `Data` is one row per document, every cell a formula linking to the content sheets, so edits made in Excel flow through to the raw list. No macros and no external links.
 
-### Resourcing note
+### Outsourcing Tracker
 
-Always exported with the TIDP. A Word document for the Project Lead listing items needing scope confirmation, Outsourcing Partner items and internal team items (including the *Internal* items that are not in the issued TIDP), with the Library comments. It records whether an Outsourcing Partner may be used (step 1). Internal only.
+Exported only when outsourcing is ticked on step 1. It is `tracker-template.xlsx` unchanged, with the project name and code written on `Summary` and the `Suitable Drawings` sheet filled with every ticked document the Library flags as suitable for outsourcing: TIDP reference, sheet, description, format, first stage and the Library outsourcing note. Column A (*For outsourcing*) is a YES / NO drop-down left blank for the Project Lead; YES rows turn green, NO rows grey. The other Library status notes (scope confirmation, internal team) stay in `library.json` for later use.
