@@ -94,13 +94,17 @@
   }
   const isOn = d => (d.id in S.sel) ? S.sel[d.id] : defaultOn(d);
   function setOn(d, v) { if (v === defaultOn(d)) delete S.sel[d.id]; else S.sel[d.id] = v; }
-  /** Items switched on only for disciplines (Landscape, Interior Design) are hidden for every other sector or discipline.
+  /** A record with a `visibility` list is shown (and can be ticked) only for the sectors or disciplines in that list, whatever its defaults.
+      Used by the scope items, which are off by default: it keeps e.g. landscape scope items out of an architectural project.
+      Records without `visibility` follow the rules below.
+      Items switched on only for disciplines (Landscape, Interior Design) are hidden for every other sector or discipline.
       A series made only of discipline items, at least one of them on for the chosen discipline, (e.g. "2000 Series - Strategy Plans" for Landscape) replaces
       the other items in its number range: "2000 Series" covers 2000-2999, "0200 Series" covers 0200-0299. */
+  const hasVis = d => Array.isArray(d.visibility);
+  const disciplines = () => Object.keys(S.lib.lists.roleBySector).filter(k => k !== 'default');
   const disciplineOnly = d => {
-    const disciplines = Object.keys(S.lib.lists.roleBySector).filter(k => k !== 'default');
     const onFor = Object.keys(d.sectors).filter(k => d.sectors[k]);
-    return onFor.length > 0 && onFor.every(k => disciplines.includes(k));
+    return onFor.length > 0 && onFor.every(k => disciplines().includes(k));
   };
   const blockCache = {};
   function replacedRanges(sector) {
@@ -108,17 +112,20 @@
     const series = {};
     for (const d of S.lib.documents) (series[d.tab + '|' + d.series] = series[d.tab + '|' + d.series] || []).push(d);
     const ranges = [];
-    for (const docs of Object.values(series)) {
-      const m = /^(\d{4}) Series/.exec(docs[0].series);
-      if (!m || !docs.every(disciplineOnly) || !docs.some(d => d.sectors[sector])) continue;
+    for (const all of Object.values(series)) {
+      const m = /^(\d{4}) Series/.exec(all[0].series);
+      // records with a visibility list stand outside the rule, except those visible to disciplines only, which count for their disciplines
+      const docs = all.filter(d => !hasVis(d)), pure = all.filter(d => hasVis(d) && d.visibility.length && d.visibility.every(k => disciplines().includes(k)));
+      if (!m || !(docs.length || pure.length) || !docs.every(disciplineOnly) || !(docs.some(d => d.sectors[sector]) || pure.some(d => d.visibility.includes(sector)))) continue;
       const lo = Number(m[1]), size = 10 ** (m[1].length - m[1].replace(/0+$/, '').length);
-      ranges.push({ tab: docs[0].tab, lo, hi: lo + size });
+      ranges.push({ tab: all[0].tab, lo, hi: lo + size });
     }
     return (blockCache[sector] = ranges);
   }
   function visible(d) {
     const s = S.project.sector;
     if (!s) return true;
+    if (hasVis(d)) return d.visibility.includes(s);
     if (disciplineOnly(d)) return !!d.sectors[s];
     const n = Number(d.number);
     return !replacedRanges(s).some(r => r.tab === d.tab && n >= r.lo && n < r.hi);
@@ -234,7 +241,7 @@
     if (!p.sector) { w.style.display = 'block'; w.textContent = 'No sector or discipline selected yet: every Library item is shown as selected. Choose the sector or discipline on step 1 to apply the Library defaults.'; }
     else w.style.display = 'none';
 
-    const statuses = L.lists.statuses.filter(s => statusLabel(s) && L.documents.some(d => d.status === s));
+    const statuses = L.lists.statuses.filter(s => statusLabel(s) && L.documents.some(d => eff(d).status === s));
     if (!statuses.includes(u.status)) u.status = '';
     $('statusFilter').innerHTML = '<option value="">All statuses</option>' + statuses.map(s => `<option value="${esc(s)}">${esc(statusLabel(s))}</option>`).join('');
     $('statusFilter').value = u.status;
@@ -242,13 +249,13 @@
     const q = u.search.trim().toLowerCase();
     const docs = L.documents.filter(d => d.tab === u.tab && visible(d))
       .filter(d => !q || (d.number + ' ' + d.description + ' ' + d.workPackage + ' ' + d.series + ' ' + d.format).toLowerCase().includes(q))
-      .filter(d => !u.status || d.status === u.status)
+      .filter(d => !u.status || eff(d).status === u.status)
       .filter(d => u.showOff || isOn(d));
     const storeyN = p.storeys.filter(s => s.on).length, volN = p.volumes.filter(v => v.on).length;
     let html = '', series = null;
     for (const d of docs) {
       if (d.series !== series) { series = d.series; html += `<tr class="series"><td colspan="15">${esc(series)}</td></tr>`; }
-      const on = isOn(d), k = STATUS_KEY(d.status), e = eff(d), gw = d.gateway || {};
+      const on = isOn(d), e = eff(d), k = STATUS_KEY(e.status), gw = d.gateway || {};
       const stg = STAGES.map(n => `<span class="stg ${e.stages[n] ? 'on' : ''} ${p.stageOn[n] ? '' : 'out'}" style="background:#${STAGE_COLOURS[n]}" title="Stage ${n}: ${e.stages[n] === 'YYYY-MM-DD' ? 'first issue' : e.stages[n] ? 'issued' : 'not required'}${p.stageOn[n] ? '' : ' (stage not in this appointment)'}">${n}</span>`).join('');
       const dup = [d.floorDup ? `× ${storeyN} storeys` : '', d.volDup && volN ? `× ${volN} volumes` : ''].filter(Boolean).join(', ');
       const flag = d.buildType === 'existing' ? ' <span class="pill" title="Existing building only">existing</span>' : '';
@@ -260,7 +267,7 @@
         <td style="white-space:nowrap">${stg}</td>
         ${TENDERS.map(t => `<td class="${e.tender[t] ? 'tick' : 'tickx'}">✓</td>`).join('')}
         ${GATEWAYS.map(([g, name]) => `<td class="${gw[g] ? 'tick' : 'tickx'}" title="${name}">✓</td>`).join('')}
-        <td>${statusLabel(d.status) ? `<span class="st ${k}"></span>${esc(statusLabel(d.status))}` : ''}</td>
+        <td>${statusLabel(e.status) ? `<span class="st ${k}"></span>${esc(statusLabel(e.status))}` : ''}</td>
         <td class="dup">${dup}</td></tr>`;
     }
     $('docBody').innerHTML = html || '<tr><td colspan="15" class="hint">No items match.</td></tr>';
@@ -275,7 +282,7 @@
     $('summary').innerHTML = [
       ['Documents issued', issued, 'across ' + gen.length + ' sheets'],
       ['Documents suitable for outsourcing', op, p.outsourcing ? 'listed in the Outsourcing Tracker' : 'outsourcing not selected'],
-      ['Scope to confirm', conf, 'Confirmation of scope required', scopeValidated !== null && scopeValidated === scopeTicked()
+      ['Scope items ticked', conf, `of ${scopeDocs().length} available, off by default`, scopeValidated !== null && scopeValidated === scopeTicked()
         ? '<button class="btn small done" id="btnScope" title="Scope reviewed. Click to reopen and edit">✓ Validated</button>'
         : '<button class="btn secondary small" id="btnScope">Review now</button>'],
       ...(() => { const sN = p.storeys.filter(s => s.on).length, vN = p.volumes.filter(v => v.on).length; return [vN ? ['Storeys × volumes', sN + ' × ' + vN, 'duplication applied'] : ['Storeys', sN, 'no volumes ticked']]; })()
@@ -289,18 +296,19 @@
     $('exportWarn').innerHTML = issues.length ? `<div class="warn"><b>Before exporting:</b> ${issues.join(' ')}</div>` : '<div class="ok">Set-up complete. The export will contain ' + issued + ' issued documents.</div>';
     $('exportFiles').innerHTML = [fileName(fileRef()) + '.xlsx', ...(p.outsourcing ? [fileName(trackerRef()) + '.xlsx'] : [])].map(f => `<li>${esc(f)}</li>`).join('');
     $('btnExport').textContent = p.outsourcing ? 'Export TIDP and Outsourcing Tracker' : 'Export TIDP';
-    const toReview = scopeNeedsReview() ? scopeDocs().filter(isOn).length : 0;
-    $('exportHint').textContent = toReview
-      ? `${toReview} scope confirmation item${toReview > 1 ? 's are' : ' is'} ticked: the Export button opens the scope review first; export once validated.`
+    $('exportHint').textContent = scopeNeedsReview()
+      ? 'Scope items are off by default: the Export button opens the scope review first. Tick the ones in the appointment, validate, then export.'
       : p.outsourcing ? 'Your browser may ask once to allow this page to download multiple files.' : '';
   }
 
   // ------------------------------------------------------------------ scope confirmation review (second route to the step 2 ticks)
-  const scopeDocs = () => S.lib.documents.filter(d => STATUS_KEY(d.status) === 'confirm' && visible(d));
-  // ticked scope items at the last Validate; any change to them means reviewing again before export
+  // a sector override can make an item standard offer for that sector (e.g. Residential): it is then not a scope item there
+  const scopeDocs = () => S.lib.documents.filter(d => STATUS_KEY(eff(d).status) === 'confirm' && visible(d));
+  // Scope items are off by default, so the review is always done once before export (even with none ticked);
+  // sector and ticked scope items at the last Validate: any change to them means reviewing again
   let scopeValidated = null;
-  const scopeTicked = () => scopeDocs().filter(isOn).map(d => d.id).join('|');
-  const scopeNeedsReview = () => scopeDocs().some(isOn) && scopeTicked() !== scopeValidated;
+  const scopeTicked = () => S.project.sector + '|' + scopeDocs().filter(isOn).map(d => d.id).join('|');
+  const scopeNeedsReview = () => scopeDocs().length > 0 && scopeTicked() !== scopeValidated;
   function openScope() {
     let html = '', tab = null;
     for (const d of scopeDocs()) {
@@ -471,7 +479,7 @@
 
   // ------------------------------------------------------------------ export (TIDP, plus the Outsourcing Tracker when outsourcing is ticked)
   $('btnExport').addEventListener('click', async e => {
-    if (scopeNeedsReview()) { toast('Review the scope confirmation items before exporting'); return openScope(); }
+    if (scopeNeedsReview()) { toast('Review the scope items before exporting'); return openScope(); }
     const btn = e.currentTarget, out = S.project.outsourcing; btn.disabled = true;
     try {
       toast('Building the export…');
@@ -726,5 +734,5 @@
   // ------------------------------------------------------------------ helpers
   function download(blob, name) { const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 2000); }
   let toastT; function toast(msg) { const t = $('toast'); t.textContent = msg; t.style.display = 'block'; clearTimeout(toastT); toastT = setTimeout(() => t.style.display = 'none', 3500); }
-  window.TIDP = { S, generate, buildWorkbook, buildTracker, fileRef, trackerRef }; // for tests
+  window.TIDP = { S, generate, visible, isOn, buildWorkbook, buildTracker, fileRef, trackerRef }; // for tests
 })();
