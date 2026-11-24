@@ -493,6 +493,10 @@
 
   // ------------------------------------------------------------------ Excel export (ExcelJS)
   const XLSX_MIME = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+  // Data sheet: 'filter' = one live formula that lists every document row of the content sheets (rows added, inserted or deleted
+  // there flow through; needs Microsoft 365) and the sheet is locked; 'links' = one formula link per cell (previous behaviour, sheet unlocked)
+  const DATA_MODE = 'filter';
+  const DATA_LAST_ROW = 2000;   // content-sheet rows read by the live Data formula (rows 9 to 2000)
   const NOGRID = { showGridLines: false };
   const COVER_ROW = { name: 7, code: 8, ref: 9, date: 10, rev: 11, issuer: 12, company: 13 };   // column B of the Cover; the content sheets link to these cells
   const LOGO_BOX = { w: 300, h: 64 };   // px, top-left of the Cover (rows 1 to 4); every logo is fitted inside it
@@ -621,27 +625,36 @@
       ws.headerFooter.oddFooter = '&L' + (p.name || '') + '&C' + 'Bond Bryan' + '&R' + 'Page &P of &N';
     }
 
-    // ---- Data sheet (formula links, so edits on the content sheets flow through); progress columns left out
+    // ---- Data sheet (live list of every document on the content sheets, or one formula link per cell); progress columns left out
     const data = wb.addWorksheet('Data', { views: [{ state: 'frozen', ySplit: 1 }] });
     const dataCols = DATAHEAD.map((_, i) => i + 1).filter(c => !isProg(c));   // content-sheet columns copied to the Data sheet
     data.columns = [{ width: 34 }, { width: 11 }, { width: 30 }, ...dataCols.map(c => ({ width: Math.max(WIDTHS[c - 1], DATAHEAD[c - 1].length + 3) }))];
     const heads = ['Document reference', 'Document type', 'Series', ...dataCols.map(c => DATAHEAD[c - 1])];
     heads.forEach((h, c) => { const cell = data.getCell(1, c + 1); cell.value = h; cell.font = { bold: true }; cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: GREY } }; });
-    let dr = 2;
-    const q = s => `'${s.replace(/'/g, "''")}'`;
-    for (const d of dataRows) {
-      const sh = q(d.sheet), row = data.getRow(dr);
-      row.getCell(1).value = { formula: ['A', 'B', 'C', 'D', 'E', 'F', 'G'].map(c => `${sh}!${c}${d.row}`).join('&"-"&') };
-      row.getCell(2).value = d.tab; row.getCell(3).value = d.series;
-      dataCols.forEach((c, i) => {
-        const ref = `${sh}!${colLetter(c)}${d.row}`, cell = row.getCell(4 + i);
-        cell.value = { formula: `IF(${ref}="","",${ref})` };
-        if (c >= 12 && c <= SN) cell.numFmt = 'yyyy-mm-dd';
-        if (c === 7) cell.numFmt = '@';
-      });
-      dr++;
+    const q = s => `'${s.replace(/'/g, "''")}'`, DW = 3 + dataCols.length;
+    let dr = 2 + dataRows.length;   // first row below the list
+    if (DATA_MODE === 'filter') {
+      // One dynamic-array formula in A2, written with the file names of the Microsoft 365 functions (_xlfn. / _xlpm.); see liveDataFormula
+      dataCols.forEach((c, i) => { if (c >= 12 && c <= SN) data.getColumn(4 + i).numFmt = 'yyyy-mm-dd'; });
+      data.getCell('A2').value = { formula: liveDataFormula(gen.map(g => g.tab), q, NCOL, dataCols) };
+      await data.protect('', { selectLockedCells: true, selectUnlockedCells: true, formatColumns: true, autoFilter: true });
+      data.autoFilter = { from: 'A1', to: { row: Math.max(dr - 1, 2) + 500, column: DW } };   // covers rows added later
+    } else {
+      dr = 2;
+      for (const d of dataRows) {
+        const sh = q(d.sheet), row = data.getRow(dr);
+        row.getCell(1).value = { formula: ['A', 'B', 'C', 'D', 'E', 'F', 'G'].map(c => `${sh}!${c}${d.row}`).join('&"-"&') };
+        row.getCell(2).value = d.tab; row.getCell(3).value = d.series;
+        dataCols.forEach((c, i) => {
+          const ref = `${sh}!${colLetter(c)}${d.row}`, cell = row.getCell(4 + i);
+          cell.value = { formula: `IF(${ref}="","",${ref})` };
+          if (c >= 12 && c <= SN) cell.numFmt = 'yyyy-mm-dd';
+          if (c === 7) cell.numFmt = '@';
+        });
+        dr++;
+      }
+      data.autoFilter = dr > 2 ? { from: 'A1', to: { row: dr - 1, column: DW } } : undefined;
     }
-    data.autoFilter = dr > 2 ? { from: 'A1', to: { row: dr - 1, column: 3 + dataCols.length } } : undefined;
 
     // ---- Data fields sheet (hidden)
     const fields = wb.addWorksheet('Data fields', { views: [NOGRID], state: 'hidden' });
@@ -653,7 +666,55 @@
 
     wb.calcProperties.fullCalcOnLoad = true;
     const buf = await wb.xlsx.writeBuffer();
-    return new Blob([logo ? await sizePictures(buf, logo) : buf], { type: XLSX_MIME });
+    let out = logo ? await sizePictures(buf, logo) : buf;
+    if (DATA_MODE === 'filter') out = await markDynamicArray(out, 'Data', 'A2', `A2:${colLetter(DW)}${Math.max(dr - 1, 2)}`);
+    return new Blob([out], { type: XLSX_MIME });
+  }
+  /** The live Data formula, in the form stored in the file (Microsoft 365 functions carry their _xlfn. prefix, LET names _xlpm.).
+      For each content sheet: rows 9 to DATA_LAST_ROW; a document row has a Number (G) or a Description (H); a series row has text in A only.
+      Columns: document reference (A to G joined by "-"), sheet name, series (the nearest series row above), then the Data columns, blanks kept blank.
+      Displayed in Excel as: =LET(d_1,...,c_1,...,d_2,...,x,VSTACK(<one FILTER per sheet>),FILTER(x,ISTEXT(INDEX(x,,2)),"")) */
+  function liveDataFormula(tabs, q, ncol, cols) {
+    const F = n => ({ LET: '_xlfn.LET', FILTER: '_xlfn._xlws.FILTER', XLOOKUP: '_xlfn.XLOOKUP', VSTACK: '_xlfn.VSTACK', HSTACK: '_xlfn.HSTACK', CHOOSECOLS: '_xlfn.CHOOSECOLS' }[n]);
+    const v = (n, i) => '_xlpm.' + n + (i === undefined ? '' : '_' + i);   // d_1, not d1: a LET name must not read as a cell reference
+    // one flat LET (no LET inside LET), names numbered per sheet: d_1, a_1, k_1, n_1, h_1, c_1, d_2...
+    const names = tabs.map((tab, i) => {
+      const d = v('d', i + 1), col = j => `INDEX(${d},,${j})`;
+      return `${d},${q(tab)}!$A$9:$${colLetter(ncol)}$${DATA_LAST_ROW},` +
+        `${v('a', i + 1)},${col(1)},` +
+        `${v('k', i + 1)},((${col(7)}<>"")+(${col(8)}<>""))>0,` +
+        `${v('n', i + 1)},ROW(${d}),` +
+        `${v('h', i + 1)},(${v('a', i + 1)}<>"")*NOT(${v('k', i + 1)}),` +
+        `${v('c', i + 1)},${F('CHOOSECOLS')}(${d},${cols.join(',')}),`;
+    }).join('');
+    const block = (tab, i) => {
+      const d = v('d', i + 1), col = j => `INDEX(${d},,${j})`, n = v('n', i + 1), h = v('h', i + 1), c = v('c', i + 1), k = v('k', i + 1);
+      return `${F('FILTER')}(${F('HSTACK')}(${[1, 2, 3, 4, 5, 6, 7].map(col).join('&"-"&')},IF(${k},"${tab.replace(/"/g, '""')}",""),` +
+        `${F('XLOOKUP')}(${n},${F('FILTER')}(${n},${h},0),${F('FILTER')}(${v('a', i + 1)},${h},""),"",-1),` +
+        `IF(${c}="","",${c})),${k},"")`;
+    };
+    return `${F('LET')}(${names}${v('x')},${F('VSTACK')}(${tabs.map(block).join(',')}),${F('FILTER')}(${v('x')},ISTEXT(INDEX(${v('x')},,2)),""))`;
+  }
+  /** Marks one formula cell as a Microsoft 365 dynamic array (spills), as Excel itself writes it: an array formula plus the
+      XLDAPR cell metadata part. Without this Excel would show the formula with an implicit "@" and return a single value. */
+  async function markDynamicArray(buf, sheetName, cellRef, spillRef) {
+    const zip = await JSZip.loadAsync(buf);
+    const wbXml = await zip.file('xl/workbook.xml').async('string'), relsPath = 'xl/_rels/workbook.xml.rels';
+    let rels = await zip.file(relsPath).async('string');
+    const tag = (wbXml.match(/<sheet\b[^>]*>/g) || []).find(t => t.includes(`name="${sheetName}"`)), id = tag && /r:id="([^"]+)"/.exec(tag);
+    const rel = id && (rels.match(/<Relationship\b[^>]*>/g) || []).find(t => t.includes(`Id="${id[1]}"`)), target = rel && /Target="([^"]+)"/.exec(rel);
+    if (!target) throw new Error(`Data sheet not found in the workbook`);
+    const path = target[1].startsWith('/') ? target[1].slice(1) : 'xl/' + target[1].replace(/^\.\//, '');
+    let xml = await zip.file(path).async('string');
+    const re = new RegExp(`<c r="${cellRef}"([^>]*)><f>([\\s\\S]*?)</f>(?:<v>[\\s\\S]*?</v>)?</c>`);
+    if (!re.test(xml)) throw new Error('Data sheet: live formula cell not found');
+    xml = xml.replace(re, (_, at, f) => `<c r="${cellRef}"${at.replace(/ t="[^"]*"/, '')} cm="1"><f t="array" ref="${spillRef}">${f}</f></c>`);
+    zip.file(path, xml);
+    zip.file('xl/metadata.xml', '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<metadata xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:xda="http://schemas.microsoft.com/office/spreadsheetml/2017/dynamicarray"><metadataTypes count="1"><metadataType name="XLDAPR" minSupportedVersion="120000" copy="1" pasteAll="1" pasteValues="1" merge="1" splitFirst="1" rowColShift="1" clearFormats="1" clearComments="1" assign="1" coerce="1" cellMeta="1"/></metadataTypes><futureMetadata name="XLDAPR" count="1"><bk><extLst><ext uri="{bdbb8cdc-fa1e-496e-a857-3c3f30c029c3}"><xda:dynamicArrayProperties fDynamic="1" fCollapsed="0"/></ext></extLst></bk></futureMetadata><cellMetadata count="1"><bk><rc t="1" v="0"/></bk></cellMetadata></metadata>');
+    if (!rels.includes('relationships/sheetMetadata')) zip.file(relsPath, rels.replace('</Relationships>', '<Relationship Id="rIdMeta1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/sheetMetadata" Target="metadata.xml"/></Relationships>'));
+    const ct = await zip.file('[Content_Types].xml').async('string');
+    if (!ct.includes('/xl/metadata.xml')) zip.file('[Content_Types].xml', ct.replace('</Types>', '<Override PartName="/xl/metadata.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheetMetadata+xml"/></Types>'));
+    return await zip.generateAsync({ type: 'arraybuffer', compression: 'DEFLATE', mimeType: XLSX_MIME });
   }
   function colLetter(n) { let s = ''; while (n > 0) { const m = (n - 1) % 26; s = String.fromCharCode(65 + m) + s; n = (n - m - 1) / 26; } return s; }
   /** Cell index and pixel offset reached after `px` pixels across cells of the given pixel sizes. */
