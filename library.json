@@ -1,10 +1,10 @@
 {
  "meta": {
   "name": "Bond Bryan TIDP Library",
-  "version": "2026.28",
+  "version": "2026.29",
   "source": "Bond Bryan Architects",
   "extracted": "2026-11",
-  "documents": 360,
+  "documents": 364,
   "note": "Master list of Task Information Delivery Plan deliverables. Edit in GitHub; the web app reads this file at load."
  },
  "lists": {
@@ -2507,6 +2507,68 @@
    },
    "Berkeley_Naming_Type": "DR",
    "Berkeley_Naming_Code": "005-2001"
+  },
+  {
+   "id": "Drawings-D-2005",
+   "tab": "Drawings",
+   "series": "2000 Series - Design GA Plans",
+   "originator": "BBA",
+   "volume": "ZZ",
+   "level": "ZZ",
+   "type": "D",
+   "number": "2005",
+   "description": "Strategic GA Plans",
+   "format": "PDF/DWG",
+   "scale": "1:200 @ A1",
+   "workPackage": "ZZ: Multiple",
+   "stages": {
+    "0": null,
+    "1": "YYYY-MM-DD",
+    "2": "Ongoing",
+    "3": null,
+    "4": null,
+    "5": null,
+    "6": null,
+    "7": null
+   },
+   "tender": {
+    "3+": true,
+    "4a": false,
+    "4b": false
+   },
+   "status": "Internal Team Item - Project Lead to allocate resource accordingly",
+   "comments": "",
+   "visibility": [
+    "Residential"
+   ],
+   "sectors": {
+    "Education": false,
+    "Residential": true,
+    "Blue Light": false,
+    "Defence & Justice": false,
+    "Healthcare": false,
+    "Hotels & Hospitality": false,
+    "Industrial and Manufacturing": false,
+    "Interior Design": false,
+    "Landscape_Education": false,
+    "Landscape_Residential": false,
+    "Landscape_Other": false,
+    "Offices and Workspace": false,
+    "Retail": false,
+    "Science and Research": false,
+    "Sport and Leisure": false,
+    "Other": false
+   },
+   "floorDup": true,
+   "volDup": true,
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   },
+   "Berkeley_Naming_Type": "DR",
+   "Berkeley_Naming_Code": "005-2005"
   },
   {
    "id": "Drawings-D-2020",
@@ -7204,6 +7266,66 @@
     "Offices and Workspace": true,
     "Retail": true,
     "Science and Research": true,
+    "Sport and Leisure": false,
+    "Other": false
+   },
+   "floorDup": true,
+   "volDup": true,
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   }
+  },
+  {
+   "id": "Drawings-D-6460",
+   "tab": "Drawings",
+   "series": "6400 Series - Zoning and Circulation Strategy Plans",
+   "originator": "BBA",
+   "volume": "ZZ",
+   "level": "ZZ",
+   "type": "D",
+   "number": "6460",
+   "description": "Passive Supervision Plans",
+   "format": "PDF",
+   "scale": "1:200 @ A1",
+   "workPackage": "Access Control & Security",
+   "stages": {
+    "0": null,
+    "1": null,
+    "2": "YYYY-MM-DD",
+    "3": "Ongoing",
+    "4": null,
+    "5": null,
+    "6": null,
+    "7": null
+   },
+   "tender": {
+    "3+": true,
+    "4a": false,
+    "4b": false
+   },
+   "status": "Internal Team Item - Project Lead to allocate resource accordingly",
+   "comments": "",
+   "visibility": [
+    "Education"
+   ],
+   "sectors": {
+    "Education": true,
+    "Residential": false,
+    "Blue Light": false,
+    "Defence & Justice": false,
+    "Healthcare": false,
+    "Hotels & Hospitality": false,
+    "Industrial and Manufacturing": false,
+    "Interior Design": false,
+    "Landscape_Education": false,
+    "Landscape_Residential": false,
+    "Landscape_Other": false,
+    "Offices and Workspace": false,
+    "Retail": false,
+    "Science and Research": false,
     "Sport and Leisure": false,
     "Other": false
    },
@@ -14364,6 +14486,68 @@
    }
   },
   {
+   "id": "Lists-L-0030",
+   "tab": "Lists",
+   "series": "0000 Series - Areas",
+   "originator": "BBA",
+   "volume": "ZZ",
+   "level": "ZZ",
+   "type": "L",
+   "number": "0030",
+   "description": "Residential Units Mix",
+   "format": "PDF",
+   "scale": "NTS @ A1",
+   "workPackage": "XX: n/a",
+   "stages": {
+    "0": null,
+    "1": "YYYY-MM-DD",
+    "2": "Ongoing",
+    "3": "Ongoing",
+    "4": "Ongoing",
+    "5": null,
+    "6": null,
+    "7": null
+   },
+   "tender": {
+    "3+": true,
+    "4a": true,
+    "4b": true
+   },
+   "status": "Internal Team Item - Project Lead to allocate resource accordingly",
+   "comments": "",
+   "visibility": [
+    "Residential"
+   ],
+   "sectors": {
+    "Education": false,
+    "Residential": true,
+    "Blue Light": false,
+    "Defence & Justice": false,
+    "Healthcare": false,
+    "Hotels & Hospitality": false,
+    "Industrial and Manufacturing": false,
+    "Interior Design": false,
+    "Landscape_Education": false,
+    "Landscape_Residential": false,
+    "Landscape_Other": false,
+    "Offices and Workspace": false,
+    "Retail": false,
+    "Science and Research": false,
+    "Sport and Leisure": false,
+    "Other": false
+   },
+   "floorDup": false,
+   "volDup": true,
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": false,
+    "CR": false
+   },
+   "Berkeley_Naming_Type": "SC",
+   "Berkeley_Naming_Code": "020-0030"
+  },
+  {
    "id": "Lists-L-0004",
    "tab": "Lists",
    "series": "0000 Series - Areas",
@@ -14808,6 +14992,84 @@
    },
    "Berkeley_Naming_Type": "SC",
    "Berkeley_Naming_Code": "715-0140"
+  },
+  {
+   "id": "Lists-L-0150",
+   "tab": "Lists",
+   "series": "0100 Series - Doors",
+   "originator": "BBA",
+   "volume": "ZZ",
+   "level": "ZZ",
+   "type": "L",
+   "number": "0150",
+   "description": "Internal Doors Schedules by Types",
+   "format": "PDF",
+   "scale": "NTS @ A1",
+   "workPackage": "Doors - Internal",
+   "stages": {
+    "0": null,
+    "1": null,
+    "2": null,
+    "3": null,
+    "4": "YYYY-MM-DD",
+    "5": "Ongoing",
+    "6": null,
+    "7": null
+   },
+   "tender": {
+    "3+": true,
+    "4a": true,
+    "4b": true
+   },
+   "status": "Outsourcing Partner item - Project Lead to coordinate as required (OP)",
+   "comments": "",
+   "sectors": {
+    "Education": true,
+    "Residential": true,
+    "Blue Light": true,
+    "Defence & Justice": true,
+    "Healthcare": true,
+    "Hotels & Hospitality": true,
+    "Industrial and Manufacturing": true,
+    "Interior Design": true,
+    "Landscape_Education": false,
+    "Landscape_Residential": false,
+    "Landscape_Other": false,
+    "Offices and Workspace": true,
+    "Retail": true,
+    "Science and Research": true,
+    "Sport and Leisure": true,
+    "Other": true
+   },
+   "floorDup": false,
+   "volDup": true,
+   "buildType": "any",
+   "gateway": {
+    "G1": false,
+    "G2": true,
+    "CR": false
+   },
+   "sectorOverrides": {
+    "Residential": {
+     "stages": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": "YYYY-MM-DD",
+      "4": "Ongoing",
+      "5": "Ongoing",
+      "6": null,
+      "7": null
+     },
+     "tender": {
+      "3+": true,
+      "4a": true,
+      "4b": true
+     }
+    }
+   },
+   "Berkeley_Naming_Type": "SC",
+   "Berkeley_Naming_Code": "715-0150"
   },
   {
    "id": "Lists-L-0106",
